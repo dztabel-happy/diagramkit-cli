@@ -177,8 +177,8 @@ jobs:
         shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish packed/*.tgz --access public
+        run: npm publish ./packed/*.tgz --access public
       - name: Rehearse publish
         if: inputs.publish != 'true'
         shell: bash
-        run: npm publish packed/*.tgz --access public --dry-run
+        run: npm publish ./packed/*.tgz --access public --dry-run
