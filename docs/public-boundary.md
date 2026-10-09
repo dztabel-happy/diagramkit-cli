@@ -6,7 +6,9 @@ This repository is the public DiagramKit entry point. The program itself is publ
 ## In this repository
 
 - `README.md`, `README.en.md`, `README.zh-CN.md`
-- `examples/showcase` — preview figures and the specs they were built from
+- `examples/showcase` — the preview: the figures `showcase.json` lists, each with the spec it was built from
+  (`NN-name.json` beside `NN-name.png`), and the rows and the opening picture the README shows. The specs are the project's
+  own, written from public sources or invented examples; where a figure shows someone's data, its `caption` names the source
 - `docs/public-boundary.md`
 - `.github/workflows/release.yml` — builds, checks and publishes the package
 
@@ -24,7 +26,7 @@ No copy of the program, the skill or the fonts is checked in here: one source, n
 ## Not published anywhere
 
 - source code, type declarations and source maps
-- tests, fixtures and the reference corpus the layouts are judged against
+- tests, their fixtures and the reference corpus the layouts are judged against
 - design records, review notes and other development documents
 
 The release workflow reads the built package before publishing and refuses it if any of these is found, or if the

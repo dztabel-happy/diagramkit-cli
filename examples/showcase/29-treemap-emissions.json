@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "id": "treemap-emissions",
+  "type": "treemap",
+  "title": "Fossil CO₂ emissions in 2023 by country and continent (million tonnes)",
+  "caption": "Source: Global Carbon Project, via Our World in Data.",
+  "evidence": "illustrative",
+  "style": "report",
+  "unit": "Mt",
+  "items": [
+    {
+      "id": "asia",
+      "label": "Asia"
+    },
+    {
+      "id": "china",
+      "label": "China",
+      "value": 12172.0,
+      "parent": "asia"
+    },
+    {
+      "id": "india",
+      "label": "India",
+      "value": 3062.8,
+      "parent": "asia"
+    },
+    {
+      "id": "japan",
+      "label": "Japan",
+      "value": 986.9,
+      "parent": "asia"
+    },
+    {
+      "id": "iran",
+      "label": "Iran",
+      "value": 789.7,
+      "parent": "asia"
+    },
+    {
+      "id": "indonesia",
+      "label": "Indonesia",
+      "value": 762.4,
+      "parent": "asia"
+    },
+    {
+      "id": "saudi-arabia",
+      "label": "Saudi Arabia",
+      "value": 677.4,
+      "parent": "asia"
+    },
+    {
+      "id": "south-korea",
+      "label": "South Korea",
+      "value": 589.2,
+      "parent": "asia"
+    },
+    {
+      "id": "turkey",
+      "label": "Turkey",
+      "value": 486.9,
+      "parent": "asia"
+    },
+    {
+      "id": "vietnam",
+      "label": "Vietnam",
+      "value": 347.4,
+      "parent": "asia"
+    },
+    {
+      "id": "kazakhstan",
+      "label": "Kazakhstan",
+      "value": 286.2,
+      "parent": "asia"
+    },
+    {
+      "id": "rest-asia",
+      "label": "Rest of Asia",
+      "value": 2836.2,
+      "parent": "asia"
+    },
+    {
+      "id": "north-america",
+      "label": "North America"
+    },
+    {
+      "id": "united-states",
+      "label": "United States",
+      "value": 4918.4,
+      "parent": "north-america"
+    },
+    {
+      "id": "canada",
+      "label": "Canada",
+      "value": 545.5,
+      "parent": "north-america"
+    },
+    {
+      "id": "mexico",
+      "label": "Mexico",
+      "value": 458.3,
+      "parent": "north-america"
+    },
+    {
+      "id": "rest-north-america",
+      "label": "Rest of North America",
+      "value": 182.5,
+      "parent": "north-america"
+    },
+    {
+      "id": "europe",
+      "label": "Europe"
+    },
+    {
+      "id": "russia",
+      "label": "Russia",
+      "value": 1733.1,
+      "parent": "europe"
+    },
+    {
+      "id": "germany",
+      "label": "Germany",
+      "value": 593.8,
+      "parent": "europe"
+    },
+    {
+      "id": "italy",
+      "label": "Italy",
+      "value": 312.3,
+      "parent": "europe"
+    },
+    {
+      "id": "united-kingdom",
+      "label": "United Kingdom",
+      "value": 307.8,
+      "parent": "europe"
+    },
+    {
+      "id": "rest-europe",
+      "label": "Rest of Europe",
+      "value": 1940.1,
+      "parent": "europe"
+    },
+    {
+      "id": "africa",
+      "label": "Africa"
+    },
+    {
+      "id": "south-africa",
+      "label": "South Africa",
+      "value": 436.6,
+      "parent": "africa"
+    },
+    {
+      "id": "rest-africa",
+      "label": "Rest of Africa",
+      "value": 1045.2,
+      "parent": "africa"
+    },
+    {
+      "id": "south-america",
+      "label": "South America"
+    },
+    {
+      "id": "brazil",
+      "label": "Brazil",
+      "value": 484.0,
+      "parent": "south-america"
+    },
+    {
+      "id": "rest-south-america",
+      "label": "Rest of South America",
+      "value": 623.4,
+      "parent": "south-america"
+    },
+    {
+      "id": "oceania",
+      "label": "Oceania"
+    },
+    {
+      "id": "australia",
+      "label": "Australia",
+      "value": 384.3,
+      "parent": "oceania"
+    },
+    {
+      "id": "rest-oceania",
+      "label": "Rest of Oceania",
+      "value": 48.9,
+      "parent": "oceania"
+    },
+    {
+      "id": "transport",
+      "label": "International transport"
+    },
+    {
+      "id": "shipping",
+      "label": "International shipping",
+      "value": 581.2,
+      "parent": "transport"
+    },
+    {
+      "id": "aviation",
+      "label": "International aviation",
+      "value": 501.5,
+      "parent": "transport"
+    }
+  ]
+}

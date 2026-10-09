@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "id": "journey-satisfaction",
+  "type": "journey",
+  "title": "2023年快递服务各环节公众满意度（分）",
+  "caption": "数据来源：国家邮政局 2023 年快递服务满意度调查。",
+  "evidence": "illustrative",
+  "style": "report",
+  "scale": {
+    "min": 60,
+    "max": 100
+  },
+  "stages": [
+    {
+      "id": "send",
+      "label": "寄件"
+    },
+    {
+      "id": "transit",
+      "label": "运输"
+    },
+    {
+      "id": "receive",
+      "label": "收件"
+    },
+    {
+      "id": "after",
+      "label": "售后"
+    }
+  ],
+  "steps": [
+    {
+      "id": "accept",
+      "label": "受理",
+      "stage": "send",
+      "score": 89.5,
+      "detail": "同比上升0.4分；统一客服热线下单上升3.8分"
+    },
+    {
+      "id": "pickup",
+      "label": "揽收",
+      "stage": "send",
+      "score": 88.7,
+      "detail": "同比上升0.4分"
+    },
+    {
+      "id": "tracking",
+      "label": "信息",
+      "stage": "transit",
+      "score": 84.5,
+      "detail": "同比上升0.8分；全程时限56.42小时，同比缩短2.40小时"
+    },
+    {
+      "id": "delivery",
+      "label": "投递",
+      "stage": "receive",
+      "score": 85.3,
+      "detail": "同比上升0.9分；派件员服务上升3.3分；72小时妥投率80.97%"
+    },
+    {
+      "id": "aftersales",
+      "label": "售后",
+      "stage": "after",
+      "score": 76.3,
+      "detail": "同比上升1.8分；投诉处理上升4.0分，损失赔偿上升4.2分"
+    }
+  ]
+}

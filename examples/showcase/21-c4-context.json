@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "id": "c4-context",
+  "type": "c4",
+  "title": "智慧水务平台系统上下文",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word"
+  },
+  "level": "context",
+  "elements": [
+    {
+      "id": "u1",
+      "label": "用水户",
+      "kind": "person"
+    },
+    {
+      "id": "u2",
+      "label": "调度员",
+      "kind": "person"
+    },
+    {
+      "id": "u3",
+      "label": "抄表员",
+      "kind": "person"
+    },
+    {
+      "id": "sys",
+      "label": "智慧水务平台",
+      "kind": "system"
+    },
+    {
+      "id": "pay",
+      "label": "第三方支付渠道",
+      "kind": "system",
+      "external": true
+    },
+    {
+      "id": "sms",
+      "label": "短信平台",
+      "kind": "system",
+      "external": true
+    },
+    {
+      "id": "gov",
+      "label": "市政务服务平台",
+      "kind": "system",
+      "external": true
+    },
+    {
+      "id": "wx",
+      "label": "气象服务",
+      "kind": "system",
+      "external": true
+    }
+  ],
+  "relations": [
+    {
+      "from": "u1",
+      "to": "sys",
+      "label": "通过 App 查询和缴费"
+    },
+    {
+      "from": "u2",
+      "to": "sys",
+      "label": "监视管网、下达调度指令"
+    },
+    {
+      "from": "u3",
+      "to": "sys",
+      "label": "现场补抄和复核"
+    },
+    {
+      "from": "sys",
+      "to": "pay",
+      "label": "发起收款"
+    },
+    {
+      "from": "pay",
+      "to": "sys",
+      "label": "到账通知"
+    },
+    {
+      "from": "sys",
+      "to": "sms",
+      "label": "发送通知短信"
+    },
+    {
+      "from": "sys",
+      "to": "gov",
+      "label": "报送报装办理结果"
+    },
+    {
+      "from": "sys",
+      "to": "wx",
+      "label": "获取降雨预报"
+    }
+  ]
+}

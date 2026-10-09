@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "id": "cloud-architecture",
+  "type": "architecture",
+  "title": "VPC with servers in private subnets and NAT",
+  "caption": "Source: Amazon VPC User Guide, “Example: VPC with servers in private subnets and NAT” (routes as in its example route tables).",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "report",
+  "groups": [
+    {
+      "id": "region",
+      "label": "Region",
+      "kind": "region"
+    },
+    {
+      "id": "vpc",
+      "label": "VPC 10.0.0.0/16",
+      "kind": "network",
+      "parent": "region"
+    },
+    {
+      "id": "aza",
+      "label": "Availability Zone A",
+      "kind": "zone",
+      "parent": "vpc"
+    },
+    {
+      "id": "azb",
+      "label": "Availability Zone B",
+      "kind": "zone",
+      "parent": "vpc"
+    },
+    {
+      "id": "puba",
+      "label": "Public subnet",
+      "kind": "subnet",
+      "parent": "aza",
+      "tone": "green"
+    },
+    {
+      "id": "priva",
+      "label": "Private subnet",
+      "kind": "subnet",
+      "parent": "aza",
+      "tone": "blue"
+    },
+    {
+      "id": "pubb",
+      "label": "Public subnet",
+      "kind": "subnet",
+      "parent": "azb",
+      "tone": "green"
+    },
+    {
+      "id": "privb",
+      "label": "Private subnet",
+      "kind": "subnet",
+      "parent": "azb",
+      "tone": "blue"
+    },
+    {
+      "id": "asg",
+      "label": "Auto Scaling group",
+      "kind": "cluster",
+      "spans": [
+        "priva",
+        "privb"
+      ],
+      "members": [
+        "servera",
+        "serverb"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "users",
+      "label": "Users",
+      "icon": "users"
+    },
+    {
+      "id": "igw",
+      "label": "Internet gateway",
+      "icon": "gateway",
+      "group": "vpc",
+      "detail": "0.0.0.0/0 from the public subnets"
+    },
+    {
+      "id": "alba",
+      "label": "Load balancer node",
+      "icon": "balancer",
+      "group": "puba",
+      "detail": "Application Load Balancer"
+    },
+    {
+      "id": "nata",
+      "label": "NAT gateway",
+      "icon": "router",
+      "group": "puba"
+    },
+    {
+      "id": "servera",
+      "label": "Server",
+      "icon": "server",
+      "group": "priva",
+      "detail": "EC2 instance"
+    },
+    {
+      "id": "albb",
+      "label": "Load balancer node",
+      "icon": "balancer",
+      "group": "pubb",
+      "detail": "Application Load Balancer"
+    },
+    {
+      "id": "natb",
+      "label": "NAT gateway",
+      "icon": "router",
+      "group": "pubb"
+    },
+    {
+      "id": "serverb",
+      "label": "Server",
+      "icon": "server",
+      "group": "privb",
+      "detail": "EC2 instance"
+    },
+    {
+      "id": "endpoint",
+      "label": "S3 gateway endpoint",
+      "icon": "gateway",
+      "group": "vpc",
+      "detail": "S3 prefix list route"
+    },
+    {
+      "id": "s3",
+      "label": "Amazon S3",
+      "icon": "storage",
+      "group": "region"
+    }
+  ],
+  "links": [
+    {
+      "from": "users",
+      "to": "igw",
+      "label": "HTTPS"
+    },
+    {
+      "from": "igw",
+      "to": "alba"
+    },
+    {
+      "from": "igw",
+      "to": "albb"
+    },
+    {
+      "from": "alba",
+      "to": "servera",
+      "label": "listener port"
+    },
+    {
+      "from": "albb",
+      "to": "serverb",
+      "label": "listener port"
+    },
+    {
+      "from": "servera",
+      "to": "nata",
+      "label": "0.0.0.0/0",
+      "line": "dashed",
+      "back": true
+    },
+    {
+      "from": "serverb",
+      "to": "natb",
+      "label": "0.0.0.0/0",
+      "line": "dashed",
+      "back": true
+    },
+    {
+      "from": "servera",
+      "to": "endpoint",
+      "line": "dashed"
+    },
+    {
+      "from": "serverb",
+      "to": "endpoint",
+      "line": "dashed"
+    },
+    {
+      "from": "endpoint",
+      "to": "s3"
+    }
+  ]
+}

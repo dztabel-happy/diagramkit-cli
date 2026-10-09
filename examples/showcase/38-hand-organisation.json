@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "id": "hand-organisation",
+  "type": "orgchart",
+  "title": "上市公司治理与组织架构（2018 年准则）",
+  "caption": "据《公司法》与《上市公司治理准则》（2018），为当时的结构。",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "units": [
+    {
+      "id": "gm",
+      "label": "股东大会"
+    },
+    {
+      "id": "bd",
+      "label": "董事会",
+      "parent": "gm"
+    },
+    {
+      "id": "sv",
+      "label": "监事会",
+      "parent": "gm"
+    },
+    {
+      "id": "zl",
+      "label": "战略委员会",
+      "parent": "bd",
+      "role": "assistant"
+    },
+    {
+      "id": "sj",
+      "label": "审计委员会",
+      "parent": "bd",
+      "role": "assistant"
+    },
+    {
+      "id": "tm",
+      "label": "提名委员会",
+      "parent": "bd",
+      "role": "assistant"
+    },
+    {
+      "id": "xc",
+      "label": "薪酬与考核委员会",
+      "parent": "bd",
+      "role": "assistant"
+    },
+    {
+      "id": "ds",
+      "label": "董事会秘书",
+      "parent": "bd",
+      "role": "assistant"
+    },
+    {
+      "id": "zjl",
+      "label": "总经理",
+      "parent": "bd"
+    },
+    {
+      "id": "cfo",
+      "label": "财务负责人",
+      "parent": "zjl"
+    },
+    {
+      "id": "vp1",
+      "label": "副总经理（运营）",
+      "parent": "zjl"
+    },
+    {
+      "id": "vp2",
+      "label": "副总经理（市场）",
+      "parent": "zjl",
+      "vacant": true
+    },
+    {
+      "id": "cw",
+      "label": "财务部",
+      "parent": "cfo"
+    },
+    {
+      "id": "zj",
+      "label": "资金部",
+      "parent": "cfo"
+    },
+    {
+      "id": "sc",
+      "label": "生产部",
+      "parent": "vp1"
+    },
+    {
+      "id": "cg",
+      "label": "采购部",
+      "parent": "vp1"
+    },
+    {
+      "id": "zl2",
+      "label": "质量部",
+      "parent": "vp1"
+    },
+    {
+      "id": "yx",
+      "label": "营销部",
+      "parent": "vp2"
+    },
+    {
+      "id": "pp",
+      "label": "品牌部",
+      "parent": "vp2"
+    },
+    {
+      "id": "rl",
+      "label": "人力资源部",
+      "parent": "zjl"
+    },
+    {
+      "id": "fw",
+      "label": "法务合规部",
+      "parent": "zjl"
+    },
+    {
+      "id": "nsj",
+      "label": "内部审计部",
+      "parent": "zjl"
+    }
+  ],
+  "links": [
+    {
+      "id": "l1",
+      "from": "nsj",
+      "to": "sj",
+      "label": "职能汇报"
+    }
+  ]
+}

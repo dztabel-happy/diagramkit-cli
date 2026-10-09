@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "id": "hand-sankey",
+  "type": "sankey",
+  "title": "Global carbon budget, 2023 (GtC per year)",
+  "caption": "Source: Friedlingstein et al., Global Carbon Budget 2024.",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "unit": "GtC",
+  "nodes": [
+    {
+      "id": "fossil",
+      "label": "Fossil CO₂ emissions",
+      "tone": "red"
+    },
+    {
+      "id": "landuse",
+      "label": "Land-use change emissions",
+      "tone": "yellow"
+    },
+    {
+      "id": "total",
+      "label": "Total emissions",
+      "tone": "neutral"
+    },
+    {
+      "id": "atmosphere",
+      "label": "Atmosphere (growth)",
+      "tone": "violet"
+    },
+    {
+      "id": "ocean",
+      "label": "Ocean sink",
+      "tone": "blue"
+    },
+    {
+      "id": "land",
+      "label": "Land sink",
+      "tone": "green"
+    }
+  ],
+  "links": [
+    {
+      "from": "fossil",
+      "to": "total",
+      "value": 10.1
+    },
+    {
+      "from": "landuse",
+      "to": "total",
+      "value": 1.0
+    },
+    {
+      "from": "total",
+      "to": "atmosphere",
+      "value": 5.9
+    },
+    {
+      "from": "total",
+      "to": "ocean",
+      "value": 2.9
+    },
+    {
+      "from": "total",
+      "to": "land",
+      "value": 2.3
+    }
+  ]
+}

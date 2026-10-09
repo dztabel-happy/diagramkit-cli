@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "id": "hand-er",
+  "type": "er",
+  "title": "学校选课数据表",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "entities": [
+    {
+      "id": "school",
+      "label": "学校",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "学校编号",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "名称",
+          "keys": [
+            "UK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "地址"
+        }
+      ]
+    },
+    {
+      "id": "class",
+      "label": "班级",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "班级编号",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "学校编号",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "班主任",
+          "keys": [
+            "FK"
+          ],
+          "comment": "教师编号"
+        }
+      ]
+    },
+    {
+      "id": "teacher",
+      "label": "教师",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "教师编号",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "姓名"
+        },
+        {
+          "type": "int",
+          "name": "导师",
+          "keys": [
+            "FK"
+          ],
+          "comment": "资深教师,可空"
+        }
+      ]
+    },
+    {
+      "id": "student",
+      "label": "学生",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "学号",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "姓名"
+        },
+        {
+          "type": "int",
+          "name": "班级编号",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "date",
+          "name": "入学日期"
+        }
+      ]
+    },
+    {
+      "id": "enrolment",
+      "label": "选课",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "学号",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "课程编号",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        },
+        {
+          "type": "decimal",
+          "name": "成绩"
+        }
+      ]
+    },
+    {
+      "id": "course",
+      "label": "课程",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "课程编号",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "课程名"
+        },
+        {
+          "type": "int",
+          "name": "学分"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r1",
+      "from": "school",
+      "to": "class",
+      "fromCardinality": "one",
+      "toCardinality": "one-or-more",
+      "label": "开设"
+    },
+    {
+      "id": "r2",
+      "from": "teacher",
+      "to": "class",
+      "fromCardinality": "zero-or-one",
+      "toCardinality": "zero-or-more",
+      "label": "担任班主任",
+      "identifying": false
+    },
+    {
+      "id": "r3",
+      "from": "class",
+      "to": "student",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "包含"
+    },
+    {
+      "id": "r4",
+      "from": "student",
+      "to": "enrolment",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "选修"
+    },
+    {
+      "id": "r5",
+      "from": "course",
+      "to": "enrolment",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "被选"
+    },
+    {
+      "id": "r6",
+      "from": "teacher",
+      "to": "teacher",
+      "fromCardinality": "zero-or-one",
+      "toCardinality": "zero-or-more",
+      "label": "指导",
+      "identifying": false
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "id": "state-machine",
+  "type": "compound",
+  "title": "TCP connection state machine",
+  "caption": "After RFC 9293, Figure 5.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "Closed",
+      "label": "CLOSED",
+      "role": "state",
+      "shape": "rounded",
+      "tone": "neutral"
+    },
+    {
+      "id": "Listen",
+      "label": "LISTEN",
+      "role": "state",
+      "shape": "rounded"
+    },
+    {
+      "id": "SynSent",
+      "label": "SYN-SENT",
+      "role": "state",
+      "shape": "rounded"
+    },
+    {
+      "id": "SynRcvd",
+      "label": "SYN-RECEIVED",
+      "role": "state",
+      "shape": "rounded"
+    },
+    {
+      "id": "Estab",
+      "label": "ESTABLISHED",
+      "role": "state",
+      "shape": "rounded",
+      "tone": "green"
+    },
+    {
+      "id": "FinWait1",
+      "label": "FIN-WAIT-1",
+      "role": "state",
+      "shape": "rounded"
+    },
+    {
+      "id": "FinWait2",
+      "label": "FIN-WAIT-2",
+      "role": "state",
+      "shape": "rounded"
+    },
+    {
+      "id": "Closing",
+      "label": "CLOSING",
+      "role": "state",
+      "shape": "rounded"
+    },
+    {
+      "id": "TimeWait",
+      "label": "TIME-WAIT",
+      "role": "state",
+      "shape": "rounded"
+    },
+    {
+      "id": "CloseWait",
+      "label": "CLOSE-WAIT",
+      "role": "state",
+      "shape": "rounded"
+    },
+    {
+      "id": "LastAck",
+      "label": "LAST-ACK",
+      "role": "state",
+      "shape": "rounded"
+    }
+  ],
+  "groups": [
+    {
+      "id": "open",
+      "label": "Connection establishment",
+      "children": [
+        "Listen",
+        "SynSent",
+        "SynRcvd"
+      ]
+    },
+    {
+      "id": "active",
+      "label": "Active close",
+      "children": [
+        "FinWait1",
+        "FinWait2",
+        "Closing",
+        "TimeWait"
+      ]
+    },
+    {
+      "id": "passive",
+      "label": "Passive close",
+      "children": [
+        "CloseWait",
+        "LastAck"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e01",
+      "from": "Closed",
+      "to": "Listen",
+      "kind": "main",
+      "label": "passive OPEN / create TCB"
+    },
+    {
+      "id": "e02",
+      "from": "Closed",
+      "to": "SynSent",
+      "kind": "main",
+      "label": "active OPEN / create TCB, snd SYN"
+    },
+    {
+      "id": "e03",
+      "from": "Listen",
+      "to": "SynRcvd",
+      "kind": "main",
+      "label": "rcv SYN / snd SYN,ACK"
+    },
+    {
+      "id": "e04",
+      "from": "Listen",
+      "to": "SynSent",
+      "kind": "branch",
+      "label": "SEND / snd SYN"
+    },
+    {
+      "id": "e05",
+      "from": "Listen",
+      "to": "Closed",
+      "kind": "return",
+      "label": "CLOSE / delete TCB"
+    },
+    {
+      "id": "e06",
+      "from": "SynSent",
+      "to": "SynRcvd",
+      "kind": "branch",
+      "label": "rcv SYN / snd SYN,ACK"
+    },
+    {
+      "id": "e07",
+      "from": "SynSent",
+      "to": "Estab",
+      "kind": "main",
+      "label": "rcv SYN,ACK / snd ACK"
+    },
+    {
+      "id": "e08",
+      "from": "SynSent",
+      "to": "Closed",
+      "kind": "return",
+      "label": "CLOSE / delete TCB"
+    },
+    {
+      "id": "e09",
+      "from": "SynRcvd",
+      "to": "Estab",
+      "kind": "main",
+      "label": "rcv ACK of SYN"
+    },
+    {
+      "id": "e10",
+      "from": "SynRcvd",
+      "to": "FinWait1",
+      "kind": "branch",
+      "label": "CLOSE / snd FIN"
+    },
+    {
+      "id": "e11",
+      "from": "SynRcvd",
+      "to": "Listen",
+      "kind": "return",
+      "label": "rcv RST"
+    },
+    {
+      "id": "e12",
+      "from": "Estab",
+      "to": "FinWait1",
+      "kind": "main",
+      "label": "CLOSE / snd FIN"
+    },
+    {
+      "id": "e13",
+      "from": "Estab",
+      "to": "CloseWait",
+      "kind": "branch",
+      "label": "rcv FIN / snd ACK"
+    },
+    {
+      "id": "e14",
+      "from": "FinWait1",
+      "to": "FinWait2",
+      "kind": "main",
+      "label": "rcv ACK of FIN"
+    },
+    {
+      "id": "e15",
+      "from": "FinWait1",
+      "to": "Closing",
+      "kind": "branch",
+      "label": "rcv FIN / snd ACK"
+    },
+    {
+      "id": "e16",
+      "from": "FinWait2",
+      "to": "TimeWait",
+      "kind": "main",
+      "label": "rcv FIN / snd ACK"
+    },
+    {
+      "id": "e17",
+      "from": "Closing",
+      "to": "TimeWait",
+      "kind": "main",
+      "label": "rcv ACK of FIN"
+    },
+    {
+      "id": "e18",
+      "from": "TimeWait",
+      "to": "Closed",
+      "kind": "return",
+      "label": "timeout = 2 MSL / delete TCB"
+    },
+    {
+      "id": "e19",
+      "from": "CloseWait",
+      "to": "LastAck",
+      "kind": "main",
+      "label": "CLOSE / snd FIN"
+    },
+    {
+      "id": "e20",
+      "from": "LastAck",
+      "to": "Closed",
+      "kind": "return",
+      "label": "rcv ACK of FIN / delete TCB"
+    }
+  ]
+}

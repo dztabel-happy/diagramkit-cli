@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "id": "hand-kanban",
+  "type": "kanban",
+  "title": "可行性研究报告编制看板（第 6 周）",
+  "caption": "示例数据，仅作演示。",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "columns": [
+    {
+      "id": "todo",
+      "label": "待办"
+    },
+    {
+      "id": "doing",
+      "label": "进行中",
+      "limit": 4
+    },
+    {
+      "id": "done",
+      "label": "已完成"
+    }
+  ],
+  "lanes": [
+    {
+      "id": "text",
+      "label": "报告正文"
+    },
+    {
+      "id": "figures",
+      "label": "图表"
+    },
+    {
+      "id": "check",
+      "label": "附件与校核"
+    }
+  ],
+  "cards": [
+    {
+      "id": "r03",
+      "label": "第 3 章 建设方案定稿",
+      "column": "done",
+      "lane": "text",
+      "ticket": "R-03",
+      "owners": [
+        "工艺"
+      ]
+    },
+    {
+      "id": "r05",
+      "label": "第 5 章 投资估算",
+      "column": "done",
+      "lane": "text",
+      "ticket": "R-05",
+      "owners": [
+        "造价"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "r06",
+      "label": "第 6 章 财务评价",
+      "column": "doing",
+      "lane": "text",
+      "ticket": "R-06",
+      "owners": [
+        "财务"
+      ],
+      "tags": [
+        "关键路径"
+      ]
+    },
+    {
+      "id": "r07",
+      "label": "第 7 章 风险分析",
+      "column": "doing",
+      "lane": "text",
+      "ticket": "R-07",
+      "owners": [
+        "法务"
+      ]
+    },
+    {
+      "id": "r08",
+      "label": "第 8 章 结论与建议",
+      "column": "todo",
+      "lane": "text",
+      "ticket": "R-08",
+      "owners": [
+        "经理"
+      ]
+    },
+    {
+      "id": "f01",
+      "label": "工艺流程图",
+      "column": "done",
+      "lane": "figures",
+      "ticket": "F-01",
+      "owners": [
+        "工艺"
+      ]
+    },
+    {
+      "id": "f02",
+      "label": "交易结构图",
+      "column": "done",
+      "lane": "figures",
+      "ticket": "F-02",
+      "owners": [
+        "法务"
+      ]
+    },
+    {
+      "id": "f03",
+      "label": "实施进度甘特图",
+      "column": "doing",
+      "lane": "figures",
+      "ticket": "F-03",
+      "owners": [
+        "经理"
+      ]
+    },
+    {
+      "id": "f04",
+      "label": "资金来源与运用图",
+      "column": "todo",
+      "lane": "figures",
+      "ticket": "F-04",
+      "owners": [
+        "财务"
+      ],
+      "tags": [
+        "等 R-06"
+      ]
+    },
+    {
+      "id": "f05",
+      "label": "风险矩阵",
+      "column": "todo",
+      "lane": "figures",
+      "ticket": "F-05",
+      "owners": [
+        "法务"
+      ]
+    },
+    {
+      "id": "a01",
+      "label": "批复文件汇编",
+      "column": "done",
+      "lane": "check",
+      "ticket": "A-01",
+      "owners": [
+        "资料"
+      ]
+    },
+    {
+      "id": "a02",
+      "label": "测算表交叉校核",
+      "column": "doing",
+      "lane": "check",
+      "ticket": "A-02",
+      "owners": [
+        "财务",
+        "造价"
+      ],
+      "priority": "highest"
+    },
+    {
+      "id": "a03",
+      "label": "全文格式与目录",
+      "column": "todo",
+      "lane": "check",
+      "ticket": "A-03",
+      "owners": [
+        "排版"
+      ]
+    },
+    {
+      "id": "a04",
+      "label": "引用与图号核对",
+      "column": "todo",
+      "lane": "check",
+      "ticket": "A-04",
+      "owners": [
+        "排版"
+      ]
+    }
+  ]
+}

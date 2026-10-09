@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "id": "phased-flow",
+  "type": "compound",
+  "title": "项目实施流程（方案审核至开工）",
+  "caption": "“开工准备”各项，方案未规定先后。",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "review",
+      "label": "主管部门审核实施方案",
+      "role": "entry"
+    },
+    {
+      "id": "tender",
+      "label": "公开招标选定中标人",
+      "role": "step"
+    },
+    {
+      "id": "initial",
+      "label": "签订《初步协议》",
+      "role": "step"
+    },
+    {
+      "id": "company",
+      "label": "中标人出资成立项目公司",
+      "role": "step"
+    },
+    {
+      "id": "agreement",
+      "label": "签订《特许经营协议》",
+      "role": "step"
+    },
+    {
+      "id": "filing",
+      "label": "办理核准或备案手续",
+      "role": "step"
+    },
+    {
+      "id": "design",
+      "label": "设计方案报实施机构同意",
+      "role": "step"
+    },
+    {
+      "id": "funds",
+      "label": "落实建设资金",
+      "role": "step"
+    },
+    {
+      "id": "start",
+      "label": "开工建设",
+      "role": "terminal"
+    }
+  ],
+  "groups": [
+    {
+      "id": "select",
+      "label": "选定特许经营者",
+      "children": [
+        "review",
+        "tender",
+        "initial"
+      ]
+    },
+    {
+      "id": "sign",
+      "label": "设立项目公司并签约",
+      "children": [
+        "company",
+        "agreement"
+      ]
+    },
+    {
+      "id": "ready",
+      "label": "开工准备（先后不限）",
+      "children": [
+        "filing",
+        "design",
+        "funds"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "review",
+      "to": "tender",
+      "kind": "main",
+      "label": "方案经审定"
+    },
+    {
+      "id": "e2",
+      "from": "tender",
+      "to": "initial",
+      "kind": "main",
+      "label": "中标后 30 日内"
+    },
+    {
+      "id": "e3",
+      "from": "initial",
+      "to": "company",
+      "kind": "main"
+    },
+    {
+      "id": "e4",
+      "from": "company",
+      "to": "agreement",
+      "kind": "main",
+      "label": "公司成立后 10 个工作日内"
+    },
+    {
+      "id": "e5",
+      "from": "agreement",
+      "to": "ready",
+      "kind": "main"
+    },
+    {
+      "id": "e6",
+      "from": "ready",
+      "to": "start",
+      "kind": "main",
+      "label": "各项办结"
+    }
+  ]
+}

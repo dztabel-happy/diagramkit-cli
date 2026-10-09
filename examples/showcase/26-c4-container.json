@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "id": "c4-container",
+  "type": "c4",
+  "title": "容器图：TiDB 分布式数据库整体架构",
+  "caption": "依据 PingCAP 公开文档中的 TiDB 架构绘制，说明文字为自行概括。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "report",
+  "level": "container",
+  "boundaries": [
+    {
+      "id": "tidb-cluster",
+      "label": "TiDB 集群",
+      "kind": "system"
+    }
+  ],
+  "elements": [
+    {
+      "id": "dba",
+      "label": "数据库管理员",
+      "kind": "person",
+      "description": "在 TiDB Dashboard 上查看和管理集群。"
+    },
+    {
+      "id": "app",
+      "label": "业务应用",
+      "kind": "system",
+      "external": true,
+      "description": "用 MySQL 协议访问数据库的业务系统。"
+    },
+    {
+      "id": "balancer",
+      "label": "负载均衡",
+      "kind": "system",
+      "external": true,
+      "description": "把客户端连接分发到各个 TiDB Server，对外一个接入地址。"
+    },
+    {
+      "id": "tidb-server",
+      "label": "TiDB Server",
+      "kind": "container",
+      "technology": "Go",
+      "description": "SQL 层：解析、优化 SQL 并生成执行计划；无状态，可水平扩展。",
+      "boundary": "tidb-cluster"
+    },
+    {
+      "id": "pd",
+      "label": "PD Server",
+      "kind": "container",
+      "technology": "Go",
+      "description": "保存集群元数据和数据分布，分配事务 ID，调度数据；至少三个节点。",
+      "boundary": "tidb-cluster"
+    },
+    {
+      "id": "tikv",
+      "label": "TiKV Server",
+      "kind": "database",
+      "technology": "Rust",
+      "description": "行存储：带事务的键值数据库，数据按 Region 切分，默认三副本。",
+      "boundary": "tidb-cluster"
+    },
+    {
+      "id": "tiflash",
+      "label": "TiFlash",
+      "kind": "database",
+      "technology": "C++",
+      "description": "列存储：给分析型查询用的副本。",
+      "boundary": "tidb-cluster"
+    }
+  ],
+  "relations": [
+    {
+      "from": "app",
+      "to": "balancer",
+      "label": "发起数据库连接",
+      "technology": "MySQL 协议"
+    },
+    {
+      "from": "balancer",
+      "to": "tidb-server",
+      "label": "转发客户端连接",
+      "technology": "MySQL 协议"
+    },
+    {
+      "from": "tidb-server",
+      "to": "pd",
+      "label": "获取事务 ID 与数据分布"
+    },
+    {
+      "from": "tidb-server",
+      "to": "tikv",
+      "label": "转发数据读取请求"
+    },
+    {
+      "from": "tidb-server",
+      "to": "tiflash",
+      "label": "转发分析型读取请求"
+    },
+    {
+      "from": "tikv",
+      "to": "pd",
+      "label": "实时上报数据分布状态"
+    },
+    {
+      "from": "pd",
+      "to": "tikv",
+      "label": "下发数据调度命令"
+    },
+    {
+      "from": "dba",
+      "to": "pd",
+      "label": "管控集群",
+      "technology": "TiDB Dashboard"
+    }
+  ],
+  "legend": true
+}

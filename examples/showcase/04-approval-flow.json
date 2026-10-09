@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "id": "approval-flow",
+  "type": "compound",
+  "title": "费用报销审批流程",
+  "evidence": "illustrative",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "submit",
+      "label": "员工提交报销单",
+      "role": "entry",
+      "shape": "rounded",
+      "tone": "teal"
+    },
+    {
+      "id": "check",
+      "label": "系统校验票据完整性",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "complete",
+      "label": "票据齐全?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "supplement",
+      "label": "退回补充材料",
+      "role": "abnormal",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "amount",
+      "label": "金额是否超过 5000 元?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "manager",
+      "label": "部门经理审批",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "director",
+      "label": "财务总监审批",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "approved",
+      "label": "审批通过?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "reject",
+      "label": "驳回并说明原因",
+      "role": "abnormal",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "pay",
+      "label": "出纳付款",
+      "role": "step",
+      "shape": "subroutine",
+      "tone": "green"
+    },
+    {
+      "id": "archive",
+      "label": "凭证归档",
+      "role": "store",
+      "shape": "cylinder",
+      "tone": "green"
+    },
+    {
+      "id": "done",
+      "label": "结束",
+      "role": "terminal",
+      "shape": "rounded",
+      "tone": "teal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "submit",
+      "to": "check",
+      "kind": "main"
+    },
+    {
+      "id": "e2",
+      "from": "check",
+      "to": "complete",
+      "kind": "main"
+    },
+    {
+      "id": "e3",
+      "from": "complete",
+      "to": "supplement",
+      "kind": "branch",
+      "label": "否"
+    },
+    {
+      "id": "e4",
+      "from": "supplement",
+      "to": "submit",
+      "kind": "return",
+      "label": "重新提交"
+    },
+    {
+      "id": "e5",
+      "from": "complete",
+      "to": "amount",
+      "kind": "branch",
+      "label": "是"
+    },
+    {
+      "id": "e6",
+      "from": "amount",
+      "to": "manager",
+      "kind": "branch",
+      "label": "否"
+    },
+    {
+      "id": "e7",
+      "from": "amount",
+      "to": "director",
+      "kind": "branch",
+      "label": "是"
+    },
+    {
+      "id": "e8",
+      "from": "manager",
+      "to": "approved",
+      "kind": "main"
+    },
+    {
+      "id": "e9",
+      "from": "director",
+      "to": "approved",
+      "kind": "main"
+    },
+    {
+      "id": "e10",
+      "from": "approved",
+      "to": "reject",
+      "kind": "branch",
+      "label": "否"
+    },
+    {
+      "id": "e11",
+      "from": "approved",
+      "to": "pay",
+      "kind": "branch",
+      "label": "是"
+    },
+    {
+      "id": "e12",
+      "from": "reject",
+      "to": "done",
+      "kind": "main"
+    },
+    {
+      "id": "e13",
+      "from": "pay",
+      "to": "archive",
+      "kind": "main"
+    },
+    {
+      "id": "e14",
+      "from": "archive",
+      "to": "done",
+      "kind": "main"
+    }
+  ]
+}

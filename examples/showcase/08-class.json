@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "id": "class",
+  "type": "class",
+  "title": "订单系统的类与关系",
+  "evidence": "illustrative",
+  "classes": [
+    {
+      "id": "Customer",
+      "label": "客户 Customer",
+      "attributes": [
+        "-id: 客户编号",
+        "-name: string",
+        "-level: 会员等级"
+      ],
+      "methods": [
+        "+placeOrder(cart) : Order"
+      ]
+    },
+    {
+      "id": "Order",
+      "label": "订单 Order",
+      "attributes": [
+        "-orderNo: string",
+        "-createdAt: DateTime",
+        "-status: OrderStatus"
+      ],
+      "methods": [
+        "+total() : Money",
+        "+cancel(reason)"
+      ]
+    },
+    {
+      "id": "OrderLine",
+      "label": "订单行 OrderLine",
+      "attributes": [
+        "-quantity: int",
+        "-price: Money"
+      ],
+      "methods": [
+        "+subtotal() : Money"
+      ]
+    },
+    {
+      "id": "Product",
+      "label": "商品 Product",
+      "attributes": [
+        "-sku: string",
+        "-title: string"
+      ]
+    },
+    {
+      "id": "Payment",
+      "label": "Payment",
+      "stereotype": "abstract",
+      "attributes": [
+        "-amount: Money"
+      ],
+      "methods": [
+        "+pay() : boolean"
+      ]
+    },
+    {
+      "id": "WeChatPay",
+      "label": "WeChatPay",
+      "attributes": [
+        "-openId: string"
+      ]
+    },
+    {
+      "id": "Alipay",
+      "label": "Alipay",
+      "attributes": [
+        "-account: string"
+      ]
+    },
+    {
+      "id": "Warehouse",
+      "label": "仓库 Warehouse",
+      "attributes": [
+        "-code: string"
+      ],
+      "methods": [
+        "+reserve(line) : boolean"
+      ]
+    },
+    {
+      "id": "OrderStatus",
+      "label": "OrderStatus",
+      "stereotype": "enumeration",
+      "attributes": [
+        "CREATED",
+        "PAID",
+        "SHIPPED",
+        "CLOSED"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r1",
+      "from": "Customer",
+      "to": "Order",
+      "kind": "association",
+      "label": "下单",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "0..*"
+    },
+    {
+      "id": "r2",
+      "from": "Order",
+      "to": "OrderLine",
+      "kind": "composition",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "1..*"
+    },
+    {
+      "id": "r3",
+      "from": "OrderLine",
+      "to": "Product",
+      "kind": "association",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r4",
+      "from": "Order",
+      "to": "Payment",
+      "kind": "aggregation",
+      "label": "支付",
+      "toMultiplicity": "0..1"
+    },
+    {
+      "id": "r5",
+      "from": "WeChatPay",
+      "to": "Payment",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r6",
+      "from": "Alipay",
+      "to": "Payment",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r7",
+      "from": "Warehouse",
+      "to": "OrderLine",
+      "kind": "dependency",
+      "label": "reserves"
+    },
+    {
+      "id": "r8",
+      "from": "Order",
+      "to": "OrderStatus",
+      "kind": "dependency"
+    }
+  ]
+}

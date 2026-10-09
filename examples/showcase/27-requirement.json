@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "id": "requirement",
+  "type": "requirement",
+  "title": "GDPR security obligations traced to the principles of Article 5",
+  "caption": "Source: Regulation (EU) 2016/679; the texts of the requirements are abridged.",
+  "evidence": "illustrative",
+  "style": "report",
+  "requirements": [
+    {
+      "id": "principles",
+      "label": "Principles relating to processing of personal data",
+      "reqId": "GDPR Art. 5",
+      "risk": "high"
+    },
+    {
+      "id": "integrity",
+      "label": "Integrity and confidentiality",
+      "reqId": "Art. 5(1)(f)",
+      "text": "Personal data shall be: … processed in a manner that ensures appropriate security of the personal data, … using appropriate technical or organisational measures (‘integrity and confidentiality’).",
+      "risk": "high"
+    },
+    {
+      "id": "accountability",
+      "label": "Accountability",
+      "reqId": "Art. 5(2)",
+      "text": "The controller shall be responsible for, and be able to demonstrate compliance with, paragraph 1 (‘accountability’).",
+      "risk": "high"
+    },
+    {
+      "id": "by-design",
+      "label": "Data protection by design",
+      "kind": "design-constraint",
+      "reqId": "Art. 25(1)",
+      "text": "… the controller shall … implement appropriate technical and organisational measures, such as pseudonymisation, which are designed to implement data-protection principles, such as data minimisation, in an effective manner …",
+      "risk": "medium"
+    },
+    {
+      "id": "security",
+      "label": "Security of processing",
+      "kind": "functional",
+      "reqId": "Art. 32(1)",
+      "text": "… the controller and the processor shall implement appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including inter alia as appropriate: …",
+      "risk": "medium"
+    }
+  ],
+  "elements": [
+    {
+      "id": "records",
+      "label": "Records of processing activities",
+      "kind": "record",
+      "docRef": "Art. 30; Recital 82"
+    },
+    {
+      "id": "certification",
+      "label": "Approved certification mechanism",
+      "kind": "certification",
+      "docRef": "Art. 42; Art. 25(3), 32(3)"
+    }
+  ],
+  "relations": [
+    {
+      "from": "principles",
+      "to": "integrity",
+      "kind": "contains"
+    },
+    {
+      "from": "principles",
+      "to": "accountability",
+      "kind": "contains"
+    },
+    {
+      "from": "security",
+      "to": "integrity",
+      "kind": "derives"
+    },
+    {
+      "from": "by-design",
+      "to": "principles",
+      "kind": "derives"
+    },
+    {
+      "from": "records",
+      "to": "accountability",
+      "kind": "satisfies"
+    },
+    {
+      "from": "certification",
+      "to": "security",
+      "kind": "verifies"
+    },
+    {
+      "from": "certification",
+      "to": "by-design",
+      "kind": "verifies"
+    }
+  ]
+}

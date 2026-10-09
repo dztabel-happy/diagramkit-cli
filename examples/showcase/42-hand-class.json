@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "id": "hand-class",
+  "type": "class",
+  "title": "A shape hierarchy",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "direction": "LR",
+  "classes": [
+    {
+      "id": "Drawable",
+      "label": "Drawable",
+      "stereotype": "interface",
+      "methods": [
+        "+draw(canvas)"
+      ]
+    },
+    {
+      "id": "Measurable",
+      "label": "Measurable",
+      "stereotype": "interface",
+      "methods": [
+        "+area() : double",
+        "+perimeter() : double"
+      ]
+    },
+    {
+      "id": "Shape",
+      "label": "Shape",
+      "stereotype": "abstract",
+      "attributes": [
+        "#origin: Point"
+      ],
+      "methods": [
+        "+moveTo(p)"
+      ]
+    },
+    {
+      "id": "Circle",
+      "label": "Circle",
+      "attributes": [
+        "-radius: double"
+      ]
+    },
+    {
+      "id": "Rectangle",
+      "label": "Rectangle",
+      "attributes": [
+        "-width: double",
+        "-height: double"
+      ]
+    },
+    {
+      "id": "Square",
+      "label": "Square"
+    },
+    {
+      "id": "Point",
+      "label": "Point",
+      "attributes": [
+        "+x: double",
+        "+y: double"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r1",
+      "from": "Shape",
+      "to": "Drawable",
+      "kind": "realization"
+    },
+    {
+      "id": "r2",
+      "from": "Shape",
+      "to": "Measurable",
+      "kind": "realization"
+    },
+    {
+      "id": "r3",
+      "from": "Circle",
+      "to": "Shape",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r4",
+      "from": "Rectangle",
+      "to": "Shape",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r5",
+      "from": "Square",
+      "to": "Rectangle",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r6",
+      "from": "Shape",
+      "to": "Point",
+      "kind": "composition",
+      "label": "origin"
+    }
+  ]
+}

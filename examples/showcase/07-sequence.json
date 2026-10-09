@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "id": "sequence",
+  "type": "sequence",
+  "title": "线上缴费处理过程",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "participants": [
+    {
+      "id": "user",
+      "label": "用户",
+      "role": "actor",
+      "symbol": "actor"
+    },
+    {
+      "id": "app",
+      "label": "手机 App",
+      "role": "service"
+    },
+    {
+      "id": "gw",
+      "label": "接口网关",
+      "role": "service"
+    },
+    {
+      "id": "auth",
+      "label": "认证服务",
+      "role": "service"
+    },
+    {
+      "id": "bill",
+      "label": "账单服务",
+      "role": "service"
+    },
+    {
+      "id": "pay",
+      "label": "支付渠道",
+      "role": "service"
+    },
+    {
+      "id": "msg",
+      "label": "消息服务",
+      "role": "service"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "from": "user",
+      "to": "app",
+      "kind": "call",
+      "label": "点击“缴费”"
+    },
+    {
+      "id": "m2",
+      "from": "app",
+      "to": "gw",
+      "kind": "call",
+      "label": "提交缴费请求"
+    },
+    {
+      "id": "m3",
+      "from": "gw",
+      "to": "auth",
+      "kind": "call",
+      "label": "校验登录令牌"
+    },
+    {
+      "id": "m4",
+      "from": "auth",
+      "to": "gw",
+      "kind": "return",
+      "label": "校验通过"
+    },
+    {
+      "id": "m5",
+      "from": "gw",
+      "to": "bill",
+      "kind": "call",
+      "label": "转发缴费请求"
+    },
+    {
+      "id": "m6",
+      "from": "bill",
+      "to": "bill",
+      "kind": "call",
+      "label": "查询该户欠费账单并生成支付订单"
+    },
+    {
+      "id": "m7",
+      "from": "bill",
+      "to": "app",
+      "kind": "return",
+      "label": "返回订单号"
+    },
+    {
+      "id": "m8",
+      "from": "app",
+      "to": "pay",
+      "kind": "call",
+      "label": "凭订单号调起支付"
+    },
+    {
+      "id": "m9",
+      "from": "user",
+      "to": "pay",
+      "kind": "call",
+      "label": "完成支付"
+    },
+    {
+      "id": "m10",
+      "from": "pay",
+      "to": "bill",
+      "kind": "async",
+      "label": "异步回调通知支付结果"
+    },
+    {
+      "id": "m11",
+      "from": "bill",
+      "to": "bill",
+      "kind": "call",
+      "label": "账单置为“已缴”"
+    },
+    {
+      "id": "m12",
+      "from": "bill",
+      "to": "msg",
+      "kind": "call",
+      "label": "通知发送缴费成功短信"
+    },
+    {
+      "id": "m13",
+      "from": "msg",
+      "to": "user",
+      "kind": "async",
+      "label": "缴费成功短信"
+    },
+    {
+      "id": "m14",
+      "from": "bill",
+      "to": "bill",
+      "kind": "call",
+      "label": "保留欠费状态"
+    },
+    {
+      "id": "m15",
+      "from": "app",
+      "to": "user",
+      "kind": "call",
+      "label": "提示重试"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "f1",
+      "kind": "alt",
+      "label": "支付成功",
+      "start": "m11",
+      "end": "m15",
+      "branches": [
+        {
+          "label": "支付成功",
+          "start": "m11",
+          "end": "m13"
+        },
+        {
+          "label": "支付失败",
+          "start": "m14",
+          "end": "m15"
+        }
+      ]
+    }
+  ]
+}

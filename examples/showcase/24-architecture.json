@@ -1,0 +1,179 @@
+{
+  "version": 1,
+  "id": "architecture",
+  "type": "architecture",
+  "title": "A Mastodon server scaled up",
+  "caption": "Source: Mastodon documentation, “Scaling up your server” (processes, Sidekiq queues, PgBouncer, separate Redis, Redis Sentinel, read replicas, web load balancer).",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "groups": [
+    {
+      "id": "app",
+      "label": "Mastodon processes",
+      "kind": "tier"
+    },
+    {
+      "id": "data",
+      "label": "Data",
+      "kind": "tier"
+    },
+    {
+      "id": "redis",
+      "label": "Redis",
+      "kind": "cluster",
+      "parent": "data"
+    },
+    {
+      "id": "postgres",
+      "label": "PostgreSQL",
+      "kind": "cluster",
+      "parent": "data"
+    }
+  ],
+  "services": [
+    {
+      "id": "clients",
+      "label": "Web and mobile clients",
+      "icon": "users"
+    },
+    {
+      "id": "remote",
+      "label": "Other servers",
+      "icon": "internet",
+      "detail": "ActivityPub"
+    },
+    {
+      "id": "lb",
+      "label": "Load balancer",
+      "icon": "balancer",
+      "detail": "checks /health"
+    },
+    {
+      "id": "puma",
+      "label": "Web (Puma)",
+      "icon": "server",
+      "group": "app",
+      "detail": "short-lived HTTP; WEB_CONCURRENCY × MAX_THREADS"
+    },
+    {
+      "id": "streaming",
+      "label": "Streaming API",
+      "icon": "api",
+      "group": "app",
+      "detail": "HTTP and WebSocket, port 4000"
+    },
+    {
+      "id": "sidekiq",
+      "label": "Sidekiq",
+      "icon": "queue",
+      "group": "app",
+      "detail": "default, push, ingress, mailers, pull, scheduler, fasp"
+    },
+    {
+      "id": "pgbouncer",
+      "label": "PgBouncer",
+      "icon": "router",
+      "group": "postgres",
+      "detail": "transaction pooling"
+    },
+    {
+      "id": "primary",
+      "label": "Primary",
+      "icon": "database",
+      "group": "postgres"
+    },
+    {
+      "id": "replica",
+      "label": "Read replica",
+      "icon": "database",
+      "group": "postgres",
+      "detail": "hot streaming replication"
+    },
+    {
+      "id": "redismain",
+      "label": "Redis",
+      "icon": "cache",
+      "group": "redis",
+      "detail": "feeds, streaming, Sidekiq queues"
+    },
+    {
+      "id": "rediscache",
+      "label": "Redis for cache",
+      "icon": "cache",
+      "group": "redis",
+      "detail": "CACHE_REDIS_URL; volatile"
+    },
+    {
+      "id": "sentinel",
+      "label": "Redis Sentinel",
+      "icon": "monitor",
+      "group": "redis",
+      "detail": "fails over to a new primary"
+    },
+    {
+      "id": "smtp",
+      "label": "SMTP server",
+      "icon": "mail"
+    }
+  ],
+  "links": [
+    {
+      "from": "clients",
+      "to": "lb",
+      "label": "HTTPS"
+    },
+    {
+      "from": "remote",
+      "to": "lb",
+      "label": "inbox"
+    },
+    {
+      "from": "lb",
+      "to": "puma"
+    },
+    {
+      "from": "lb",
+      "to": "streaming"
+    },
+    {
+      "from": "puma",
+      "to": "pgbouncer"
+    },
+    {
+      "from": "sidekiq",
+      "to": "pgbouncer"
+    },
+    {
+      "from": "pgbouncer",
+      "to": "primary"
+    },
+    {
+      "from": "primary",
+      "to": "replica",
+      "label": "replication",
+      "line": "dashed"
+    },
+    {
+      "from": "app",
+      "to": "redismain"
+    },
+    {
+      "from": "puma",
+      "to": "rediscache"
+    },
+    {
+      "from": "sentinel",
+      "to": "redismain",
+      "line": "dashed",
+      "arrow": "none"
+    },
+    {
+      "from": "sidekiq",
+      "to": "smtp",
+      "label": "mailers"
+    }
+  ]
+}

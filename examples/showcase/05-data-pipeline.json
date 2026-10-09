@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "id": "data-pipeline",
+  "type": "compound",
+  "title": "Event data pipeline: ingestion, lakehouse, consumers",
+  "evidence": "illustrative",
+  "direction": "LR",
+  "nodes": [
+    {
+      "id": "apps",
+      "label": "Mobile & Web Apps",
+      "role": "entry",
+      "shape": "rounded"
+    },
+    {
+      "id": "kafka",
+      "label": "Kafka Topics",
+      "role": "service",
+      "shape": "hexagon",
+      "tone": "yellow"
+    },
+    {
+      "id": "flink",
+      "label": "Flink Stream Jobs",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "lake",
+      "label": "S3 Data Lake",
+      "role": "store",
+      "shape": "cylinder",
+      "tone": "green"
+    },
+    {
+      "id": "bronze",
+      "label": "Bronze Tables",
+      "role": "store",
+      "shape": "cylinder",
+      "tone": "green"
+    },
+    {
+      "id": "silver",
+      "label": "Silver Tables",
+      "role": "store",
+      "shape": "cylinder",
+      "tone": "green"
+    },
+    {
+      "id": "gold",
+      "label": "Gold Marts",
+      "role": "store",
+      "shape": "cylinder",
+      "tone": "green"
+    },
+    {
+      "id": "dq",
+      "label": "Data Quality Checks",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "bi",
+      "label": "BI Dashboards",
+      "role": "terminal",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "ml",
+      "label": "Feature Store",
+      "role": "terminal",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "alert",
+      "label": "Page Data On-call",
+      "role": "abnormal",
+      "shape": "flag",
+      "tone": "red"
+    }
+  ],
+  "groups": [
+    {
+      "id": "ingest",
+      "label": "Ingestion",
+      "children": [
+        "kafka",
+        "flink"
+      ],
+      "direction": "TB"
+    },
+    {
+      "id": "lakehouse",
+      "label": "Lakehouse",
+      "children": [
+        "lake",
+        "medallion"
+      ],
+      "direction": "TB"
+    },
+    {
+      "id": "medallion",
+      "label": "Medallion Layers",
+      "children": [
+        "bronze",
+        "silver",
+        "gold"
+      ],
+      "direction": "LR"
+    },
+    {
+      "id": "consume",
+      "label": "Consumers",
+      "children": [
+        "bi",
+        "ml"
+      ],
+      "direction": "TB"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "apps",
+      "to": "ingest",
+      "kind": "data",
+      "label": "events"
+    },
+    {
+      "id": "e2",
+      "from": "kafka",
+      "to": "flink",
+      "kind": "data"
+    },
+    {
+      "id": "e3",
+      "from": "flink",
+      "to": "lake",
+      "kind": "data",
+      "label": "raw files"
+    },
+    {
+      "id": "e4",
+      "from": "lake",
+      "to": "bronze",
+      "kind": "data"
+    },
+    {
+      "id": "e5",
+      "from": "bronze",
+      "to": "silver",
+      "kind": "data"
+    },
+    {
+      "id": "e6",
+      "from": "silver",
+      "to": "dq",
+      "kind": "control"
+    },
+    {
+      "id": "e7",
+      "from": "dq",
+      "to": "gold",
+      "kind": "branch",
+      "label": "pass"
+    },
+    {
+      "id": "e8",
+      "from": "dq",
+      "to": "alert",
+      "kind": "exception",
+      "label": "fail"
+    },
+    {
+      "id": "e9",
+      "from": "gold",
+      "to": "consume",
+      "kind": "data"
+    }
+  ]
+}

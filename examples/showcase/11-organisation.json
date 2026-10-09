@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "id": "organisation",
+  "type": "orgchart",
+  "title": "The United Nations System",
+  "caption": "Source: un.org, “UN System”.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "orientation": "landscape"
+  },
+  "units": [
+    {
+      "id": "un",
+      "label": "United Nations System"
+    },
+    {
+      "id": "po",
+      "label": "Principal Organs",
+      "parent": "un"
+    },
+    {
+      "id": "po01",
+      "label": "General Assembly",
+      "parent": "po"
+    },
+    {
+      "id": "po02",
+      "label": "Security Council",
+      "parent": "po"
+    },
+    {
+      "id": "po03",
+      "label": "Economic and Social Council",
+      "parent": "po"
+    },
+    {
+      "id": "po04",
+      "label": "Trusteeship Council",
+      "parent": "po"
+    },
+    {
+      "id": "po05",
+      "label": "International Court of Justice",
+      "parent": "po"
+    },
+    {
+      "id": "po06",
+      "label": "Secretariat",
+      "parent": "po"
+    },
+    {
+      "id": "fp",
+      "label": "Funds and Programmes",
+      "parent": "un"
+    },
+    {
+      "id": "fp01",
+      "label": "UNDP",
+      "parent": "fp"
+    },
+    {
+      "id": "fp02",
+      "label": "UNEP",
+      "parent": "fp"
+    },
+    {
+      "id": "fp03",
+      "label": "UNFPA",
+      "parent": "fp"
+    },
+    {
+      "id": "fp04",
+      "label": "UN-Habitat",
+      "parent": "fp"
+    },
+    {
+      "id": "fp05",
+      "label": "UNICEF",
+      "parent": "fp"
+    },
+    {
+      "id": "fp06",
+      "label": "WFP",
+      "parent": "fp"
+    },
+    {
+      "id": "fp07",
+      "label": "UNCDF",
+      "parent": "fp"
+    },
+    {
+      "id": "fp08",
+      "label": "UNV",
+      "parent": "fp"
+    },
+    {
+      "id": "sa",
+      "label": "Specialized Agencies",
+      "parent": "un"
+    },
+    {
+      "id": "sa01",
+      "label": "FAO",
+      "parent": "sa"
+    },
+    {
+      "id": "sa02",
+      "label": "ICAO",
+      "parent": "sa"
+    },
+    {
+      "id": "sa03",
+      "label": "IFAD",
+      "parent": "sa"
+    },
+    {
+      "id": "sa04",
+      "label": "ILO",
+      "parent": "sa"
+    },
+    {
+      "id": "sa05",
+      "label": "IMF",
+      "parent": "sa"
+    },
+    {
+      "id": "sa06",
+      "label": "IMO",
+      "parent": "sa"
+    },
+    {
+      "id": "sa07",
+      "label": "ITU",
+      "parent": "sa"
+    },
+    {
+      "id": "sa08",
+      "label": "UNESCO",
+      "parent": "sa"
+    },
+    {
+      "id": "sa09",
+      "label": "UNIDO",
+      "parent": "sa"
+    },
+    {
+      "id": "sa10",
+      "label": "UN Tourism",
+      "parent": "sa"
+    },
+    {
+      "id": "sa11",
+      "label": "UPU",
+      "parent": "sa"
+    },
+    {
+      "id": "sa12",
+      "label": "WHO",
+      "parent": "sa"
+    },
+    {
+      "id": "sa13",
+      "label": "WIPO",
+      "parent": "sa"
+    },
+    {
+      "id": "sa14",
+      "label": "WMO",
+      "parent": "sa"
+    },
+    {
+      "id": "sa15",
+      "label": "World Bank Group",
+      "parent": "sa"
+    },
+    {
+      "id": "oe",
+      "label": "Other Entities",
+      "parent": "un"
+    },
+    {
+      "id": "oe01",
+      "label": "UNAIDS",
+      "parent": "oe"
+    },
+    {
+      "id": "oe02",
+      "label": "UNHCR",
+      "parent": "oe"
+    },
+    {
+      "id": "oe03",
+      "label": "UNIDIR",
+      "parent": "oe"
+    },
+    {
+      "id": "oe04",
+      "label": "UNITAR",
+      "parent": "oe"
+    },
+    {
+      "id": "oe05",
+      "label": "UNOPS",
+      "parent": "oe"
+    },
+    {
+      "id": "oe06",
+      "label": "UNRWA",
+      "parent": "oe"
+    },
+    {
+      "id": "oe07",
+      "label": "UNSSC",
+      "parent": "oe"
+    },
+    {
+      "id": "oe08",
+      "label": "UNU",
+      "parent": "oe"
+    },
+    {
+      "id": "oe09",
+      "label": "UN Women",
+      "parent": "oe"
+    },
+    {
+      "id": "ro",
+      "label": "Related Organizations",
+      "parent": "un"
+    },
+    {
+      "id": "ro01",
+      "label": "CTBTO",
+      "parent": "ro"
+    },
+    {
+      "id": "ro02",
+      "label": "IAEA",
+      "parent": "ro"
+    },
+    {
+      "id": "ro03",
+      "label": "ICC",
+      "parent": "ro"
+    },
+    {
+      "id": "ro04",
+      "label": "IOM",
+      "parent": "ro"
+    },
+    {
+      "id": "ro05",
+      "label": "OPCW",
+      "parent": "ro"
+    },
+    {
+      "id": "ro06",
+      "label": "UNFCCC",
+      "parent": "ro"
+    },
+    {
+      "id": "ro07",
+      "label": "WTO",
+      "parent": "ro"
+    },
+    {
+      "id": "ro08",
+      "label": "ITC",
+      "parent": "ro"
+    }
+  ]
+}

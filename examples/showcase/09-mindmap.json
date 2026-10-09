@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "id": "mindmap",
+  "type": "mindmap",
+  "title": "产品质量模型",
+  "caption": "据 GB/T 25000.10—2016（ISO/IEC 25010:2011）。",
+  "evidence": "illustrative",
+  "topics": [
+    {
+      "id": "root",
+      "label": "产品质量模型"
+    },
+    {
+      "id": "t001",
+      "label": "功能适合性",
+      "parent": "root"
+    },
+    {
+      "id": "t002",
+      "label": "功能完备性",
+      "parent": "t001"
+    },
+    {
+      "id": "t003",
+      "label": "功能正确性",
+      "parent": "t001"
+    },
+    {
+      "id": "t004",
+      "label": "功能适合性",
+      "parent": "t001"
+    },
+    {
+      "id": "t005",
+      "label": "性能效率",
+      "parent": "root"
+    },
+    {
+      "id": "t006",
+      "label": "时间特性",
+      "parent": "t005"
+    },
+    {
+      "id": "t007",
+      "label": "资源利用性",
+      "parent": "t005"
+    },
+    {
+      "id": "t008",
+      "label": "容量",
+      "parent": "t005"
+    },
+    {
+      "id": "t009",
+      "label": "兼容性",
+      "parent": "root"
+    },
+    {
+      "id": "t010",
+      "label": "共存性",
+      "parent": "t009"
+    },
+    {
+      "id": "t011",
+      "label": "互操作性",
+      "parent": "t009"
+    },
+    {
+      "id": "t012",
+      "label": "易用性",
+      "parent": "root"
+    },
+    {
+      "id": "t013",
+      "label": "可辨识性",
+      "parent": "t012"
+    },
+    {
+      "id": "t014",
+      "label": "易学性",
+      "parent": "t012"
+    },
+    {
+      "id": "t015",
+      "label": "易操作性",
+      "parent": "t012"
+    },
+    {
+      "id": "t016",
+      "label": "用户差错防御性",
+      "parent": "t012"
+    },
+    {
+      "id": "t017",
+      "label": "用户界面舒适性",
+      "parent": "t012"
+    },
+    {
+      "id": "t018",
+      "label": "易访问性",
+      "parent": "t012"
+    },
+    {
+      "id": "t019",
+      "label": "可靠性",
+      "parent": "root"
+    },
+    {
+      "id": "t020",
+      "label": "成熟性",
+      "parent": "t019"
+    },
+    {
+      "id": "t021",
+      "label": "可用性",
+      "parent": "t019"
+    },
+    {
+      "id": "t022",
+      "label": "容错性",
+      "parent": "t019"
+    },
+    {
+      "id": "t023",
+      "label": "易恢复性",
+      "parent": "t019"
+    },
+    {
+      "id": "t024",
+      "label": "信息安全性",
+      "parent": "root"
+    },
+    {
+      "id": "t025",
+      "label": "保密性",
+      "parent": "t024"
+    },
+    {
+      "id": "t026",
+      "label": "完整性",
+      "parent": "t024"
+    },
+    {
+      "id": "t027",
+      "label": "抗抵赖性",
+      "parent": "t024"
+    },
+    {
+      "id": "t028",
+      "label": "可核查性",
+      "parent": "t024"
+    },
+    {
+      "id": "t029",
+      "label": "真实性",
+      "parent": "t024"
+    },
+    {
+      "id": "t030",
+      "label": "维护性",
+      "parent": "root"
+    },
+    {
+      "id": "t031",
+      "label": "模块化",
+      "parent": "t030"
+    },
+    {
+      "id": "t032",
+      "label": "可重用性",
+      "parent": "t030"
+    },
+    {
+      "id": "t033",
+      "label": "易分析性",
+      "parent": "t030"
+    },
+    {
+      "id": "t034",
+      "label": "易修改性",
+      "parent": "t030"
+    },
+    {
+      "id": "t035",
+      "label": "易测试性",
+      "parent": "t030"
+    },
+    {
+      "id": "t036",
+      "label": "可移植性",
+      "parent": "root"
+    },
+    {
+      "id": "t037",
+      "label": "适应性",
+      "parent": "t036"
+    },
+    {
+      "id": "t038",
+      "label": "易安装性",
+      "parent": "t036"
+    },
+    {
+      "id": "t039",
+      "label": "易替换性",
+      "parent": "t036"
+    }
+  ]
+}

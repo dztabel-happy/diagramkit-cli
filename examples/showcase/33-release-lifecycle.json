@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "id": "release-lifecycle",
+  "type": "gantt",
+  "title": "Python release lifecycle, 3.9 to 3.15",
+  "caption": "Source: the release-schedule PEPs. Bugfix phases as the Python Developer’s Guide draws them (1.5 years to 3.12, two years from 3.13); dates after October 2026 are planned.",
+  "evidence": "illustrative",
+  "style": "report",
+  "columns": [],
+  "today": "2026-10-09",
+  "tasks": [
+    {
+      "id": "py39",
+      "label": "Python 3.9",
+      "spells": [
+        {
+          "start": "2019-11-19",
+          "end": "2020-10-04",
+          "label": "Pre-release (alpha, beta, candidates)",
+          "tone": "violet"
+        },
+        {
+          "start": "2020-10-05",
+          "end": "2022-04-04",
+          "label": "Bugfix releases",
+          "tone": "green"
+        },
+        {
+          "start": "2022-04-05",
+          "end": "2025-10-31",
+          "label": "Security fixes only",
+          "tone": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "py310",
+      "label": "Python 3.10",
+      "spells": [
+        {
+          "start": "2020-10-05",
+          "end": "2021-10-03",
+          "label": "Pre-release (alpha, beta, candidates)",
+          "tone": "violet"
+        },
+        {
+          "start": "2021-10-04",
+          "end": "2023-04-03",
+          "label": "Bugfix releases",
+          "tone": "green"
+        },
+        {
+          "start": "2023-04-04",
+          "end": "2026-10",
+          "label": "Security fixes only",
+          "tone": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "py311",
+      "label": "Python 3.11",
+      "spells": [
+        {
+          "start": "2021-10-05",
+          "end": "2022-10-23",
+          "label": "Pre-release (alpha, beta, candidates)",
+          "tone": "violet"
+        },
+        {
+          "start": "2022-10-24",
+          "end": "2024-04-22",
+          "label": "Bugfix releases",
+          "tone": "green"
+        },
+        {
+          "start": "2024-04-23",
+          "end": "2027-10",
+          "label": "Security fixes only",
+          "tone": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "py312",
+      "label": "Python 3.12",
+      "spells": [
+        {
+          "start": "2022-10-24",
+          "end": "2023-10-01",
+          "label": "Pre-release (alpha, beta, candidates)",
+          "tone": "violet"
+        },
+        {
+          "start": "2023-10-02",
+          "end": "2025-03-31",
+          "label": "Bugfix releases",
+          "tone": "green"
+        },
+        {
+          "start": "2025-04-01",
+          "end": "2028-10",
+          "label": "Security fixes only",
+          "tone": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "py313",
+      "label": "Python 3.13",
+      "spells": [
+        {
+          "start": "2023-10-13",
+          "end": "2024-10-06",
+          "label": "Pre-release (alpha, beta, candidates)",
+          "tone": "violet"
+        },
+        {
+          "start": "2024-10-07",
+          "end": "2026-10-06",
+          "label": "Bugfix releases",
+          "tone": "green"
+        },
+        {
+          "start": "2026-10-07",
+          "end": "2029-10",
+          "label": "Security fixes only",
+          "tone": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "py314",
+      "label": "Python 3.14",
+      "spells": [
+        {
+          "start": "2024-10-15",
+          "end": "2025-10-06",
+          "label": "Pre-release (alpha, beta, candidates)",
+          "tone": "violet"
+        },
+        {
+          "start": "2025-10-07",
+          "end": "2027-10-06",
+          "label": "Bugfix releases",
+          "tone": "green"
+        },
+        {
+          "start": "2027-10-07",
+          "end": "2030-10",
+          "label": "Security fixes only",
+          "tone": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "py315",
+      "label": "Python 3.15",
+      "spells": [
+        {
+          "start": "2025-10-14",
+          "end": "2026-10-08",
+          "label": "Pre-release (alpha, beta, candidates)",
+          "tone": "violet"
+        },
+        {
+          "start": "2026-10-09",
+          "end": "2028-10-08",
+          "label": "Bugfix releases",
+          "tone": "green"
+        },
+        {
+          "start": "2028-10-09",
+          "end": "2031-10",
+          "label": "Security fixes only",
+          "tone": "yellow"
+        }
+      ]
+    }
+  ]
+}

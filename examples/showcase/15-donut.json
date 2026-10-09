@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "id": "donut",
+  "type": "pie",
+  "title": "U.S. utility-scale electricity generation by source, 2023",
+  "caption": "Source: U.S. Energy Information Administration, preliminary figures for 2023; pumped storage (−6 billion kWh) is left out.",
+  "evidence": "illustrative",
+  "unit": "billion kWh",
+  "order": "descending",
+  "slices": [
+    {
+      "id": "gas",
+      "label": "Natural gas",
+      "value": 1802
+    },
+    {
+      "id": "nuclear",
+      "label": "Nuclear",
+      "value": 775
+    },
+    {
+      "id": "coal",
+      "label": "Coal",
+      "value": 675
+    },
+    {
+      "id": "wind",
+      "label": "Wind",
+      "value": 425
+    },
+    {
+      "id": "hydro",
+      "label": "Hydropower",
+      "value": 240
+    },
+    {
+      "id": "solar",
+      "label": "Solar",
+      "value": 165
+    },
+    {
+      "id": "other",
+      "label": "Biomass, petroleum, geothermal and other",
+      "value": 100
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "id": "transaction-structure",
+  "type": "compound",
+  "title": "污水处理特许经营项目交易结构",
+  "caption": "示例项目，数字仅作演示。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "orientation": "landscape"
+  },
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "gov",
+      "label": "市人民政府",
+      "role": "actor"
+    },
+    {
+      "id": "agency",
+      "label": "实施机构（市住房和城乡建设局）",
+      "role": "actor"
+    },
+    {
+      "id": "finance",
+      "label": "市财政局",
+      "role": "actor"
+    },
+    {
+      "id": "rep",
+      "label": "政府出资代表（市城投公司）",
+      "role": "actor"
+    },
+    {
+      "id": "investor",
+      "label": "中选社会资本方",
+      "role": "actor"
+    },
+    {
+      "id": "spv",
+      "label": "项目公司（SPV）",
+      "role": "service"
+    },
+    {
+      "id": "bank",
+      "label": "金融机构",
+      "role": "actor"
+    },
+    {
+      "id": "epc",
+      "label": "工程总承包单位",
+      "role": "actor"
+    },
+    {
+      "id": "plant",
+      "label": "污水处理厂（5 万 m³/d）",
+      "role": "store"
+    }
+  ],
+  "groups": [
+    {
+      "id": "public",
+      "label": "政府方",
+      "children": [
+        "gov",
+        "agency",
+        "finance",
+        "rep"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "gov",
+      "to": "agency",
+      "kind": "control",
+      "label": "授权"
+    },
+    {
+      "id": "e2",
+      "from": "agency",
+      "to": "spv",
+      "kind": "main",
+      "label": "签订《特许经营协议》；监管与绩效考核"
+    },
+    {
+      "id": "e3",
+      "from": "rep",
+      "to": "spv",
+      "kind": "main",
+      "label": "出资 10%"
+    },
+    {
+      "id": "e4",
+      "from": "investor",
+      "to": "spv",
+      "kind": "main",
+      "label": "出资 90%"
+    },
+    {
+      "id": "e5",
+      "from": "bank",
+      "to": "spv",
+      "kind": "data",
+      "label": "项目贷款（资本金以外 70%）"
+    },
+    {
+      "id": "e6",
+      "from": "finance",
+      "to": "spv",
+      "kind": "data",
+      "label": "按绩效支付污水处理服务费"
+    },
+    {
+      "id": "e7",
+      "from": "spv",
+      "to": "epc",
+      "kind": "main",
+      "label": "工程总承包合同"
+    },
+    {
+      "id": "e8",
+      "from": "spv",
+      "to": "plant",
+      "kind": "main",
+      "label": "投资、建设、运营 30 年，期满无偿移交"
+    }
+  ]
+}

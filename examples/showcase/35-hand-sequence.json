@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "id": "hand-sequence",
+  "type": "sequence",
+  "title": "小程序下单与支付",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "numbering": true,
+  "mirrorParticipants": true,
+  "participants": [
+    {
+      "id": "u",
+      "label": "用户",
+      "role": "actor",
+      "symbol": "actor"
+    },
+    {
+      "id": "app",
+      "label": "小程序",
+      "role": "service"
+    },
+    {
+      "id": "order",
+      "label": "订单服务",
+      "role": "service"
+    },
+    {
+      "id": "pay",
+      "label": "支付网关",
+      "role": "service"
+    },
+    {
+      "id": "db",
+      "label": "订单数据库",
+      "role": "store",
+      "symbol": "database"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "from": "u",
+      "to": "app",
+      "kind": "call",
+      "label": "点击“立即支付”"
+    },
+    {
+      "id": "m2",
+      "from": "app",
+      "to": "order",
+      "kind": "call",
+      "label": "创建订单"
+    },
+    {
+      "id": "m3",
+      "from": "order",
+      "to": "db",
+      "kind": "call",
+      "label": "写入待支付订单"
+    },
+    {
+      "id": "m4",
+      "from": "db",
+      "to": "order",
+      "kind": "return",
+      "label": "订单号"
+    },
+    {
+      "id": "m5",
+      "from": "order",
+      "to": "pay",
+      "kind": "call",
+      "label": "发起预支付请求"
+    },
+    {
+      "id": "m6",
+      "from": "pay",
+      "to": "order",
+      "kind": "return",
+      "label": "预支付凭证"
+    },
+    {
+      "id": "m7",
+      "from": "app",
+      "to": "pay",
+      "kind": "call",
+      "label": "查询支付结果"
+    },
+    {
+      "id": "m8",
+      "from": "pay",
+      "to": "app",
+      "kind": "return",
+      "label": "处理中"
+    },
+    {
+      "id": "m9",
+      "from": "pay",
+      "to": "order",
+      "kind": "async",
+      "label": "支付成功通知"
+    },
+    {
+      "id": "m10",
+      "from": "order",
+      "to": "order",
+      "kind": "call",
+      "label": "校验签名与金额"
+    },
+    {
+      "id": "m11",
+      "from": "order",
+      "to": "app",
+      "kind": "return",
+      "label": "支付完成"
+    },
+    {
+      "id": "m12",
+      "from": "pay",
+      "to": "order",
+      "kind": "async",
+      "label": "支付失败通知"
+    },
+    {
+      "id": "m13",
+      "from": "order",
+      "to": "app",
+      "kind": "return",
+      "label": "提示重新支付"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "poll",
+      "kind": "loop",
+      "label": "每 2 秒轮询,最多 30 次",
+      "start": "m7",
+      "end": "m8"
+    },
+    {
+      "id": "result",
+      "kind": "alt",
+      "label": "支付成功",
+      "start": "m9",
+      "end": "m13",
+      "branches": [
+        {
+          "label": "支付成功",
+          "start": "m9",
+          "end": "m11"
+        },
+        {
+          "label": "支付失败",
+          "start": "m12",
+          "end": "m13"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "label": "订单 15 分钟未支付自动关闭",
+      "participants": [
+        "order"
+      ],
+      "placement": "right",
+      "at": {
+        "message": "m4",
+        "position": "after"
+      }
+    }
+  ],
+  "activations": [
+    {
+      "id": "a1",
+      "participant": "order",
+      "start": "m2",
+      "end": "m6"
+    }
+  ],
+  "highlights": [
+    {
+      "id": "h1",
+      "start": "m2",
+      "end": "m6",
+      "tone": "blue",
+      "label": "下单阶段"
+    }
+  ]
+}

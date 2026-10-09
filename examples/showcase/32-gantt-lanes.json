@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "id": "gantt-lanes",
+  "type": "gantt",
+  "title": "中国空间站在轨建造：舱段、载人与货运飞船（飞船自发射至返回或再入）",
+  "caption": "日期据新华社的公开报道及维基百科各任务条目整理。",
+  "evidence": "illustrative",
+  "style": "report",
+  "layout": "lanes",
+  "groups": [
+    {
+      "id": "stage",
+      "label": "工程阶段"
+    },
+    {
+      "id": "module",
+      "label": "舱段"
+    },
+    {
+      "id": "crew",
+      "label": "载人飞船"
+    },
+    {
+      "id": "cargo",
+      "label": "货运飞船"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "verify",
+      "label": "关键技术验证阶段",
+      "start": "2021-04-29",
+      "end": "2022-04-16",
+      "group": "stage"
+    },
+    {
+      "id": "build",
+      "label": "在轨建造阶段",
+      "start": "2022-04-16",
+      "end": "2022-12",
+      "group": "stage"
+    },
+    {
+      "id": "tianhe",
+      "label": "天和核心舱发射",
+      "start": "2021-04-29",
+      "milestone": true,
+      "group": "module"
+    },
+    {
+      "id": "wentian",
+      "label": "问天实验舱：发射、对接至转位",
+      "start": "2022-07-24",
+      "end": "2022-09-30",
+      "group": "module"
+    },
+    {
+      "id": "mengtian",
+      "label": "梦天实验舱：发射、对接至转位",
+      "start": "2022-10-31",
+      "end": "2022-11-03",
+      "group": "module"
+    },
+    {
+      "id": "t-shape",
+      "label": "“T”字基本构型在轨组装完成",
+      "start": "2022-11-03",
+      "milestone": true,
+      "group": "module"
+    },
+    {
+      "id": "sz12",
+      "label": "神舟十二号",
+      "start": "2021-06-17",
+      "end": "2021-09-17",
+      "group": "crew"
+    },
+    {
+      "id": "sz13",
+      "label": "神舟十三号",
+      "start": "2021-10-16",
+      "end": "2022-04-16",
+      "group": "crew"
+    },
+    {
+      "id": "sz14",
+      "label": "神舟十四号",
+      "start": "2022-06-05",
+      "end": "2022-12-04",
+      "group": "crew"
+    },
+    {
+      "id": "sz15",
+      "label": "神舟十五号",
+      "start": "2022-11-29",
+      "end": "2023-06-04",
+      "group": "crew"
+    },
+    {
+      "id": "sz16",
+      "label": "神舟十六号",
+      "start": "2023-05-30",
+      "end": "2023-10-31",
+      "group": "crew"
+    },
+    {
+      "id": "tz2",
+      "label": "天舟二号",
+      "start": "2021-05-29",
+      "end": "2022-03-31",
+      "group": "cargo"
+    },
+    {
+      "id": "tz3",
+      "label": "天舟三号",
+      "start": "2021-09-20",
+      "end": "2022-07-27",
+      "group": "cargo"
+    },
+    {
+      "id": "tz4",
+      "label": "天舟四号",
+      "start": "2022-05-10",
+      "end": "2022-11-15",
+      "group": "cargo"
+    },
+    {
+      "id": "tz5",
+      "label": "天舟五号",
+      "start": "2022-11-12",
+      "end": "2023-09-12",
+      "group": "cargo"
+    },
+    {
+      "id": "tz6",
+      "label": "天舟六号",
+      "start": "2023-05-10",
+      "end": "2024-01-19",
+      "group": "cargo"
+    }
+  ]
+}

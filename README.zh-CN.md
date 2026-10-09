@@ -18,6 +18,8 @@
   <img alt="platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-blue">
 </p>
 
+<p align="center"><img src="examples/showcase/hero.png" alt="DiagramKit 画的图：分阶段的流程、能源流向、风险矩阵、手绘思维导图、甘特图" width="100%"></p>
+
 ---
 
 用户给出材料，或者说清楚要讲明白什么；Agent 想清楚这张图该表达什么，DiagramKit 负责把它画出来：按 Word 页面或幻灯片的尺寸排好，文字是能看清的字号，输出 PNG、SVG、PDF。
@@ -32,20 +34,67 @@ DiagramKit 画的是结构，不是数字：
 
 ## 效果预览
 
-下面这些图只写了内容，没有指定任何外观：放进 Word 页面的图默认整份文档一套色系，字体是 Times New Roman 加本机的宋体。
+下面每张图都出自一份语义描述：有哪些框、什么关系、哪些数据，最多再点明强调色、方向和要放进去的页面。没有一个位置、尺寸或走线是手写的：摆放、折行、走线都是 DiagramKit 排的。点每行图下面的名称可以看原图；[`examples/showcase`](examples/showcase) 里同名的 `.json` 是它的描述文件。
 
-| | | |
-|:---:|:---:|:---:|
-| <sub><strong>带判断的流程</strong></sub> | <sub><strong>分阶段的流程</strong></sub> | <sub><strong>交易结构</strong></sub> |
-| <img src="examples/showcase/01-performance-payment.png" alt="DiagramKit 带判断的流程" width="300"> | <img src="examples/showcase/02-implementation-flow.png" alt="DiagramKit 分阶段的流程" width="300"> | <img src="examples/showcase/03-transaction-structure.png" alt="DiagramKit 交易结构" width="300"> |
-| <sub><strong>风险矩阵</strong></sub> | <sub><strong>资金来源与运用</strong></sub> | <sub><strong>实施进度</strong></sub> |
-| <img src="examples/showcase/04-risk-matrix.png" alt="DiagramKit 风险矩阵" width="300"> | <img src="examples/showcase/05-sources-and-uses.png" alt="DiagramKit 桑基图" width="300"> | <img src="examples/showcase/06-implementation-schedule.png" alt="DiagramKit 甘特图" width="300"> |
-| <sub><strong>组织架构</strong></sub> | <sub><strong>政策时间线</strong></sub> | <sub><strong>成因分析</strong></sub> |
-| <img src="examples/showcase/07-company-organisation.png" alt="DiagramKit 组织架构图" width="300"> | <img src="examples/showcase/08-policy-timeline.png" alt="DiagramKit 时间线" width="300"> | <img src="examples/showcase/09-cause-analysis.png" alt="DiagramKit 鱼骨图" width="300"> |
-| <sub><strong>同一张流程图，手绘风</strong></sub> | <sub><strong>时序图</strong></sub> | <sub><strong>类图</strong></sub> |
-| <img src="examples/showcase/10-implementation-flow-hand-drawn.png" alt="DiagramKit 手绘流程图" width="300"> | <img src="examples/showcase/11-agent-sequence.png" alt="DiagramKit 时序图" width="300"> | <img src="examples/showcase/12-class.png" alt="DiagramKit 类图" width="300"> |
+### Word 页面上的默认外观
 
-前九张图的源文件就在旁边的 [`examples/showcase`](examples/showcase) 里。还支持：思维导图、ER 图、分层架构图、C4、象限图、饼图、雷达图、矩形树图、看板、用户旅程图、需求图。
+不指定外观时，放进 Word 页面的图整份文档一套色系，字体是 Times New Roman 加本机的宋体。
+
+<!-- showcase:default -->
+<p align="center"><img src="examples/showcase/rows/01.png" alt="DiagramKit：带判断的流程、分阶段的流程、状态机" width="100%"></p>
+<p align="center"><sub>01 <a href="examples/showcase/01-decision-flow.png">带判断的流程</a> · 02 <a href="examples/showcase/02-phased-flow.png">分阶段的流程</a> · 03 <a href="examples/showcase/03-state-machine.png">状态机</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/02.png" alt="DiagramKit：审批流程、数据管线、时间线" width="100%"></p>
+<p align="center"><sub>04 <a href="examples/showcase/04-approval-flow.png">审批流程</a> · 05 <a href="examples/showcase/05-data-pipeline.png">数据管线</a> · 06 <a href="examples/showcase/06-timeline.png">时间线</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/03.png" alt="DiagramKit：时序图、类图、思维导图" width="100%"></p>
+<p align="center"><sub>07 <a href="examples/showcase/07-sequence.png">时序图</a> · 08 <a href="examples/showcase/08-class.png">类图</a> · 09 <a href="examples/showcase/09-mindmap.png">思维导图</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/04.png" alt="DiagramKit：交易结构、组织架构、甘特图" width="100%"></p>
+<p align="center"><sub>10 <a href="examples/showcase/10-transaction-structure.png">交易结构</a> · 11 <a href="examples/showcase/11-organisation.png">组织架构</a> · 12 <a href="examples/showcase/12-gantt.png">甘特图</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/05.png" alt="DiagramKit：鱼骨图、用户旅程图、环形图" width="100%"></p>
+<p align="center"><sub>13 <a href="examples/showcase/13-fishbone.png">鱼骨图</a> · 14 <a href="examples/showcase/14-journey.png">用户旅程图</a> · 15 <a href="examples/showcase/15-donut.png">环形图</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/06.png" alt="DiagramKit：风险矩阵、象限图、雷达图" width="100%"></p>
+<p align="center"><sub>16 <a href="examples/showcase/16-risk-matrix.png">风险矩阵</a> · 17 <a href="examples/showcase/17-quadrant.png">象限图</a> · 18 <a href="examples/showcase/18-radar.png">雷达图</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/07.png" alt="DiagramKit：ER 图、矩形树图、C4 上下文图" width="100%"></p>
+<p align="center"><sub>19 <a href="examples/showcase/19-er.png">ER 图</a> · 20 <a href="examples/showcase/20-treemap.png">矩形树图</a> · 21 <a href="examples/showcase/21-c4-context.png">C4 上下文图</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/08.png" alt="DiagramKit：桑基图、看板、系统架构图" width="100%"></p>
+<p align="center"><sub>22 <a href="examples/showcase/22-sankey.png">桑基图</a> · 23 <a href="examples/showcase/23-kanban.png">看板</a> · 24 <a href="examples/showcase/24-architecture.png">系统架构图</a></sub></p>
+<!-- /showcase:default -->
+
+### 各图型自己的外观
+
+`--style report`：每种图型用它自己的配色。
+
+<!-- showcase:report -->
+<p align="center"><img src="examples/showcase/rows/09.png" alt="DiagramKit：云架构图、C4 容器图、需求图" width="100%"></p>
+<p align="center"><sub>25 <a href="examples/showcase/25-cloud-architecture.png">云架构图</a> · 26 <a href="examples/showcase/26-c4-container.png">C4 容器图</a> · 27 <a href="examples/showcase/27-requirement.png">需求图</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/10.png" alt="DiagramKit：多级桑基图、分组的矩形树图、玫瑰图" width="100%"></p>
+<p align="center"><sub>28 <a href="examples/showcase/28-energy-flows.png">多级桑基图</a> · 29 <a href="examples/showcase/29-treemap-emissions.png">分组的矩形树图</a> · 30 <a href="examples/showcase/30-rose.png">玫瑰图</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/11.png" alt="DiagramKit：满意度旅程图、分泳道的甘特图、版本生命周期" width="100%"></p>
+<p align="center"><sub>31 <a href="examples/showcase/31-journey-satisfaction.png">满意度旅程图</a> · 32 <a href="examples/showcase/32-gantt-lanes.png">分泳道的甘特图</a> · 33 <a href="examples/showcase/33-release-lifecycle.png">版本生命周期</a></sub></p>
+<!-- /showcase:report -->
+
+### 手绘笔
+
+`--style notebook`：手绘的线条、手写字体，连线走曲线。
+
+<!-- showcase:notebook -->
+<p align="center"><img src="examples/showcase/rows/12.png" alt="DiagramKit：故障响应流程、时序图、看板" width="100%"></p>
+<p align="center"><sub>34 <a href="examples/showcase/34-hand-flow.png">故障响应流程</a> · 35 <a href="examples/showcase/35-hand-sequence.png">时序图</a> · 36 <a href="examples/showcase/36-hand-kanban.png">看板</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/13.png" alt="DiagramKit：ER 图、组织架构、雷达图" width="100%"></p>
+<p align="center"><sub>37 <a href="examples/showcase/37-hand-er.png">ER 图</a> · 38 <a href="examples/showcase/38-hand-organisation.png">组织架构</a> · 39 <a href="examples/showcase/39-hand-radar.png">雷达图</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/14.png" alt="DiagramKit：时间线、桑基图、类图" width="100%"></p>
+<p align="center"><sub>40 <a href="examples/showcase/40-hand-timeline.png">时间线</a> · 41 <a href="examples/showcase/41-hand-sankey.png">桑基图</a> · 42 <a href="examples/showcase/42-hand-class.png">类图</a></sub></p>
+<!-- /showcase:notebook -->
+
+### 同一张图，六种文档风格
+
+同一份描述，只改 `style` 一个词：
+
+<!-- showcase:styles -->
+<p align="center"><img src="examples/showcase/rows/15.png" alt="DiagramKit：business、report、mono" width="100%"></p>
+<p align="center"><sub>43 <a href="examples/showcase/43-style-business.png"><code>business</code></a> · 44 <a href="examples/showcase/44-style-report.png"><code>report</code></a> · 45 <a href="examples/showcase/45-style-mono.png"><code>mono</code></a></sub></p>
+<p align="center"><img src="examples/showcase/rows/16.png" alt="DiagramKit：guofeng、soft、notebook" width="100%"></p>
+<p align="center"><sub>46 <a href="examples/showcase/46-style-guofeng.png"><code>guofeng</code></a> · 47 <a href="examples/showcase/47-style-soft.png"><code>soft</code></a> · 48 <a href="examples/showcase/48-style-notebook.png"><code>notebook</code></a></sub></p>
+<!-- /showcase:styles -->
 
 ## 安装
 
@@ -139,7 +188,7 @@ figure-1/build-result.json
 
 `--format all` 会另外输出 `diagram.svg` 和矢量的 `diagram.pdf`。`diagramkit example <名称>` 能打印出每种图型的一份完整示例，`diagramkit schema` 打印完整的契约。
 
-**页面。** 图是按它要放进去的页面来排的：默认是 Word 页面（A4 竖版；也可以要横版、A3 或自定义版心），`--output ppt` 是 16:9 幻灯片，`--output standalone` 是独立图片。在 Word 页面上，主要文字印出来是 9 pt，绝不低于 6.5 pt；一页放不下的图会在内容的自然边界处折行或分成几张，而不是缩到看不清。
+**页面。** 图是按它要放进去的页面来排的：默认是 Word 页面（A4 竖版；也可以要横版、A3 或自定义版心），`--output ppt` 是 16:9 幻灯片，`--output standalone` 是独立图片。在 Word 页面上，主要文字印出来是 9 pt，绝不低于 6.5 pt。一页放不下的图先换一种放得下的排法；都放不下时，按看得清的字号画出来并报告放不下，同时给出办法：折行、在内容的自然边界处分成几张、换更大的页面。除非明确要求，不会缩到看不清。
 
 **外观。** 放进 Word 页面的图不写风格时按 `business` 着装：整份文档一套色系，每种图型在这套色系里用自己合适的上色方式。其它文档风格：`mono`（黑白印刷、公文）、`guofeng`、`soft`、`notebook`（手绘）和 `report`（各图型自己的常规外观）。每种图型也都可以用手绘笔来画。
 

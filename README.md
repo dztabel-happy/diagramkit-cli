@@ -18,6 +18,8 @@
   <img alt="platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-blue">
 </p>
 
+<p align="center"><img src="examples/showcase/hero.png" alt="Figures drawn by DiagramKit: a flow in phases, energy flows, a risk matrix, a hand-drawn mind map and a Gantt chart" width="100%"></p>
+
 ---
 
 Users provide material or say what they need to explain. The agent works out what the figure should say, and DiagramKit draws it: a diagram sized for a Word page or a slide, with its text at a readable size, as PNG, SVG and PDF.
@@ -32,20 +34,67 @@ Numeric trends, comparisons and distributions are a chart's work, not a diagram'
 
 ## Preview
 
-Figures built for a Word page with nothing asked beyond the content: one colour family for the whole document, Times New Roman with the machine's Song typeface.
+Every figure below was built from a semantic spec: what the boxes, the relations and the data are, with at most a hint of emphasis (a tone, a direction) and the page it goes on. No position, size or line route is written by hand: placing, wrapping and routing are DiagramKit's work. A name under a row opens that figure at full size; the `.json` of the same name beside it in [`examples/showcase`](examples/showcase) is its spec.
 
-| | | |
-|:---:|:---:|:---:|
-| <sub><strong>Decision flow</strong></sub> | <sub><strong>Flow in phases</strong></sub> | <sub><strong>Transaction structure</strong></sub> |
-| <img src="examples/showcase/01-performance-payment.png" alt="DiagramKit decision flow" width="300"> | <img src="examples/showcase/02-implementation-flow.png" alt="DiagramKit flow in phases" width="300"> | <img src="examples/showcase/03-transaction-structure.png" alt="DiagramKit transaction structure" width="300"> |
-| <sub><strong>Risk matrix</strong></sub> | <sub><strong>Sources and uses of funds</strong></sub> | <sub><strong>Implementation schedule</strong></sub> |
-| <img src="examples/showcase/04-risk-matrix.png" alt="DiagramKit risk matrix" width="300"> | <img src="examples/showcase/05-sources-and-uses.png" alt="DiagramKit sankey" width="300"> | <img src="examples/showcase/06-implementation-schedule.png" alt="DiagramKit Gantt chart" width="300"> |
-| <sub><strong>Organisation</strong></sub> | <sub><strong>Policy timeline</strong></sub> | <sub><strong>Cause analysis</strong></sub> |
-| <img src="examples/showcase/07-company-organisation.png" alt="DiagramKit organisation chart" width="300"> | <img src="examples/showcase/08-policy-timeline.png" alt="DiagramKit timeline" width="300"> | <img src="examples/showcase/09-cause-analysis.png" alt="DiagramKit fishbone" width="300"> |
-| <sub><strong>The same flow, drawn by hand</strong></sub> | <sub><strong>Sequence</strong></sub> | <sub><strong>Classes</strong></sub> |
-| <img src="examples/showcase/10-implementation-flow-hand-drawn.png" alt="DiagramKit hand-drawn flow" width="300"> | <img src="examples/showcase/11-agent-sequence.png" alt="DiagramKit sequence diagram" width="300"> | <img src="examples/showcase/12-class.png" alt="DiagramKit class diagram" width="300"> |
+### The default look on a Word page
 
-The specs of the first nine are beside them in [`examples/showcase`](examples/showcase). More types: mind map, ER diagram, layered architecture, C4, quadrant chart, pie, radar, treemap, kanban, user journey, requirement diagram.
+With no look asked for, the figures of a Word document share one colour family and are set in Times New Roman with the machine's Song typeface.
+
+<!-- showcase:default -->
+<p align="center"><img src="examples/showcase/rows/01.png" alt="DiagramKit: Decision flow, Flow in phases, State machine" width="100%"></p>
+<p align="center"><sub>01 <a href="examples/showcase/01-decision-flow.png">Decision flow</a> · 02 <a href="examples/showcase/02-phased-flow.png">Flow in phases</a> · 03 <a href="examples/showcase/03-state-machine.png">State machine</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/02.png" alt="DiagramKit: Approval procedure, Data pipeline, Timeline" width="100%"></p>
+<p align="center"><sub>04 <a href="examples/showcase/04-approval-flow.png">Approval procedure</a> · 05 <a href="examples/showcase/05-data-pipeline.png">Data pipeline</a> · 06 <a href="examples/showcase/06-timeline.png">Timeline</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/03.png" alt="DiagramKit: Sequence, Classes, Mind map" width="100%"></p>
+<p align="center"><sub>07 <a href="examples/showcase/07-sequence.png">Sequence</a> · 08 <a href="examples/showcase/08-class.png">Classes</a> · 09 <a href="examples/showcase/09-mindmap.png">Mind map</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/04.png" alt="DiagramKit: Transaction structure, Organisation, Gantt chart" width="100%"></p>
+<p align="center"><sub>10 <a href="examples/showcase/10-transaction-structure.png">Transaction structure</a> · 11 <a href="examples/showcase/11-organisation.png">Organisation</a> · 12 <a href="examples/showcase/12-gantt.png">Gantt chart</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/05.png" alt="DiagramKit: Fishbone, User journey, Donut" width="100%"></p>
+<p align="center"><sub>13 <a href="examples/showcase/13-fishbone.png">Fishbone</a> · 14 <a href="examples/showcase/14-journey.png">User journey</a> · 15 <a href="examples/showcase/15-donut.png">Donut</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/06.png" alt="DiagramKit: Risk matrix, Quadrant chart, Radar" width="100%"></p>
+<p align="center"><sub>16 <a href="examples/showcase/16-risk-matrix.png">Risk matrix</a> · 17 <a href="examples/showcase/17-quadrant.png">Quadrant chart</a> · 18 <a href="examples/showcase/18-radar.png">Radar</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/07.png" alt="DiagramKit: ER diagram, Treemap, C4 context" width="100%"></p>
+<p align="center"><sub>19 <a href="examples/showcase/19-er.png">ER diagram</a> · 20 <a href="examples/showcase/20-treemap.png">Treemap</a> · 21 <a href="examples/showcase/21-c4-context.png">C4 context</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/08.png" alt="DiagramKit: Sankey, Kanban, System architecture" width="100%"></p>
+<p align="center"><sub>22 <a href="examples/showcase/22-sankey.png">Sankey</a> · 23 <a href="examples/showcase/23-kanban.png">Kanban</a> · 24 <a href="examples/showcase/24-architecture.png">System architecture</a></sub></p>
+<!-- /showcase:default -->
+
+### Each type's own look
+
+`--style report`: every figure type in its own colours.
+
+<!-- showcase:report -->
+<p align="center"><img src="examples/showcase/rows/09.png" alt="DiagramKit: Cloud architecture, C4 containers, Requirement diagram" width="100%"></p>
+<p align="center"><sub>25 <a href="examples/showcase/25-cloud-architecture.png">Cloud architecture</a> · 26 <a href="examples/showcase/26-c4-container.png">C4 containers</a> · 27 <a href="examples/showcase/27-requirement.png">Requirement diagram</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/10.png" alt="DiagramKit: Multi-stage Sankey, Grouped treemap, Rose chart" width="100%"></p>
+<p align="center"><sub>28 <a href="examples/showcase/28-energy-flows.png">Multi-stage Sankey</a> · 29 <a href="examples/showcase/29-treemap-emissions.png">Grouped treemap</a> · 30 <a href="examples/showcase/30-rose.png">Rose chart</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/11.png" alt="DiagramKit: Satisfaction journey, Gantt chart in lanes, Release lifecycle" width="100%"></p>
+<p align="center"><sub>31 <a href="examples/showcase/31-journey-satisfaction.png">Satisfaction journey</a> · 32 <a href="examples/showcase/32-gantt-lanes.png">Gantt chart in lanes</a> · 33 <a href="examples/showcase/33-release-lifecycle.png">Release lifecycle</a></sub></p>
+<!-- /showcase:report -->
+
+### The hand-drawn pen
+
+`--style notebook`: hand-drawn strokes, a handwriting typeface, curved connectors.
+
+<!-- showcase:notebook -->
+<p align="center"><img src="examples/showcase/rows/12.png" alt="DiagramKit: Incident response, Sequence, Kanban" width="100%"></p>
+<p align="center"><sub>34 <a href="examples/showcase/34-hand-flow.png">Incident response</a> · 35 <a href="examples/showcase/35-hand-sequence.png">Sequence</a> · 36 <a href="examples/showcase/36-hand-kanban.png">Kanban</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/13.png" alt="DiagramKit: ER diagram, Organisation, Radar" width="100%"></p>
+<p align="center"><sub>37 <a href="examples/showcase/37-hand-er.png">ER diagram</a> · 38 <a href="examples/showcase/38-hand-organisation.png">Organisation</a> · 39 <a href="examples/showcase/39-hand-radar.png">Radar</a></sub></p>
+<p align="center"><img src="examples/showcase/rows/14.png" alt="DiagramKit: Timeline, Sankey, Classes" width="100%"></p>
+<p align="center"><sub>40 <a href="examples/showcase/40-hand-timeline.png">Timeline</a> · 41 <a href="examples/showcase/41-hand-sankey.png">Sankey</a> · 42 <a href="examples/showcase/42-hand-class.png">Classes</a></sub></p>
+<!-- /showcase:notebook -->
+
+### One figure, six document styles
+
+The same spec with one word changed, `style`:
+
+<!-- showcase:styles -->
+<p align="center"><img src="examples/showcase/rows/15.png" alt="DiagramKit: business, report, mono" width="100%"></p>
+<p align="center"><sub>43 <a href="examples/showcase/43-style-business.png"><code>business</code></a> · 44 <a href="examples/showcase/44-style-report.png"><code>report</code></a> · 45 <a href="examples/showcase/45-style-mono.png"><code>mono</code></a></sub></p>
+<p align="center"><img src="examples/showcase/rows/16.png" alt="DiagramKit: guofeng, soft, notebook" width="100%"></p>
+<p align="center"><sub>46 <a href="examples/showcase/46-style-guofeng.png"><code>guofeng</code></a> · 47 <a href="examples/showcase/47-style-soft.png"><code>soft</code></a> · 48 <a href="examples/showcase/48-style-notebook.png"><code>notebook</code></a></sub></p>
+<!-- /showcase:styles -->
 
 ## Install
 
@@ -139,7 +188,7 @@ figure-1/build-result.json
 
 `--format all` adds `diagram.svg` and a vector `diagram.pdf`. `diagramkit example <name>` prints a complete spec for every figure type, and `diagramkit schema` the contract.
 
-**Pages.** A figure is built for the page it goes on: a Word page by default (A4 portrait; landscape, A3 and custom text areas on request), a 16:9 slide with `--output ppt`, or a picture of its own with `--output standalone`. On a Word page the main text prints at 9 pt and never below 6.5 pt; a figure too large for its page is folded or divided at the boundaries of its content, not shrunk until it cannot be read.
+**Pages.** A figure is built for the page it goes on: a Word page by default (A4 portrait; landscape, A3 and custom text areas on request), a 16:9 slide with `--output ppt`, or a picture of its own with `--output standalone`. On a Word page the main text prints at 9 pt and never below 6.5 pt. A figure too large for its page is first laid out another way that fits; where none does, it is drawn at a readable size and reported as not fitting, with what would make it fit — a fold, a split at the boundaries of its content, a larger page. It is never shrunk until it cannot be read unless that is asked for.
 
 **Look.** On a Word page a figure that names no style is dressed `business`: one colour family for the whole document, each figure type coloured in its own manner within it. Other document styles: `mono` (black-and-white print, official documents), `guofeng`, `soft`, `notebook` (hand-drawn) and `report` (each type's own regular look). Every type can also be drawn with the hand-drawn pen.
 

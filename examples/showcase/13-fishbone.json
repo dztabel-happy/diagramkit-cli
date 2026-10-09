@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "id": "fishbone",
+  "type": "fishbone",
+  "title": "系统上线延期的原因分析",
+  "caption": "示例数据，仅作演示。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "orientation": "landscape"
+  },
+  "effect": {
+    "id": "effect",
+    "label": "系统上线延期 3 个月"
+  },
+  "causes": [
+    {
+      "id": "req",
+      "label": "需求"
+    },
+    {
+      "id": "req1",
+      "label": "范围在开发中途两次扩大",
+      "parent": "req"
+    },
+    {
+      "id": "req1a",
+      "label": "新增报表 14 张",
+      "parent": "req1"
+    },
+    {
+      "id": "req1b",
+      "label": "新增移动端",
+      "parent": "req1"
+    },
+    {
+      "id": "req2",
+      "label": "验收标准写得含糊",
+      "parent": "req"
+    },
+    {
+      "id": "req3",
+      "label": "关键用户到第二轮评审才参加",
+      "parent": "req"
+    },
+    {
+      "id": "plan",
+      "label": "计划"
+    },
+    {
+      "id": "plan1",
+      "label": "工期按最乐观估计排",
+      "parent": "plan"
+    },
+    {
+      "id": "plan2",
+      "label": "没有给联调留缓冲",
+      "parent": "plan"
+    },
+    {
+      "id": "plan3",
+      "label": "里程碑只看完成率",
+      "parent": "plan"
+    },
+    {
+      "id": "plan3a",
+      "label": "“完成 90%”持续 6 周",
+      "parent": "plan3"
+    },
+    {
+      "id": "people",
+      "label": "人员"
+    },
+    {
+      "id": "people1",
+      "label": "架构师同时带三个项目",
+      "parent": "people"
+    },
+    {
+      "id": "people2",
+      "label": "两名骨干中途离职",
+      "parent": "people"
+    },
+    {
+      "id": "people2a",
+      "label": "交接只有口头说明",
+      "parent": "people2"
+    },
+    {
+      "id": "people3",
+      "label": "新人上手用了 5 周",
+      "parent": "people"
+    },
+    {
+      "id": "tech",
+      "label": "技术"
+    },
+    {
+      "id": "tech1",
+      "label": "旧系统数据质量差",
+      "parent": "tech"
+    },
+    {
+      "id": "tech1a",
+      "label": "编码规则前后不一",
+      "parent": "tech1"
+    },
+    {
+      "id": "tech1b",
+      "label": "12% 的记录缺主键",
+      "parent": "tech1"
+    },
+    {
+      "id": "tech2",
+      "label": "接口文档与实际不符",
+      "parent": "tech"
+    },
+    {
+      "id": "tech3",
+      "label": "性能问题到压测才暴露",
+      "parent": "tech"
+    },
+    {
+      "id": "vendor",
+      "label": "外部依赖"
+    },
+    {
+      "id": "vendor1",
+      "label": "第三方接口晚交付 7 周",
+      "parent": "vendor"
+    },
+    {
+      "id": "vendor2",
+      "label": "硬件到货延后",
+      "parent": "vendor"
+    },
+    {
+      "id": "vendor3",
+      "label": "安全测评排期紧张",
+      "parent": "vendor"
+    },
+    {
+      "id": "env",
+      "label": "环境与测试"
+    },
+    {
+      "id": "env1",
+      "label": "测试环境与生产配置不同",
+      "parent": "env"
+    },
+    {
+      "id": "env2",
+      "label": "回归测试靠人工",
+      "parent": "env"
+    },
+    {
+      "id": "env2a",
+      "label": "一轮需要 9 个工作日",
+      "parent": "env2"
+    },
+    {
+      "id": "env3",
+      "label": "缺陷集中在最后一个月发现",
+      "parent": "env"
+    }
+  ]
+}

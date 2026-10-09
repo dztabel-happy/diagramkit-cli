@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "id": "hand-flow",
+  "type": "compound",
+  "title": "线上故障响应流程",
+  "caption": "示例流程，仅作演示。",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "alert",
+      "label": "监控告警触发",
+      "role": "entry"
+    },
+    {
+      "id": "ack",
+      "label": "值班工程师确认",
+      "role": "step"
+    },
+    {
+      "id": "impact",
+      "label": "影响到用户？",
+      "role": "decision"
+    },
+    {
+      "id": "ticket",
+      "label": "记入缺陷清单，按期修复",
+      "role": "step"
+    },
+    {
+      "id": "incident",
+      "label": "升级为事故，通知相关团队",
+      "role": "step"
+    },
+    {
+      "id": "locate",
+      "label": "定位原因",
+      "role": "step"
+    },
+    {
+      "id": "can-rollback",
+      "label": "可以回滚？",
+      "role": "decision"
+    },
+    {
+      "id": "rollback",
+      "label": "回滚到上一版本",
+      "role": "step"
+    },
+    {
+      "id": "hotfix",
+      "label": "发布紧急修复",
+      "role": "step"
+    },
+    {
+      "id": "recovered",
+      "label": "指标恢复正常？",
+      "role": "decision"
+    },
+    {
+      "id": "notice",
+      "label": "发布恢复通告",
+      "role": "step"
+    },
+    {
+      "id": "review",
+      "label": "复盘记录归档",
+      "role": "store"
+    },
+    {
+      "id": "done",
+      "label": "结束",
+      "role": "terminal"
+    }
+  ],
+  "groups": [
+    {
+      "id": "handling",
+      "label": "事故处理",
+      "children": [
+        "incident",
+        "locate",
+        "can-rollback",
+        "rollback",
+        "hotfix",
+        "recovered"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "alert",
+      "to": "ack",
+      "kind": "main"
+    },
+    {
+      "id": "e2",
+      "from": "ack",
+      "to": "impact",
+      "kind": "main"
+    },
+    {
+      "id": "e3",
+      "from": "impact",
+      "to": "ticket",
+      "kind": "branch",
+      "label": "否"
+    },
+    {
+      "id": "e4",
+      "from": "impact",
+      "to": "incident",
+      "kind": "branch",
+      "label": "是"
+    },
+    {
+      "id": "e5",
+      "from": "incident",
+      "to": "locate",
+      "kind": "main"
+    },
+    {
+      "id": "e6",
+      "from": "locate",
+      "to": "can-rollback",
+      "kind": "main"
+    },
+    {
+      "id": "e7",
+      "from": "can-rollback",
+      "to": "rollback",
+      "kind": "branch",
+      "label": "是"
+    },
+    {
+      "id": "e8",
+      "from": "can-rollback",
+      "to": "hotfix",
+      "kind": "branch",
+      "label": "否"
+    },
+    {
+      "id": "e9",
+      "from": "rollback",
+      "to": "recovered",
+      "kind": "main"
+    },
+    {
+      "id": "e10",
+      "from": "hotfix",
+      "to": "recovered",
+      "kind": "main"
+    },
+    {
+      "id": "e11",
+      "from": "recovered",
+      "to": "locate",
+      "kind": "return",
+      "label": "否"
+    },
+    {
+      "id": "e12",
+      "from": "recovered",
+      "to": "notice",
+      "kind": "branch",
+      "label": "是"
+    },
+    {
+      "id": "e13",
+      "from": "notice",
+      "to": "review",
+      "kind": "main"
+    },
+    {
+      "id": "e14",
+      "from": "review",
+      "to": "done",
+      "kind": "main"
+    },
+    {
+      "id": "e15",
+      "from": "ticket",
+      "to": "done",
+      "kind": "main"
+    }
+  ]
+}

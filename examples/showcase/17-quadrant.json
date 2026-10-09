@@ -1,0 +1,280 @@
+{
+  "version": 1,
+  "id": "quadrant",
+  "type": "quadrant",
+  "title": "2025年各省份人均地区生产总值与经济增速",
+  "caption": "数据来源：各省（区、市）2025 年国民经济和社会发展统计公报。",
+  "evidence": "illustrative",
+  "x": {
+    "label": "人均地区生产总值(万元,对数刻度)",
+    "min": 5,
+    "max": 25,
+    "scale": "log",
+    "split": 9.9665,
+    "unit": "万",
+    "splitLabel": "全国 9.97万"
+  },
+  "y": {
+    "label": "地区生产总值实际增速(%)",
+    "min": 3.5,
+    "max": 7.5,
+    "split": 5,
+    "unit": "%",
+    "splitLabel": "全国 5.0%"
+  },
+  "quadrants": [
+    {
+      "id": "q-rich-fast",
+      "label": "高收入 · 高增速"
+    },
+    {
+      "id": "q-catching-up",
+      "label": "追赶 · 高增速"
+    },
+    {
+      "id": "q-lagging",
+      "label": "低收入 · 低增速"
+    },
+    {
+      "id": "q-rich-slow",
+      "label": "高收入 · 低增速"
+    }
+  ],
+  "groups": [
+    {
+      "id": "east",
+      "label": "东部"
+    },
+    {
+      "id": "central",
+      "label": "中部"
+    },
+    {
+      "id": "west",
+      "label": "西部"
+    },
+    {
+      "id": "northeast",
+      "label": "东北"
+    }
+  ],
+  "points": [
+    {
+      "id": "bj",
+      "label": "北京",
+      "x": 23.8705,
+      "y": 5.4,
+      "group": "east"
+    },
+    {
+      "id": "sh",
+      "label": "上海",
+      "x": 22.8403,
+      "y": 5.4,
+      "group": "east"
+    },
+    {
+      "id": "js",
+      "label": "江苏",
+      "x": 16.704,
+      "y": 5.3,
+      "group": "east"
+    },
+    {
+      "id": "fj",
+      "label": "福建",
+      "x": 14.3623,
+      "y": 5,
+      "group": "east"
+    },
+    {
+      "id": "zj",
+      "label": "浙江",
+      "x": 14.1418,
+      "y": 5.5,
+      "group": "east"
+    },
+    {
+      "id": "tj",
+      "label": "天津",
+      "x": 13.5972,
+      "y": 4.8,
+      "group": "east"
+    },
+    {
+      "id": "gd",
+      "label": "广东",
+      "x": 11.3769,
+      "y": 3.9,
+      "group": "east"
+    },
+    {
+      "id": "nm",
+      "label": "内蒙古",
+      "x": 11.2181,
+      "y": 4.7,
+      "group": "west"
+    },
+    {
+      "id": "hb",
+      "label": "湖北",
+      "x": 10.7619,
+      "y": 5.5,
+      "group": "central"
+    },
+    {
+      "id": "cq",
+      "label": "重庆",
+      "x": 10.5862,
+      "y": 5.3,
+      "group": "west"
+    },
+    {
+      "id": "sd",
+      "label": "山东",
+      "x": 10.2566,
+      "y": 5.5,
+      "group": "east"
+    },
+    {
+      "id": "sn",
+      "label": "陕西",
+      "x": 9.2663,
+      "y": 5.1,
+      "group": "west"
+    },
+    {
+      "id": "ah",
+      "label": "安徽",
+      "x": 8.6832,
+      "y": 5.5,
+      "group": "central"
+    },
+    {
+      "id": "hn",
+      "label": "湖南",
+      "x": 8.4888,
+      "y": 4.8,
+      "group": "central"
+    },
+    {
+      "id": "xj",
+      "label": "新疆",
+      "x": 8.1577,
+      "y": 5.5,
+      "group": "west"
+    },
+    {
+      "id": "xz",
+      "label": "西藏",
+      "x": 8.1502,
+      "y": 7,
+      "group": "west"
+    },
+    {
+      "id": "sc",
+      "label": "四川",
+      "x": 8.1124,
+      "y": 5.5,
+      "group": "west"
+    },
+    {
+      "id": "jx",
+      "label": "江西",
+      "x": 8.0258,
+      "y": 5.2,
+      "group": "central"
+    },
+    {
+      "id": "ln",
+      "label": "辽宁",
+      "x": 8.0094,
+      "y": 3.7,
+      "group": "northeast"
+    },
+    {
+      "id": "nx",
+      "label": "宁夏",
+      "x": 7.7981,
+      "y": 5.3,
+      "group": "west"
+    },
+    {
+      "id": "hi",
+      "label": "海南",
+      "x": 7.7117,
+      "y": 4,
+      "group": "east"
+    },
+    {
+      "id": "sx",
+      "label": "山西",
+      "x": 7.4224,
+      "y": 4,
+      "group": "central"
+    },
+    {
+      "id": "yn",
+      "label": "云南",
+      "x": 7.0472,
+      "y": 4.1,
+      "group": "west"
+    },
+    {
+      "id": "qh",
+      "label": "青海",
+      "x": 6.9567,
+      "y": 4.1,
+      "group": "west"
+    },
+    {
+      "id": "ha",
+      "label": "河南",
+      "x": 6.8201,
+      "y": 5.6,
+      "group": "central"
+    },
+    {
+      "id": "he",
+      "label": "河北",
+      "x": 6.6936,
+      "y": 5.6,
+      "group": "east"
+    },
+    {
+      "id": "jl",
+      "label": "吉林",
+      "x": 6.4906,
+      "y": 5,
+      "group": "northeast"
+    },
+    {
+      "id": "gz",
+      "label": "贵州",
+      "x": 6.1066,
+      "y": 4.9,
+      "group": "west"
+    },
+    {
+      "id": "gx",
+      "label": "广西",
+      "x": 5.9384,
+      "y": 5.1,
+      "group": "west"
+    },
+    {
+      "id": "hl",
+      "label": "黑龙江",
+      "x": 5.598,
+      "y": 4.2,
+      "group": "northeast"
+    },
+    {
+      "id": "gs",
+      "label": "甘肃",
+      "x": 5.5897,
+      "y": 5.8,
+      "group": "west"
+    }
+  ]
+}

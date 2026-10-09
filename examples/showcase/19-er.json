@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "id": "er",
+  "type": "er",
+  "title": "Library lending schema",
+  "evidence": "illustrative",
+  "entities": [
+    {
+      "id": "MEMBER",
+      "label": "MEMBER",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "member_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "name"
+        },
+        {
+          "type": "int",
+          "name": "referred_by",
+          "keys": [
+            "FK"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LOAN",
+      "label": "LOAN",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "loan_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "member_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "copy_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "date",
+          "name": "due"
+        }
+      ]
+    },
+    {
+      "id": "COPY",
+      "label": "COPY",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "copy_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "book_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "barcode",
+          "keys": [
+            "UK"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "BOOK",
+      "label": "BOOK",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "book_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "isbn",
+          "keys": [
+            "UK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "title"
+        }
+      ]
+    },
+    {
+      "id": "AUTHOR",
+      "label": "AUTHOR",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "author_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "id": "BOOK-AUTHOR",
+      "label": "BOOK_AUTHOR",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "book_id",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "author_id",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r1",
+      "from": "MEMBER",
+      "to": "LOAN",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "borrows"
+    },
+    {
+      "id": "r2",
+      "from": "COPY",
+      "to": "LOAN",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "lent as"
+    },
+    {
+      "id": "r3",
+      "from": "BOOK",
+      "to": "COPY",
+      "fromCardinality": "one",
+      "toCardinality": "one-or-more",
+      "label": "held as"
+    },
+    {
+      "id": "r4",
+      "from": "BOOK",
+      "to": "BOOK-AUTHOR",
+      "fromCardinality": "one",
+      "toCardinality": "one-or-more",
+      "label": "written by"
+    },
+    {
+      "id": "r5",
+      "from": "AUTHOR",
+      "to": "BOOK-AUTHOR",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "writes"
+    },
+    {
+      "id": "r6",
+      "from": "MEMBER",
+      "to": "MEMBER",
+      "fromCardinality": "zero-or-one",
+      "toCardinality": "zero-or-more",
+      "label": "refers"
+    }
+  ]
+}

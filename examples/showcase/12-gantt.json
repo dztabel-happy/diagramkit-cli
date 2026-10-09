@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "id": "gantt",
+  "type": "gantt",
+  "title": "项目实施进度计划",
+  "caption": "示例计划，仅作演示。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "orientation": "landscape"
+  },
+  "groups": [
+    {
+      "id": "prep",
+      "label": "前期工作"
+    },
+    {
+      "id": "build",
+      "label": "建设期"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "fs",
+      "label": "可行性研究报告批复",
+      "start": "2026-01",
+      "end": "2026-02",
+      "group": "prep",
+      "owner": "实施机构"
+    },
+    {
+      "id": "scheme",
+      "label": "特许经营方案审核",
+      "start": "2026-03",
+      "end": "2026-04",
+      "group": "prep",
+      "owner": "实施机构",
+      "after": [
+        "fs"
+      ]
+    },
+    {
+      "id": "tender",
+      "label": "特许经营者遴选（公开招标）",
+      "start": "2026-05",
+      "end": "2026-07",
+      "group": "prep",
+      "owner": "实施机构",
+      "after": [
+        "scheme"
+      ]
+    },
+    {
+      "id": "sign",
+      "label": "签署《特许经营协议》",
+      "start": "2026-08",
+      "milestone": true,
+      "group": "prep",
+      "after": [
+        "tender"
+      ]
+    },
+    {
+      "id": "design",
+      "label": "初步设计及施工图设计",
+      "start": "2026-08",
+      "end": "2026-11",
+      "group": "build",
+      "owner": "项目公司"
+    },
+    {
+      "id": "civil",
+      "label": "土建施工",
+      "start": "2026-12",
+      "end": "2027-10",
+      "group": "build",
+      "owner": "工程总承包单位",
+      "after": [
+        "design"
+      ]
+    },
+    {
+      "id": "equip",
+      "label": "设备采购与安装",
+      "start": "2027-06",
+      "end": "2027-12",
+      "group": "build",
+      "owner": "工程总承包单位"
+    },
+    {
+      "id": "commission",
+      "label": "联动调试与试运行",
+      "start": "2028-01",
+      "end": "2028-03",
+      "group": "build",
+      "owner": "项目公司",
+      "after": [
+        "equip"
+      ]
+    },
+    {
+      "id": "accept",
+      "label": "竣工环保验收",
+      "start": "2028-04",
+      "end": "2028-05",
+      "group": "build",
+      "owner": "项目公司",
+      "after": [
+        "commission"
+      ]
+    },
+    {
+      "id": "cod",
+      "label": "进入商业运营",
+      "start": "2028-06",
+      "milestone": true,
+      "group": "build",
+      "after": [
+        "accept"
+      ]
+    }
+  ]
+}

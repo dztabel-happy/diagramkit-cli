@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "id": "treemap",
+  "type": "treemap",
+  "title": "2024年全国一般公共预算支出（亿元）",
+  "caption": "数据来源：财政部《2024年财政收支情况》。",
+  "evidence": "illustrative",
+  "unit": "亿元",
+  "show": "both",
+  "items": [
+    {
+      "id": "education",
+      "label": "教育",
+      "value": 42076
+    },
+    {
+      "id": "social",
+      "label": "社会保障和就业",
+      "value": 42114
+    },
+    {
+      "id": "agri",
+      "label": "农林水",
+      "value": 27045
+    },
+    {
+      "id": "urban",
+      "label": "城乡社区",
+      "value": 21742
+    },
+    {
+      "id": "health",
+      "label": "卫生健康",
+      "value": 20348
+    },
+    {
+      "id": "interest",
+      "label": "债务付息",
+      "value": 12877
+    },
+    {
+      "id": "transport",
+      "label": "交通运输",
+      "value": 12076
+    },
+    {
+      "id": "science",
+      "label": "科学技术",
+      "value": 11505
+    },
+    {
+      "id": "environment",
+      "label": "节能环保",
+      "value": 5489
+    },
+    {
+      "id": "culture",
+      "label": "文化旅游体育与传媒",
+      "value": 3865
+    },
+    {
+      "id": "other",
+      "label": "一般公共服务、国防、公共安全等其他支出",
+      "value": 85475
+    }
+  ]
+}

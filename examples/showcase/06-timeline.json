@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "id": "timeline",
+  "type": "timeline",
+  "title": "To the Moon: ten events, 1961–1972",
+  "caption": "Source: NASA.",
+  "evidence": "illustrative",
+  "events": [
+    {
+      "id": "a01",
+      "date": "1961-05-25",
+      "label": "Kennedy's Moon goal",
+      "detail": "Before this decade is out, land a man on the Moon",
+      "dateLabel": "25 May 1961"
+    },
+    {
+      "id": "a02",
+      "date": "1962-02-20",
+      "label": "Friendship 7",
+      "detail": "John Glenn is the first American to orbit the Earth",
+      "dateLabel": "20 Feb 1962"
+    },
+    {
+      "id": "a03",
+      "date": "1965-06-03",
+      "label": "Gemini 4",
+      "detail": "Ed White makes the first American spacewalk",
+      "dateLabel": "3 Jun 1965"
+    },
+    {
+      "id": "a04",
+      "date": "1966-03-16",
+      "label": "Gemini 8",
+      "detail": "The first docking of two spacecraft in orbit",
+      "dateLabel": "16 Mar 1966"
+    },
+    {
+      "id": "a05",
+      "date": "1967-01-27",
+      "label": "Apollo 1 fire",
+      "detail": "Three astronauts die in a launch rehearsal",
+      "dateLabel": "27 Jan 1967"
+    },
+    {
+      "id": "a06",
+      "date": "1968-12-21",
+      "label": "Apollo 8",
+      "detail": "The first crewed flight around the Moon",
+      "dateLabel": "21 Dec 1968"
+    },
+    {
+      "id": "a07",
+      "date": "1969-07-20",
+      "label": "Apollo 11",
+      "detail": "The first crewed landing on the Moon",
+      "dateLabel": "20 Jul 1969",
+      "milestone": true
+    },
+    {
+      "id": "a08",
+      "date": "1970-04-13",
+      "label": "Apollo 13",
+      "detail": "An oxygen tank fails; the crew returns safely",
+      "dateLabel": "13 Apr 1970"
+    },
+    {
+      "id": "a09",
+      "date": "1971-07",
+      "label": "Apollo 15",
+      "detail": "The first Lunar Roving Vehicle",
+      "dateLabel": "Jul 1971"
+    },
+    {
+      "id": "a10",
+      "date": "1972-12",
+      "label": "Apollo 17",
+      "detail": "The last crewed Moon landing",
+      "dateLabel": "Dec 1972"
+    }
+  ]
+}

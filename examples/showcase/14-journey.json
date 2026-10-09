@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "id": "journey",
+  "type": "journey",
+  "title": "现行报装流程用户体验走查评分",
+  "caption": "评分为 1–5 分，5 分最好。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "orientation": "landscape"
+  },
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "unit": "分"
+  },
+  "actors": [
+    {
+      "id": "user",
+      "label": "用户"
+    },
+    {
+      "id": "surveyor",
+      "label": "勘查人员"
+    },
+    {
+      "id": "crew",
+      "label": "施工队"
+    }
+  ],
+  "stages": [
+    {
+      "id": "apply",
+      "label": "申请阶段"
+    },
+    {
+      "id": "survey",
+      "label": "勘查阶段"
+    },
+    {
+      "id": "connect",
+      "label": "接水阶段"
+    }
+  ],
+  "steps": [
+    {
+      "id": "q",
+      "label": "到营业厅取号排队",
+      "stage": "apply",
+      "score": 2,
+      "actors": [
+        "user"
+      ]
+    },
+    {
+      "id": "form",
+      "label": "填写纸质申请表",
+      "stage": "apply",
+      "score": 3,
+      "actors": [
+        "user"
+      ]
+    },
+    {
+      "id": "doc",
+      "label": "提交房产证明等材料",
+      "stage": "apply",
+      "score": 2,
+      "actors": [
+        "user"
+      ]
+    },
+    {
+      "id": "wait",
+      "label": "等待预约电话",
+      "stage": "survey",
+      "score": 2,
+      "actors": [
+        "user"
+      ]
+    },
+    {
+      "id": "visit",
+      "label": "上门勘查",
+      "stage": "survey",
+      "score": 4,
+      "actors": [
+        "surveyor"
+      ]
+    },
+    {
+      "id": "fee",
+      "label": "缴纳工程费",
+      "stage": "connect",
+      "score": 3,
+      "actors": [
+        "user"
+      ]
+    },
+    {
+      "id": "build",
+      "label": "施工接水",
+      "stage": "connect",
+      "score": 4,
+      "actors": [
+        "crew"
+      ]
+    },
+    {
+      "id": "accept",
+      "label": "共同通水验收",
+      "stage": "connect",
+      "score": 5,
+      "actors": [
+        "user",
+        "surveyor"
+      ]
+    }
+  ]
+}

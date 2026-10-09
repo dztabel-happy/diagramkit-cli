@@ -1,0 +1,354 @@
+{
+  "density": 1.5,
+  "hero": {
+    "big": "02-phased-flow",
+    "small": [
+      "28-energy-flows",
+      "16-risk-matrix",
+      "48-style-notebook",
+      "32-gantt-lanes"
+    ]
+  },
+  "sections": [
+    {
+      "id": "default",
+      "rows": [
+        {
+          "shape": "square",
+          "figures": [
+            {
+              "file": "01-decision-flow",
+              "zh": "带判断的流程",
+              "en": "Decision flow"
+            },
+            {
+              "file": "02-phased-flow",
+              "zh": "分阶段的流程",
+              "en": "Flow in phases"
+            },
+            {
+              "file": "03-state-machine",
+              "zh": "状态机",
+              "en": "State machine"
+            }
+          ]
+        },
+        {
+          "shape": "portrait",
+          "figures": [
+            {
+              "file": "04-approval-flow",
+              "zh": "审批流程",
+              "en": "Approval procedure"
+            },
+            {
+              "file": "05-data-pipeline",
+              "zh": "数据管线",
+              "en": "Data pipeline"
+            },
+            {
+              "file": "06-timeline",
+              "zh": "时间线",
+              "en": "Timeline"
+            }
+          ]
+        },
+        {
+          "shape": "portrait",
+          "figures": [
+            {
+              "file": "07-sequence",
+              "zh": "时序图",
+              "en": "Sequence"
+            },
+            {
+              "file": "08-class",
+              "zh": "类图",
+              "en": "Classes"
+            },
+            {
+              "file": "09-mindmap",
+              "zh": "思维导图",
+              "en": "Mind map"
+            }
+          ]
+        },
+        {
+          "shape": "wide",
+          "figures": [
+            {
+              "file": "10-transaction-structure",
+              "zh": "交易结构",
+              "en": "Transaction structure"
+            },
+            {
+              "file": "11-organisation",
+              "zh": "组织架构",
+              "en": "Organisation"
+            },
+            {
+              "file": "12-gantt",
+              "zh": "甘特图",
+              "en": "Gantt chart"
+            }
+          ]
+        },
+        {
+          "shape": "wide",
+          "figures": [
+            {
+              "file": "13-fishbone",
+              "zh": "鱼骨图",
+              "en": "Fishbone"
+            },
+            {
+              "file": "14-journey",
+              "zh": "用户旅程图",
+              "en": "User journey"
+            },
+            {
+              "file": "15-donut",
+              "zh": "环形图",
+              "en": "Donut"
+            }
+          ]
+        },
+        {
+          "shape": "square",
+          "figures": [
+            {
+              "file": "16-risk-matrix",
+              "zh": "风险矩阵",
+              "en": "Risk matrix"
+            },
+            {
+              "file": "17-quadrant",
+              "zh": "象限图",
+              "en": "Quadrant chart"
+            },
+            {
+              "file": "18-radar",
+              "zh": "雷达图",
+              "en": "Radar"
+            }
+          ]
+        },
+        {
+          "shape": "landscape",
+          "figures": [
+            {
+              "file": "19-er",
+              "zh": "ER 图",
+              "en": "ER diagram"
+            },
+            {
+              "file": "20-treemap",
+              "zh": "矩形树图",
+              "en": "Treemap"
+            },
+            {
+              "file": "21-c4-context",
+              "zh": "C4 上下文图",
+              "en": "C4 context"
+            }
+          ]
+        },
+        {
+          "shape": "square",
+          "figures": [
+            {
+              "file": "22-sankey",
+              "zh": "桑基图",
+              "en": "Sankey"
+            },
+            {
+              "file": "23-kanban",
+              "zh": "看板",
+              "en": "Kanban"
+            },
+            {
+              "file": "24-architecture",
+              "zh": "系统架构图",
+              "en": "System architecture"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "report",
+      "rows": [
+        {
+          "shape": "square",
+          "figures": [
+            {
+              "file": "25-cloud-architecture",
+              "zh": "云架构图",
+              "en": "Cloud architecture"
+            },
+            {
+              "file": "26-c4-container",
+              "zh": "C4 容器图",
+              "en": "C4 containers"
+            },
+            {
+              "file": "27-requirement",
+              "zh": "需求图",
+              "en": "Requirement diagram"
+            }
+          ]
+        },
+        {
+          "shape": "landscape",
+          "figures": [
+            {
+              "file": "28-energy-flows",
+              "zh": "多级桑基图",
+              "en": "Multi-stage Sankey"
+            },
+            {
+              "file": "29-treemap-emissions",
+              "zh": "分组的矩形树图",
+              "en": "Grouped treemap"
+            },
+            {
+              "file": "30-rose",
+              "zh": "玫瑰图",
+              "en": "Rose chart"
+            }
+          ]
+        },
+        {
+          "shape": "landscape",
+          "figures": [
+            {
+              "file": "31-journey-satisfaction",
+              "zh": "满意度旅程图",
+              "en": "Satisfaction journey"
+            },
+            {
+              "file": "32-gantt-lanes",
+              "zh": "分泳道的甘特图",
+              "en": "Gantt chart in lanes"
+            },
+            {
+              "file": "33-release-lifecycle",
+              "zh": "版本生命周期",
+              "en": "Release lifecycle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "notebook",
+      "rows": [
+        {
+          "shape": "portrait",
+          "figures": [
+            {
+              "file": "34-hand-flow",
+              "zh": "故障响应流程",
+              "en": "Incident response"
+            },
+            {
+              "file": "35-hand-sequence",
+              "zh": "时序图",
+              "en": "Sequence"
+            },
+            {
+              "file": "36-hand-kanban",
+              "zh": "看板",
+              "en": "Kanban"
+            }
+          ]
+        },
+        {
+          "shape": "square",
+          "figures": [
+            {
+              "file": "37-hand-er",
+              "zh": "ER 图",
+              "en": "ER diagram"
+            },
+            {
+              "file": "38-hand-organisation",
+              "zh": "组织架构",
+              "en": "Organisation"
+            },
+            {
+              "file": "39-hand-radar",
+              "zh": "雷达图",
+              "en": "Radar"
+            }
+          ]
+        },
+        {
+          "shape": "landscape",
+          "figures": [
+            {
+              "file": "40-hand-timeline",
+              "zh": "时间线",
+              "en": "Timeline"
+            },
+            {
+              "file": "41-hand-sankey",
+              "zh": "桑基图",
+              "en": "Sankey"
+            },
+            {
+              "file": "42-hand-class",
+              "zh": "类图",
+              "en": "Classes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "styles",
+      "rows": [
+        {
+          "shape": "square",
+          "figures": [
+            {
+              "file": "43-style-business",
+              "zh": "<code>business</code>",
+              "en": "<code>business</code>"
+            },
+            {
+              "file": "44-style-report",
+              "zh": "<code>report</code>",
+              "en": "<code>report</code>"
+            },
+            {
+              "file": "45-style-mono",
+              "zh": "<code>mono</code>",
+              "en": "<code>mono</code>"
+            }
+          ]
+        },
+        {
+          "shape": "square",
+          "figures": [
+            {
+              "file": "46-style-guofeng",
+              "zh": "<code>guofeng</code>",
+              "en": "<code>guofeng</code>"
+            },
+            {
+              "file": "47-style-soft",
+              "zh": "<code>soft</code>",
+              "en": "<code>soft</code>"
+            },
+            {
+              "file": "48-style-notebook",
+              "zh": "<code>notebook</code>",
+              "en": "<code>notebook</code>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
