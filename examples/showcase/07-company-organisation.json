@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "id": "company-organisation",
+  "type": "orgchart",
+  "title": "项目公司组织架构",
+  "units": [
+    {
+      "id": "shareholders",
+      "label": "股东会"
+    },
+    {
+      "id": "board",
+      "label": "董事会",
+      "parent": "shareholders"
+    },
+    {
+      "id": "supervisor",
+      "label": "监事",
+      "parent": "shareholders"
+    },
+    {
+      "id": "gm",
+      "label": "总经理",
+      "parent": "board"
+    },
+    {
+      "id": "ops",
+      "label": "生产运营部",
+      "parent": "gm"
+    },
+    {
+      "id": "tech",
+      "label": "技术质量部",
+      "parent": "gm"
+    },
+    {
+      "id": "equip",
+      "label": "设备维护部",
+      "parent": "gm"
+    },
+    {
+      "id": "safety",
+      "label": "安全环保部",
+      "parent": "gm"
+    },
+    {
+      "id": "fin",
+      "label": "财务部",
+      "parent": "gm"
+    },
+    {
+      "id": "admin",
+      "label": "综合管理部",
+      "parent": "gm"
+    },
+    {
+      "id": "lab",
+      "label": "化验室",
+      "parent": "tech"
+    },
+    {
+      "id": "control",
+      "label": "中控室",
+      "parent": "ops"
+    },
+    {
+      "id": "shift",
+      "label": "运行班组",
+      "parent": "ops"
+    }
+  ]
+}

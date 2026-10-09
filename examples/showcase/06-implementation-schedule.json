@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "implementation-schedule",
+  "type": "gantt",
+  "title": "项目建设进度计划",
+  "caption": "起止时间按月给出；通水试运行为 2027 年 12 月。",
+  "columns": [
+    "start",
+    "end"
+  ],
+  "tasks": [
+    {
+      "id": "design",
+      "label": "初步设计及施工图设计",
+      "start": "2026-01",
+      "end": "2026-03"
+    },
+    {
+      "id": "civil",
+      "label": "土建施工",
+      "start": "2026-04",
+      "end": "2027-06"
+    },
+    {
+      "id": "equip",
+      "label": "设备采购与安装",
+      "start": "2027-01",
+      "end": "2027-09"
+    },
+    {
+      "id": "commission",
+      "label": "单机及联动调试",
+      "start": "2027-10",
+      "end": "2027-11"
+    },
+    {
+      "id": "trial",
+      "label": "通水试运行并申请环保验收",
+      "start": "2027-12",
+      "end": "2027-12"
+    }
+  ]
+}

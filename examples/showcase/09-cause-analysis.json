@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "id": "cause-analysis",
+  "type": "fishbone",
+  "title": "出水总氮超标原因分析",
+  "effect": {
+    "id": "effect",
+    "label": "出水总氮超标"
+  },
+  "causes": [
+    {
+      "id": "inflow",
+      "label": "进水水质"
+    },
+    {
+      "id": "c1",
+      "label": "进水碳氮比偏低（BOD₅/TN < 4）",
+      "parent": "inflow"
+    },
+    {
+      "id": "c2",
+      "label": "工业废水冲击负荷",
+      "parent": "inflow"
+    },
+    {
+      "id": "process",
+      "label": "工艺运行"
+    },
+    {
+      "id": "c3",
+      "label": "内回流比不足",
+      "parent": "process"
+    },
+    {
+      "id": "c4",
+      "label": "缺氧区溶解氧偏高",
+      "parent": "process"
+    },
+    {
+      "id": "c5",
+      "label": "污泥龄控制不当",
+      "parent": "process"
+    },
+    {
+      "id": "equip",
+      "label": "设备设施"
+    },
+    {
+      "id": "c6",
+      "label": "回流泵故障停运",
+      "parent": "equip"
+    },
+    {
+      "id": "c7",
+      "label": "在线仪表漂移未校准",
+      "parent": "equip"
+    },
+    {
+      "id": "dose",
+      "label": "药剂投加"
+    },
+    {
+      "id": "c8",
+      "label": "外加碳源投加量不足",
+      "parent": "dose"
+    },
+    {
+      "id": "env",
+      "label": "环境条件"
+    },
+    {
+      "id": "c9",
+      "label": "冬季水温低于 12 ℃",
+      "parent": "env"
+    },
+    {
+      "id": "manage",
+      "label": "运行管理"
+    },
+    {
+      "id": "c10",
+      "label": "交接班记录不完整",
+      "parent": "manage"
+    },
+    {
+      "id": "c11",
+      "label": "应急预案未演练",
+      "parent": "manage"
+    }
+  ]
+}

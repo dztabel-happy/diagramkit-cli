@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "id": "performance-payment",
+  "type": "compound",
+  "title": "绩效考核与污水处理服务费支付",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "report",
+      "label": "项目公司按月报送运营数据与水量结算单",
+      "role": "entry",
+      "shape": "parallelogram"
+    },
+    {
+      "id": "check",
+      "label": "实施机构组织月度绩效考核（出水水质、设施运行、安全管理）",
+      "role": "step"
+    },
+    {
+      "id": "score",
+      "label": "考核得分 ≥ 90 分？",
+      "role": "decision"
+    },
+    {
+      "id": "full",
+      "label": "按 100% 支付当月污水处理服务费",
+      "role": "step"
+    },
+    {
+      "id": "score80",
+      "label": "考核得分 ≥ 80 分？",
+      "role": "decision"
+    },
+    {
+      "id": "deduct",
+      "label": "按 90% 支付，扣减部分不再补付",
+      "role": "step"
+    },
+    {
+      "id": "rectify",
+      "label": "按 80% 支付，并限期 30 日内整改",
+      "role": "abnormal"
+    },
+    {
+      "id": "pay",
+      "label": "市财政局在收到支付申请后 15 个工作日内拨付",
+      "role": "terminal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "y1",
+      "from": "report",
+      "to": "check",
+      "kind": "main"
+    },
+    {
+      "id": "y2",
+      "from": "check",
+      "to": "score",
+      "kind": "main"
+    },
+    {
+      "id": "y3",
+      "from": "score",
+      "to": "full",
+      "kind": "branch",
+      "label": "是"
+    },
+    {
+      "id": "y4",
+      "from": "score",
+      "to": "score80",
+      "kind": "branch",
+      "label": "否"
+    },
+    {
+      "id": "y5",
+      "from": "score80",
+      "to": "deduct",
+      "kind": "branch",
+      "label": "是"
+    },
+    {
+      "id": "y6",
+      "from": "score80",
+      "to": "rectify",
+      "kind": "branch",
+      "label": "否"
+    },
+    {
+      "id": "y7",
+      "from": "full",
+      "to": "pay",
+      "kind": "main"
+    },
+    {
+      "id": "y8",
+      "from": "deduct",
+      "to": "pay",
+      "kind": "main"
+    },
+    {
+      "id": "y9",
+      "from": "rectify",
+      "to": "pay",
+      "kind": "main"
+    }
+  ]
+}

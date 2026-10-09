@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "id": "sources-and-uses",
+  "type": "sankey",
+  "title": "项目资金来源与运用",
+  "unit": "万元",
+  "nodes": [
+    {
+      "id": "rep",
+      "label": "政府出资代表资本金"
+    },
+    {
+      "id": "inv",
+      "label": "社会资本方资本金"
+    },
+    {
+      "id": "loan",
+      "label": "银行贷款"
+    },
+    {
+      "id": "total",
+      "label": "项目总投资"
+    },
+    {
+      "id": "civil",
+      "label": "建筑工程费"
+    },
+    {
+      "id": "equip",
+      "label": "设备购置及安装费"
+    },
+    {
+      "id": "other",
+      "label": "工程建设其他费用"
+    },
+    {
+      "id": "reserve",
+      "label": "预备费"
+    },
+    {
+      "id": "idc",
+      "label": "建设期利息"
+    }
+  ],
+  "links": [
+    {
+      "from": "rep",
+      "to": "total",
+      "value": 750
+    },
+    {
+      "from": "inv",
+      "to": "total",
+      "value": 6750
+    },
+    {
+      "from": "loan",
+      "to": "total",
+      "value": 17500
+    },
+    {
+      "from": "total",
+      "to": "civil",
+      "value": 11200
+    },
+    {
+      "from": "total",
+      "to": "equip",
+      "value": 8300
+    },
+    {
+      "from": "total",
+      "to": "other",
+      "value": 2900
+    },
+    {
+      "from": "total",
+      "to": "reserve",
+      "value": 1750
+    },
+    {
+      "from": "total",
+      "to": "idc",
+      "value": 850
+    }
+  ],
+  "caption": "单位：万元。"
+}

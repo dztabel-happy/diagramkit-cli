@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "id": "transaction-structure",
+  "type": "compound",
+  "title": "某污水处理厂特许经营项目交易结构（示例）",
+  "caption": "依据《特许经营方案》“项目运作方式”一节整理（示例）。",
+  "direction": "TB",
+  "evidence": "illustrative",
+  "nodes": [
+    {
+      "id": "agency",
+      "label": "实施机构（市住建局）",
+      "role": "actor"
+    },
+    {
+      "id": "investor",
+      "label": "中选社会资本方",
+      "role": "actor"
+    },
+    {
+      "id": "bank",
+      "label": "金融机构",
+      "role": "actor"
+    },
+    {
+      "id": "spv",
+      "label": "项目公司",
+      "role": "service"
+    },
+    {
+      "id": "epc",
+      "label": "工程总承包单位",
+      "role": "actor"
+    },
+    {
+      "id": "plant",
+      "label": "污水处理厂（5 万 m³/d）",
+      "role": "store"
+    }
+  ],
+  "edges": [
+    {
+      "id": "agreement",
+      "from": "agency",
+      "to": "spv",
+      "kind": "main",
+      "label": "签订《特许经营协议》；绩效考核"
+    },
+    {
+      "id": "equity",
+      "from": "investor",
+      "to": "spv",
+      "kind": "main",
+      "label": "出资设立（资本金 100%）"
+    },
+    {
+      "id": "loan",
+      "from": "bank",
+      "to": "spv",
+      "kind": "data",
+      "label": "项目贷款"
+    },
+    {
+      "id": "fee",
+      "from": "agency",
+      "to": "spv",
+      "kind": "data",
+      "label": "按绩效支付污水处理服务费"
+    },
+    {
+      "id": "epc-contract",
+      "from": "spv",
+      "to": "epc",
+      "kind": "main",
+      "label": "工程总承包合同"
+    },
+    {
+      "id": "operate",
+      "from": "spv",
+      "to": "plant",
+      "kind": "main",
+      "label": "投资、建设、运营 30 年"
+    },
+    {
+      "id": "repay",
+      "from": "spv",
+      "to": "bank",
+      "kind": "data",
+      "label": "还本付息"
+    },
+    {
+      "id": "transfer",
+      "from": "spv",
+      "to": "agency",
+      "kind": "main",
+      "label": "期满无偿移交"
+    }
+  ]
+}
