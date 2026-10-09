@@ -110,7 +110,7 @@ diagramkit --version
 看到类似下面的输出，说明命令行装好了：
 
 ```text
-diagramkit 0.1.0 (contract 1)
+diagramkit 0.1.1 (contract 1)
 ```
 
 ### 2. 安装一个 Agent 技能
@@ -206,7 +206,7 @@ diagramkit doctor
 
 `doctor` 报告 Node 版本、原生渲染器和正在使用的字体——其中 `font.wordPage` 是本机放进 Word 页面的图会用的字体。
 
-- **`npm install` 失败，或 `doctor` 说没有原生渲染器。** DiagramKit 用 `skia-canvas` 出图，它会为当前平台装一个预编译的二进制：macOS（Apple 芯片和 Intel）、Windows（x64 和 ARM64）、Linux（x64 和 ARM64）。本次发布在 macOS Apple 芯片和 Windows 11 ARM64 上验证过。
+- **`npm install` 失败，或 `doctor` 说没有原生渲染器。** DiagramKit 用 `skia-canvas` 出图，它会为当前平台装一个预编译的二进制：macOS（Apple 芯片和 Intel）、Windows（x64 和 ARM64）、Linux（x64 和 ARM64）。每个版本发布前，都会在 macOS（Apple 芯片）、Windows（x64）和 Linux（x64）上全新安装并出一张图。
 - **`DKT001: Font is unavailable`。** `--font` 写的字体本机没有装。去掉 `--font`，或者写一个装着的字体。
 - **Node 版本低于 22.16。** 请安装当前的 Node.js LTS。
 

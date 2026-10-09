@@ -110,7 +110,7 @@ diagramkit --version
 Output like this means the CLI is installed:
 
 ```text
-diagramkit 0.1.0 (contract 1)
+diagramkit 0.1.1 (contract 1)
 ```
 
 ### 2. Install one agent skill
@@ -206,7 +206,7 @@ diagramkit doctor
 
 `doctor` reports the Node version, the native renderer and the fonts in use — `font.wordPage` is what a figure on a Word page is written in on this machine.
 
-- **`npm install` fails or `doctor` reports no native renderer.** DiagramKit draws with `skia-canvas`, which installs a prebuilt binary for the platform: macOS (Apple Silicon and Intel), Windows (x64 and ARM64) and Linux (x64 and ARM64). This release was checked on macOS Apple Silicon and Windows 11 ARM64.
+- **`npm install` fails or `doctor` reports no native renderer.** DiagramKit draws with `skia-canvas`, which installs a prebuilt binary for the platform: macOS (Apple Silicon and Intel), Windows (x64 and ARM64) and Linux (x64 and ARM64). Before it is published, every release is installed fresh and draws a figure on macOS (Apple Silicon), Windows (x64) and Linux (x64).
 - **`DKT001: Font is unavailable`.** A family named with `--font` is not installed. Leave `--font` out, or name an installed family.
 - **Node is older than 22.16.** Install a current Node.js LTS.
 
