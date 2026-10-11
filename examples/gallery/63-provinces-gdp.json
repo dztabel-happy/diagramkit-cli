@@ -1,0 +1,218 @@
+{
+  "version": 1,
+  "id": "provinces-gdp",
+  "type": "treemap",
+  "title": "2024年各省（区、市）地区生产总值（亿元，按四大区域）",
+  "caption": "数据来源：国家统计局分省地区生产总值。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "notebook",
+  "unit": "亿元",
+  "items": [
+    {
+      "id": "east",
+      "label": "东部地区"
+    },
+    {
+      "id": "beijing",
+      "label": "北京",
+      "value": 49670.2,
+      "parent": "east"
+    },
+    {
+      "id": "tianjin",
+      "label": "天津",
+      "value": 17931.3,
+      "parent": "east"
+    },
+    {
+      "id": "hebei",
+      "label": "河北",
+      "value": 47448.1,
+      "parent": "east"
+    },
+    {
+      "id": "shanghai",
+      "label": "上海",
+      "value": 53759.5,
+      "parent": "east"
+    },
+    {
+      "id": "jiangsu",
+      "label": "江苏",
+      "value": 136696.9,
+      "parent": "east"
+    },
+    {
+      "id": "zhejiang",
+      "label": "浙江",
+      "value": 90007.0,
+      "parent": "east"
+    },
+    {
+      "id": "fujian",
+      "label": "福建",
+      "value": 57476.6,
+      "parent": "east"
+    },
+    {
+      "id": "shandong",
+      "label": "山东",
+      "value": 98406.9,
+      "parent": "east"
+    },
+    {
+      "id": "guangdong",
+      "label": "广东",
+      "value": 141488.9,
+      "parent": "east"
+    },
+    {
+      "id": "hainan",
+      "label": "海南",
+      "value": 7972.7,
+      "parent": "east"
+    },
+    {
+      "id": "central",
+      "label": "中部地区"
+    },
+    {
+      "id": "shanxi",
+      "label": "山西",
+      "value": 25353.5,
+      "parent": "central"
+    },
+    {
+      "id": "anhui",
+      "label": "安徽",
+      "value": 50646.7,
+      "parent": "central"
+    },
+    {
+      "id": "jiangxi",
+      "label": "江西",
+      "value": 34227.9,
+      "parent": "central"
+    },
+    {
+      "id": "henan",
+      "label": "河南",
+      "value": 63557.1,
+      "parent": "central"
+    },
+    {
+      "id": "hubei",
+      "label": "湖北",
+      "value": 59644.3,
+      "parent": "central"
+    },
+    {
+      "id": "hunan",
+      "label": "湖南",
+      "value": 53084.7,
+      "parent": "central"
+    },
+    {
+      "id": "west",
+      "label": "西部地区"
+    },
+    {
+      "id": "inner-mongolia",
+      "label": "内蒙古",
+      "value": 26337.0,
+      "parent": "west"
+    },
+    {
+      "id": "guangxi",
+      "label": "广西",
+      "value": 28694.1,
+      "parent": "west"
+    },
+    {
+      "id": "chongqing",
+      "label": "重庆",
+      "value": 32046.7,
+      "parent": "west"
+    },
+    {
+      "id": "sichuan",
+      "label": "四川",
+      "value": 64537.9,
+      "parent": "west"
+    },
+    {
+      "id": "guizhou",
+      "label": "贵州",
+      "value": 22645.7,
+      "parent": "west"
+    },
+    {
+      "id": "yunnan",
+      "label": "云南",
+      "value": 31423.4,
+      "parent": "west"
+    },
+    {
+      "id": "tibet",
+      "label": "西藏",
+      "value": 2789.1,
+      "parent": "west"
+    },
+    {
+      "id": "shaanxi",
+      "label": "陕西",
+      "value": 35437.1,
+      "parent": "west"
+    },
+    {
+      "id": "gansu",
+      "label": "甘肃",
+      "value": 13020.5,
+      "parent": "west"
+    },
+    {
+      "id": "qinghai",
+      "label": "青海",
+      "value": 3965.5,
+      "parent": "west"
+    },
+    {
+      "id": "ningxia",
+      "label": "宁夏",
+      "value": 5520.2,
+      "parent": "west"
+    },
+    {
+      "id": "xinjiang",
+      "label": "新疆",
+      "value": 20492.4,
+      "parent": "west"
+    },
+    {
+      "id": "northeast",
+      "label": "东北地区"
+    },
+    {
+      "id": "liaoning",
+      "label": "辽宁",
+      "value": 32540.8,
+      "parent": "northeast"
+    },
+    {
+      "id": "jilin",
+      "label": "吉林",
+      "value": 14305.0,
+      "parent": "northeast"
+    },
+    {
+      "id": "heilongjiang",
+      "label": "黑龙江",
+      "value": 16478.1,
+      "parent": "northeast"
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "id": "deployment",
+  "type": "sequence",
+  "title": "Deployment: from a push to a rolling update",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 405,
+      "heightMm": 322
+    }
+  },
+  "mirrorParticipants": true,
+  "participants": [
+    {
+      "id": "dev",
+      "label": "Developer",
+      "role": "actor",
+      "symbol": "actor"
+    },
+    {
+      "id": "git",
+      "label": "Git Server",
+      "role": "service"
+    },
+    {
+      "id": "ci",
+      "label": "CI Orchestrator",
+      "role": "service"
+    },
+    {
+      "id": "build",
+      "label": "Build Agent",
+      "role": "service"
+    },
+    {
+      "id": "scan",
+      "label": "Security Scanner",
+      "role": "service"
+    },
+    {
+      "id": "reg",
+      "label": "Artifact Registry",
+      "role": "store",
+      "symbol": "database"
+    },
+    {
+      "id": "k8s",
+      "label": "Kubernetes Cluster",
+      "role": "service"
+    }
+  ],
+  "participantGroups": [
+    {
+      "id": "g",
+      "label": "Build farm",
+      "participants": [
+        "build",
+        "scan"
+      ],
+      "tone": "green"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "from": "dev",
+      "to": "git",
+      "kind": "call",
+      "label": "git push origin feature/payment-retries"
+    },
+    {
+      "id": "m2",
+      "from": "git",
+      "to": "ci",
+      "kind": "async",
+      "label": "webhook: push event"
+    },
+    {
+      "id": "m3",
+      "from": "ci",
+      "to": "build",
+      "kind": "call",
+      "label": "spawn ephemeral build agent"
+    },
+    {
+      "id": "m4",
+      "from": "build",
+      "to": "build",
+      "kind": "call",
+      "label": "compile and run unit tests"
+    },
+    {
+      "id": "m5",
+      "from": "build",
+      "to": "reg",
+      "kind": "call",
+      "label": "upload image"
+    },
+    {
+      "id": "m6",
+      "from": "ci",
+      "to": "scan",
+      "kind": "call",
+      "label": "scan dependencies"
+    },
+    {
+      "id": "m7",
+      "from": "scan",
+      "to": "ci",
+      "kind": "return",
+      "label": "no critical CVEs"
+    },
+    {
+      "id": "m8",
+      "from": "ci",
+      "to": "k8s",
+      "kind": "call",
+      "label": "notify deployment window"
+    },
+    {
+      "id": "m9",
+      "from": "ci",
+      "to": "k8s",
+      "kind": "call",
+      "label": "rolling update, 25% surge"
+    },
+    {
+      "id": "m10",
+      "from": "k8s",
+      "to": "k8s",
+      "kind": "call",
+      "label": "health probe"
+    },
+    {
+      "id": "m11",
+      "from": "k8s",
+      "to": "ci",
+      "kind": "return",
+      "label": "rollout complete"
+    },
+    {
+      "id": "m12",
+      "from": "ci",
+      "to": "build",
+      "kind": "call",
+      "label": "tear down agent"
+    },
+    {
+      "id": "m13",
+      "from": "ci",
+      "to": "dev",
+      "kind": "return",
+      "label": "deployment succeeded in 4m12s"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "p",
+      "kind": "par",
+      "label": "build",
+      "start": "m3",
+      "end": "m8",
+      "branches": [
+        {
+          "label": "build",
+          "start": "m3",
+          "end": "m5"
+        },
+        {
+          "label": "security scan",
+          "start": "m6",
+          "end": "m7"
+        },
+        {
+          "label": "announce",
+          "start": "m8",
+          "end": "m8"
+        }
+      ]
+    },
+    {
+      "id": "l",
+      "kind": "loop",
+      "label": "for each of 3 availability zones",
+      "start": "m9",
+      "end": "m11"
+    },
+    {
+      "id": "o",
+      "kind": "opt",
+      "label": "readiness probe fails",
+      "start": "m10",
+      "end": "m10",
+      "parent": "l"
+    }
+  ],
+  "lifecycles": [
+    {
+      "participant": "build",
+      "create": "m3",
+      "destroy": "m12"
+    }
+  ],
+  "activations": [
+    {
+      "id": "a1",
+      "participant": "ci",
+      "start": "m2",
+      "end": "m13"
+    },
+    {
+      "id": "a2",
+      "participant": "k8s",
+      "start": "m9",
+      "end": "m11"
+    }
+  ]
+}

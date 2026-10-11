@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "id": "benefit-claim",
+  "type": "journey",
+  "title": "Claiming Universal Credit: claimants' experience at each step (% positive)",
+  "caption": "Source: DWP Research Report 958, Universal Credit Full Service Survey (2018).",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3",
+    "orientation": "landscape"
+  },
+  "style": "notebook",
+  "scale": {
+    "min": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "stages": [
+    {
+      "id": "claim",
+      "label": "Make the claim"
+    },
+    {
+      "id": "help",
+      "label": "Get help"
+    },
+    {
+      "id": "commitment",
+      "label": "Agree the Claimant Commitment"
+    },
+    {
+      "id": "manage",
+      "label": "Manage the claim"
+    },
+    {
+      "id": "paid",
+      "label": "Get paid"
+    }
+  ],
+  "actors": [
+    {
+      "id": "claimant",
+      "label": "Claimant"
+    },
+    {
+      "id": "coach",
+      "label": "Work coach"
+    },
+    {
+      "id": "centre",
+      "label": "Service centre"
+    }
+  ],
+  "steps": [
+    {
+      "id": "register",
+      "label": "Register the claim online",
+      "stage": "claim",
+      "score": 54,
+      "actors": [
+        "claimant"
+      ],
+      "touchpoint": "GOV.UK online account",
+      "detail": "Registered their claim online on their own; a further 21% online with help",
+      "pain": "A quarter (25%) could not submit their claim online at all",
+      "opportunity": "Manage expectations upfront: 39% did not know UC is an online, self-service system"
+    },
+    {
+      "id": "form",
+      "label": "Complete the online claim",
+      "stage": "claim",
+      "score": 57,
+      "actors": [
+        "claimant"
+      ],
+      "touchpoint": "Online claim form",
+      "detail": "Found the online claim process easy overall",
+      "pain": "Greatest difficulty: gathering the information and documents needed (32%)"
+    },
+    {
+      "id": "verify",
+      "label": "Verify identity online",
+      "stage": "claim",
+      "score": 42,
+      "actors": [
+        "claimant"
+      ],
+      "touchpoint": "GOV.UK Verify",
+      "detail": "Found verifying their identity online easy",
+      "pain": "48% found verifying their identity online difficult",
+      "opportunity": "More proactive and ongoing support with making and managing a digital claim"
+    },
+    {
+      "id": "call",
+      "label": "Call the service centre",
+      "stage": "help",
+      "score": 72,
+      "actors": [
+        "claimant",
+        "centre"
+      ],
+      "touchpoint": "UC service centre",
+      "detail": "Said their enquiry was dealt with well",
+      "pain": "26% said their enquiry was not dealt with well"
+    },
+    {
+      "id": "accept",
+      "label": "Accept the Claimant Commitment",
+      "stage": "commitment",
+      "score": 77,
+      "actors": [
+        "claimant",
+        "coach"
+      ],
+      "touchpoint": "Jobcentre Plus",
+      "detail": "Thought the conditions were explained well"
+    },
+    {
+      "id": "fit",
+      "label": "Commitment fits my circumstances",
+      "stage": "commitment",
+      "score": 54,
+      "actors": [
+        "claimant",
+        "coach"
+      ],
+      "touchpoint": "Jobcentre Plus",
+      "detail": "Agreed it takes account of their personal circumstances"
+    },
+    {
+      "id": "journal",
+      "label": "Keep the online journal",
+      "stage": "manage",
+      "score": 79,
+      "actors": [
+        "claimant",
+        "coach"
+      ],
+      "touchpoint": "Online journal",
+      "detail": "Found the journal easy to use"
+    },
+    {
+      "id": "todos",
+      "label": "Complete the To Do's",
+      "stage": "manage",
+      "score": 74,
+      "actors": [
+        "claimant"
+      ],
+      "touchpoint": "Online account",
+      "detail": "Agreed the To Do's tell them what to do in a way they easily understand",
+      "pain": "27% struggled to complete their To Do's on time"
+    },
+    {
+      "id": "entitlements",
+      "label": "See what I am paid",
+      "stage": "paid",
+      "score": 68,
+      "actors": [
+        "claimant"
+      ],
+      "touchpoint": "Online account",
+      "detail": "Agreed the account makes clear what entitlements they are paid for"
+    },
+    {
+      "id": "money",
+      "label": "Manage the payments",
+      "stage": "paid",
+      "score": 67,
+      "actors": [
+        "claimant"
+      ],
+      "detail": "Felt confident managing their UC payments"
+    },
+    {
+      "id": "bills",
+      "label": "Keep up with bills",
+      "stage": "paid",
+      "score": 53,
+      "actors": [
+        "claimant"
+      ],
+      "detail": "Keeping up with bills and credit commitments about three months into the claim",
+      "pain": "44% were falling behind or in real financial difficulty",
+      "opportunity": "Targeted advice and guidance on budgeting and financial management"
+    }
+  ]
+}

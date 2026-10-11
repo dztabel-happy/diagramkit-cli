@@ -1,0 +1,448 @@
+{
+  "version": 1,
+  "id": "northwind",
+  "type": "er",
+  "title": "An order management schema",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3",
+    "orientation": "landscape"
+  },
+  "direction": "TB",
+  "entities": [
+    {
+      "id": "CATEGORIES",
+      "label": "CATEGORIES",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "CategoryID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "CategoryName"
+        },
+        {
+          "type": "text",
+          "name": "Description"
+        },
+        {
+          "type": "image",
+          "name": "Picture"
+        }
+      ]
+    },
+    {
+      "id": "SUPPLIERS",
+      "label": "SUPPLIERS",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "SupplierID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "CompanyName"
+        },
+        {
+          "type": "varchar",
+          "name": "ContactName"
+        },
+        {
+          "type": "varchar",
+          "name": "Phone"
+        },
+        {
+          "type": "varchar",
+          "name": "Address"
+        },
+        {
+          "type": "varchar",
+          "name": "City"
+        },
+        {
+          "type": "varchar",
+          "name": "Country"
+        }
+      ]
+    },
+    {
+      "id": "PRODUCTS",
+      "label": "PRODUCTS",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "ProductID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "ProductName"
+        },
+        {
+          "type": "int",
+          "name": "SupplierID",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "CategoryID",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "QuantityPerUnit"
+        },
+        {
+          "type": "decimal",
+          "name": "UnitPrice"
+        },
+        {
+          "type": "smallint",
+          "name": "UnitsInStock"
+        },
+        {
+          "type": "boolean",
+          "name": "Discontinued"
+        }
+      ]
+    },
+    {
+      "id": "CUSTOMERS",
+      "label": "CUSTOMERS",
+      "attributes": [
+        {
+          "type": "char",
+          "name": "CustomerID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "CompanyName"
+        },
+        {
+          "type": "varchar",
+          "name": "ContactName"
+        },
+        {
+          "type": "varchar",
+          "name": "Address"
+        },
+        {
+          "type": "varchar",
+          "name": "City"
+        },
+        {
+          "type": "varchar",
+          "name": "Country"
+        }
+      ]
+    },
+    {
+      "id": "EMPLOYEES",
+      "label": "EMPLOYEES",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "EmployeeID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "LastName"
+        },
+        {
+          "type": "varchar",
+          "name": "FirstName"
+        },
+        {
+          "type": "varchar",
+          "name": "Title"
+        },
+        {
+          "type": "int",
+          "name": "ReportsTo",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "date",
+          "name": "BirthDate"
+        },
+        {
+          "type": "date",
+          "name": "HireDate"
+        }
+      ]
+    },
+    {
+      "id": "SHIPPERS",
+      "label": "SHIPPERS",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "ShipperID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "CompanyName"
+        },
+        {
+          "type": "varchar",
+          "name": "Phone"
+        }
+      ]
+    },
+    {
+      "id": "ORDERS",
+      "label": "ORDERS",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "OrderID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "char",
+          "name": "CustomerID",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "EmployeeID",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "datetime",
+          "name": "OrderDate"
+        },
+        {
+          "type": "int",
+          "name": "ShipVia",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "decimal",
+          "name": "Freight"
+        },
+        {
+          "type": "varchar",
+          "name": "ShipAddress"
+        }
+      ]
+    },
+    {
+      "id": "ORDER-DETAILS",
+      "label": "ORDER_DETAILS",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "OrderID",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "ProductID",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "decimal",
+          "name": "UnitPrice"
+        },
+        {
+          "type": "smallint",
+          "name": "Quantity"
+        },
+        {
+          "type": "real",
+          "name": "Discount"
+        }
+      ]
+    },
+    {
+      "id": "REGION",
+      "label": "REGION",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "RegionID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "RegionDescription"
+        }
+      ]
+    },
+    {
+      "id": "TERRITORIES",
+      "label": "TERRITORIES",
+      "attributes": [
+        {
+          "type": "varchar",
+          "name": "TerritoryID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "TerritoryDescription"
+        },
+        {
+          "type": "int",
+          "name": "RegionID",
+          "keys": [
+            "FK"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EMPLOYEE-TERRITORIES",
+      "label": "EMPLOYEE_TERRITORIES",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "EmployeeID",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "TerritoryID",
+          "keys": [
+            "FK"
+          ]
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r01",
+      "from": "SUPPLIERS",
+      "to": "PRODUCTS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "supplies"
+    },
+    {
+      "id": "r02",
+      "from": "CATEGORIES",
+      "to": "PRODUCTS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "classifies"
+    },
+    {
+      "id": "r03",
+      "from": "CUSTOMERS",
+      "to": "ORDERS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "places"
+    },
+    {
+      "id": "r04",
+      "from": "EMPLOYEES",
+      "to": "ORDERS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "handles"
+    },
+    {
+      "id": "r05",
+      "from": "SHIPPERS",
+      "to": "ORDERS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "ships via"
+    },
+    {
+      "id": "r06",
+      "from": "ORDERS",
+      "to": "ORDER-DETAILS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "contains"
+    },
+    {
+      "id": "r07",
+      "from": "PRODUCTS",
+      "to": "ORDER-DETAILS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "ordered as"
+    },
+    {
+      "id": "r08",
+      "from": "EMPLOYEES",
+      "to": "EMPLOYEES",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "reports to"
+    },
+    {
+      "id": "r09",
+      "from": "REGION",
+      "to": "TERRITORIES",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "contains"
+    },
+    {
+      "id": "r10",
+      "from": "EMPLOYEES",
+      "to": "EMPLOYEE-TERRITORIES",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "assigned to"
+    },
+    {
+      "id": "r11",
+      "from": "TERRITORIES",
+      "to": "EMPLOYEE-TERRITORIES",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "covered by"
+    }
+  ]
+}

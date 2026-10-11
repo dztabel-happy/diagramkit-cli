@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "id": "asyncio",
+  "type": "class",
+  "title": "asyncio: event loops, transports, protocols and streams",
+  "caption": "After the CPython 3.12 asyncio documentation.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 403,
+      "heightMm": 324
+    }
+  },
+  "direction": "TB",
+  "classes": [
+    {
+      "id": "AbstractEventLoop",
+      "label": "AbstractEventLoop",
+      "stereotype": "abstract",
+      "methods": [
+        "+run_until_complete(future)",
+        "+create_task(coro) : Task",
+        "+call_soon(callback, *args) : Handle",
+        "+call_later(delay, callback) : TimerHandle",
+        "+create_connection(protocol_factory, host, port)",
+        "+create_server(protocol_factory, host, port) : Server"
+      ]
+    },
+    {
+      "id": "BaseEventLoop",
+      "label": "BaseEventLoop",
+      "attributes": [
+        "-_ready: deque[Handle]",
+        "-_scheduled: list[TimerHandle]"
+      ],
+      "methods": [
+        "+run_forever()",
+        "-_run_once()"
+      ]
+    },
+    {
+      "id": "BaseSelectorEventLoop",
+      "label": "BaseSelectorEventLoop",
+      "attributes": [
+        "-_selector: selectors.BaseSelector"
+      ]
+    },
+    {
+      "id": "UnixSelectorEventLoop",
+      "label": "_UnixSelectorEventLoop",
+      "methods": [
+        "+add_signal_handler(sig, callback)"
+      ]
+    },
+    {
+      "id": "BaseProactorEventLoop",
+      "label": "BaseProactorEventLoop",
+      "attributes": [
+        "-_proactor: IocpProactor"
+      ]
+    },
+    {
+      "id": "ProactorEventLoop",
+      "label": "ProactorEventLoop"
+    },
+    {
+      "id": "Handle",
+      "label": "Handle",
+      "attributes": [
+        "-_callback",
+        "-_args: tuple"
+      ],
+      "methods": [
+        "+cancel()",
+        "+cancelled() : bool"
+      ]
+    },
+    {
+      "id": "TimerHandle",
+      "label": "TimerHandle",
+      "attributes": [
+        "-_when: float"
+      ],
+      "methods": [
+        "+when() : float"
+      ]
+    },
+    {
+      "id": "Future",
+      "label": "Future",
+      "attributes": [
+        "-_state: str",
+        "-_result",
+        "-_callbacks: list"
+      ],
+      "methods": [
+        "+result()",
+        "+exception()",
+        "+add_done_callback(fn)",
+        "+cancel(msg) : bool"
+      ]
+    },
+    {
+      "id": "Task",
+      "label": "Task",
+      "attributes": [
+        "-_coro: Coroutine"
+      ],
+      "methods": [
+        "+get_coro()",
+        "+get_name() : str",
+        "+cancel(msg) : bool"
+      ]
+    },
+    {
+      "id": "AbstractServer",
+      "label": "AbstractServer",
+      "stereotype": "abstract",
+      "methods": [
+        "+close()",
+        "+serve_forever()"
+      ]
+    },
+    {
+      "id": "Server",
+      "label": "Server",
+      "attributes": [
+        "+sockets: tuple"
+      ]
+    },
+    {
+      "id": "BaseTransport",
+      "label": "BaseTransport",
+      "methods": [
+        "+get_extra_info(name)",
+        "+close()",
+        "+is_closing() : bool"
+      ]
+    },
+    {
+      "id": "ReadTransport",
+      "label": "ReadTransport",
+      "methods": [
+        "+pause_reading()",
+        "+resume_reading()"
+      ]
+    },
+    {
+      "id": "WriteTransport",
+      "label": "WriteTransport",
+      "methods": [
+        "+write(data)",
+        "+write_eof()",
+        "+get_write_buffer_size() : int"
+      ]
+    },
+    {
+      "id": "Transport",
+      "label": "Transport"
+    },
+    {
+      "id": "DatagramTransport",
+      "label": "DatagramTransport",
+      "methods": [
+        "+sendto(data, addr)"
+      ]
+    },
+    {
+      "id": "SubprocessTransport",
+      "label": "SubprocessTransport",
+      "methods": [
+        "+get_pid() : int",
+        "+kill()"
+      ]
+    },
+    {
+      "id": "BaseProtocol",
+      "label": "BaseProtocol",
+      "methods": [
+        "+connection_made(transport)",
+        "+connection_lost(exc)"
+      ]
+    },
+    {
+      "id": "Protocol",
+      "label": "Protocol",
+      "methods": [
+        "+data_received(data)",
+        "+eof_received()"
+      ]
+    },
+    {
+      "id": "BufferedProtocol",
+      "label": "BufferedProtocol",
+      "methods": [
+        "+get_buffer(sizehint)",
+        "+buffer_updated(nbytes)"
+      ]
+    },
+    {
+      "id": "DatagramProtocol",
+      "label": "DatagramProtocol",
+      "methods": [
+        "+datagram_received(data, addr)"
+      ]
+    },
+    {
+      "id": "SubprocessProtocol",
+      "label": "SubprocessProtocol",
+      "methods": [
+        "+pipe_data_received(fd, data)",
+        "+process_exited()"
+      ]
+    },
+    {
+      "id": "StreamReaderProtocol",
+      "label": "StreamReaderProtocol"
+    },
+    {
+      "id": "StreamReader",
+      "label": "StreamReader",
+      "methods": [
+        "+read(n) : bytes",
+        "+readline() : bytes",
+        "+readexactly(n) : bytes"
+      ]
+    },
+    {
+      "id": "StreamWriter",
+      "label": "StreamWriter",
+      "methods": [
+        "+write(data)",
+        "+drain()",
+        "+close()"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r01",
+      "from": "BaseEventLoop",
+      "to": "AbstractEventLoop",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r02",
+      "from": "BaseSelectorEventLoop",
+      "to": "BaseEventLoop",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r03",
+      "from": "UnixSelectorEventLoop",
+      "to": "BaseSelectorEventLoop",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r04",
+      "from": "BaseProactorEventLoop",
+      "to": "BaseEventLoop",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r05",
+      "from": "ProactorEventLoop",
+      "to": "BaseProactorEventLoop",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r06",
+      "from": "TimerHandle",
+      "to": "Handle",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r07",
+      "from": "Task",
+      "to": "Future",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r08",
+      "from": "Server",
+      "to": "AbstractServer",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r09",
+      "from": "ReadTransport",
+      "to": "BaseTransport",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r10",
+      "from": "WriteTransport",
+      "to": "BaseTransport",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r11",
+      "from": "Transport",
+      "to": "ReadTransport",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r12",
+      "from": "Transport",
+      "to": "WriteTransport",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r13",
+      "from": "DatagramTransport",
+      "to": "BaseTransport",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r14",
+      "from": "SubprocessTransport",
+      "to": "BaseTransport",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r15",
+      "from": "Protocol",
+      "to": "BaseProtocol",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r16",
+      "from": "BufferedProtocol",
+      "to": "BaseProtocol",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r17",
+      "from": "DatagramProtocol",
+      "to": "BaseProtocol",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r18",
+      "from": "SubprocessProtocol",
+      "to": "BaseProtocol",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r19",
+      "from": "StreamReaderProtocol",
+      "to": "Protocol",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r20",
+      "from": "BaseEventLoop",
+      "to": "Handle",
+      "kind": "aggregation",
+      "label": "schedules",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "*"
+    },
+    {
+      "id": "r21",
+      "from": "Future",
+      "to": "AbstractEventLoop",
+      "kind": "association",
+      "label": "runs on",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r22",
+      "from": "Server",
+      "to": "AbstractEventLoop",
+      "kind": "association",
+      "label": "loop",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r23",
+      "from": "Transport",
+      "to": "Protocol",
+      "kind": "association",
+      "label": "delivers data to",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r24",
+      "from": "StreamReaderProtocol",
+      "to": "StreamReader",
+      "kind": "association",
+      "label": "feeds",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r25",
+      "from": "StreamWriter",
+      "to": "Transport",
+      "kind": "association",
+      "label": "writes to",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r26",
+      "from": "StreamWriter",
+      "to": "StreamReaderProtocol",
+      "kind": "association",
+      "label": "drains through",
+      "toMultiplicity": "1"
+    }
+  ]
+}

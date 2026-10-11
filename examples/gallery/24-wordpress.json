@@ -1,0 +1,452 @@
+{
+  "version": 1,
+  "id": "wordpress",
+  "type": "er",
+  "title": "Tables of a blog platform",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3",
+    "orientation": "landscape"
+  },
+  "style": "notebook",
+  "direction": "TB",
+  "entities": [
+    {
+      "id": "WP-USERS",
+      "label": "WP_USERS",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "ID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "user_login"
+        },
+        {
+          "type": "varchar",
+          "name": "user_pass"
+        },
+        {
+          "type": "varchar",
+          "name": "user_email"
+        },
+        {
+          "type": "datetime",
+          "name": "user_registered"
+        },
+        {
+          "type": "int",
+          "name": "user_status"
+        }
+      ]
+    },
+    {
+      "id": "WP-USERMETA",
+      "label": "WP_USERMETA",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "umeta_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "bigint",
+          "name": "user_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "meta_key"
+        },
+        {
+          "type": "longtext",
+          "name": "meta_value"
+        }
+      ]
+    },
+    {
+      "id": "WP-POSTS",
+      "label": "WP_POSTS",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "ID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "bigint",
+          "name": "post_author",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "datetime",
+          "name": "post_date"
+        },
+        {
+          "type": "longtext",
+          "name": "post_content"
+        },
+        {
+          "type": "varchar",
+          "name": "post_title"
+        },
+        {
+          "type": "varchar",
+          "name": "post_status"
+        },
+        {
+          "type": "varchar",
+          "name": "post_type"
+        },
+        {
+          "type": "bigint",
+          "name": "post_parent",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "guid"
+        }
+      ]
+    },
+    {
+      "id": "WP-POSTMETA",
+      "label": "WP_POSTMETA",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "meta_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "bigint",
+          "name": "post_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "meta_key"
+        },
+        {
+          "type": "longtext",
+          "name": "meta_value"
+        }
+      ]
+    },
+    {
+      "id": "WP-COMMENTS",
+      "label": "WP_COMMENTS",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "comment_ID",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "bigint",
+          "name": "comment_post_ID",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "comment_author"
+        },
+        {
+          "type": "text",
+          "name": "comment_content"
+        },
+        {
+          "type": "varchar",
+          "name": "comment_approved"
+        },
+        {
+          "type": "bigint",
+          "name": "user_id",
+          "keys": [
+            "FK"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WP-COMMENTMETA",
+      "label": "WP_COMMENTMETA",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "meta_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "bigint",
+          "name": "comment_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "meta_key"
+        },
+        {
+          "type": "longtext",
+          "name": "meta_value"
+        }
+      ]
+    },
+    {
+      "id": "WP-TERMS",
+      "label": "WP_TERMS",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "term_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "name"
+        },
+        {
+          "type": "varchar",
+          "name": "slug"
+        },
+        {
+          "type": "bigint",
+          "name": "term_group"
+        }
+      ]
+    },
+    {
+      "id": "WP-TERM-TAXONOMY",
+      "label": "WP_TERM_TAXONOMY",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "term_taxonomy_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "bigint",
+          "name": "term_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "taxonomy"
+        },
+        {
+          "type": "longtext",
+          "name": "description"
+        },
+        {
+          "type": "bigint",
+          "name": "parent"
+        },
+        {
+          "type": "bigint",
+          "name": "count"
+        }
+      ]
+    },
+    {
+      "id": "WP-TERM-RELATIONSHIPS",
+      "label": "WP_TERM_RELATIONSHIPS",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "object_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "bigint",
+          "name": "term_taxonomy_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "term_order"
+        }
+      ]
+    },
+    {
+      "id": "WP-TERMMETA",
+      "label": "WP_TERMMETA",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "meta_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "bigint",
+          "name": "term_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "meta_key"
+        },
+        {
+          "type": "longtext",
+          "name": "meta_value"
+        }
+      ]
+    },
+    {
+      "id": "WP-OPTIONS",
+      "label": "WP_OPTIONS",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "option_id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "option_name"
+        },
+        {
+          "type": "longtext",
+          "name": "option_value"
+        },
+        {
+          "type": "varchar",
+          "name": "autoload"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r01",
+      "from": "WP-USERS",
+      "to": "WP-USERMETA",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "has metadata"
+    },
+    {
+      "id": "r02",
+      "from": "WP-USERS",
+      "to": "WP-POSTS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "authors"
+    },
+    {
+      "id": "r03",
+      "from": "WP-USERS",
+      "to": "WP-COMMENTS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "wrote as user"
+    },
+    {
+      "id": "r04",
+      "from": "WP-POSTS",
+      "to": "WP-POSTMETA",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "has metadata"
+    },
+    {
+      "id": "r05",
+      "from": "WP-POSTS",
+      "to": "WP-COMMENTS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "receives"
+    },
+    {
+      "id": "r06",
+      "from": "WP-POSTS",
+      "to": "WP-POSTS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "revision of"
+    },
+    {
+      "id": "r07",
+      "from": "WP-COMMENTS",
+      "to": "WP-COMMENTMETA",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "has metadata"
+    },
+    {
+      "id": "r08",
+      "from": "WP-TERMS",
+      "to": "WP-TERM-TAXONOMY",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "classified by"
+    },
+    {
+      "id": "r09",
+      "from": "WP-TERMS",
+      "to": "WP-TERMMETA",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "has metadata"
+    },
+    {
+      "id": "r10",
+      "from": "WP-TERM-TAXONOMY",
+      "to": "WP-TERM-RELATIONSHIPS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "assigned via"
+    },
+    {
+      "id": "r11",
+      "from": "WP-POSTS",
+      "to": "WP-TERM-RELATIONSHIPS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "tagged with"
+    }
+  ]
+}

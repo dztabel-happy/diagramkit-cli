@@ -1,0 +1,570 @@
+{
+  "version": 1,
+  "id": "incident-response",
+  "type": "compound",
+  "title": "Incident response: prepare, respond, remediate and learn",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 288,
+      "heightMm": 639
+    }
+  },
+  "style": "notebook",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "SLO",
+      "label": "Define SLOs",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "AlertRule",
+      "label": "Configure SLO-based Alerting",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "Playbook",
+      "label": "Write Runbooks / Playbooks",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "Train",
+      "label": "Train Oncall: Wheel of Misfortune Drills",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "Automate",
+      "label": "Automate Common Remediation Tasks",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "AlertFire",
+      "label": "Alert Fires: Oncall Paged",
+      "role": "step",
+      "shape": "rectangle"
+    },
+    {
+      "id": "RealIncident",
+      "label": "Is This a Real Incident?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "FalsePositive",
+      "label": "Tune Alert Threshold",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "ActivateIMAG",
+      "label": "Activate IMAG: Incident Command System",
+      "role": "step",
+      "shape": "rectangle"
+    },
+    {
+      "id": "AssignIC",
+      "label": "Assign Incident Commander",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "AssignCL",
+      "label": "Assign Communications Lead",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "AssignOL",
+      "label": "Assign Operations Lead",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "Coordinate",
+      "label": "IC: Coordinate Overall Response",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "NotifyStake",
+      "label": "CL: Notify Stakeholders and Users",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "Diagnose",
+      "label": "OL: Diagnose Root Cause",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "SeverityCheck",
+      "label": "Major Incident?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "EscalateIRT",
+      "label": "Escalate to Incident Response Team",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "ContinueTeam",
+      "label": "Continue Team-level Response",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "StatusUpdates",
+      "label": "CL: Post Regular Status Updates",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "ApplyMitigation",
+      "label": "OL: Apply Mitigation",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "Converge",
+      "label": "Sync Point",
+      "role": "step",
+      "shape": "hexagon",
+      "tone": "yellow"
+    },
+    {
+      "id": "Mitigated",
+      "label": "Impact Mitigated?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "Resolved",
+      "label": "Incident Resolved",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "StartPostmortem",
+      "label": "Start Postmortem Write-up",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "DocTimeline",
+      "label": "Document Timeline and Impact",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "BlamelessReview",
+      "label": "Blameless Review Meeting",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "RootCauseFound",
+      "label": "Root Cause Identified?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "FurtherInvestigate",
+      "label": "Further Investigation",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "DefineActions",
+      "label": "Define Corrective Action Items",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "SetSLO",
+      "label": "Agree SLOs for Action Item Completion",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "Backlog",
+      "label": "Add to Team Backlog",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "AggregateData",
+      "label": "Aggregate Postmortem Trends",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    }
+  ],
+  "groups": [
+    {
+      "id": "Prepare",
+      "label": "Prepare Phase",
+      "children": [
+        "SLO",
+        "AlertRule",
+        "Playbook",
+        "Train",
+        "Automate"
+      ],
+      "direction": "LR"
+    },
+    {
+      "id": "Respond",
+      "label": "Respond Phase: 3Cs - Coordinate, Communicate, Control",
+      "children": [
+        "ActivateIMAG",
+        "AssignIC",
+        "AssignCL",
+        "AssignOL",
+        "Coordinate",
+        "NotifyStake",
+        "Diagnose",
+        "SeverityCheck",
+        "EscalateIRT",
+        "ContinueTeam",
+        "StatusUpdates",
+        "ApplyMitigation",
+        "Converge",
+        "Mitigated"
+      ],
+      "direction": "TB"
+    },
+    {
+      "id": "Learn",
+      "label": "Remediate and Learn Phase",
+      "children": [
+        "Resolved",
+        "StartPostmortem",
+        "DocTimeline",
+        "BlamelessReview",
+        "RootCauseFound",
+        "FurtherInvestigate",
+        "DefineActions",
+        "SetSLO",
+        "Backlog",
+        "AggregateData"
+      ],
+      "direction": "TB"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e001",
+      "from": "SLO",
+      "to": "AlertRule",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e002",
+      "from": "AlertRule",
+      "to": "Playbook",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e003",
+      "from": "Playbook",
+      "to": "Train",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e004",
+      "from": "Train",
+      "to": "Automate",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e005",
+      "from": "Automate",
+      "to": "AlertFire",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e006",
+      "from": "AlertFire",
+      "to": "RealIncident",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e007",
+      "from": "RealIncident",
+      "to": "FalsePositive",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e008",
+      "from": "FalsePositive",
+      "to": "AlertRule",
+      "kind": "return",
+      "line": "solid"
+    },
+    {
+      "id": "e009",
+      "from": "RealIncident",
+      "to": "ActivateIMAG",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e010",
+      "from": "ActivateIMAG",
+      "to": "AssignIC",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e011",
+      "from": "ActivateIMAG",
+      "to": "AssignCL",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e012",
+      "from": "ActivateIMAG",
+      "to": "AssignOL",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e013",
+      "from": "AssignIC",
+      "to": "Coordinate",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e014",
+      "from": "AssignCL",
+      "to": "NotifyStake",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e015",
+      "from": "AssignOL",
+      "to": "Diagnose",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e016",
+      "from": "Coordinate",
+      "to": "SeverityCheck",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e017",
+      "from": "SeverityCheck",
+      "to": "EscalateIRT",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e018",
+      "from": "SeverityCheck",
+      "to": "ContinueTeam",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e019",
+      "from": "EscalateIRT",
+      "to": "ContinueTeam",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e020",
+      "from": "NotifyStake",
+      "to": "StatusUpdates",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e021",
+      "from": "Diagnose",
+      "to": "ApplyMitigation",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e022",
+      "from": "ContinueTeam",
+      "to": "Converge",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e023",
+      "from": "StatusUpdates",
+      "to": "Converge",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e024",
+      "from": "ApplyMitigation",
+      "to": "Converge",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e025",
+      "from": "Converge",
+      "to": "Mitigated",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e026",
+      "from": "Mitigated",
+      "to": "Diagnose",
+      "kind": "return",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e027",
+      "from": "Mitigated",
+      "to": "Resolved",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e028",
+      "from": "Resolved",
+      "to": "StartPostmortem",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e029",
+      "from": "StartPostmortem",
+      "to": "DocTimeline",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e030",
+      "from": "DocTimeline",
+      "to": "BlamelessReview",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e031",
+      "from": "BlamelessReview",
+      "to": "RootCauseFound",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e032",
+      "from": "RootCauseFound",
+      "to": "FurtherInvestigate",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e033",
+      "from": "FurtherInvestigate",
+      "to": "DocTimeline",
+      "kind": "return",
+      "line": "solid"
+    },
+    {
+      "id": "e034",
+      "from": "RootCauseFound",
+      "to": "DefineActions",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e035",
+      "from": "DefineActions",
+      "to": "SetSLO",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e036",
+      "from": "SetSLO",
+      "to": "Backlog",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e037",
+      "from": "Backlog",
+      "to": "AggregateData",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e038",
+      "from": "AggregateData",
+      "to": "SLO",
+      "kind": "return",
+      "label": "Continuous Improvement Loop",
+      "line": "dashed"
+    }
+  ]
+}

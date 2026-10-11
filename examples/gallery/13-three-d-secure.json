@@ -1,0 +1,335 @@
+{
+  "version": 1,
+  "id": "three-d-secure",
+  "type": "sequence",
+  "title": "EMV 3-D Secure 2.2, browser flow",
+  "caption": "After the EMV 3-D Secure Protocol and Core Functions Specification, version 2.2.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 481,
+      "heightMm": 509
+    }
+  },
+  "style": "report",
+  "participants": [
+    {
+      "id": "Holder",
+      "label": "Cardholder",
+      "role": "actor",
+      "symbol": "actor"
+    },
+    {
+      "id": "Browser",
+      "label": "Browser",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "Merchant",
+      "label": "Merchant (3DS Requestor)",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "TDSS",
+      "label": "3DS Server",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "Acq",
+      "label": "Acquirer",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "DS",
+      "label": "Directory Server",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "ACS",
+      "label": "ACS (issuer)",
+      "role": "service",
+      "symbol": "box"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m01",
+      "from": "Holder",
+      "to": "Browser",
+      "kind": "call",
+      "label": "Check out, enter card details"
+    },
+    {
+      "id": "m02",
+      "from": "Browser",
+      "to": "Merchant",
+      "kind": "call",
+      "label": "Submit order"
+    },
+    {
+      "id": "m03",
+      "from": "Merchant",
+      "to": "TDSS",
+      "kind": "call",
+      "label": "Start authentication (PAN, amount, device channel: browser)"
+    },
+    {
+      "id": "m04",
+      "from": "TDSS",
+      "to": "TDSS",
+      "kind": "call",
+      "label": "Look up card range: ACS protocol version, 3DS Method URL"
+    },
+    {
+      "id": "m05",
+      "from": "TDSS",
+      "to": "Browser",
+      "kind": "return",
+      "label": "Load 3DS Method in hidden iframe"
+    },
+    {
+      "id": "m06",
+      "from": "Browser",
+      "to": "ACS",
+      "kind": "call",
+      "label": "POST threeDSMethodData (device fingerprint)"
+    },
+    {
+      "id": "m07",
+      "from": "ACS",
+      "to": "Browser",
+      "kind": "return",
+      "label": "Method complete"
+    },
+    {
+      "id": "m08",
+      "from": "Browser",
+      "to": "TDSS",
+      "kind": "call",
+      "label": "threeDSCompInd = Y"
+    },
+    {
+      "id": "m09",
+      "from": "TDSS",
+      "to": "DS",
+      "kind": "call",
+      "label": "AReq (browser data, cardholder and purchase data)"
+    },
+    {
+      "id": "m10",
+      "from": "DS",
+      "to": "ACS",
+      "kind": "call",
+      "label": "AReq"
+    },
+    {
+      "id": "m11",
+      "from": "ACS",
+      "to": "ACS",
+      "kind": "call",
+      "label": "Risk-based authentication"
+    },
+    {
+      "id": "m12",
+      "from": "ACS",
+      "to": "DS",
+      "kind": "return",
+      "label": "ARes (transStatus)"
+    },
+    {
+      "id": "m13",
+      "from": "DS",
+      "to": "TDSS",
+      "kind": "return",
+      "label": "ARes"
+    },
+    {
+      "id": "m14",
+      "from": "TDSS",
+      "to": "Merchant",
+      "kind": "return",
+      "label": "Authenticated: ECI, authentication value"
+    },
+    {
+      "id": "m15",
+      "from": "TDSS",
+      "to": "Merchant",
+      "kind": "return",
+      "label": "Challenge required: acsURL"
+    },
+    {
+      "id": "m16",
+      "from": "Merchant",
+      "to": "Browser",
+      "kind": "return",
+      "label": "Render challenge iframe"
+    },
+    {
+      "id": "m17",
+      "from": "Browser",
+      "to": "ACS",
+      "kind": "call",
+      "label": "POST CReq"
+    },
+    {
+      "id": "m18",
+      "from": "ACS",
+      "to": "Browser",
+      "kind": "return",
+      "label": "Challenge page (one-time code)"
+    },
+    {
+      "id": "m19",
+      "from": "Holder",
+      "to": "Browser",
+      "kind": "call",
+      "label": "Enter one-time code"
+    },
+    {
+      "id": "m20",
+      "from": "Browser",
+      "to": "ACS",
+      "kind": "call",
+      "label": "Submit code"
+    },
+    {
+      "id": "m21",
+      "from": "ACS",
+      "to": "DS",
+      "kind": "call",
+      "label": "RReq (transStatus = Y)"
+    },
+    {
+      "id": "m22",
+      "from": "DS",
+      "to": "TDSS",
+      "kind": "call",
+      "label": "RReq"
+    },
+    {
+      "id": "m23",
+      "from": "TDSS",
+      "to": "DS",
+      "kind": "return",
+      "label": "RRes"
+    },
+    {
+      "id": "m24",
+      "from": "DS",
+      "to": "ACS",
+      "kind": "return",
+      "label": "RRes"
+    },
+    {
+      "id": "m25",
+      "from": "ACS",
+      "to": "Browser",
+      "kind": "return",
+      "label": "CRes"
+    },
+    {
+      "id": "m26",
+      "from": "Browser",
+      "to": "Merchant",
+      "kind": "call",
+      "label": "POST CRes to notification URL"
+    },
+    {
+      "id": "m27",
+      "from": "Merchant",
+      "to": "TDSS",
+      "kind": "call",
+      "label": "Get result"
+    },
+    {
+      "id": "m28",
+      "from": "TDSS",
+      "to": "Merchant",
+      "kind": "return",
+      "label": "ECI, authentication value"
+    },
+    {
+      "id": "m29",
+      "from": "Merchant",
+      "to": "Acq",
+      "kind": "call",
+      "label": "Authorization request (with ECI, authentication value)"
+    },
+    {
+      "id": "m30",
+      "from": "Acq",
+      "to": "Merchant",
+      "kind": "return",
+      "label": "Approved"
+    },
+    {
+      "id": "m31",
+      "from": "Merchant",
+      "to": "Browser",
+      "kind": "return",
+      "label": "Order confirmation"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "method",
+      "kind": "opt",
+      "label": "3DS Method URL available",
+      "start": "m05",
+      "end": "m08"
+    },
+    {
+      "id": "outcome",
+      "kind": "alt",
+      "label": "ARes transStatus",
+      "start": "m14",
+      "end": "m28",
+      "branches": [
+        {
+          "label": "frictionless (Y)",
+          "start": "m14",
+          "end": "m14"
+        },
+        {
+          "label": "challenge (C)",
+          "start": "m15",
+          "end": "m28"
+        }
+      ]
+    }
+  ],
+  "participantGroups": [
+    {
+      "id": "acquirer",
+      "label": "Acquirer domain",
+      "participants": [
+        "Merchant",
+        "TDSS",
+        "Acq"
+      ],
+      "tone": "blue"
+    },
+    {
+      "id": "interop",
+      "label": "Interoperability domain",
+      "participants": [
+        "DS"
+      ],
+      "tone": "neutral"
+    },
+    {
+      "id": "issuer",
+      "label": "Issuer domain",
+      "participants": [
+        "ACS"
+      ],
+      "tone": "green"
+    }
+  ]
+}

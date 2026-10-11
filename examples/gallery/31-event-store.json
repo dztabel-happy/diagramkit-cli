@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "id": "event-store",
+  "type": "er",
+  "title": "Tables of an event store",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "style": "report",
+  "direction": "LR",
+  "entities": [
+    {
+      "id": "TENANT",
+      "label": "TENANT",
+      "attributes": [
+        {
+          "type": "uuid",
+          "name": "id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "slug",
+          "keys": [
+            "UK"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "STREAM",
+      "label": "STREAM",
+      "attributes": [
+        {
+          "type": "uuid",
+          "name": "id",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "uuid",
+          "name": "tenant_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "id": "EVENT",
+      "label": "EVENT",
+      "attributes": [
+        {
+          "type": "bigint",
+          "name": "seq",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "uuid",
+          "name": "stream_id",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "jsonb",
+          "name": "payload",
+          "comment": "schema-versioned"
+        },
+        {
+          "type": "timestamptz",
+          "name": "at"
+        }
+      ]
+    },
+    {
+      "id": "SNAPSHOT",
+      "label": "SNAPSHOT",
+      "attributes": [
+        {
+          "type": "uuid",
+          "name": "stream_id",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        },
+        {
+          "type": "bigint",
+          "name": "upto_seq"
+        }
+      ]
+    },
+    {
+      "id": "SUBSCRIBER",
+      "label": "SUBSCRIBER"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r1",
+      "from": "TENANT",
+      "to": "STREAM",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "owns"
+    },
+    {
+      "id": "r2",
+      "from": "STREAM",
+      "to": "EVENT",
+      "fromCardinality": "one",
+      "toCardinality": "one-or-more",
+      "label": "appends"
+    },
+    {
+      "id": "r3",
+      "from": "STREAM",
+      "to": "SNAPSHOT",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-one",
+      "label": "compacts to"
+    },
+    {
+      "id": "r4",
+      "from": "SUBSCRIBER",
+      "to": "STREAM",
+      "fromCardinality": "zero-or-more",
+      "toCardinality": "zero-or-more",
+      "label": "follows",
+      "identifying": false
+    }
+  ]
+}

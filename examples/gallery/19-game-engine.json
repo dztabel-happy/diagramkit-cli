@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "id": "game-engine",
+  "type": "class",
+  "title": "A game engine object model",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 336,
+      "heightMm": 387
+    }
+  },
+  "style": "notebook",
+  "direction": "TB",
+  "classes": [
+    {
+      "id": "UObject",
+      "label": "UObject",
+      "stereotype": "base",
+      "attributes": [
+        "+Reflection and Serialization",
+        "+GarbageCollection",
+        "+Networking Support"
+      ],
+      "methods": [
+        "+NewObject() : UObject"
+      ]
+    },
+    {
+      "id": "AActor",
+      "label": "AActor",
+      "attributes": [
+        "+RootComponent: USceneComponent",
+        "+Owner: AActor",
+        "+Instigator: APawn",
+        "+bReplicates: bool"
+      ],
+      "methods": [
+        "+BeginPlay()",
+        "+Tick(DeltaTime)",
+        "+GetComponentsByClass() : Array",
+        "+SpawnActor() : AActor",
+        "+Destroy()"
+      ]
+    },
+    {
+      "id": "APawn",
+      "label": "APawn",
+      "attributes": [
+        "+Controller: AController",
+        "+bCanBeDamaged: bool"
+      ],
+      "methods": [
+        "+PossessedBy(Controller)",
+        "+UnPossessed()"
+      ]
+    },
+    {
+      "id": "ACharacter",
+      "label": "ACharacter",
+      "attributes": [
+        "+CharacterMovement: UCharacterMovementComponent",
+        "+Mesh: USkeletalMeshComponent"
+      ],
+      "methods": [
+        "+Jump()",
+        "+Crouch()",
+        "+Landed()"
+      ]
+    },
+    {
+      "id": "AController",
+      "label": "AController",
+      "stereotype": "abstract",
+      "attributes": [
+        "+Pawn: APawn",
+        "+PlayerState: APlayerState"
+      ],
+      "methods": [
+        "+Possess(Pawn)",
+        "+UnPossess()"
+      ]
+    },
+    {
+      "id": "APlayerController",
+      "label": "APlayerController",
+      "attributes": [
+        "+InputComponent"
+      ],
+      "methods": [
+        "+ProcessPlayerInput()"
+      ]
+    },
+    {
+      "id": "AAIController",
+      "label": "AAIController",
+      "attributes": [
+        "+BehaviorTreeComponent",
+        "+BlackboardComponent"
+      ],
+      "methods": [
+        "+MoveToLocation()",
+        "+RunBehaviorTree()"
+      ]
+    },
+    {
+      "id": "UActorComponent",
+      "label": "UActorComponent",
+      "attributes": [
+        "+bAutoActivate: bool"
+      ],
+      "methods": [
+        "+GetOwner() : AActor",
+        "+Activate()",
+        "+Deactivate()",
+        "+TickComponent(DeltaTime)"
+      ]
+    },
+    {
+      "id": "USceneComponent",
+      "label": "USceneComponent",
+      "attributes": [
+        "+RelativeTransform: FTransform",
+        "+AttachParent: USceneComponent"
+      ],
+      "methods": [
+        "+AttachToComponent(Parent)",
+        "+GetWorldLocation() : FVector"
+      ]
+    },
+    {
+      "id": "UPrimitiveComponent",
+      "label": "UPrimitiveComponent",
+      "attributes": [
+        "+bGenerateOverlapEvents: bool"
+      ],
+      "methods": [
+        "+SetCollisionEnabled()"
+      ]
+    },
+    {
+      "id": "UMeshComponent",
+      "label": "UMeshComponent",
+      "stereotype": "abstract",
+      "attributes": [
+        "+Materials: Array<UMaterialInterface>"
+      ]
+    },
+    {
+      "id": "UStaticMeshComponent",
+      "label": "UStaticMeshComponent",
+      "attributes": [
+        "+StaticMesh: UStaticMesh"
+      ],
+      "methods": [
+        "+SetStaticMesh()"
+      ]
+    },
+    {
+      "id": "USkeletalMeshComponent",
+      "label": "USkeletalMeshComponent",
+      "attributes": [
+        "+SkeletalMesh: USkeletalMesh",
+        "+AnimInstance"
+      ],
+      "methods": [
+        "+PlayAnimation()"
+      ]
+    },
+    {
+      "id": "UCameraComponent",
+      "label": "UCameraComponent",
+      "attributes": [
+        "+FieldOfView: float",
+        "+bConstrainAspectRatio: bool"
+      ]
+    },
+    {
+      "id": "UMovementComponent",
+      "label": "UMovementComponent",
+      "stereotype": "abstract",
+      "attributes": [
+        "+Velocity: FVector",
+        "+MaxSpeed: float"
+      ]
+    },
+    {
+      "id": "UCharacterMovementComponent",
+      "label": "UCharacterMovementComponent",
+      "attributes": [
+        "+GravityScale: float",
+        "+JumpZVelocity: float",
+        "+MovementMode: EMovementMode"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r01",
+      "from": "AActor",
+      "to": "UObject",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r02",
+      "from": "UActorComponent",
+      "to": "UObject",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r03",
+      "from": "APawn",
+      "to": "AActor",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r04",
+      "from": "ACharacter",
+      "to": "APawn",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r05",
+      "from": "AController",
+      "to": "AActor",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r06",
+      "from": "APlayerController",
+      "to": "AController",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r07",
+      "from": "AAIController",
+      "to": "AController",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r08",
+      "from": "USceneComponent",
+      "to": "UActorComponent",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r09",
+      "from": "UPrimitiveComponent",
+      "to": "USceneComponent",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r10",
+      "from": "UMeshComponent",
+      "to": "UPrimitiveComponent",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r11",
+      "from": "UStaticMeshComponent",
+      "to": "UMeshComponent",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r12",
+      "from": "USkeletalMeshComponent",
+      "to": "UMeshComponent",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r13",
+      "from": "UCameraComponent",
+      "to": "USceneComponent",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r14",
+      "from": "UMovementComponent",
+      "to": "UActorComponent",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r15",
+      "from": "UCharacterMovementComponent",
+      "to": "UMovementComponent",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r16",
+      "from": "AActor",
+      "to": "UActorComponent",
+      "kind": "aggregation",
+      "label": "owns components",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "many"
+    },
+    {
+      "id": "r17",
+      "from": "APawn",
+      "to": "AController",
+      "kind": "association",
+      "label": "controlled by",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "0..1"
+    },
+    {
+      "id": "r18",
+      "from": "ACharacter",
+      "to": "USkeletalMeshComponent",
+      "kind": "composition",
+      "label": "has mesh",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r19",
+      "from": "ACharacter",
+      "to": "UCharacterMovementComponent",
+      "kind": "composition",
+      "label": "has movement",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "1"
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "id": "databases",
+  "type": "quadrant",
+  "title": "Databases: how widely used, how admired",
+  "caption": "Source: Stack Overflow Developer Survey 2024 (Open Database License).",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "notebook",
+  "preset": "magic",
+  "x": {
+    "label": "Used by (% of respondents)",
+    "min": 1,
+    "max": 60,
+    "scale": "log",
+    "split": 10,
+    "unit": "%",
+    "low": "Niche",
+    "high": "Widespread"
+  },
+  "y": {
+    "label": "Admired (% of its users)",
+    "min": 20,
+    "max": 80,
+    "split": 50,
+    "unit": "%",
+    "low": "Less admired",
+    "high": "More admired"
+  },
+  "quadrants": [
+    {
+      "id": "favourites",
+      "label": "Established favourites"
+    },
+    {
+      "id": "rising",
+      "label": "Rising favourites"
+    },
+    {
+      "id": "niche",
+      "label": "Niche"
+    },
+    {
+      "id": "workhorses",
+      "label": "Workhorses"
+    }
+  ],
+  "points": [
+    {
+      "id": "postgresql",
+      "label": "PostgreSQL",
+      "x": 48.7,
+      "y": 74.5
+    },
+    {
+      "id": "mysql",
+      "label": "MySQL",
+      "x": 40.3,
+      "y": 52.5
+    },
+    {
+      "id": "sqlite",
+      "label": "SQLite",
+      "x": 33.1,
+      "y": 62.7
+    },
+    {
+      "id": "mssql",
+      "label": "Microsoft SQL Server",
+      "x": 25.3,
+      "y": 54.5
+    },
+    {
+      "id": "mongodb",
+      "label": "MongoDB",
+      "x": 24.8,
+      "y": 55.4
+    },
+    {
+      "id": "redis",
+      "label": "Redis",
+      "x": 20,
+      "y": 67
+    },
+    {
+      "id": "mariadb",
+      "label": "MariaDB",
+      "x": 17.2,
+      "y": 55.8
+    },
+    {
+      "id": "elasticsearch",
+      "label": "Elasticsearch",
+      "x": 12.5,
+      "y": 49.8
+    },
+    {
+      "id": "oracle",
+      "label": "Oracle",
+      "x": 10.1,
+      "y": 37.6
+    },
+    {
+      "id": "dynamodb",
+      "label": "DynamoDB",
+      "x": 7.9,
+      "y": 49.7
+    },
+    {
+      "id": "firebase",
+      "label": "Firebase Realtime Database",
+      "x": 5.8,
+      "y": 46.1
+    },
+    {
+      "id": "firestore",
+      "label": "Cloud Firestore",
+      "x": 5.4,
+      "y": 52.1
+    },
+    {
+      "id": "bigquery",
+      "label": "BigQuery",
+      "x": 4.8,
+      "y": 50.8
+    },
+    {
+      "id": "access",
+      "label": "Microsoft Access",
+      "x": 4.2,
+      "y": 23.3
+    },
+    {
+      "id": "supabase",
+      "label": "Supabase",
+      "x": 4,
+      "y": 60.4
+    },
+    {
+      "id": "h2",
+      "label": "H2",
+      "x": 3.8,
+      "y": 42.4
+    },
+    {
+      "id": "cosmosdb",
+      "label": "Cosmos DB",
+      "x": 3.3,
+      "y": 50.2
+    },
+    {
+      "id": "snowflake",
+      "label": "Snowflake",
+      "x": 2.6,
+      "y": 51.2
+    },
+    {
+      "id": "influxdb",
+      "label": "InfluxDB",
+      "x": 2.5,
+      "y": 44.9
+    },
+    {
+      "id": "cassandra",
+      "label": "Cassandra",
+      "x": 2.4,
+      "y": 36.4
+    },
+    {
+      "id": "databricks",
+      "label": "Databricks SQL",
+      "x": 1.9,
+      "y": 49.1
+    },
+    {
+      "id": "neo4j",
+      "label": "Neo4j",
+      "x": 1.9,
+      "y": 46.4
+    },
+    {
+      "id": "db2",
+      "label": "IBM DB2",
+      "x": 1.7,
+      "y": 26.9
+    },
+    {
+      "id": "clickhouse",
+      "label": "ClickHouse",
+      "x": 1.7,
+      "y": 58.4
+    },
+    {
+      "id": "duckdb",
+      "label": "DuckDB",
+      "x": 1.4,
+      "y": 69.2
+    }
+  ]
+}

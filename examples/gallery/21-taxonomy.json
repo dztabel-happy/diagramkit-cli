@@ -1,0 +1,225 @@
+{
+  "version": 1,
+  "id": "taxonomy",
+  "type": "class",
+  "title": "Biological classification, from domain to species",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 255,
+      "heightMm": 256
+    }
+  },
+  "style": "report",
+  "direction": "TB",
+  "classes": [
+    {
+      "id": "Eukarya",
+      "label": "Eukarya",
+      "stereotype": "Domain",
+      "attributes": [
+        "+characteristic: DNA contained within a nucleus"
+      ]
+    },
+    {
+      "id": "Animalia",
+      "label": "Animalia",
+      "stereotype": "Kingdom",
+      "attributes": [
+        "+characteristic: Multicellular, eats organic material, can move"
+      ]
+    },
+    {
+      "id": "Chordata",
+      "label": "Chordata",
+      "stereotype": "Phylum",
+      "attributes": [
+        "+characteristic: Notochord and dorsal nerve cord present"
+      ]
+    },
+    {
+      "id": "Mammalia",
+      "label": "Mammalia",
+      "stereotype": "Class",
+      "attributes": [
+        "+characteristic: Hair present, young fed milk from mammary glands"
+      ]
+    },
+    {
+      "id": "Carnivora",
+      "label": "Carnivora",
+      "stereotype": "Order",
+      "attributes": [
+        "+characteristic: Sharp teeth adapted for eating meat"
+      ]
+    },
+    {
+      "id": "Primates",
+      "label": "Primates",
+      "stereotype": "Order",
+      "attributes": [
+        "+characteristic: Grasping hands, forward-facing eyes"
+      ]
+    },
+    {
+      "id": "Felidae",
+      "label": "Felidae",
+      "stereotype": "Family",
+      "attributes": [
+        "+characteristic: Retractable claws, acute night vision"
+      ]
+    },
+    {
+      "id": "Hominidae",
+      "label": "Hominidae",
+      "stereotype": "Family",
+      "attributes": [
+        "+characteristic: Large brain relative to body size"
+      ]
+    },
+    {
+      "id": "Panthera",
+      "label": "Panthera",
+      "stereotype": "Genus",
+      "attributes": [
+        "+characteristic: Large body size, roaring vocalization"
+      ]
+    },
+    {
+      "id": "Felis",
+      "label": "Felis",
+      "stereotype": "Genus",
+      "attributes": [
+        "+characteristic: Small body size, purring vocalization"
+      ]
+    },
+    {
+      "id": "Homo",
+      "label": "Homo",
+      "stereotype": "Genus",
+      "attributes": [
+        "+characteristic: Bipedal locomotion, complex tool use"
+      ]
+    },
+    {
+      "id": "PantheraLeo",
+      "label": "PantheraLeo",
+      "attributes": [
+        "+scientificName: Panthera leo",
+        "+commonName: Lion"
+      ]
+    },
+    {
+      "id": "PantheraTigris",
+      "label": "PantheraTigris",
+      "attributes": [
+        "+scientificName: Panthera tigris",
+        "+commonName: Tiger"
+      ]
+    },
+    {
+      "id": "FelisCatus",
+      "label": "FelisCatus",
+      "attributes": [
+        "+scientificName: Felis catus",
+        "+commonName: Domestic Cat"
+      ]
+    },
+    {
+      "id": "HomoSapiens",
+      "label": "HomoSapiens",
+      "attributes": [
+        "+scientificName: Homo sapiens",
+        "+commonName: Human"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r01",
+      "from": "Animalia",
+      "to": "Eukarya",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r02",
+      "from": "Chordata",
+      "to": "Animalia",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r03",
+      "from": "Mammalia",
+      "to": "Chordata",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r04",
+      "from": "Carnivora",
+      "to": "Mammalia",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r05",
+      "from": "Primates",
+      "to": "Mammalia",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r06",
+      "from": "Felidae",
+      "to": "Carnivora",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r07",
+      "from": "Hominidae",
+      "to": "Primates",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r08",
+      "from": "Panthera",
+      "to": "Felidae",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r09",
+      "from": "Felis",
+      "to": "Felidae",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r10",
+      "from": "Homo",
+      "to": "Hominidae",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r11",
+      "from": "PantheraLeo",
+      "to": "Panthera",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r12",
+      "from": "PantheraTigris",
+      "to": "Panthera",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r13",
+      "from": "FelisCatus",
+      "to": "Felis",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r14",
+      "from": "HomoSapiens",
+      "to": "Homo",
+      "kind": "inheritance"
+    }
+  ]
+}

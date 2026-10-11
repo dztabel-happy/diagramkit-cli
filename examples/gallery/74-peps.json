@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "id": "peps",
+  "type": "kanban",
+  "title": "Standards Track PEPs targeting Python 3.14, by status",
+  "caption": "Source: peps.python.org.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 446,
+      "heightMm": 325
+    }
+  },
+  "style": "report",
+  "columns": [
+    {
+      "id": "draft",
+      "label": "Draft"
+    },
+    {
+      "id": "accepted",
+      "label": "Accepted"
+    },
+    {
+      "id": "final",
+      "label": "Final"
+    },
+    {
+      "id": "deferred",
+      "label": "Deferred"
+    },
+    {
+      "id": "rejected",
+      "label": "Rejected"
+    },
+    {
+      "id": "withdrawn",
+      "label": "Withdrawn"
+    }
+  ],
+  "cards": [
+    {
+      "id": "pep-649",
+      "label": "Deferred Evaluation Of Annotations Using Descriptors",
+      "column": "final",
+      "ticket": "PEP 649",
+      "owners": [
+        "Larry Hastings"
+      ],
+      "tags": [
+        "typing"
+      ]
+    },
+    {
+      "id": "pep-734",
+      "label": "Multiple Interpreters in the Stdlib",
+      "column": "final",
+      "ticket": "PEP 734",
+      "owners": [
+        "Eric Snow"
+      ]
+    },
+    {
+      "id": "pep-736",
+      "label": "Shorthand syntax for keyword arguments at invocation",
+      "column": "rejected",
+      "ticket": "PEP 736",
+      "owners": [
+        "Joshua Bambrick",
+        "Chris Angelico"
+      ]
+    },
+    {
+      "id": "pep-739",
+      "label": "build-details.json 1.0 — a static description file for Python build details",
+      "column": "accepted",
+      "ticket": "PEP 739",
+      "owners": [
+        "Filipe Laíns"
+      ],
+      "tags": [
+        "packaging"
+      ]
+    },
+    {
+      "id": "pep-741",
+      "label": "Python Configuration C API",
+      "column": "final",
+      "ticket": "PEP 741",
+      "owners": [
+        "Victor Stinner"
+      ]
+    },
+    {
+      "id": "pep-748",
+      "label": "A Unified TLS API for Python",
+      "column": "draft",
+      "ticket": "PEP 748",
+      "owners": [
+        "Joop van de Pol",
+        "William Woodruff"
+      ]
+    },
+    {
+      "id": "pep-749",
+      "label": "Implementing PEP 649",
+      "column": "final",
+      "ticket": "PEP 749",
+      "owners": [
+        "Jelle Zijlstra"
+      ],
+      "tags": [
+        "typing"
+      ]
+    },
+    {
+      "id": "pep-750",
+      "label": "Template Strings",
+      "column": "final",
+      "ticket": "PEP 750",
+      "owners": [
+        "Jim Baker",
+        "Guido van Rossum",
+        "Paul Everitt"
+      ]
+    },
+    {
+      "id": "pep-756",
+      "label": "Add PyUnicode_Export() and PyUnicode_Import() C functions",
+      "column": "withdrawn",
+      "ticket": "PEP 756",
+      "owners": [
+        "Victor Stinner"
+      ]
+    },
+    {
+      "id": "pep-757",
+      "label": "C API to import-export Python integers",
+      "column": "final",
+      "ticket": "PEP 757",
+      "owners": [
+        "Sergey B Kirpichev",
+        "Victor Stinner"
+      ]
+    },
+    {
+      "id": "pep-758",
+      "label": "Allow except and except* expressions without parentheses",
+      "column": "final",
+      "ticket": "PEP 758",
+      "owners": [
+        "Pablo Galindo Salgado",
+        "Brett Cannon"
+      ]
+    },
+    {
+      "id": "pep-760",
+      "label": "No More Bare Excepts",
+      "column": "withdrawn",
+      "ticket": "PEP 760",
+      "owners": [
+        "Pablo Galindo Salgado",
+        "Brett Cannon"
+      ]
+    },
+    {
+      "id": "pep-765",
+      "label": "Disallow return/break/continue that exit a finally block",
+      "column": "final",
+      "ticket": "PEP 765",
+      "owners": [
+        "Irit Katriel",
+        "Alyssa Coghlan"
+      ]
+    },
+    {
+      "id": "pep-768",
+      "label": "Safe external debugger interface for CPython",
+      "column": "final",
+      "ticket": "PEP 768",
+      "owners": [
+        "Pablo Galindo Salgado",
+        "Matt Wozniski",
+        "Ivona Stojanovic"
+      ]
+    },
+    {
+      "id": "pep-769",
+      "label": "Add a 'default' keyword argument to 'attrgetter', 'itemgetter' and 'getitem'",
+      "column": "rejected",
+      "ticket": "PEP 769",
+      "owners": [
+        "Facundo Batista"
+      ]
+    },
+    {
+      "id": "pep-774",
+      "label": "Removing the LLVM requirement for JIT builds",
+      "column": "deferred",
+      "ticket": "PEP 774",
+      "owners": [
+        "Savannah Ostrowski"
+      ]
+    },
+    {
+      "id": "pep-775",
+      "label": "Make zlib required to build CPython",
+      "column": "withdrawn",
+      "ticket": "PEP 775",
+      "owners": [
+        "Gregory P. Smith",
+        "Stan Ulbrych",
+        "Petr Viktorin"
+      ]
+    },
+    {
+      "id": "pep-779",
+      "label": "Criteria for supported status for free-threaded Python",
+      "column": "final",
+      "ticket": "PEP 779",
+      "owners": [
+        "Thomas Wouters",
+        "Matt Page",
+        "Sam Gross"
+      ]
+    },
+    {
+      "id": "pep-780",
+      "label": "ABI features as environment markers",
+      "column": "draft",
+      "ticket": "PEP 780",
+      "owners": [
+        "Klaus Zimmermann",
+        "Ralf Gommers"
+      ],
+      "tags": [
+        "packaging"
+      ]
+    },
+    {
+      "id": "pep-784",
+      "label": "Adding Zstandard to the standard library",
+      "column": "final",
+      "ticket": "PEP 784",
+      "owners": [
+        "Emma Harper Smith"
+      ]
+    },
+    {
+      "id": "pep-785",
+      "label": "New methods for easier handling of ExceptionGroups",
+      "column": "draft",
+      "ticket": "PEP 785",
+      "owners": [
+        "Zac Hatfield-Dodds"
+      ]
+    },
+    {
+      "id": "pep-789",
+      "label": "Preventing task-cancellation bugs by limiting yield in async generators",
+      "column": "draft",
+      "ticket": "PEP 789",
+      "owners": [
+        "Zac Hatfield-Dodds",
+        "Nathaniel J. Smith"
+      ]
+    }
+  ]
+}

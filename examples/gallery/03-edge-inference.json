@@ -1,0 +1,232 @@
+{
+  "version": 1,
+  "id": "edge-inference",
+  "type": "compound",
+  "title": "Edge AI inference with a cloud fallback",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "style": "report",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "Camera",
+      "label": "Camera / Microphone Input",
+      "role": "step",
+      "shape": "parallelogram",
+      "tone": "blue"
+    },
+    {
+      "id": "Preprocess",
+      "label": "Preprocess Signal",
+      "role": "step",
+      "shape": "rounded",
+      "tone": "blue"
+    },
+    {
+      "id": "ModelCheck",
+      "label": "Run On-device Model",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "green"
+    },
+    {
+      "id": "LocalInfer",
+      "label": "Local Inference Result",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "Buffer",
+      "label": "Buffer Frame",
+      "role": "store",
+      "shape": "cylinder",
+      "tone": "blue"
+    },
+    {
+      "id": "Upload",
+      "label": "Upload Frame",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "yellow"
+    },
+    {
+      "id": "HeavyModel",
+      "label": "Run Large Model",
+      "role": "step",
+      "shape": "subroutine",
+      "tone": "yellow"
+    },
+    {
+      "id": "Result",
+      "label": "Return Refined Result",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "yellow"
+    },
+    {
+      "id": "Fuse",
+      "label": "Fuse Results",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "green"
+    },
+    {
+      "id": "Actuator",
+      "label": "Trigger Actuator",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "Idle",
+      "label": "Return to Idle",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "Feedback",
+      "label": "Log Feedback for Retraining",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "Retrain",
+      "label": "Retrain Model Pipeline",
+      "role": "step",
+      "shape": "flag",
+      "tone": "red"
+    }
+  ],
+  "groups": [
+    {
+      "id": "MCU",
+      "label": "Microcontroller (Edge Node)",
+      "children": [
+        "ModelCheck",
+        "LocalInfer",
+        "Buffer"
+      ],
+      "direction": "TB"
+    },
+    {
+      "id": "CloudInfer",
+      "label": "Cloud Inference Service",
+      "children": [
+        "Upload",
+        "HeavyModel",
+        "Result"
+      ],
+      "direction": "LR"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e001",
+      "from": "Camera",
+      "to": "Preprocess",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e002",
+      "from": "Preprocess",
+      "to": "ModelCheck",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e003",
+      "from": "ModelCheck",
+      "to": "LocalInfer",
+      "kind": "branch",
+      "label": "Confidence High",
+      "line": "solid"
+    },
+    {
+      "id": "e004",
+      "from": "ModelCheck",
+      "to": "Buffer",
+      "kind": "branch",
+      "label": "Confidence Low",
+      "line": "solid"
+    },
+    {
+      "id": "e005",
+      "from": "Upload",
+      "to": "HeavyModel",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e006",
+      "from": "HeavyModel",
+      "to": "Result",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e007",
+      "from": "Buffer",
+      "to": "Upload",
+      "kind": "branch",
+      "label": "Wi-Fi / LTE",
+      "line": "dashed"
+    },
+    {
+      "id": "e008",
+      "from": "LocalInfer",
+      "to": "Fuse",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e009",
+      "from": "Result",
+      "to": "Fuse",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e010",
+      "from": "Fuse",
+      "to": "Actuator",
+      "kind": "branch",
+      "label": "Action Required",
+      "line": "solid",
+      "weight": "emphasis"
+    },
+    {
+      "id": "e011",
+      "from": "Fuse",
+      "to": "Idle",
+      "kind": "branch",
+      "label": "No Action",
+      "line": "solid"
+    },
+    {
+      "id": "e012",
+      "from": "Actuator",
+      "to": "Feedback",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e013",
+      "from": "Idle",
+      "to": "Feedback",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e014",
+      "from": "Feedback",
+      "to": "Retrain",
+      "kind": "branch",
+      "label": "Batch Upload",
+      "line": "dashed"
+    }
+  ]
+}

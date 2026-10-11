@@ -1,0 +1,425 @@
+{
+  "version": 1,
+  "id": "tpch",
+  "type": "er",
+  "title": "TPC-H schema",
+  "caption": "After TPC Benchmark H, revision 3.0.1, §1.4.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "report",
+  "direction": "TB",
+  "entities": [
+    {
+      "id": "REGION",
+      "label": "REGION",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "R_REGIONKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "CHAR(25)",
+          "name": "R_NAME"
+        },
+        {
+          "type": "VARCHAR(152)",
+          "name": "R_COMMENT"
+        }
+      ]
+    },
+    {
+      "id": "NATION",
+      "label": "NATION",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "N_NATIONKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "CHAR(25)",
+          "name": "N_NAME"
+        },
+        {
+          "type": "INTEGER",
+          "name": "N_REGIONKEY",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "VARCHAR(152)",
+          "name": "N_COMMENT"
+        }
+      ]
+    },
+    {
+      "id": "SUPPLIER",
+      "label": "SUPPLIER",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "S_SUPPKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "CHAR(25)",
+          "name": "S_NAME"
+        },
+        {
+          "type": "VARCHAR(40)",
+          "name": "S_ADDRESS"
+        },
+        {
+          "type": "INTEGER",
+          "name": "S_NATIONKEY",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "CHAR(15)",
+          "name": "S_PHONE"
+        },
+        {
+          "type": "DECIMAL(15,2)",
+          "name": "S_ACCTBAL"
+        },
+        {
+          "type": "VARCHAR(101)",
+          "name": "S_COMMENT"
+        }
+      ]
+    },
+    {
+      "id": "CUSTOMER",
+      "label": "CUSTOMER",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "C_CUSTKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "VARCHAR(25)",
+          "name": "C_NAME"
+        },
+        {
+          "type": "VARCHAR(40)",
+          "name": "C_ADDRESS"
+        },
+        {
+          "type": "INTEGER",
+          "name": "C_NATIONKEY",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "CHAR(15)",
+          "name": "C_PHONE"
+        },
+        {
+          "type": "DECIMAL(15,2)",
+          "name": "C_ACCTBAL"
+        },
+        {
+          "type": "CHAR(10)",
+          "name": "C_MKTSEGMENT"
+        },
+        {
+          "type": "VARCHAR(117)",
+          "name": "C_COMMENT"
+        }
+      ]
+    },
+    {
+      "id": "PART",
+      "label": "PART",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "P_PARTKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "VARCHAR(55)",
+          "name": "P_NAME"
+        },
+        {
+          "type": "CHAR(25)",
+          "name": "P_MFGR"
+        },
+        {
+          "type": "CHAR(10)",
+          "name": "P_BRAND"
+        },
+        {
+          "type": "VARCHAR(25)",
+          "name": "P_TYPE"
+        },
+        {
+          "type": "INTEGER",
+          "name": "P_SIZE"
+        },
+        {
+          "type": "CHAR(10)",
+          "name": "P_CONTAINER"
+        },
+        {
+          "type": "DECIMAL(15,2)",
+          "name": "P_RETAILPRICE"
+        },
+        {
+          "type": "VARCHAR(23)",
+          "name": "P_COMMENT"
+        }
+      ]
+    },
+    {
+      "id": "PARTSUPP",
+      "label": "PARTSUPP",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "PS_PARTKEY",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "PS_SUPPKEY",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "PS_AVAILQTY"
+        },
+        {
+          "type": "DECIMAL(15,2)",
+          "name": "PS_SUPPLYCOST"
+        },
+        {
+          "type": "VARCHAR(199)",
+          "name": "PS_COMMENT"
+        }
+      ]
+    },
+    {
+      "id": "ORDERS",
+      "label": "ORDERS",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "O_ORDERKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "O_CUSTKEY",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "CHAR(1)",
+          "name": "O_ORDERSTATUS"
+        },
+        {
+          "type": "DECIMAL(15,2)",
+          "name": "O_TOTALPRICE"
+        },
+        {
+          "type": "DATE",
+          "name": "O_ORDERDATE"
+        },
+        {
+          "type": "CHAR(15)",
+          "name": "O_ORDERPRIORITY"
+        },
+        {
+          "type": "CHAR(15)",
+          "name": "O_CLERK"
+        },
+        {
+          "type": "INTEGER",
+          "name": "O_SHIPPRIORITY"
+        },
+        {
+          "type": "VARCHAR(79)",
+          "name": "O_COMMENT"
+        }
+      ]
+    },
+    {
+      "id": "LINEITEM",
+      "label": "LINEITEM",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "L_ORDERKEY",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "L_PARTKEY",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "L_SUPPKEY",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "L_LINENUMBER",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "DECIMAL(15,2)",
+          "name": "L_QUANTITY"
+        },
+        {
+          "type": "DECIMAL(15,2)",
+          "name": "L_EXTENDEDPRICE"
+        },
+        {
+          "type": "DECIMAL(15,2)",
+          "name": "L_DISCOUNT"
+        },
+        {
+          "type": "DECIMAL(15,2)",
+          "name": "L_TAX"
+        },
+        {
+          "type": "CHAR(1)",
+          "name": "L_RETURNFLAG"
+        },
+        {
+          "type": "CHAR(1)",
+          "name": "L_LINESTATUS"
+        },
+        {
+          "type": "DATE",
+          "name": "L_SHIPDATE"
+        },
+        {
+          "type": "DATE",
+          "name": "L_COMMITDATE"
+        },
+        {
+          "type": "DATE",
+          "name": "L_RECEIPTDATE"
+        },
+        {
+          "type": "CHAR(25)",
+          "name": "L_SHIPINSTRUCT"
+        },
+        {
+          "type": "CHAR(10)",
+          "name": "L_SHIPMODE"
+        },
+        {
+          "type": "VARCHAR(44)",
+          "name": "L_COMMENT"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r01",
+      "from": "REGION",
+      "to": "NATION",
+      "fromCardinality": "one",
+      "toCardinality": "one-or-more",
+      "label": "contains"
+    },
+    {
+      "id": "r02",
+      "from": "NATION",
+      "to": "SUPPLIER",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "home of"
+    },
+    {
+      "id": "r03",
+      "from": "NATION",
+      "to": "CUSTOMER",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "home of"
+    },
+    {
+      "id": "r04",
+      "from": "PART",
+      "to": "PARTSUPP",
+      "fromCardinality": "one",
+      "toCardinality": "one-or-more",
+      "label": "supplied as"
+    },
+    {
+      "id": "r05",
+      "from": "SUPPLIER",
+      "to": "PARTSUPP",
+      "fromCardinality": "one",
+      "toCardinality": "one-or-more",
+      "label": "supplies"
+    },
+    {
+      "id": "r06",
+      "from": "CUSTOMER",
+      "to": "ORDERS",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "places"
+    },
+    {
+      "id": "r07",
+      "from": "ORDERS",
+      "to": "LINEITEM",
+      "fromCardinality": "one",
+      "toCardinality": "one-or-more",
+      "label": "consists of"
+    },
+    {
+      "id": "r08",
+      "from": "PARTSUPP",
+      "to": "LINEITEM",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "fulfils"
+    }
+  ]
+}

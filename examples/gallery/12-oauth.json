@@ -1,0 +1,288 @@
+{
+  "version": 1,
+  "id": "oauth",
+  "type": "sequence",
+  "title": "OAuth 2.0 authorization code flow with PKCE",
+  "caption": "After RFC 6749 §4.1, RFC 7636 and OpenID Connect Core §3.1.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 374,
+      "heightMm": 479
+    }
+  },
+  "participants": [
+    {
+      "id": "User",
+      "label": "User",
+      "role": "actor",
+      "symbol": "actor"
+    },
+    {
+      "id": "Browser",
+      "label": "Browser (user-agent)",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "App",
+      "label": "Client app (web server)",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "AS",
+      "label": "Authorization server",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "RS",
+      "label": "Resource server (API)",
+      "role": "service",
+      "symbol": "box"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m01",
+      "from": "User",
+      "to": "App",
+      "kind": "call",
+      "label": "Click \"Sign in\""
+    },
+    {
+      "id": "m02",
+      "from": "App",
+      "to": "App",
+      "kind": "call",
+      "label": "Generate state, nonce, code_verifier; code_challenge = BASE64URL(SHA256(code_verifier))"
+    },
+    {
+      "id": "m03",
+      "from": "App",
+      "to": "Browser",
+      "kind": "return",
+      "label": "302 to /authorize (response_type=code, scope=openid profile, state, nonce, code_challenge, S256)"
+    },
+    {
+      "id": "m04",
+      "from": "Browser",
+      "to": "AS",
+      "kind": "call",
+      "label": "GET /authorize?…"
+    },
+    {
+      "id": "m05",
+      "from": "AS",
+      "to": "Browser",
+      "kind": "return",
+      "label": "Login page"
+    },
+    {
+      "id": "m06",
+      "from": "User",
+      "to": "Browser",
+      "kind": "call",
+      "label": "Enter credentials and one-time code"
+    },
+    {
+      "id": "m07",
+      "from": "Browser",
+      "to": "AS",
+      "kind": "call",
+      "label": "POST /login"
+    },
+    {
+      "id": "m08",
+      "from": "AS",
+      "to": "AS",
+      "kind": "call",
+      "label": "Authenticate user, verify second factor"
+    },
+    {
+      "id": "m09",
+      "from": "AS",
+      "to": "Browser",
+      "kind": "return",
+      "label": "Consent screen (requested scopes)"
+    },
+    {
+      "id": "m13",
+      "from": "AS",
+      "to": "Browser",
+      "kind": "return",
+      "label": "302 to redirect_uri?error=access_denied&state=…"
+    },
+    {
+      "id": "m10",
+      "from": "User",
+      "to": "Browser",
+      "kind": "call",
+      "label": "Approve"
+    },
+    {
+      "id": "m11",
+      "from": "Browser",
+      "to": "AS",
+      "kind": "call",
+      "label": "POST /consent"
+    },
+    {
+      "id": "m12",
+      "from": "AS",
+      "to": "Browser",
+      "kind": "return",
+      "label": "302 to redirect_uri?code=…&state=…"
+    },
+    {
+      "id": "m14",
+      "from": "Browser",
+      "to": "App",
+      "kind": "call",
+      "label": "GET /callback?code=…&state=…"
+    },
+    {
+      "id": "m15",
+      "from": "App",
+      "to": "App",
+      "kind": "call",
+      "label": "Check state matches the session"
+    },
+    {
+      "id": "m16",
+      "from": "App",
+      "to": "AS",
+      "kind": "call",
+      "label": "POST /token (grant_type=authorization_code, code, redirect_uri, code_verifier)"
+    },
+    {
+      "id": "m17",
+      "from": "AS",
+      "to": "AS",
+      "kind": "call",
+      "label": "Verify BASE64URL(SHA256(code_verifier)) equals code_challenge"
+    },
+    {
+      "id": "m18",
+      "from": "AS",
+      "to": "App",
+      "kind": "return",
+      "label": "access_token, refresh_token, id_token (JWT)"
+    },
+    {
+      "id": "m19",
+      "from": "App",
+      "to": "App",
+      "kind": "call",
+      "label": "Validate id_token: signature, iss, aud, exp, nonce"
+    },
+    {
+      "id": "m20",
+      "from": "App",
+      "to": "RS",
+      "kind": "call",
+      "label": "GET /api/profile (Authorization: Bearer access_token)"
+    },
+    {
+      "id": "m21",
+      "from": "RS",
+      "to": "AS",
+      "kind": "call",
+      "label": "POST /introspect (token)"
+    },
+    {
+      "id": "m22",
+      "from": "AS",
+      "to": "RS",
+      "kind": "return",
+      "label": "{ active: true, scope, sub, exp }"
+    },
+    {
+      "id": "m23",
+      "from": "RS",
+      "to": "App",
+      "kind": "return",
+      "label": "200 OK (profile)"
+    },
+    {
+      "id": "m24",
+      "from": "App",
+      "to": "Browser",
+      "kind": "return",
+      "label": "Render signed-in page"
+    },
+    {
+      "id": "m25",
+      "from": "App",
+      "to": "AS",
+      "kind": "call",
+      "label": "POST /token (grant_type=refresh_token, refresh_token)"
+    },
+    {
+      "id": "m26",
+      "from": "AS",
+      "to": "App",
+      "kind": "return",
+      "label": "New access_token, rotated refresh_token"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "denied",
+      "kind": "break",
+      "label": "user denies",
+      "start": "m13",
+      "end": "m13"
+    },
+    {
+      "id": "refresh",
+      "kind": "opt",
+      "label": "access_token expired",
+      "start": "m25",
+      "end": "m26"
+    }
+  ],
+  "notes": [
+    {
+      "id": "pkce",
+      "label": "PKCE (RFC 7636) binds the code to this client instance",
+      "participants": [
+        "App"
+      ],
+      "placement": "right",
+      "at": {
+        "message": "m02",
+        "position": "after"
+      }
+    },
+    {
+      "id": "introspect",
+      "label": "Token introspection, RFC 7662",
+      "participants": [
+        "RS",
+        "AS"
+      ],
+      "placement": "over",
+      "at": {
+        "message": "m21",
+        "position": "before"
+      }
+    }
+  ],
+  "activations": [
+    {
+      "id": "a1",
+      "participant": "App",
+      "start": "m14",
+      "end": "m24"
+    },
+    {
+      "id": "a2",
+      "participant": "AS",
+      "start": "m16",
+      "end": "m18"
+    }
+  ]
+}

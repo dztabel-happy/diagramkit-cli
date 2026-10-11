@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "id": "rose",
+  "type": "pie",
+  "title": "Deaths from zymotic diseases in the army in the East, April 1854 to March 1855 (annual rate per 1,000)",
+  "caption": "Source: Florence Nightingale, 1858 (HistData “Nightingale”).",
+  "evidence": "illustrative",
+  "style": "report",
+  "shape": "rose",
+  "show": "value",
+  "slices": [
+    {
+      "id": "m185404",
+      "label": "Apr 1854",
+      "value": 1.4
+    },
+    {
+      "id": "m185405",
+      "label": "May 1854",
+      "value": 6.2
+    },
+    {
+      "id": "m185406",
+      "label": "Jun 1854",
+      "value": 4.7
+    },
+    {
+      "id": "m185407",
+      "label": "Jul 1854",
+      "value": 150.0
+    },
+    {
+      "id": "m185408",
+      "label": "Aug 1854",
+      "value": 328.5
+    },
+    {
+      "id": "m185409",
+      "label": "Sep 1854",
+      "value": 312.2
+    },
+    {
+      "id": "m185410",
+      "label": "Oct 1854",
+      "value": 197.0
+    },
+    {
+      "id": "m185411",
+      "label": "Nov 1854",
+      "value": 340.6
+    },
+    {
+      "id": "m185412",
+      "label": "Dec 1854",
+      "value": 631.5
+    },
+    {
+      "id": "m185501",
+      "label": "Jan 1855",
+      "value": 1022.8
+    },
+    {
+      "id": "m185502",
+      "label": "Feb 1855",
+      "value": 822.8
+    },
+    {
+      "id": "m185503",
+      "label": "Mar 1855",
+      "value": 480.3
+    }
+  ]
+}

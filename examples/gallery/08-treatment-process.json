@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "id": "treatment-process",
+  "type": "compound",
+  "title": "污水处理工艺流程",
+  "caption": "示例工艺，仅作演示。实线为水线，虚线为回流污泥；剩余污泥、化学污泥进入污泥处理。",
+  "evidence": "illustrative",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "in",
+      "label": "进水",
+      "role": "entry"
+    },
+    {
+      "id": "coarse",
+      "label": "粗格栅及提升泵房",
+      "role": "step"
+    },
+    {
+      "id": "fine",
+      "label": "细格栅及曝气沉砂池",
+      "role": "step"
+    },
+    {
+      "id": "a2o",
+      "label": "A²/O 生化池",
+      "role": "step"
+    },
+    {
+      "id": "clarifier",
+      "label": "二沉池",
+      "role": "step"
+    },
+    {
+      "id": "hds",
+      "label": "高效沉淀池",
+      "role": "step"
+    },
+    {
+      "id": "filter",
+      "label": "反硝化深床滤池",
+      "role": "step"
+    },
+    {
+      "id": "uv",
+      "label": "紫外线消毒渠",
+      "role": "step"
+    },
+    {
+      "id": "out",
+      "label": "达标排放（一级 A）",
+      "role": "terminal"
+    },
+    {
+      "id": "thick",
+      "label": "污泥浓缩池",
+      "role": "step"
+    },
+    {
+      "id": "dewater",
+      "label": "板框压滤脱水（含水率 ≤60%）",
+      "role": "step"
+    },
+    {
+      "id": "dispose",
+      "label": "外运处置",
+      "role": "terminal"
+    }
+  ],
+  "groups": [
+    {
+      "id": "pre",
+      "label": "预处理",
+      "children": [
+        "coarse",
+        "fine"
+      ]
+    },
+    {
+      "id": "bio",
+      "label": "二级处理",
+      "children": [
+        "a2o",
+        "clarifier"
+      ]
+    },
+    {
+      "id": "adv",
+      "label": "深度处理",
+      "children": [
+        "hds",
+        "filter",
+        "uv"
+      ]
+    },
+    {
+      "id": "sludge",
+      "label": "污泥处理",
+      "children": [
+        "thick",
+        "dewater"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "p1",
+      "from": "in",
+      "to": "coarse",
+      "kind": "main"
+    },
+    {
+      "id": "p2",
+      "from": "coarse",
+      "to": "fine",
+      "kind": "main"
+    },
+    {
+      "id": "p3",
+      "from": "fine",
+      "to": "a2o",
+      "kind": "main"
+    },
+    {
+      "id": "p4",
+      "from": "a2o",
+      "to": "clarifier",
+      "kind": "main"
+    },
+    {
+      "id": "p5",
+      "from": "clarifier",
+      "to": "hds",
+      "kind": "main"
+    },
+    {
+      "id": "p6",
+      "from": "hds",
+      "to": "filter",
+      "kind": "main"
+    },
+    {
+      "id": "p7",
+      "from": "filter",
+      "to": "uv",
+      "kind": "main"
+    },
+    {
+      "id": "p8",
+      "from": "uv",
+      "to": "out",
+      "kind": "main"
+    },
+    {
+      "id": "r1",
+      "from": "clarifier",
+      "to": "a2o",
+      "kind": "return",
+      "label": "回流污泥"
+    },
+    {
+      "id": "s1",
+      "from": "clarifier",
+      "to": "thick",
+      "kind": "data",
+      "label": "剩余污泥"
+    },
+    {
+      "id": "s2",
+      "from": "hds",
+      "to": "thick",
+      "kind": "data",
+      "label": "化学污泥"
+    },
+    {
+      "id": "s3",
+      "from": "thick",
+      "to": "dewater",
+      "kind": "main"
+    },
+    {
+      "id": "s4",
+      "from": "dewater",
+      "to": "dispose",
+      "kind": "main"
+    }
+  ]
+}

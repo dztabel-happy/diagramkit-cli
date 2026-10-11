@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "id": "report-requirements",
+  "type": "requirement",
+  "title": "报告自动配图的需求与验证",
+  "caption": "示例，仅作演示。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "notebook",
+  "requirements": [
+    {
+      "id": "goal",
+      "label": "报告里的图可直接交付",
+      "reqId": "R-0",
+      "text": "写入 Word 的每张图不需人工重排即可交付。",
+      "risk": "high"
+    },
+    {
+      "id": "fit",
+      "label": "按页面排版",
+      "kind": "functional",
+      "reqId": "R-1",
+      "text": "图按版心宽度和可用高度排版，放不下时给出办法而不是缩小。",
+      "verification": "test"
+    },
+    {
+      "id": "size",
+      "label": "文字看得清",
+      "kind": "performance",
+      "reqId": "R-2",
+      "text": "主要文字 9 pt，任何文字不低于 6.5 pt。",
+      "risk": "medium",
+      "verification": "test"
+    },
+    {
+      "id": "faithful",
+      "label": "忠实于材料",
+      "kind": "functional",
+      "reqId": "R-3",
+      "text": "图中每个框和每条关系都能在材料里找到出处。",
+      "risk": "high",
+      "verification": "inspection"
+    },
+    {
+      "id": "family",
+      "label": "全文一套外观",
+      "kind": "design-constraint",
+      "reqId": "R-4",
+      "text": "同一份文档里的图共用一套色系和字体。",
+      "verification": "inspection"
+    },
+    {
+      "id": "edit",
+      "label": "改得动",
+      "kind": "interface",
+      "reqId": "R-5",
+      "text": "人在面板里改过的图，可以原样重建并替换。",
+      "verification": "demonstration"
+    }
+  ],
+  "elements": [
+    {
+      "id": "engine",
+      "label": "排版引擎",
+      "kind": "模块"
+    },
+    {
+      "id": "check",
+      "label": "出图检查",
+      "kind": "模块"
+    },
+    {
+      "id": "panel",
+      "label": "编辑面板",
+      "kind": "模块"
+    },
+    {
+      "id": "suite",
+      "label": "页面验收用例",
+      "kind": "测试集",
+      "docRef": "A4 / A3 / 幻灯片"
+    }
+  ],
+  "relations": [
+    {
+      "from": "goal",
+      "to": "fit",
+      "kind": "contains"
+    },
+    {
+      "from": "goal",
+      "to": "size",
+      "kind": "contains"
+    },
+    {
+      "from": "goal",
+      "to": "faithful",
+      "kind": "contains"
+    },
+    {
+      "from": "goal",
+      "to": "family",
+      "kind": "contains"
+    },
+    {
+      "from": "goal",
+      "to": "edit",
+      "kind": "contains"
+    },
+    {
+      "from": "engine",
+      "to": "fit",
+      "kind": "satisfies"
+    },
+    {
+      "from": "check",
+      "to": "size",
+      "kind": "satisfies"
+    },
+    {
+      "from": "panel",
+      "to": "edit",
+      "kind": "satisfies"
+    },
+    {
+      "from": "suite",
+      "to": "fit",
+      "kind": "verifies"
+    },
+    {
+      "from": "suite",
+      "to": "size",
+      "kind": "verifies"
+    }
+  ]
+}

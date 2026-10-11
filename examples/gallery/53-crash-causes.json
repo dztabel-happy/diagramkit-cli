@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "id": "crash-causes",
+  "type": "fishbone",
+  "title": "Causes of the two 737 MAX crashes",
+  "caption": "After the U.S. House Committee on Transportation and Infrastructure’s final report (September 2020).",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "orientation": "landscape"
+  },
+  "style": "report",
+  "effect": {
+    "id": "effect",
+    "label": "Two 737 MAX crashes, 346 killed"
+  },
+  "causes": [
+    {
+      "id": "faa",
+      "label": "FAA oversight"
+    },
+    {
+      "id": "pressure",
+      "label": "Production pressure"
+    },
+    {
+      "id": "mcas",
+      "label": "MCAS"
+    },
+    {
+      "id": "aoa",
+      "label": "AOA Disagree alert"
+    },
+    {
+      "id": "training",
+      "label": "Pilot training"
+    },
+    {
+      "id": "faa-delegation",
+      "label": "Excessive delegation to Boeing",
+      "parent": "faa"
+    },
+    {
+      "id": "faa-ars",
+      "label": "Boeing ARs failed to represent the FAA",
+      "parent": "faa"
+    },
+    {
+      "id": "faa-ars-survey",
+      "label": "39% of ARs felt “undue pressure”",
+      "parent": "faa-ars"
+    },
+    {
+      "id": "faa-overruled",
+      "label": "Management overruled its own experts",
+      "parent": "faa"
+    },
+    {
+      "id": "faa-communication",
+      "label": "Disjointed internal communication",
+      "parent": "faa"
+    },
+    {
+      "id": "faa-eicas",
+      "label": "EICAS exception granted on cost",
+      "parent": "faa"
+    },
+    {
+      "id": "pressure-neo",
+      "label": "Race to match the A320neo",
+      "parent": "pressure"
+    },
+    {
+      "id": "pressure-clock",
+      "label": "Countdown clock: “the value of a day”",
+      "parent": "pressure"
+    },
+    {
+      "id": "pressure-testing",
+      "label": "Regression testing cut by 2,000 hours",
+      "parent": "pressure"
+    },
+    {
+      "id": "pressure-airspeed",
+      "label": "Synthetic airspeed rejected over cost",
+      "parent": "pressure"
+    },
+    {
+      "id": "pressure-warnings",
+      "label": "Plant supervisor's warnings unheeded",
+      "parent": "pressure"
+    },
+    {
+      "id": "mcas-critical",
+      "label": "Not classified as safety-critical",
+      "parent": "mcas"
+    },
+    {
+      "id": "mcas-sensor",
+      "label": "Relied on a single AOA sensor",
+      "parent": "mcas"
+    },
+    {
+      "id": "mcas-redesign",
+      "label": "2016 redesign: more authority at low speed",
+      "parent": "mcas"
+    },
+    {
+      "id": "mcas-analysis",
+      "label": "No failure analysis after the redesign",
+      "parent": "mcas"
+    },
+    {
+      "id": "mcas-manual",
+      "label": "Removed from the crew manual",
+      "parent": "mcas"
+    },
+    {
+      "id": "mcas-repeat",
+      "label": "Repeated activation deemed not a safety issue",
+      "parent": "mcas"
+    },
+    {
+      "id": "aoa-optional",
+      "label": "Tied to an optional indicator",
+      "parent": "aoa"
+    },
+    {
+      "id": "aoa-fleet",
+      "label": "Inoperable on over 80% of the fleet",
+      "parent": "aoa-optional"
+    },
+    {
+      "id": "aoa-deferred",
+      "label": "Fix deferred three years",
+      "parent": "aoa"
+    },
+    {
+      "id": "aoa-untold",
+      "label": "Customers and pilots not told",
+      "parent": "aoa"
+    },
+    {
+      "id": "aoa-delivered",
+      "label": "About 200 aircraft delivered that way",
+      "parent": "aoa"
+    },
+    {
+      "id": "training-southwest",
+      "label": "$1 million a plane owed if simulators required",
+      "parent": "training"
+    },
+    {
+      "id": "training-levelb",
+      "label": "Goal: no simulator training",
+      "parent": "training"
+    },
+    {
+      "id": "training-ten",
+      "label": "Test pilot took over 10 s to respond",
+      "parent": "training"
+    },
+    {
+      "id": "training-hidden",
+      "label": "Result never shared with the FAA",
+      "parent": "training-ten"
+    },
+    {
+      "id": "training-hours",
+      "label": "FAA approved about 2 hours of CBT",
+      "parent": "training"
+    }
+  ]
+}

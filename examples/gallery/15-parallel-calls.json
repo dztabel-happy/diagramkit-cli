@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "id": "parallel-calls",
+  "type": "sequence",
+  "title": "Placing an order: inventory and notification in parallel",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "participants": [
+    {
+      "id": "Client",
+      "label": "Client",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "OrderSvc",
+      "label": "Order Service",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "InventorySvc",
+      "label": "Inventory Service",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "NotifySvc",
+      "label": "Notification Service",
+      "role": "service",
+      "symbol": "box"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m01",
+      "from": "Client",
+      "to": "OrderSvc",
+      "kind": "call",
+      "label": "Place Order"
+    },
+    {
+      "id": "m02",
+      "from": "OrderSvc",
+      "to": "InventorySvc",
+      "kind": "call",
+      "label": "Reserve Stock"
+    },
+    {
+      "id": "m03",
+      "from": "InventorySvc",
+      "to": "OrderSvc",
+      "kind": "return",
+      "label": "Stock Reserved"
+    },
+    {
+      "id": "m04",
+      "from": "OrderSvc",
+      "to": "NotifySvc",
+      "kind": "call",
+      "label": "Notify User"
+    },
+    {
+      "id": "m05",
+      "from": "NotifySvc",
+      "to": "Client",
+      "kind": "return",
+      "label": "Order Confirmation Email"
+    },
+    {
+      "id": "m06",
+      "from": "OrderSvc",
+      "to": "Client",
+      "kind": "return",
+      "label": "Order Placed"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "f01",
+      "kind": "par",
+      "label": "Check Inventory",
+      "start": "m02",
+      "end": "m05",
+      "branches": [
+        {
+          "label": "Check Inventory",
+          "start": "m02",
+          "end": "m03"
+        },
+        {
+          "label": "Send Notification",
+          "start": "m04",
+          "end": "m05"
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "activations": [],
+  "lifecycles": [],
+  "participantGroups": [
+    {
+      "id": "g01",
+      "label": "Backend Services",
+      "participants": [
+        "OrderSvc",
+        "InventorySvc",
+        "NotifySvc"
+      ],
+      "tone": "blue"
+    }
+  ],
+  "mirrorParticipants": true
+}

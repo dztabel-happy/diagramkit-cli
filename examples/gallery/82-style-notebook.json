@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "id": "style-notebook",
+  "type": "mindmap",
+  "title": "Scrum at a glance",
+  "caption": "After the Scrum Guide (Schwaber and Sutherland, 2020).",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "topics": [
+    {
+      "id": "root",
+      "label": "Scrum"
+    },
+    {
+      "id": "t001",
+      "label": "Scrum Theory",
+      "parent": "root"
+    },
+    {
+      "id": "t002",
+      "label": "Empiricism",
+      "parent": "t001"
+    },
+    {
+      "id": "t003",
+      "label": "Transparency",
+      "parent": "t002"
+    },
+    {
+      "id": "t004",
+      "label": "Inspection",
+      "parent": "t002"
+    },
+    {
+      "id": "t005",
+      "label": "Adaptation",
+      "parent": "t002"
+    },
+    {
+      "id": "t006",
+      "label": "Lean thinking",
+      "parent": "t001"
+    },
+    {
+      "id": "t007",
+      "label": "Scrum Values",
+      "parent": "root"
+    },
+    {
+      "id": "t008",
+      "label": "Commitment",
+      "parent": "t007"
+    },
+    {
+      "id": "t009",
+      "label": "Focus",
+      "parent": "t007"
+    },
+    {
+      "id": "t010",
+      "label": "Openness",
+      "parent": "t007"
+    },
+    {
+      "id": "t011",
+      "label": "Respect",
+      "parent": "t007"
+    },
+    {
+      "id": "t012",
+      "label": "Courage",
+      "parent": "t007"
+    },
+    {
+      "id": "t013",
+      "label": "Scrum Team",
+      "parent": "root"
+    },
+    {
+      "id": "t014",
+      "label": "Developers",
+      "parent": "t013"
+    },
+    {
+      "id": "t015",
+      "label": "Product Owner",
+      "parent": "t013"
+    },
+    {
+      "id": "t016",
+      "label": "Scrum Master",
+      "parent": "t013"
+    },
+    {
+      "id": "t017",
+      "label": "Scrum Events",
+      "parent": "root"
+    },
+    {
+      "id": "t018",
+      "label": "The Sprint",
+      "parent": "t017"
+    },
+    {
+      "id": "t019",
+      "label": "Sprint Planning",
+      "parent": "t017"
+    },
+    {
+      "id": "t020",
+      "label": "Daily Scrum",
+      "parent": "t017"
+    },
+    {
+      "id": "t021",
+      "label": "Sprint Review",
+      "parent": "t017"
+    },
+    {
+      "id": "t022",
+      "label": "Sprint Retrospective",
+      "parent": "t017"
+    },
+    {
+      "id": "t023",
+      "label": "Scrum Artifacts",
+      "parent": "root"
+    },
+    {
+      "id": "t024",
+      "label": "Product Backlog",
+      "parent": "t023"
+    },
+    {
+      "id": "t025",
+      "label": "Commitment: Product Goal",
+      "parent": "t024"
+    },
+    {
+      "id": "t026",
+      "label": "Sprint Backlog",
+      "parent": "t023"
+    },
+    {
+      "id": "t027",
+      "label": "Commitment: Sprint Goal",
+      "parent": "t026"
+    },
+    {
+      "id": "t028",
+      "label": "Increment",
+      "parent": "t023"
+    },
+    {
+      "id": "t029",
+      "label": "Commitment: Definition of Done",
+      "parent": "t028"
+    }
+  ]
+}

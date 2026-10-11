@@ -1,0 +1,314 @@
+{
+  "version": 1,
+  "id": "pmbok",
+  "type": "mindmap",
+  "title": "项目管理十大知识领域与 49 个过程",
+  "caption": "据《PMBOK 指南》第六版。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "notebook",
+  "topics": [
+    {
+      "id": "root",
+      "label": "项目管理知识领域"
+    },
+    {
+      "id": "t001",
+      "label": "项目整合管理",
+      "parent": "root"
+    },
+    {
+      "id": "t002",
+      "label": "制定项目章程",
+      "parent": "t001"
+    },
+    {
+      "id": "t003",
+      "label": "制定项目管理计划",
+      "parent": "t001"
+    },
+    {
+      "id": "t004",
+      "label": "指导与管理项目工作",
+      "parent": "t001"
+    },
+    {
+      "id": "t005",
+      "label": "管理项目知识",
+      "parent": "t001"
+    },
+    {
+      "id": "t006",
+      "label": "监控项目工作",
+      "parent": "t001"
+    },
+    {
+      "id": "t007",
+      "label": "实施整体变更控制",
+      "parent": "t001"
+    },
+    {
+      "id": "t008",
+      "label": "结束项目或阶段",
+      "parent": "t001"
+    },
+    {
+      "id": "t009",
+      "label": "项目范围管理",
+      "parent": "root"
+    },
+    {
+      "id": "t010",
+      "label": "规划范围管理",
+      "parent": "t009"
+    },
+    {
+      "id": "t011",
+      "label": "收集需求",
+      "parent": "t009"
+    },
+    {
+      "id": "t012",
+      "label": "定义范围",
+      "parent": "t009"
+    },
+    {
+      "id": "t013",
+      "label": "创建 WBS",
+      "parent": "t009"
+    },
+    {
+      "id": "t014",
+      "label": "确认范围",
+      "parent": "t009"
+    },
+    {
+      "id": "t015",
+      "label": "控制范围",
+      "parent": "t009"
+    },
+    {
+      "id": "t016",
+      "label": "项目进度管理",
+      "parent": "root"
+    },
+    {
+      "id": "t017",
+      "label": "规划进度管理",
+      "parent": "t016"
+    },
+    {
+      "id": "t018",
+      "label": "定义活动",
+      "parent": "t016"
+    },
+    {
+      "id": "t019",
+      "label": "排列活动顺序",
+      "parent": "t016"
+    },
+    {
+      "id": "t020",
+      "label": "估算活动持续时间",
+      "parent": "t016"
+    },
+    {
+      "id": "t021",
+      "label": "制定进度计划",
+      "parent": "t016"
+    },
+    {
+      "id": "t022",
+      "label": "控制进度",
+      "parent": "t016"
+    },
+    {
+      "id": "t023",
+      "label": "项目成本管理",
+      "parent": "root"
+    },
+    {
+      "id": "t024",
+      "label": "规划成本管理",
+      "parent": "t023"
+    },
+    {
+      "id": "t025",
+      "label": "估算成本",
+      "parent": "t023"
+    },
+    {
+      "id": "t026",
+      "label": "制定预算",
+      "parent": "t023"
+    },
+    {
+      "id": "t027",
+      "label": "控制成本",
+      "parent": "t023"
+    },
+    {
+      "id": "t028",
+      "label": "项目质量管理",
+      "parent": "root"
+    },
+    {
+      "id": "t029",
+      "label": "规划质量管理",
+      "parent": "t028"
+    },
+    {
+      "id": "t030",
+      "label": "管理质量",
+      "parent": "t028"
+    },
+    {
+      "id": "t031",
+      "label": "控制质量",
+      "parent": "t028"
+    },
+    {
+      "id": "t032",
+      "label": "项目资源管理",
+      "parent": "root"
+    },
+    {
+      "id": "t033",
+      "label": "规划资源管理",
+      "parent": "t032"
+    },
+    {
+      "id": "t034",
+      "label": "估算活动资源",
+      "parent": "t032"
+    },
+    {
+      "id": "t035",
+      "label": "获取资源",
+      "parent": "t032"
+    },
+    {
+      "id": "t036",
+      "label": "建设团队",
+      "parent": "t032"
+    },
+    {
+      "id": "t037",
+      "label": "管理团队",
+      "parent": "t032"
+    },
+    {
+      "id": "t038",
+      "label": "控制资源",
+      "parent": "t032"
+    },
+    {
+      "id": "t039",
+      "label": "项目沟通管理",
+      "parent": "root"
+    },
+    {
+      "id": "t040",
+      "label": "规划沟通管理",
+      "parent": "t039"
+    },
+    {
+      "id": "t041",
+      "label": "管理沟通",
+      "parent": "t039"
+    },
+    {
+      "id": "t042",
+      "label": "监督沟通",
+      "parent": "t039"
+    },
+    {
+      "id": "t043",
+      "label": "项目风险管理",
+      "parent": "root"
+    },
+    {
+      "id": "t044",
+      "label": "规划风险管理",
+      "parent": "t043"
+    },
+    {
+      "id": "t045",
+      "label": "识别风险",
+      "parent": "t043"
+    },
+    {
+      "id": "t046",
+      "label": "实施定性风险分析",
+      "parent": "t043"
+    },
+    {
+      "id": "t047",
+      "label": "实施定量风险分析",
+      "parent": "t043"
+    },
+    {
+      "id": "t048",
+      "label": "规划风险应对",
+      "parent": "t043"
+    },
+    {
+      "id": "t049",
+      "label": "实施风险应对",
+      "parent": "t043"
+    },
+    {
+      "id": "t050",
+      "label": "监督风险",
+      "parent": "t043"
+    },
+    {
+      "id": "t051",
+      "label": "项目采购管理",
+      "parent": "root"
+    },
+    {
+      "id": "t052",
+      "label": "规划采购管理",
+      "parent": "t051"
+    },
+    {
+      "id": "t053",
+      "label": "实施采购",
+      "parent": "t051"
+    },
+    {
+      "id": "t054",
+      "label": "控制采购",
+      "parent": "t051"
+    },
+    {
+      "id": "t055",
+      "label": "项目相关方管理",
+      "parent": "root"
+    },
+    {
+      "id": "t056",
+      "label": "识别相关方",
+      "parent": "t055"
+    },
+    {
+      "id": "t057",
+      "label": "规划相关方参与",
+      "parent": "t055"
+    },
+    {
+      "id": "t058",
+      "label": "管理相关方参与",
+      "parent": "t055"
+    },
+    {
+      "id": "t059",
+      "label": "监督相关方参与",
+      "parent": "t055"
+    }
+  ]
+}

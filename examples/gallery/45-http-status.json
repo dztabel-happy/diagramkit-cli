@@ -1,0 +1,274 @@
+{
+  "version": 1,
+  "id": "http-status",
+  "type": "mindmap",
+  "title": "HTTP status codes by class",
+  "caption": "After RFC 9110, section 15.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "report",
+  "topics": [
+    {
+      "id": "root",
+      "label": "HTTP status codes"
+    },
+    {
+      "id": "t001",
+      "label": "1xx Informational",
+      "parent": "root"
+    },
+    {
+      "id": "t002",
+      "label": "100 Continue",
+      "parent": "t001"
+    },
+    {
+      "id": "t003",
+      "label": "101 Switching Protocols",
+      "parent": "t001"
+    },
+    {
+      "id": "t004",
+      "label": "2xx Successful",
+      "parent": "root"
+    },
+    {
+      "id": "t005",
+      "label": "200 OK",
+      "parent": "t004"
+    },
+    {
+      "id": "t006",
+      "label": "201 Created",
+      "parent": "t004"
+    },
+    {
+      "id": "t007",
+      "label": "202 Accepted",
+      "parent": "t004"
+    },
+    {
+      "id": "t008",
+      "label": "203 Non-Authoritative Information",
+      "parent": "t004"
+    },
+    {
+      "id": "t009",
+      "label": "204 No Content",
+      "parent": "t004"
+    },
+    {
+      "id": "t010",
+      "label": "205 Reset Content",
+      "parent": "t004"
+    },
+    {
+      "id": "t011",
+      "label": "206 Partial Content",
+      "parent": "t004"
+    },
+    {
+      "id": "t012",
+      "label": "3xx Redirection",
+      "parent": "root"
+    },
+    {
+      "id": "t013",
+      "label": "300 Multiple Choices",
+      "parent": "t012"
+    },
+    {
+      "id": "t014",
+      "label": "301 Moved Permanently",
+      "parent": "t012"
+    },
+    {
+      "id": "t015",
+      "label": "302 Found",
+      "parent": "t012"
+    },
+    {
+      "id": "t016",
+      "label": "303 See Other",
+      "parent": "t012"
+    },
+    {
+      "id": "t017",
+      "label": "304 Not Modified",
+      "parent": "t012"
+    },
+    {
+      "id": "t018",
+      "label": "305 Use Proxy",
+      "parent": "t012"
+    },
+    {
+      "id": "t019",
+      "label": "306 (Unused)",
+      "parent": "t012"
+    },
+    {
+      "id": "t020",
+      "label": "307 Temporary Redirect",
+      "parent": "t012"
+    },
+    {
+      "id": "t021",
+      "label": "308 Permanent Redirect",
+      "parent": "t012"
+    },
+    {
+      "id": "t022",
+      "label": "4xx Client Error",
+      "parent": "root"
+    },
+    {
+      "id": "t023",
+      "label": "400 Bad Request",
+      "parent": "t022"
+    },
+    {
+      "id": "t024",
+      "label": "401 Unauthorized",
+      "parent": "t022"
+    },
+    {
+      "id": "t025",
+      "label": "402 Payment Required",
+      "parent": "t022"
+    },
+    {
+      "id": "t026",
+      "label": "403 Forbidden",
+      "parent": "t022"
+    },
+    {
+      "id": "t027",
+      "label": "404 Not Found",
+      "parent": "t022"
+    },
+    {
+      "id": "t028",
+      "label": "405 Method Not Allowed",
+      "parent": "t022"
+    },
+    {
+      "id": "t029",
+      "label": "406 Not Acceptable",
+      "parent": "t022"
+    },
+    {
+      "id": "t030",
+      "label": "407 Proxy Authentication Required",
+      "parent": "t022"
+    },
+    {
+      "id": "t031",
+      "label": "408 Request Timeout",
+      "parent": "t022"
+    },
+    {
+      "id": "t032",
+      "label": "409 Conflict",
+      "parent": "t022"
+    },
+    {
+      "id": "t033",
+      "label": "410 Gone",
+      "parent": "t022"
+    },
+    {
+      "id": "t034",
+      "label": "411 Length Required",
+      "parent": "t022"
+    },
+    {
+      "id": "t035",
+      "label": "412 Precondition Failed",
+      "parent": "t022"
+    },
+    {
+      "id": "t036",
+      "label": "413 Content Too Large",
+      "parent": "t022"
+    },
+    {
+      "id": "t037",
+      "label": "414 URI Too Long",
+      "parent": "t022"
+    },
+    {
+      "id": "t038",
+      "label": "415 Unsupported Media Type",
+      "parent": "t022"
+    },
+    {
+      "id": "t039",
+      "label": "416 Range Not Satisfiable",
+      "parent": "t022"
+    },
+    {
+      "id": "t040",
+      "label": "417 Expectation Failed",
+      "parent": "t022"
+    },
+    {
+      "id": "t041",
+      "label": "418 (Unused)",
+      "parent": "t022"
+    },
+    {
+      "id": "t042",
+      "label": "421 Misdirected Request",
+      "parent": "t022"
+    },
+    {
+      "id": "t043",
+      "label": "422 Unprocessable Content",
+      "parent": "t022"
+    },
+    {
+      "id": "t044",
+      "label": "426 Upgrade Required",
+      "parent": "t022"
+    },
+    {
+      "id": "t045",
+      "label": "5xx Server Error",
+      "parent": "root"
+    },
+    {
+      "id": "t046",
+      "label": "500 Internal Server Error",
+      "parent": "t045"
+    },
+    {
+      "id": "t047",
+      "label": "501 Not Implemented",
+      "parent": "t045"
+    },
+    {
+      "id": "t048",
+      "label": "502 Bad Gateway",
+      "parent": "t045"
+    },
+    {
+      "id": "t049",
+      "label": "503 Service Unavailable",
+      "parent": "t045"
+    },
+    {
+      "id": "t050",
+      "label": "504 Gateway Timeout",
+      "parent": "t045"
+    },
+    {
+      "id": "t051",
+      "label": "505 HTTP Version Not Supported",
+      "parent": "t045"
+    }
+  ]
+}

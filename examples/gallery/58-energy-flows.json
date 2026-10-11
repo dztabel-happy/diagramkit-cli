@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "id": "energy-flows",
+  "type": "sankey",
+  "title": "United States energy consumption in 2024 (quads)",
+  "caption": "Source: Lawrence Livermore National Laboratory, from U.S. DOE/EIA data.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3",
+    "orientation": "landscape"
+  },
+  "style": "report",
+  "preset": "energy",
+  "nodes": [
+    {
+      "id": "solar",
+      "label": "Solar",
+      "tone": "yellow"
+    },
+    {
+      "id": "nuclear",
+      "label": "Nuclear",
+      "tone": "red"
+    },
+    {
+      "id": "hydro",
+      "label": "Hydro",
+      "tone": "blue"
+    },
+    {
+      "id": "wind",
+      "label": "Wind",
+      "tone": "violet"
+    },
+    {
+      "id": "geothermal",
+      "label": "Geothermal"
+    },
+    {
+      "id": "gas",
+      "label": "Natural gas",
+      "tone": "teal"
+    },
+    {
+      "id": "coal",
+      "label": "Coal",
+      "tone": "neutral"
+    },
+    {
+      "id": "biomass",
+      "label": "Biomass",
+      "tone": "green"
+    },
+    {
+      "id": "petroleum",
+      "label": "Petroleum"
+    },
+    {
+      "id": "electricity",
+      "label": "Electricity generation"
+    },
+    {
+      "id": "residential",
+      "label": "Residential"
+    },
+    {
+      "id": "commercial",
+      "label": "Commercial"
+    },
+    {
+      "id": "industrial",
+      "label": "Industrial"
+    },
+    {
+      "id": "transportation",
+      "label": "Transportation"
+    },
+    {
+      "id": "rejected",
+      "label": "Rejected energy",
+      "tone": "neutral"
+    },
+    {
+      "id": "services",
+      "label": "Energy services"
+    }
+  ],
+  "links": [
+    {
+      "from": "solar",
+      "to": "electricity",
+      "value": 0.75
+    },
+    {
+      "from": "nuclear",
+      "to": "electricity",
+      "value": 8.17
+    },
+    {
+      "from": "hydro",
+      "to": "electricity",
+      "value": 0.83
+    },
+    {
+      "from": "wind",
+      "to": "electricity",
+      "value": 1.54
+    },
+    {
+      "from": "geothermal",
+      "to": "electricity",
+      "value": 0.05
+    },
+    {
+      "from": "gas",
+      "to": "electricity",
+      "value": 13.94
+    },
+    {
+      "from": "coal",
+      "to": "electricity",
+      "value": 7.01
+    },
+    {
+      "from": "biomass",
+      "to": "electricity",
+      "value": 0.32
+    },
+    {
+      "from": "petroleum",
+      "to": "electricity",
+      "value": 0.17
+    },
+    {
+      "from": "electricity",
+      "to": "residential",
+      "value": 5.06
+    },
+    {
+      "from": "electricity",
+      "to": "commercial",
+      "value": 4.95
+    },
+    {
+      "from": "electricity",
+      "to": "industrial",
+      "value": 3.53
+    },
+    {
+      "from": "electricity",
+      "to": "transportation",
+      "value": 0.02
+    },
+    {
+      "from": "electricity",
+      "to": "rejected",
+      "value": 19.21
+    },
+    {
+      "from": "solar",
+      "to": "residential",
+      "value": 0.26
+    },
+    {
+      "from": "solar",
+      "to": "commercial",
+      "value": 0.08
+    },
+    {
+      "from": "solar",
+      "to": "industrial",
+      "value": 0.02
+    },
+    {
+      "from": "geothermal",
+      "to": "residential",
+      "value": 0.04
+    },
+    {
+      "from": "geothermal",
+      "to": "commercial",
+      "value": 0.02
+    },
+    {
+      "from": "gas",
+      "to": "residential",
+      "value": 4.58
+    },
+    {
+      "from": "gas",
+      "to": "commercial",
+      "value": 3.46
+    },
+    {
+      "from": "gas",
+      "to": "industrial",
+      "value": 10.9
+    },
+    {
+      "from": "gas",
+      "to": "transportation",
+      "value": 1.39
+    },
+    {
+      "from": "coal",
+      "to": "commercial",
+      "value": 0.01
+    },
+    {
+      "from": "coal",
+      "to": "industrial",
+      "value": 0.85
+    },
+    {
+      "from": "biomass",
+      "to": "residential",
+      "value": 0.37
+    },
+    {
+      "from": "biomass",
+      "to": "commercial",
+      "value": 0.17
+    },
+    {
+      "from": "biomass",
+      "to": "industrial",
+      "value": 2.36
+    },
+    {
+      "from": "biomass",
+      "to": "transportation",
+      "value": 1.89
+    },
+    {
+      "from": "petroleum",
+      "to": "residential",
+      "value": 0.92
+    },
+    {
+      "from": "petroleum",
+      "to": "commercial",
+      "value": 0.8
+    },
+    {
+      "from": "petroleum",
+      "to": "industrial",
+      "value": 8.73
+    },
+    {
+      "from": "petroleum",
+      "to": "transportation",
+      "value": 24.97
+    },
+    {
+      "from": "residential",
+      "to": "rejected",
+      "value": 3.93
+    },
+    {
+      "from": "residential",
+      "to": "services",
+      "value": 7.3
+    },
+    {
+      "from": "commercial",
+      "to": "rejected",
+      "value": 3.32
+    },
+    {
+      "from": "commercial",
+      "to": "services",
+      "value": 6.17
+    },
+    {
+      "from": "industrial",
+      "to": "rejected",
+      "value": 13.46
+    },
+    {
+      "from": "industrial",
+      "to": "services",
+      "value": 12.93
+    },
+    {
+      "from": "transportation",
+      "to": "rejected",
+      "value": 22.35
+    },
+    {
+      "from": "transportation",
+      "to": "services",
+      "value": 5.94
+    }
+  ]
+}

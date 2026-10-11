@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "id": "contract-system",
+  "type": "compound",
+  "title": "项目合同体系",
+  "caption": "示例，仅作演示。连线为合同关系，线上为合同名称。",
+  "evidence": "illustrative",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "agency",
+      "label": "实施机构",
+      "role": "actor"
+    },
+    {
+      "id": "spv",
+      "label": "项目公司",
+      "role": "service"
+    },
+    {
+      "id": "holders",
+      "label": "股东",
+      "role": "actor"
+    },
+    {
+      "id": "bank",
+      "label": "贷款银行",
+      "role": "actor"
+    },
+    {
+      "id": "epc",
+      "label": "工程总承包单位",
+      "role": "actor"
+    },
+    {
+      "id": "supervisor",
+      "label": "监理单位",
+      "role": "actor"
+    },
+    {
+      "id": "supplier",
+      "label": "药剂与电力供应商",
+      "role": "actor"
+    },
+    {
+      "id": "insurer",
+      "label": "保险公司",
+      "role": "actor"
+    }
+  ],
+  "edges": [
+    {
+      "id": "k1",
+      "from": "agency",
+      "to": "spv",
+      "kind": "main",
+      "label": "特许经营协议",
+      "arrow": "none"
+    },
+    {
+      "id": "k2",
+      "from": "holders",
+      "to": "spv",
+      "kind": "main",
+      "label": "股东协议、公司章程",
+      "arrow": "none"
+    },
+    {
+      "id": "k3",
+      "from": "bank",
+      "to": "spv",
+      "kind": "main",
+      "label": "贷款合同、担保合同",
+      "arrow": "none"
+    },
+    {
+      "id": "k4",
+      "from": "spv",
+      "to": "epc",
+      "kind": "main",
+      "label": "工程总承包合同",
+      "arrow": "none"
+    },
+    {
+      "id": "k5",
+      "from": "spv",
+      "to": "supervisor",
+      "kind": "main",
+      "label": "监理合同",
+      "arrow": "none"
+    },
+    {
+      "id": "k6",
+      "from": "spv",
+      "to": "supplier",
+      "kind": "main",
+      "label": "采购合同、供电合同",
+      "arrow": "none"
+    },
+    {
+      "id": "k7",
+      "from": "spv",
+      "to": "insurer",
+      "kind": "main",
+      "label": "保险合同",
+      "arrow": "none"
+    }
+  ]
+}

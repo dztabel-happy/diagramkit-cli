@@ -1,0 +1,737 @@
+{
+  "density": 1.5,
+  "hero": [
+    "01-incident-response",
+    "58-energy-flows",
+    "48-space-station",
+    "32-cloud-architecture",
+    "44-quality-model",
+    "62-emissions",
+    "43-governance",
+    "55-risk-matrix",
+    "24-wordpress",
+    "02-card-payment",
+    "04-tcp-states",
+    "66-rose",
+    "36-c4-containers-tidb",
+    "14-mini-program-payment",
+    "19-game-engine",
+    "59-household",
+    "26-chinook",
+    "34-platform-architecture"
+  ],
+  "sections": [
+    {
+      "id": "flow",
+      "zh": "流程图",
+      "en": "Flowcharts",
+      "rows": [
+        {
+          "height": 1500,
+          "figures": [
+            {
+              "file": "01-incident-response",
+              "zh": "事故响应全流程 · 手绘",
+              "en": "Incident response · hand-drawn",
+              "density": 1
+            },
+            {
+              "file": "02-card-payment",
+              "zh": "银行卡支付与清算",
+              "en": "Card payment and settlement",
+              "density": 1
+            },
+            {
+              "file": "03-edge-inference",
+              "zh": "边缘 AI 推理 · report",
+              "en": "Edge AI inference · report"
+            }
+          ]
+        },
+        {
+          "height": 890,
+          "figures": [
+            {
+              "file": "04-tcp-states",
+              "zh": "TCP 状态机",
+              "en": "TCP state machine"
+            },
+            {
+              "file": "05-boot-sequence",
+              "zh": "嵌入式启动流程 · 手绘",
+              "en": "Embedded boot sequence · hand-drawn"
+            },
+            {
+              "file": "06-phased-flow",
+              "zh": "项目实施流程",
+              "en": "Project implementation"
+            }
+          ]
+        },
+        {
+          "height": 1500,
+          "figures": [
+            {
+              "file": "07-ai-agent",
+              "zh": "AI 代理处理请求 · report",
+              "en": "An AI agent · report"
+            },
+            {
+              "file": "08-treatment-process",
+              "zh": "污水处理工艺",
+              "en": "Wastewater treatment"
+            },
+            {
+              "file": "09-approval-flow",
+              "zh": "审批流程 · 手绘",
+              "en": "Approval procedure · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sequence",
+      "zh": "时序图",
+      "en": "Sequence diagrams",
+      "rows": [
+        {
+          "height": 940,
+          "figures": [
+            {
+              "file": "10-kubectl-apply",
+              "zh": "Kubernetes 创建 Pod · 手绘",
+              "en": "kubectl apply to a Pod · hand-drawn",
+              "density": 1
+            },
+            {
+              "file": "11-deployment",
+              "zh": "持续部署",
+              "en": "Continuous deployment"
+            }
+          ]
+        },
+        {
+          "height": 1420,
+          "figures": [
+            {
+              "file": "12-oauth",
+              "zh": "OAuth 2.0 授权码流程",
+              "en": "OAuth 2.0 code flow"
+            },
+            {
+              "file": "13-three-d-secure",
+              "zh": "3-D Secure 支付验证 · report",
+              "en": "EMV 3-D Secure · report",
+              "density": 1
+            }
+          ]
+        },
+        {
+          "height": 1230,
+          "figures": [
+            {
+              "file": "14-mini-program-payment",
+              "zh": "小程序下单与支付",
+              "en": "Mini-program order and payment"
+            },
+            {
+              "file": "15-parallel-calls",
+              "zh": "并行调用后端 · 手绘",
+              "en": "Parallel calls · hand-drawn"
+            },
+            {
+              "file": "16-ci-retries",
+              "zh": "带重试的 CI 流程 · report",
+              "en": "CI run with retries · report"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "class",
+      "zh": "类图",
+      "en": "Class diagrams",
+      "rows": [
+        {
+          "height": 1060,
+          "figures": [
+            {
+              "file": "17-asyncio",
+              "zh": "asyncio",
+              "en": "asyncio"
+            },
+            {
+              "file": "18-streams",
+              "zh": "流的继承层次 · 手绘",
+              "en": "Stream classes · hand-drawn"
+            }
+          ]
+        },
+        {
+          "height": 930,
+          "figures": [
+            {
+              "file": "19-game-engine",
+              "zh": "游戏引擎对象模型 · 手绘",
+              "en": "Game engine objects · hand-drawn"
+            },
+            {
+              "file": "20-product-types",
+              "zh": "商品与评价",
+              "en": "Product and reviews"
+            },
+            {
+              "file": "21-taxonomy",
+              "zh": "分类层级 · report",
+              "en": "A taxonomy · report"
+            }
+          ]
+        },
+        {
+          "height": 1500,
+          "figures": [
+            {
+              "file": "22-power-system",
+              "zh": "电力设备模型 · report",
+              "en": "Power system model · report"
+            },
+            {
+              "file": "23-order-system",
+              "zh": "订单系统",
+              "en": "Order system"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "er",
+      "zh": "ER 图",
+      "en": "ER diagrams",
+      "rows": [
+        {
+          "height": 900,
+          "figures": [
+            {
+              "file": "24-wordpress",
+              "zh": "博客系统表结构 · 手绘",
+              "en": "Blog platform tables · hand-drawn"
+            },
+            {
+              "file": "25-northwind",
+              "zh": "订单管理表结构",
+              "en": "Order management"
+            }
+          ]
+        },
+        {
+          "height": 950,
+          "figures": [
+            {
+              "file": "26-chinook",
+              "zh": "Chinook 示例库",
+              "en": "Chinook"
+            },
+            {
+              "file": "27-tpch",
+              "zh": "TPC-H 表结构 · report",
+              "en": "TPC-H · report"
+            },
+            {
+              "file": "28-school",
+              "zh": "学校选课 · 手绘",
+              "en": "School enrolment · hand-drawn"
+            }
+          ]
+        },
+        {
+          "height": 670,
+          "figures": [
+            {
+              "file": "29-star-schema",
+              "zh": "星型模型 · 手绘",
+              "en": "Star schema · hand-drawn"
+            },
+            {
+              "file": "30-library",
+              "zh": "图书借阅",
+              "en": "Library lending"
+            },
+            {
+              "file": "31-event-store",
+              "zh": "事件存储 · report",
+              "en": "Event store · report"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "zh": "架构图",
+      "en": "Architecture diagrams",
+      "rows": [
+        {
+          "height": 840,
+          "figures": [
+            {
+              "file": "32-cloud-architecture",
+              "zh": "云上网络架构 · report",
+              "en": "Cloud network · report"
+            },
+            {
+              "file": "33-service-architecture",
+              "zh": "服务部署架构",
+              "en": "Service deployment"
+            },
+            {
+              "file": "34-platform-architecture",
+              "zh": "政务平台总体架构 · 手绘",
+              "en": "Government platform · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "zh": "C4 模型",
+      "en": "C4 model",
+      "rows": [
+        {
+          "height": 910,
+          "figures": [
+            {
+              "file": "35-c4-containers-bank",
+              "zh": "容器图：网上银行",
+              "en": "Containers: internet banking"
+            },
+            {
+              "file": "36-c4-containers-tidb",
+              "zh": "容器图：分布式数据库 · report",
+              "en": "Containers: a distributed database · report"
+            },
+            {
+              "file": "37-c4-context",
+              "zh": "系统上下文图",
+              "en": "System context"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "structure",
+      "zh": "交易结构与合同关系",
+      "en": "Deal and contract structures",
+      "rows": [
+        {
+          "height": 420,
+          "figures": [
+            {
+              "file": "38-transaction-structure",
+              "zh": "交易结构",
+              "en": "Transaction structure"
+            },
+            {
+              "file": "39-contract-system",
+              "zh": "合同体系",
+              "en": "Contract system"
+            },
+            {
+              "file": "40-supervision",
+              "zh": "监管关系 · 手绘",
+              "en": "Supervision · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orgchart",
+      "zh": "组织架构图",
+      "en": "Organisation charts",
+      "rows": [
+        {
+          "height": 730,
+          "figures": [
+            {
+              "file": "41-un-system",
+              "zh": "联合国系统",
+              "en": "The UN System"
+            },
+            {
+              "file": "42-state-council",
+              "zh": "国务院组织机构 · report",
+              "en": "The State Council · report"
+            },
+            {
+              "file": "43-governance",
+              "zh": "公司治理结构 · 手绘",
+              "en": "Corporate governance · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mindmap",
+      "zh": "思维导图",
+      "en": "Mind maps",
+      "rows": [
+        {
+          "height": 1500,
+          "figures": [
+            {
+              "file": "44-quality-model",
+              "zh": "产品质量模型",
+              "en": "Quality model"
+            },
+            {
+              "file": "45-http-status",
+              "zh": "HTTP 状态码 · report",
+              "en": "HTTP status codes · report"
+            },
+            {
+              "file": "46-pmbok",
+              "zh": "项目管理知识体系 · 手绘",
+              "en": "Project management · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gantt",
+      "zh": "甘特图",
+      "en": "Gantt charts",
+      "rows": [
+        {
+          "height": 470,
+          "figures": [
+            {
+              "file": "47-schedule",
+              "zh": "实施进度计划",
+              "en": "Implementation schedule"
+            },
+            {
+              "file": "48-space-station",
+              "zh": "空间站建造任务 · report",
+              "en": "Space station missions · report"
+            },
+            {
+              "file": "49-release-lifecycle",
+              "zh": "版本生命周期 · 手绘",
+              "en": "Release lifecycle · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "zh": "时间线",
+      "en": "Timelines",
+      "rows": [
+        {
+          "height": 760,
+          "figures": [
+            {
+              "file": "50-moon",
+              "zh": "登月计划",
+              "en": "To the Moon"
+            },
+            {
+              "file": "51-policy",
+              "zh": "政策沿革 · 手绘",
+              "en": "Policy history · hand-drawn",
+              "density": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fishbone",
+      "zh": "鱼骨图",
+      "en": "Fishbone diagrams",
+      "rows": [
+        {
+          "height": 420,
+          "figures": [
+            {
+              "file": "52-delivery-delay",
+              "zh": "上线延期的原因",
+              "en": "Why delivery slipped"
+            },
+            {
+              "file": "53-crash-causes",
+              "zh": "737 MAX 事故成因 · report",
+              "en": "The 737 MAX crashes · report"
+            },
+            {
+              "file": "54-total-nitrogen",
+              "zh": "出水超标原因 · 手绘",
+              "en": "Effluent over the limit · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quadrant",
+      "zh": "风险矩阵与象限图",
+      "en": "Risk matrices and quadrant charts",
+      "rows": [
+        {
+          "height": 830,
+          "figures": [
+            {
+              "file": "55-risk-matrix",
+              "zh": "风险矩阵",
+              "en": "Risk matrix"
+            },
+            {
+              "file": "56-provinces",
+              "zh": "各省经济象限 · report",
+              "en": "Provinces in quadrants · report"
+            },
+            {
+              "file": "57-databases",
+              "zh": "数据库象限 · 手绘",
+              "en": "Databases in quadrants · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sankey",
+      "zh": "桑基图",
+      "en": "Sankey diagrams",
+      "rows": [
+        {
+          "height": 670,
+          "figures": [
+            {
+              "file": "58-energy-flows",
+              "zh": "能源流向 · report",
+              "en": "Energy flows · report"
+            },
+            {
+              "file": "59-household",
+              "zh": "居民收支",
+              "en": "Household income and spending"
+            },
+            {
+              "file": "60-carbon-budget",
+              "zh": "碳收支 · 手绘",
+              "en": "Carbon budget · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "treemap",
+      "zh": "矩形树图",
+      "en": "Treemaps",
+      "rows": [
+        {
+          "height": 580,
+          "figures": [
+            {
+              "file": "61-budget",
+              "zh": "财政支出构成",
+              "en": "Public spending"
+            },
+            {
+              "file": "62-emissions",
+              "zh": "各国碳排放 · report",
+              "en": "Emissions by country · report"
+            },
+            {
+              "file": "63-provinces-gdp",
+              "zh": "各省地区生产总值 · 手绘",
+              "en": "GDP by province · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pie",
+      "zh": "饼图、环形图与玫瑰图",
+      "en": "Pie, donut and rose charts",
+      "rows": [
+        {
+          "height": 550,
+          "figures": [
+            {
+              "file": "64-pie",
+              "zh": "饼图",
+              "en": "Pie"
+            },
+            {
+              "file": "65-donut",
+              "zh": "环形图 · 手绘",
+              "en": "Donut · hand-drawn"
+            },
+            {
+              "file": "66-rose",
+              "zh": "玫瑰图 · report",
+              "en": "Rose chart · report"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "radar",
+      "zh": "雷达图",
+      "en": "Radar charts",
+      "rows": [
+        {
+          "height": 780,
+          "figures": [
+            {
+              "file": "67-air-quality",
+              "zh": "空气质量",
+              "en": "Air quality"
+            },
+            {
+              "file": "68-skills",
+              "zh": "职业技能 · report",
+              "en": "Skills by occupation · report"
+            },
+            {
+              "file": "69-rainfall",
+              "zh": "月降水量 · 手绘",
+              "en": "Monthly rainfall · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "journey",
+      "zh": "用户旅程图",
+      "en": "User journey maps",
+      "rows": [
+        {
+          "height": 540,
+          "figures": [
+            {
+              "file": "70-connection",
+              "zh": "报装流程体验",
+              "en": "Getting connected"
+            },
+            {
+              "file": "71-express",
+              "zh": "快递服务满意度 · report",
+              "en": "Parcel delivery · report"
+            },
+            {
+              "file": "72-benefit-claim",
+              "zh": "申领福利的体验 · 手绘",
+              "en": "Claiming a benefit · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanban",
+      "zh": "看板",
+      "en": "Kanban boards",
+      "rows": [
+        {
+          "height": 1020,
+          "figures": [
+            {
+              "file": "73-report-board",
+              "zh": "报告编制看板",
+              "en": "Report board"
+            },
+            {
+              "file": "74-peps",
+              "zh": "提案状态看板 · report",
+              "en": "Proposals by status · report"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "requirement",
+      "zh": "需求图",
+      "en": "Requirement diagrams",
+      "rows": [
+        {
+          "height": 1030,
+          "figures": [
+            {
+              "file": "75-gdpr",
+              "zh": "数据保护义务 · report",
+              "en": "Data protection duties · report"
+            },
+            {
+              "file": "76-report-requirements",
+              "zh": "报告配图的需求 · 手绘",
+              "en": "Requirements for report figures · hand-drawn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "styles",
+      "zh": "同一张图，六种文档风格",
+      "en": "One figure, six document styles",
+      "rows": [
+        {
+          "height": 810,
+          "figures": [
+            {
+              "file": "77-style-business",
+              "zh": "<code>business</code>",
+              "en": "<code>business</code>"
+            },
+            {
+              "file": "78-style-report",
+              "zh": "<code>report</code>",
+              "en": "<code>report</code>"
+            },
+            {
+              "file": "79-style-mono",
+              "zh": "<code>mono</code>",
+              "en": "<code>mono</code>"
+            }
+          ]
+        },
+        {
+          "height": 810,
+          "figures": [
+            {
+              "file": "80-style-guofeng",
+              "zh": "<code>guofeng</code>",
+              "en": "<code>guofeng</code>"
+            },
+            {
+              "file": "81-style-soft",
+              "zh": "<code>soft</code>",
+              "en": "<code>soft</code>"
+            },
+            {
+              "file": "82-style-notebook",
+              "zh": "<code>notebook</code>",
+              "en": "<code>notebook</code>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

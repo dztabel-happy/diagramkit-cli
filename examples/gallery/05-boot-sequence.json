@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "id": "boot-sequence",
+  "type": "compound",
+  "title": "An embedded boot sequence",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "style": "notebook",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "Power",
+      "label": "Power On",
+      "role": "step",
+      "shape": "rectangle"
+    },
+    {
+      "id": "Boot",
+      "label": "Bootloader Init",
+      "role": "step",
+      "shape": "rounded"
+    },
+    {
+      "id": "Check",
+      "label": "Firmware Valid?",
+      "role": "decision",
+      "shape": "diamond"
+    },
+    {
+      "id": "Recovery",
+      "label": "Recovery Mode",
+      "role": "step",
+      "shape": "hexagon",
+      "tone": "red"
+    },
+    {
+      "id": "Kernel",
+      "label": "RTOS Kernel Init",
+      "role": "step",
+      "shape": "subroutine",
+      "tone": "green"
+    },
+    {
+      "id": "Sched",
+      "label": "Task Scheduler",
+      "role": "step",
+      "shape": "rounded"
+    },
+    {
+      "id": "TaskA",
+      "label": "Sensor Task",
+      "role": "step",
+      "shape": "parallelogram"
+    },
+    {
+      "id": "TaskB",
+      "label": "Comm Task",
+      "role": "step",
+      "shape": "parallelogram"
+    },
+    {
+      "id": "TaskC",
+      "label": "Watchdog Task",
+      "role": "step",
+      "shape": "hexagon"
+    }
+  ],
+  "groups": [],
+  "edges": [
+    {
+      "id": "e001",
+      "from": "Power",
+      "to": "Boot",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e002",
+      "from": "Boot",
+      "to": "Check",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e003",
+      "from": "Check",
+      "to": "Recovery",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e004",
+      "from": "Check",
+      "to": "Kernel",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e005",
+      "from": "Kernel",
+      "to": "Sched",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e006",
+      "from": "Sched",
+      "to": "TaskA",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e007",
+      "from": "Sched",
+      "to": "TaskB",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e008",
+      "from": "Sched",
+      "to": "TaskC",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e1",
+      "from": "TaskA",
+      "to": "Sched",
+      "kind": "return",
+      "line": "solid"
+    },
+    {
+      "id": "e2",
+      "from": "TaskB",
+      "to": "Sched",
+      "kind": "return",
+      "line": "solid"
+    },
+    {
+      "id": "e011",
+      "from": "Recovery",
+      "to": "Boot",
+      "kind": "return",
+      "line": "solid"
+    }
+  ]
+}

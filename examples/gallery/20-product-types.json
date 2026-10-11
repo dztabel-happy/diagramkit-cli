@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "id": "product-types",
+  "type": "class",
+  "title": "Product, offer and review types",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "direction": "TB",
+  "classes": [
+    {
+      "id": "Thing",
+      "label": "Thing",
+      "stereotype": "base",
+      "attributes": [
+        "+name: Text",
+        "+description: Text",
+        "+image: URL",
+        "+url: URL"
+      ]
+    },
+    {
+      "id": "Product",
+      "label": "Product",
+      "attributes": [
+        "+sku: Text",
+        "+gtin13: Text",
+        "+brand: Organization",
+        "+category: Text",
+        "+aggregateRating: AggregateRating",
+        "+review: Review"
+      ]
+    },
+    {
+      "id": "Offer",
+      "label": "Offer",
+      "attributes": [
+        "+price: Number",
+        "+priceCurrency: Text",
+        "+availability: ItemAvailability",
+        "+itemCondition: OfferItemCondition",
+        "+validFrom: DateTime",
+        "+itemOffered: Product",
+        "+seller: Organization"
+      ]
+    },
+    {
+      "id": "Organization",
+      "label": "Organization",
+      "attributes": [
+        "+legalName: Text",
+        "+logo: URL",
+        "+address: PostalAddress",
+        "+contactPoint: ContactPoint"
+      ]
+    },
+    {
+      "id": "AggregateRating",
+      "label": "AggregateRating",
+      "attributes": [
+        "+ratingValue: Number",
+        "+reviewCount: Integer",
+        "+bestRating: Number",
+        "+worstRating: Number"
+      ]
+    },
+    {
+      "id": "Review",
+      "label": "Review",
+      "attributes": [
+        "+reviewRating: Rating",
+        "+author: Person",
+        "+reviewBody: Text",
+        "+datePublished: Date"
+      ]
+    },
+    {
+      "id": "Rating",
+      "label": "Rating",
+      "attributes": [
+        "+ratingValue: Number",
+        "+bestRating: Number"
+      ]
+    },
+    {
+      "id": "Person",
+      "label": "Person",
+      "attributes": [
+        "+name: Text",
+        "+email: Text"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r01",
+      "from": "Product",
+      "to": "Thing",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r02",
+      "from": "Organization",
+      "to": "Thing",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r03",
+      "from": "Person",
+      "to": "Thing",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r04",
+      "from": "Product",
+      "to": "Offer",
+      "kind": "association",
+      "label": "offers",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "many"
+    },
+    {
+      "id": "r05",
+      "from": "Offer",
+      "to": "Product",
+      "kind": "association",
+      "label": "itemOffered",
+      "fromMultiplicity": "many",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r06",
+      "from": "Offer",
+      "to": "Organization",
+      "kind": "association",
+      "label": "seller",
+      "fromMultiplicity": "many",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r07",
+      "from": "Product",
+      "to": "AggregateRating",
+      "kind": "association",
+      "label": "aggregateRating",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "0..1"
+    },
+    {
+      "id": "r08",
+      "from": "Product",
+      "to": "Review",
+      "kind": "association",
+      "label": "review",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "many"
+    },
+    {
+      "id": "r09",
+      "from": "Review",
+      "to": "Rating",
+      "kind": "association",
+      "label": "reviewRating",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r10",
+      "from": "Review",
+      "to": "Person",
+      "kind": "association",
+      "label": "author",
+      "fromMultiplicity": "many",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r11",
+      "from": "Product",
+      "to": "Organization",
+      "kind": "association",
+      "label": "brand",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "0..1"
+    }
+  ]
+}

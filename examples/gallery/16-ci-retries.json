@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "id": "ci-retries",
+  "type": "sequence",
+  "title": "A CI run with retries",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "style": "report",
+  "participants": [
+    {
+      "id": "Dev",
+      "label": "Dev",
+      "role": "actor",
+      "symbol": "actor"
+    },
+    {
+      "id": "CI",
+      "label": "CI Server",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "Test",
+      "label": "Test Runner",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "Registry",
+      "label": "Image Registry",
+      "role": "service",
+      "symbol": "box"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m01",
+      "from": "Dev",
+      "to": "CI",
+      "kind": "call",
+      "label": "Push Code"
+    },
+    {
+      "id": "m02",
+      "from": "CI",
+      "to": "Test",
+      "kind": "call",
+      "label": "Run Test Suite"
+    },
+    {
+      "id": "m03",
+      "from": "Test",
+      "to": "CI",
+      "kind": "return",
+      "label": "All Green"
+    },
+    {
+      "id": "m04",
+      "from": "CI",
+      "to": "Registry",
+      "kind": "call",
+      "label": "Push Docker Image"
+    },
+    {
+      "id": "m05",
+      "from": "Registry",
+      "to": "CI",
+      "kind": "return",
+      "label": "Image Stored"
+    },
+    {
+      "id": "m06",
+      "from": "Test",
+      "to": "CI",
+      "kind": "return",
+      "label": "Failure Report"
+    },
+    {
+      "id": "m07",
+      "from": "CI",
+      "to": "Dev",
+      "kind": "return",
+      "label": "Build Failed Notification"
+    },
+    {
+      "id": "m08",
+      "from": "CI",
+      "to": "Dev",
+      "kind": "return",
+      "label": "Deployment Complete"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "f01",
+      "kind": "loop",
+      "label": "Retry up to 3 times",
+      "start": "m02",
+      "end": "m07"
+    },
+    {
+      "id": "f02",
+      "kind": "alt",
+      "label": "Tests Pass",
+      "start": "m03",
+      "end": "m07",
+      "parent": "f01",
+      "branches": [
+        {
+          "label": "Tests Pass",
+          "start": "m03",
+          "end": "m05"
+        },
+        {
+          "label": "Tests Fail",
+          "start": "m06",
+          "end": "m07"
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "activations": [
+    {
+      "id": "a01",
+      "participant": "Test",
+      "start": "m02",
+      "end": "m03"
+    },
+    {
+      "id": "a02",
+      "participant": "Registry",
+      "start": "m04",
+      "end": "m05"
+    },
+    {
+      "id": "a03",
+      "participant": "CI",
+      "start": "m01",
+      "end": "m08"
+    }
+  ],
+  "lifecycles": [],
+  "participantGroups": [],
+  "mirrorParticipants": true
+}

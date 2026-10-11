@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "id": "c4-containers-bank",
+  "type": "c4",
+  "title": "Container View: Internet Banking System",
+  "caption": "After the container diagram example at c4model.com; the descriptions are reworded.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "level": "container",
+  "boundaries": [
+    {
+      "id": "banking",
+      "label": "Internet Banking System",
+      "kind": "system"
+    }
+  ],
+  "elements": [
+    {
+      "id": "customer",
+      "label": "Personal Banking Customer",
+      "kind": "person",
+      "description": "Holds one or more personal accounts at the bank."
+    },
+    {
+      "id": "static",
+      "label": "Static Content",
+      "kind": "container",
+      "technology": "Directory",
+      "description": "The site’s HTML, CSS and JavaScript files.",
+      "boundary": "banking"
+    },
+    {
+      "id": "ui",
+      "label": "UI",
+      "kind": "container",
+      "technology": "JavaScript and Angular",
+      "description": "The single-page app customers use in their browser.",
+      "boundary": "banking"
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "kind": "container",
+      "technology": "Java and Spring Boot",
+      "description": "Answers the app over a JSON/HTTP API.",
+      "boundary": "banking"
+    },
+    {
+      "id": "statements",
+      "label": "Statement Store",
+      "kind": "database",
+      "technology": "Amazon Web Services S3 Bucket",
+      "description": "Account statements, kept as PDF files.",
+      "boundary": "banking"
+    },
+    {
+      "id": "database",
+      "label": "Database",
+      "kind": "database",
+      "technology": "MySQL Database Schema",
+      "description": "Account data and access logs.",
+      "boundary": "banking"
+    },
+    {
+      "id": "email",
+      "label": "Amazon Web Services Simple Email Service",
+      "kind": "system",
+      "external": true,
+      "description": "Sends the bank’s e-mails."
+    },
+    {
+      "id": "core",
+      "label": "Core Banking System",
+      "kind": "system",
+      "external": true,
+      "description": "The bank’s system of record: customers, accounts and transactions."
+    }
+  ],
+  "relations": [
+    {
+      "from": "customer",
+      "to": "static",
+      "label": "Loads the UI from"
+    },
+    {
+      "from": "customer",
+      "to": "ui",
+      "label": "Views account balances and makes payments using"
+    },
+    {
+      "from": "static",
+      "to": "ui",
+      "label": "Delivers"
+    },
+    {
+      "from": "ui",
+      "to": "backend",
+      "label": "Makes API requests to",
+      "technology": "JSON/HTTP"
+    },
+    {
+      "from": "backend",
+      "to": "statements",
+      "label": "Reads from and writes to",
+      "technology": "AWS S3 API/HTTP"
+    },
+    {
+      "from": "backend",
+      "to": "database",
+      "label": "Reads from and writes to",
+      "technology": "MySQL protocol"
+    },
+    {
+      "from": "backend",
+      "to": "email",
+      "label": "Sends e-mails to customers using",
+      "technology": "AWS SES API/HTTP"
+    },
+    {
+      "from": "backend",
+      "to": "core",
+      "label": "Makes API requests to",
+      "technology": "XML/HTTPS"
+    },
+    {
+      "from": "email",
+      "to": "customer",
+      "label": "Sends e-mails to"
+    }
+  ],
+  "legend": true
+}

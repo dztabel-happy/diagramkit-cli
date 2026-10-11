@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "id": "platform-architecture",
+  "type": "architecture",
+  "title": "全国一体化在线政务服务平台总体架构",
+  "caption": "依据：《国务院关于加快推进全国一体化在线政务服务平台建设的指导意见》（国发〔2018〕27号）二、总体架构和任务要求；四、（一）统一网络支撑。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "notebook",
+  "groups": [
+    {
+      "id": "entry",
+      "label": "互联网服务入口",
+      "kind": "zone"
+    },
+    {
+      "id": "extranet",
+      "label": "国家电子政务外网",
+      "kind": "network"
+    },
+    {
+      "id": "national",
+      "label": "国家政务服务平台（总枢纽）",
+      "kind": "group",
+      "parent": "extranet"
+    },
+    {
+      "id": "support",
+      "label": "公共支撑系统",
+      "kind": "tier",
+      "parent": "national"
+    },
+    {
+      "id": "apps",
+      "label": "应用系统",
+      "kind": "tier",
+      "parent": "national"
+    },
+    {
+      "id": "ministries",
+      "label": "国务院有关部门政务服务平台",
+      "kind": "group",
+      "parent": "extranet"
+    },
+    {
+      "id": "regions",
+      "label": "各地区政务服务平台（省级统筹）",
+      "kind": "region",
+      "parent": "extranet"
+    },
+    {
+      "id": "special",
+      "label": "专项领域国家重点信息系统",
+      "kind": "group"
+    }
+  ],
+  "services": [
+    {
+      "id": "public",
+      "label": "企业和群众",
+      "icon": "users"
+    },
+    {
+      "id": "govcn",
+      "label": "中国政府网",
+      "icon": "browser",
+      "group": "entry",
+      "detail": "总门户"
+    },
+    {
+      "id": "mobile",
+      "label": "国家政务服务平台移动端",
+      "icon": "mobile",
+      "group": "entry"
+    },
+    {
+      "id": "portal",
+      "label": "统一政务服务门户",
+      "icon": "browser",
+      "group": "support"
+    },
+    {
+      "id": "items",
+      "label": "统一政务服务事项管理",
+      "icon": "table",
+      "group": "support"
+    },
+    {
+      "id": "identity",
+      "label": "统一身份认证",
+      "icon": "key",
+      "group": "support",
+      "detail": "一次认证、全网通办"
+    },
+    {
+      "id": "seal",
+      "label": "统一电子印章",
+      "icon": "security",
+      "group": "support"
+    },
+    {
+      "id": "license",
+      "label": "统一电子证照",
+      "icon": "document",
+      "group": "support"
+    },
+    {
+      "id": "supervision",
+      "label": "电子监察",
+      "icon": "monitor",
+      "group": "apps"
+    },
+    {
+      "id": "assessment",
+      "label": "服务评估",
+      "icon": "analytics",
+      "group": "apps"
+    },
+    {
+      "id": "complaint",
+      "label": "咨询投诉",
+      "icon": "mail",
+      "group": "apps"
+    },
+    {
+      "id": "experience",
+      "label": "用户体验监测",
+      "icon": "search",
+      "group": "apps"
+    },
+    {
+      "id": "ministry",
+      "label": "部门业务办理系统",
+      "icon": "server",
+      "group": "ministries",
+      "detail": "统筹整合本部门业务办理系统"
+    },
+    {
+      "id": "province",
+      "label": "省级政务服务平台",
+      "icon": "server",
+      "group": "regions",
+      "detail": "省、市、县、乡镇（街道）、村（社区）全覆盖"
+    },
+    {
+      "id": "investment",
+      "label": "全国投资项目在线审批监管平台",
+      "icon": "server",
+      "group": "special"
+    },
+    {
+      "id": "trading",
+      "label": "公共资源交易平台",
+      "icon": "server",
+      "group": "special"
+    },
+    {
+      "id": "credit",
+      "label": "相关信用信息系统",
+      "icon": "database",
+      "group": "special"
+    }
+  ],
+  "links": [
+    {
+      "from": "public",
+      "to": "govcn"
+    },
+    {
+      "from": "public",
+      "to": "mobile"
+    },
+    {
+      "from": "govcn",
+      "to": "national",
+      "label": "用户访问互通",
+      "arrow": "both"
+    },
+    {
+      "from": "mobile",
+      "to": "national"
+    },
+    {
+      "from": "national",
+      "to": "ministries",
+      "label": "互联互通、数据共享、业务协同",
+      "arrow": "both"
+    },
+    {
+      "from": "national",
+      "to": "regions",
+      "label": "互联互通",
+      "arrow": "both"
+    },
+    {
+      "from": "special",
+      "to": "national",
+      "label": "对接",
+      "line": "dashed"
+    }
+  ]
+}

@@ -18,7 +18,7 @@
   <img alt="platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-blue">
 </p>
 
-<p align="center"><img src="examples/showcase/hero.png" alt="DiagramKit 画的图：分阶段的流程、能源流向、风险矩阵、手绘思维导图、甘特图" width="100%"></p>
+<p align="center"><img src="examples/gallery/hero.png" alt="DiagramKit 画的图：流程图、时序图、类图、ER 图、架构图、组织架构图、甘特图、桑基图、矩形树图等" width="100%"></p>
 
 ---
 
@@ -34,67 +34,136 @@ DiagramKit 画的是结构，不是数字：
 
 ## 效果预览
 
-下面每张图都出自一份语义描述：有哪些框、什么关系、哪些数据，最多再点明强调色、方向和要放进去的页面。没有一个位置、尺寸或走线是手写的：摆放、折行、走线都是 DiagramKit 排的。点每行图下面的名称可以看原图；[`examples/showcase`](examples/showcase) 里同名的 `.json` 是它的描述文件。
+下面每张图都出自一份语义描述：有哪些框、什么关系、哪些数据，最多再点明强调色、方向和要放进去的页面。没有一个位置、尺寸或走线是手写的：摆放、折行、走线都是 DiagramKit 排的。
 
-### Word 页面上的默认外观
+按图型排列，每种图型几张。没有标注的是放进 Word 页面的默认外观（整份文档一套色系，Times New Roman 加本机的宋体）；标 **report** 的是 `--style report`，各图型自己的配色；标 **手绘** 的是 `--style notebook`。点图下面的名称看原图；[`examples/gallery`](examples/gallery) 里同名的 `.json` 是它的描述文件。
 
-不指定外观时，放进 Word 页面的图整份文档一套色系，字体是 Times New Roman 加本机的宋体。
+<!-- showcase -->
+<p align="center"><sub><a href="#流程图">流程图</a> · <a href="#时序图">时序图</a> · <a href="#类图">类图</a> · <a href="#er-图">ER 图</a> · <a href="#架构图">架构图</a> · <a href="#c4-模型">C4 模型</a> · <a href="#交易结构与合同关系">交易结构与合同关系</a> · <a href="#组织架构图">组织架构图</a> · <a href="#思维导图">思维导图</a> · <a href="#甘特图">甘特图</a> · <a href="#时间线">时间线</a> · <a href="#鱼骨图">鱼骨图</a> · <a href="#风险矩阵与象限图">风险矩阵与象限图</a> · <a href="#桑基图">桑基图</a> · <a href="#矩形树图">矩形树图</a> · <a href="#饼图环形图与玫瑰图">饼图、环形图与玫瑰图</a> · <a href="#雷达图">雷达图</a> · <a href="#用户旅程图">用户旅程图</a> · <a href="#看板">看板</a> · <a href="#需求图">需求图</a> · <a href="#同一张图六种文档风格">同一张图，六种文档风格</a></sub></p>
 
-<!-- showcase:default -->
-<p align="center"><img src="examples/showcase/rows/01.png" alt="DiagramKit：带判断的流程、分阶段的流程、状态机" width="100%"></p>
-<p align="center"><sub>01 <a href="examples/showcase/01-decision-flow.png">带判断的流程</a> · 02 <a href="examples/showcase/02-phased-flow.png">分阶段的流程</a> · 03 <a href="examples/showcase/03-state-machine.png">状态机</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/02.png" alt="DiagramKit：审批流程、数据管线、时间线" width="100%"></p>
-<p align="center"><sub>04 <a href="examples/showcase/04-approval-flow.png">审批流程</a> · 05 <a href="examples/showcase/05-data-pipeline.png">数据管线</a> · 06 <a href="examples/showcase/06-timeline.png">时间线</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/03.png" alt="DiagramKit：时序图、类图、思维导图" width="100%"></p>
-<p align="center"><sub>07 <a href="examples/showcase/07-sequence.png">时序图</a> · 08 <a href="examples/showcase/08-class.png">类图</a> · 09 <a href="examples/showcase/09-mindmap.png">思维导图</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/04.png" alt="DiagramKit：交易结构、组织架构、甘特图" width="100%"></p>
-<p align="center"><sub>10 <a href="examples/showcase/10-transaction-structure.png">交易结构</a> · 11 <a href="examples/showcase/11-organisation.png">组织架构</a> · 12 <a href="examples/showcase/12-gantt.png">甘特图</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/05.png" alt="DiagramKit：鱼骨图、用户旅程图、环形图" width="100%"></p>
-<p align="center"><sub>13 <a href="examples/showcase/13-fishbone.png">鱼骨图</a> · 14 <a href="examples/showcase/14-journey.png">用户旅程图</a> · 15 <a href="examples/showcase/15-donut.png">环形图</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/06.png" alt="DiagramKit：风险矩阵、象限图、雷达图" width="100%"></p>
-<p align="center"><sub>16 <a href="examples/showcase/16-risk-matrix.png">风险矩阵</a> · 17 <a href="examples/showcase/17-quadrant.png">象限图</a> · 18 <a href="examples/showcase/18-radar.png">雷达图</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/07.png" alt="DiagramKit：ER 图、矩形树图、C4 上下文图" width="100%"></p>
-<p align="center"><sub>19 <a href="examples/showcase/19-er.png">ER 图</a> · 20 <a href="examples/showcase/20-treemap.png">矩形树图</a> · 21 <a href="examples/showcase/21-c4-context.png">C4 上下文图</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/08.png" alt="DiagramKit：桑基图、看板、系统架构图" width="100%"></p>
-<p align="center"><sub>22 <a href="examples/showcase/22-sankey.png">桑基图</a> · 23 <a href="examples/showcase/23-kanban.png">看板</a> · 24 <a href="examples/showcase/24-architecture.png">系统架构图</a></sub></p>
-<!-- /showcase:default -->
+### 流程图
 
-### 各图型自己的外观
+<p align="center"><img src="examples/gallery/rows/01.png" alt="DiagramKit：事故响应全流程 · 手绘、银行卡支付与清算、边缘 AI 推理 · report" width="100%"></p>
+<p align="center"><sub>01 <a href="examples/gallery/01-incident-response.png">事故响应全流程 · 手绘</a> · 02 <a href="examples/gallery/02-card-payment.png">银行卡支付与清算</a> · 03 <a href="examples/gallery/03-edge-inference.png">边缘 AI 推理 · report</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/02.png" alt="DiagramKit：TCP 状态机、嵌入式启动流程 · 手绘、项目实施流程" width="100%"></p>
+<p align="center"><sub>04 <a href="examples/gallery/04-tcp-states.png">TCP 状态机</a> · 05 <a href="examples/gallery/05-boot-sequence.png">嵌入式启动流程 · 手绘</a> · 06 <a href="examples/gallery/06-phased-flow.png">项目实施流程</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/03.png" alt="DiagramKit：AI 代理处理请求 · report、污水处理工艺、审批流程 · 手绘" width="100%"></p>
+<p align="center"><sub>07 <a href="examples/gallery/07-ai-agent.png">AI 代理处理请求 · report</a> · 08 <a href="examples/gallery/08-treatment-process.png">污水处理工艺</a> · 09 <a href="examples/gallery/09-approval-flow.png">审批流程 · 手绘</a></sub></p>
 
-`--style report`：每种图型用它自己的配色。
+### 时序图
 
-<!-- showcase:report -->
-<p align="center"><img src="examples/showcase/rows/09.png" alt="DiagramKit：云架构图、C4 容器图、需求图" width="100%"></p>
-<p align="center"><sub>25 <a href="examples/showcase/25-cloud-architecture.png">云架构图</a> · 26 <a href="examples/showcase/26-c4-container.png">C4 容器图</a> · 27 <a href="examples/showcase/27-requirement.png">需求图</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/10.png" alt="DiagramKit：多级桑基图、分组的矩形树图、玫瑰图" width="100%"></p>
-<p align="center"><sub>28 <a href="examples/showcase/28-energy-flows.png">多级桑基图</a> · 29 <a href="examples/showcase/29-treemap-emissions.png">分组的矩形树图</a> · 30 <a href="examples/showcase/30-rose.png">玫瑰图</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/11.png" alt="DiagramKit：满意度旅程图、分泳道的甘特图、版本生命周期" width="100%"></p>
-<p align="center"><sub>31 <a href="examples/showcase/31-journey-satisfaction.png">满意度旅程图</a> · 32 <a href="examples/showcase/32-gantt-lanes.png">分泳道的甘特图</a> · 33 <a href="examples/showcase/33-release-lifecycle.png">版本生命周期</a></sub></p>
-<!-- /showcase:report -->
+<p align="center"><img src="examples/gallery/rows/04.png" alt="DiagramKit：Kubernetes 创建 Pod · 手绘、持续部署" width="100%"></p>
+<p align="center"><sub>10 <a href="examples/gallery/10-kubectl-apply.png">Kubernetes 创建 Pod · 手绘</a> · 11 <a href="examples/gallery/11-deployment.png">持续部署</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/05.png" alt="DiagramKit：OAuth 2.0 授权码流程、3-D Secure 支付验证 · report" width="100%"></p>
+<p align="center"><sub>12 <a href="examples/gallery/12-oauth.png">OAuth 2.0 授权码流程</a> · 13 <a href="examples/gallery/13-three-d-secure.png">3-D Secure 支付验证 · report</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/06.png" alt="DiagramKit：小程序下单与支付、并行调用后端 · 手绘、带重试的 CI 流程 · report" width="100%"></p>
+<p align="center"><sub>14 <a href="examples/gallery/14-mini-program-payment.png">小程序下单与支付</a> · 15 <a href="examples/gallery/15-parallel-calls.png">并行调用后端 · 手绘</a> · 16 <a href="examples/gallery/16-ci-retries.png">带重试的 CI 流程 · report</a></sub></p>
 
-### 手绘笔
+### 类图
 
-`--style notebook`：手绘的线条、手写字体，连线走曲线。
+<p align="center"><img src="examples/gallery/rows/07.png" alt="DiagramKit：asyncio、流的继承层次 · 手绘" width="100%"></p>
+<p align="center"><sub>17 <a href="examples/gallery/17-asyncio.png">asyncio</a> · 18 <a href="examples/gallery/18-streams.png">流的继承层次 · 手绘</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/08.png" alt="DiagramKit：游戏引擎对象模型 · 手绘、商品与评价、分类层级 · report" width="100%"></p>
+<p align="center"><sub>19 <a href="examples/gallery/19-game-engine.png">游戏引擎对象模型 · 手绘</a> · 20 <a href="examples/gallery/20-product-types.png">商品与评价</a> · 21 <a href="examples/gallery/21-taxonomy.png">分类层级 · report</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/09.png" alt="DiagramKit：电力设备模型 · report、订单系统" width="100%"></p>
+<p align="center"><sub>22 <a href="examples/gallery/22-power-system.png">电力设备模型 · report</a> · 23 <a href="examples/gallery/23-order-system.png">订单系统</a></sub></p>
 
-<!-- showcase:notebook -->
-<p align="center"><img src="examples/showcase/rows/12.png" alt="DiagramKit：故障响应流程、时序图、看板" width="100%"></p>
-<p align="center"><sub>34 <a href="examples/showcase/34-hand-flow.png">故障响应流程</a> · 35 <a href="examples/showcase/35-hand-sequence.png">时序图</a> · 36 <a href="examples/showcase/36-hand-kanban.png">看板</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/13.png" alt="DiagramKit：ER 图、组织架构、雷达图" width="100%"></p>
-<p align="center"><sub>37 <a href="examples/showcase/37-hand-er.png">ER 图</a> · 38 <a href="examples/showcase/38-hand-organisation.png">组织架构</a> · 39 <a href="examples/showcase/39-hand-radar.png">雷达图</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/14.png" alt="DiagramKit：时间线、桑基图、类图" width="100%"></p>
-<p align="center"><sub>40 <a href="examples/showcase/40-hand-timeline.png">时间线</a> · 41 <a href="examples/showcase/41-hand-sankey.png">桑基图</a> · 42 <a href="examples/showcase/42-hand-class.png">类图</a></sub></p>
-<!-- /showcase:notebook -->
+### ER 图
+
+<p align="center"><img src="examples/gallery/rows/10.png" alt="DiagramKit：博客系统表结构 · 手绘、订单管理表结构" width="100%"></p>
+<p align="center"><sub>24 <a href="examples/gallery/24-wordpress.png">博客系统表结构 · 手绘</a> · 25 <a href="examples/gallery/25-northwind.png">订单管理表结构</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/11.png" alt="DiagramKit：Chinook 示例库、TPC-H 表结构 · report、学校选课 · 手绘" width="100%"></p>
+<p align="center"><sub>26 <a href="examples/gallery/26-chinook.png">Chinook 示例库</a> · 27 <a href="examples/gallery/27-tpch.png">TPC-H 表结构 · report</a> · 28 <a href="examples/gallery/28-school.png">学校选课 · 手绘</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/12.png" alt="DiagramKit：星型模型 · 手绘、图书借阅、事件存储 · report" width="100%"></p>
+<p align="center"><sub>29 <a href="examples/gallery/29-star-schema.png">星型模型 · 手绘</a> · 30 <a href="examples/gallery/30-library.png">图书借阅</a> · 31 <a href="examples/gallery/31-event-store.png">事件存储 · report</a></sub></p>
+
+### 架构图
+
+<p align="center"><img src="examples/gallery/rows/13.png" alt="DiagramKit：云上网络架构 · report、服务部署架构、政务平台总体架构 · 手绘" width="100%"></p>
+<p align="center"><sub>32 <a href="examples/gallery/32-cloud-architecture.png">云上网络架构 · report</a> · 33 <a href="examples/gallery/33-service-architecture.png">服务部署架构</a> · 34 <a href="examples/gallery/34-platform-architecture.png">政务平台总体架构 · 手绘</a></sub></p>
+
+### C4 模型
+
+<p align="center"><img src="examples/gallery/rows/14.png" alt="DiagramKit：容器图：网上银行、容器图：分布式数据库 · report、系统上下文图" width="100%"></p>
+<p align="center"><sub>35 <a href="examples/gallery/35-c4-containers-bank.png">容器图：网上银行</a> · 36 <a href="examples/gallery/36-c4-containers-tidb.png">容器图：分布式数据库 · report</a> · 37 <a href="examples/gallery/37-c4-context.png">系统上下文图</a></sub></p>
+
+### 交易结构与合同关系
+
+<p align="center"><img src="examples/gallery/rows/15.png" alt="DiagramKit：交易结构、合同体系、监管关系 · 手绘" width="100%"></p>
+<p align="center"><sub>38 <a href="examples/gallery/38-transaction-structure.png">交易结构</a> · 39 <a href="examples/gallery/39-contract-system.png">合同体系</a> · 40 <a href="examples/gallery/40-supervision.png">监管关系 · 手绘</a></sub></p>
+
+### 组织架构图
+
+<p align="center"><img src="examples/gallery/rows/16.png" alt="DiagramKit：联合国系统、国务院组织机构 · report、公司治理结构 · 手绘" width="100%"></p>
+<p align="center"><sub>41 <a href="examples/gallery/41-un-system.png">联合国系统</a> · 42 <a href="examples/gallery/42-state-council.png">国务院组织机构 · report</a> · 43 <a href="examples/gallery/43-governance.png">公司治理结构 · 手绘</a></sub></p>
+
+### 思维导图
+
+<p align="center"><img src="examples/gallery/rows/17.png" alt="DiagramKit：产品质量模型、HTTP 状态码 · report、项目管理知识体系 · 手绘" width="100%"></p>
+<p align="center"><sub>44 <a href="examples/gallery/44-quality-model.png">产品质量模型</a> · 45 <a href="examples/gallery/45-http-status.png">HTTP 状态码 · report</a> · 46 <a href="examples/gallery/46-pmbok.png">项目管理知识体系 · 手绘</a></sub></p>
+
+### 甘特图
+
+<p align="center"><img src="examples/gallery/rows/18.png" alt="DiagramKit：实施进度计划、空间站建造任务 · report、版本生命周期 · 手绘" width="100%"></p>
+<p align="center"><sub>47 <a href="examples/gallery/47-schedule.png">实施进度计划</a> · 48 <a href="examples/gallery/48-space-station.png">空间站建造任务 · report</a> · 49 <a href="examples/gallery/49-release-lifecycle.png">版本生命周期 · 手绘</a></sub></p>
+
+### 时间线
+
+<p align="center"><img src="examples/gallery/rows/19.png" alt="DiagramKit：登月计划、政策沿革 · 手绘" width="100%"></p>
+<p align="center"><sub>50 <a href="examples/gallery/50-moon.png">登月计划</a> · 51 <a href="examples/gallery/51-policy.png">政策沿革 · 手绘</a></sub></p>
+
+### 鱼骨图
+
+<p align="center"><img src="examples/gallery/rows/20.png" alt="DiagramKit：上线延期的原因、737 MAX 事故成因 · report、出水超标原因 · 手绘" width="100%"></p>
+<p align="center"><sub>52 <a href="examples/gallery/52-delivery-delay.png">上线延期的原因</a> · 53 <a href="examples/gallery/53-crash-causes.png">737 MAX 事故成因 · report</a> · 54 <a href="examples/gallery/54-total-nitrogen.png">出水超标原因 · 手绘</a></sub></p>
+
+### 风险矩阵与象限图
+
+<p align="center"><img src="examples/gallery/rows/21.png" alt="DiagramKit：风险矩阵、各省经济象限 · report、数据库象限 · 手绘" width="100%"></p>
+<p align="center"><sub>55 <a href="examples/gallery/55-risk-matrix.png">风险矩阵</a> · 56 <a href="examples/gallery/56-provinces.png">各省经济象限 · report</a> · 57 <a href="examples/gallery/57-databases.png">数据库象限 · 手绘</a></sub></p>
+
+### 桑基图
+
+<p align="center"><img src="examples/gallery/rows/22.png" alt="DiagramKit：能源流向 · report、居民收支、碳收支 · 手绘" width="100%"></p>
+<p align="center"><sub>58 <a href="examples/gallery/58-energy-flows.png">能源流向 · report</a> · 59 <a href="examples/gallery/59-household.png">居民收支</a> · 60 <a href="examples/gallery/60-carbon-budget.png">碳收支 · 手绘</a></sub></p>
+
+### 矩形树图
+
+<p align="center"><img src="examples/gallery/rows/23.png" alt="DiagramKit：财政支出构成、各国碳排放 · report、各省地区生产总值 · 手绘" width="100%"></p>
+<p align="center"><sub>61 <a href="examples/gallery/61-budget.png">财政支出构成</a> · 62 <a href="examples/gallery/62-emissions.png">各国碳排放 · report</a> · 63 <a href="examples/gallery/63-provinces-gdp.png">各省地区生产总值 · 手绘</a></sub></p>
+
+### 饼图、环形图与玫瑰图
+
+<p align="center"><img src="examples/gallery/rows/24.png" alt="DiagramKit：饼图、环形图 · 手绘、玫瑰图 · report" width="100%"></p>
+<p align="center"><sub>64 <a href="examples/gallery/64-pie.png">饼图</a> · 65 <a href="examples/gallery/65-donut.png">环形图 · 手绘</a> · 66 <a href="examples/gallery/66-rose.png">玫瑰图 · report</a></sub></p>
+
+### 雷达图
+
+<p align="center"><img src="examples/gallery/rows/25.png" alt="DiagramKit：空气质量、职业技能 · report、月降水量 · 手绘" width="100%"></p>
+<p align="center"><sub>67 <a href="examples/gallery/67-air-quality.png">空气质量</a> · 68 <a href="examples/gallery/68-skills.png">职业技能 · report</a> · 69 <a href="examples/gallery/69-rainfall.png">月降水量 · 手绘</a></sub></p>
+
+### 用户旅程图
+
+<p align="center"><img src="examples/gallery/rows/26.png" alt="DiagramKit：报装流程体验、快递服务满意度 · report、申领福利的体验 · 手绘" width="100%"></p>
+<p align="center"><sub>70 <a href="examples/gallery/70-connection.png">报装流程体验</a> · 71 <a href="examples/gallery/71-express.png">快递服务满意度 · report</a> · 72 <a href="examples/gallery/72-benefit-claim.png">申领福利的体验 · 手绘</a></sub></p>
+
+### 看板
+
+<p align="center"><img src="examples/gallery/rows/27.png" alt="DiagramKit：报告编制看板、提案状态看板 · report" width="100%"></p>
+<p align="center"><sub>73 <a href="examples/gallery/73-report-board.png">报告编制看板</a> · 74 <a href="examples/gallery/74-peps.png">提案状态看板 · report</a></sub></p>
+
+### 需求图
+
+<p align="center"><img src="examples/gallery/rows/28.png" alt="DiagramKit：数据保护义务 · report、报告配图的需求 · 手绘" width="100%"></p>
+<p align="center"><sub>75 <a href="examples/gallery/75-gdpr.png">数据保护义务 · report</a> · 76 <a href="examples/gallery/76-report-requirements.png">报告配图的需求 · 手绘</a></sub></p>
 
 ### 同一张图，六种文档风格
 
-同一份描述，只改 `style` 一个词：
-
-<!-- showcase:styles -->
-<p align="center"><img src="examples/showcase/rows/15.png" alt="DiagramKit：business、report、mono" width="100%"></p>
-<p align="center"><sub>43 <a href="examples/showcase/43-style-business.png"><code>business</code></a> · 44 <a href="examples/showcase/44-style-report.png"><code>report</code></a> · 45 <a href="examples/showcase/45-style-mono.png"><code>mono</code></a></sub></p>
-<p align="center"><img src="examples/showcase/rows/16.png" alt="DiagramKit：guofeng、soft、notebook" width="100%"></p>
-<p align="center"><sub>46 <a href="examples/showcase/46-style-guofeng.png"><code>guofeng</code></a> · 47 <a href="examples/showcase/47-style-soft.png"><code>soft</code></a> · 48 <a href="examples/showcase/48-style-notebook.png"><code>notebook</code></a></sub></p>
-<!-- /showcase:styles -->
+<p align="center"><img src="examples/gallery/rows/29.png" alt="DiagramKit：business、report、mono" width="100%"></p>
+<p align="center"><sub>77 <a href="examples/gallery/77-style-business.png"><code>business</code></a> · 78 <a href="examples/gallery/78-style-report.png"><code>report</code></a> · 79 <a href="examples/gallery/79-style-mono.png"><code>mono</code></a></sub></p>
+<p align="center"><img src="examples/gallery/rows/30.png" alt="DiagramKit：guofeng、soft、notebook" width="100%"></p>
+<p align="center"><sub>80 <a href="examples/gallery/80-style-guofeng.png"><code>guofeng</code></a> · 81 <a href="examples/gallery/81-style-soft.png"><code>soft</code></a> · 82 <a href="examples/gallery/82-style-notebook.png"><code>notebook</code></a></sub></p>
+<!-- /showcase -->
 
 ## 安装
 

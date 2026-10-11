@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "id": "supervision",
+  "type": "compound",
+  "title": "项目监管主体与监管关系",
+  "caption": "示例，仅作演示。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "orientation": "landscape"
+  },
+  "style": "notebook",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "gov",
+      "label": "某市人民政府",
+      "role": "actor"
+    },
+    {
+      "id": "impl",
+      "label": "实施机构：市排水主管部门",
+      "role": "actor"
+    },
+    {
+      "id": "func",
+      "label": "职能监管部门：发改、财政、审计、生态环境等",
+      "role": "actor"
+    },
+    {
+      "id": "general",
+      "label": "一般监管部门：如公安、市场监管等",
+      "role": "actor"
+    },
+    {
+      "id": "spv",
+      "label": "项目公司",
+      "role": "service"
+    },
+    {
+      "id": "others",
+      "label": "与项目公司有业务联系的其他机构：保险机构、工程总承包商及监理机构等",
+      "role": "actor"
+    },
+    {
+      "id": "public",
+      "label": "社会公众",
+      "role": "actor"
+    }
+  ],
+  "groups": [
+    {
+      "id": "admin",
+      "label": "涉及行政监管的三类部门",
+      "children": [
+        "impl",
+        "func",
+        "general"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "authorize",
+      "from": "gov",
+      "to": "impl",
+      "kind": "main",
+      "label": "授权作为实施机构"
+    },
+    {
+      "id": "grant",
+      "from": "gov",
+      "to": "spv",
+      "kind": "main",
+      "label": "授予特许经营权"
+    },
+    {
+      "id": "agreement",
+      "from": "impl",
+      "to": "spv",
+      "kind": "main",
+      "label": "签订《特许经营协议》；履约管理、绩效评价"
+    },
+    {
+      "id": "func-sup",
+      "from": "func",
+      "to": "spv",
+      "kind": "control",
+      "label": "项目前期承担各类审批或监管，在各自职权范围内履行监管职责"
+    },
+    {
+      "id": "general-sup",
+      "from": "general",
+      "to": "spv",
+      "kind": "control",
+      "label": "按各自职责范围监管建设和运营等相关方面"
+    },
+    {
+      "id": "contract-sup",
+      "from": "others",
+      "to": "spv",
+      "kind": "control",
+      "label": "通过相应合同的约定进行履约监管",
+      "arrow": "none"
+    },
+    {
+      "id": "public-sup",
+      "from": "public",
+      "to": "spv",
+      "kind": "control",
+      "label": "公众监督：社会宣传、舆论监督、公众参与"
+    },
+    {
+      "id": "bond",
+      "from": "spv",
+      "to": "impl",
+      "kind": "data",
+      "label": "出具履约保函"
+    }
+  ]
+}

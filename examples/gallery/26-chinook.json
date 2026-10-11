@@ -1,0 +1,468 @@
+{
+  "version": 1,
+  "id": "chinook",
+  "type": "er",
+  "title": "The Chinook sample database",
+  "caption": "Source: the Chinook database (lerocha/chinook-database).",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "direction": "TB",
+  "entities": [
+    {
+      "id": "Artist",
+      "label": "Artist",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "ArtistId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "NVARCHAR(120)",
+          "name": "Name"
+        }
+      ]
+    },
+    {
+      "id": "Album",
+      "label": "Album",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "AlbumId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "NVARCHAR(160)",
+          "name": "Title"
+        },
+        {
+          "type": "INTEGER",
+          "name": "ArtistId",
+          "keys": [
+            "FK"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Track",
+      "label": "Track",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "TrackId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "NVARCHAR(200)",
+          "name": "Name"
+        },
+        {
+          "type": "INTEGER",
+          "name": "AlbumId",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "MediaTypeId",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "GenreId",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "NVARCHAR(220)",
+          "name": "Composer"
+        },
+        {
+          "type": "INTEGER",
+          "name": "Milliseconds"
+        },
+        {
+          "type": "INTEGER",
+          "name": "Bytes"
+        },
+        {
+          "type": "NUMERIC(10,2)",
+          "name": "UnitPrice"
+        }
+      ]
+    },
+    {
+      "id": "MediaType",
+      "label": "MediaType",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "MediaTypeId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "NVARCHAR(120)",
+          "name": "Name"
+        }
+      ]
+    },
+    {
+      "id": "Genre",
+      "label": "Genre",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "GenreId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "NVARCHAR(120)",
+          "name": "Name"
+        }
+      ]
+    },
+    {
+      "id": "Playlist",
+      "label": "Playlist",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "PlaylistId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "NVARCHAR(120)",
+          "name": "Name"
+        }
+      ]
+    },
+    {
+      "id": "PlaylistTrack",
+      "label": "PlaylistTrack",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "PlaylistId",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "TrackId",
+          "keys": [
+            "PK",
+            "FK"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Invoice",
+      "label": "Invoice",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "InvoiceId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "CustomerId",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "DATETIME",
+          "name": "InvoiceDate"
+        },
+        {
+          "type": "NVARCHAR(70)",
+          "name": "BillingAddress"
+        },
+        {
+          "type": "NVARCHAR(40)",
+          "name": "BillingCity"
+        },
+        {
+          "type": "NVARCHAR(40)",
+          "name": "BillingState"
+        },
+        {
+          "type": "NVARCHAR(40)",
+          "name": "BillingCountry"
+        },
+        {
+          "type": "NVARCHAR(10)",
+          "name": "BillingPostalCode"
+        },
+        {
+          "type": "NUMERIC(10,2)",
+          "name": "Total"
+        }
+      ]
+    },
+    {
+      "id": "InvoiceLine",
+      "label": "InvoiceLine",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "InvoiceLineId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "InvoiceId",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "INTEGER",
+          "name": "TrackId",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "NUMERIC(10,2)",
+          "name": "UnitPrice"
+        },
+        {
+          "type": "INTEGER",
+          "name": "Quantity"
+        }
+      ]
+    },
+    {
+      "id": "Customer",
+      "label": "Customer",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "CustomerId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "NVARCHAR(40)",
+          "name": "FirstName"
+        },
+        {
+          "type": "NVARCHAR(20)",
+          "name": "LastName"
+        },
+        {
+          "type": "NVARCHAR(80)",
+          "name": "Company"
+        },
+        {
+          "type": "NVARCHAR(70)",
+          "name": "Address"
+        },
+        {
+          "type": "NVARCHAR(40)",
+          "name": "City"
+        },
+        {
+          "type": "NVARCHAR(40)",
+          "name": "State"
+        },
+        {
+          "type": "NVARCHAR(40)",
+          "name": "Country"
+        },
+        {
+          "type": "NVARCHAR(10)",
+          "name": "PostalCode"
+        },
+        {
+          "type": "NVARCHAR(24)",
+          "name": "Phone"
+        },
+        {
+          "type": "NVARCHAR(60)",
+          "name": "Email"
+        },
+        {
+          "type": "INTEGER",
+          "name": "SupportRepId",
+          "keys": [
+            "FK"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Employee",
+      "label": "Employee",
+      "attributes": [
+        {
+          "type": "INTEGER",
+          "name": "EmployeeId",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "NVARCHAR(20)",
+          "name": "LastName"
+        },
+        {
+          "type": "NVARCHAR(20)",
+          "name": "FirstName"
+        },
+        {
+          "type": "NVARCHAR(30)",
+          "name": "Title"
+        },
+        {
+          "type": "INTEGER",
+          "name": "ReportsTo",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "DATETIME",
+          "name": "BirthDate"
+        },
+        {
+          "type": "DATETIME",
+          "name": "HireDate"
+        },
+        {
+          "type": "NVARCHAR(40)",
+          "name": "City"
+        },
+        {
+          "type": "NVARCHAR(40)",
+          "name": "Country"
+        },
+        {
+          "type": "NVARCHAR(60)",
+          "name": "Email"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r01",
+      "from": "Artist",
+      "to": "Album",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "records"
+    },
+    {
+      "id": "r02",
+      "from": "Album",
+      "to": "Track",
+      "fromCardinality": "zero-or-one",
+      "toCardinality": "zero-or-more",
+      "label": "contains"
+    },
+    {
+      "id": "r03",
+      "from": "MediaType",
+      "to": "Track",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "encodes"
+    },
+    {
+      "id": "r04",
+      "from": "Genre",
+      "to": "Track",
+      "fromCardinality": "zero-or-one",
+      "toCardinality": "zero-or-more",
+      "label": "classifies"
+    },
+    {
+      "id": "r05",
+      "from": "Playlist",
+      "to": "PlaylistTrack",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "lists"
+    },
+    {
+      "id": "r06",
+      "from": "Track",
+      "to": "PlaylistTrack",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "appears in"
+    },
+    {
+      "id": "r07",
+      "from": "Customer",
+      "to": "Invoice",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "is billed"
+    },
+    {
+      "id": "r08",
+      "from": "Invoice",
+      "to": "InvoiceLine",
+      "fromCardinality": "one",
+      "toCardinality": "one-or-more",
+      "label": "itemises"
+    },
+    {
+      "id": "r09",
+      "from": "Track",
+      "to": "InvoiceLine",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "sold as"
+    },
+    {
+      "id": "r10",
+      "from": "Employee",
+      "to": "Customer",
+      "fromCardinality": "zero-or-one",
+      "toCardinality": "zero-or-more",
+      "label": "supports"
+    },
+    {
+      "id": "r11",
+      "from": "Employee",
+      "to": "Employee",
+      "fromCardinality": "zero-or-one",
+      "toCardinality": "zero-or-more",
+      "label": "reports to"
+    }
+  ]
+}

@@ -18,7 +18,7 @@
   <img alt="platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-blue">
 </p>
 
-<p align="center"><img src="examples/showcase/hero.png" alt="Figures drawn by DiagramKit: a flow in phases, energy flows, a risk matrix, a hand-drawn mind map and a Gantt chart" width="100%"></p>
+<p align="center"><img src="examples/gallery/hero.png" alt="Figures drawn by DiagramKit: flowcharts, sequence, class and ER diagrams, architecture, organisation and Gantt charts, Sankey diagrams, treemaps and more" width="100%"></p>
 
 ---
 
@@ -34,67 +34,136 @@ Numeric trends, comparisons and distributions are a chart's work, not a diagram'
 
 ## Preview
 
-Every figure below was built from a semantic spec: what the boxes, the relations and the data are, with at most a hint of emphasis (a tone, a direction) and the page it goes on. No position, size or line route is written by hand: placing, wrapping and routing are DiagramKit's work. A name under a row opens that figure at full size; the `.json` of the same name beside it in [`examples/showcase`](examples/showcase) is its spec.
+Every figure below was built from a semantic spec: what the boxes, the relations and the data are, with at most a hint of emphasis (a tone, a direction) and the page it goes on. No position, size or line route is written by hand: placing, wrapping and routing are DiagramKit's work.
 
-### The default look on a Word page
+They are set out by figure type, a few of each. A figure with no mark is in the default look on a Word page (one colour family for the whole document, Times New Roman with the machine's Song typeface); **report** marks `--style report`, each type's own colours; **hand-drawn** marks `--style notebook`. A name under a row opens that figure at full size; the `.json` of the same name in [`examples/gallery`](examples/gallery) is its spec.
 
-With no look asked for, the figures of a Word document share one colour family and are set in Times New Roman with the machine's Song typeface.
+<!-- showcase -->
+<p align="center"><sub><a href="#flowcharts">Flowcharts</a> · <a href="#sequence-diagrams">Sequence diagrams</a> · <a href="#class-diagrams">Class diagrams</a> · <a href="#er-diagrams">ER diagrams</a> · <a href="#architecture-diagrams">Architecture diagrams</a> · <a href="#c4-model">C4 model</a> · <a href="#deal-and-contract-structures">Deal and contract structures</a> · <a href="#organisation-charts">Organisation charts</a> · <a href="#mind-maps">Mind maps</a> · <a href="#gantt-charts">Gantt charts</a> · <a href="#timelines">Timelines</a> · <a href="#fishbone-diagrams">Fishbone diagrams</a> · <a href="#risk-matrices-and-quadrant-charts">Risk matrices and quadrant charts</a> · <a href="#sankey-diagrams">Sankey diagrams</a> · <a href="#treemaps">Treemaps</a> · <a href="#pie-donut-and-rose-charts">Pie, donut and rose charts</a> · <a href="#radar-charts">Radar charts</a> · <a href="#user-journey-maps">User journey maps</a> · <a href="#kanban-boards">Kanban boards</a> · <a href="#requirement-diagrams">Requirement diagrams</a> · <a href="#one-figure-six-document-styles">One figure, six document styles</a></sub></p>
 
-<!-- showcase:default -->
-<p align="center"><img src="examples/showcase/rows/01.png" alt="DiagramKit: Decision flow, Flow in phases, State machine" width="100%"></p>
-<p align="center"><sub>01 <a href="examples/showcase/01-decision-flow.png">Decision flow</a> · 02 <a href="examples/showcase/02-phased-flow.png">Flow in phases</a> · 03 <a href="examples/showcase/03-state-machine.png">State machine</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/02.png" alt="DiagramKit: Approval procedure, Data pipeline, Timeline" width="100%"></p>
-<p align="center"><sub>04 <a href="examples/showcase/04-approval-flow.png">Approval procedure</a> · 05 <a href="examples/showcase/05-data-pipeline.png">Data pipeline</a> · 06 <a href="examples/showcase/06-timeline.png">Timeline</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/03.png" alt="DiagramKit: Sequence, Classes, Mind map" width="100%"></p>
-<p align="center"><sub>07 <a href="examples/showcase/07-sequence.png">Sequence</a> · 08 <a href="examples/showcase/08-class.png">Classes</a> · 09 <a href="examples/showcase/09-mindmap.png">Mind map</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/04.png" alt="DiagramKit: Transaction structure, Organisation, Gantt chart" width="100%"></p>
-<p align="center"><sub>10 <a href="examples/showcase/10-transaction-structure.png">Transaction structure</a> · 11 <a href="examples/showcase/11-organisation.png">Organisation</a> · 12 <a href="examples/showcase/12-gantt.png">Gantt chart</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/05.png" alt="DiagramKit: Fishbone, User journey, Donut" width="100%"></p>
-<p align="center"><sub>13 <a href="examples/showcase/13-fishbone.png">Fishbone</a> · 14 <a href="examples/showcase/14-journey.png">User journey</a> · 15 <a href="examples/showcase/15-donut.png">Donut</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/06.png" alt="DiagramKit: Risk matrix, Quadrant chart, Radar" width="100%"></p>
-<p align="center"><sub>16 <a href="examples/showcase/16-risk-matrix.png">Risk matrix</a> · 17 <a href="examples/showcase/17-quadrant.png">Quadrant chart</a> · 18 <a href="examples/showcase/18-radar.png">Radar</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/07.png" alt="DiagramKit: ER diagram, Treemap, C4 context" width="100%"></p>
-<p align="center"><sub>19 <a href="examples/showcase/19-er.png">ER diagram</a> · 20 <a href="examples/showcase/20-treemap.png">Treemap</a> · 21 <a href="examples/showcase/21-c4-context.png">C4 context</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/08.png" alt="DiagramKit: Sankey, Kanban, System architecture" width="100%"></p>
-<p align="center"><sub>22 <a href="examples/showcase/22-sankey.png">Sankey</a> · 23 <a href="examples/showcase/23-kanban.png">Kanban</a> · 24 <a href="examples/showcase/24-architecture.png">System architecture</a></sub></p>
-<!-- /showcase:default -->
+### Flowcharts
 
-### Each type's own look
+<p align="center"><img src="examples/gallery/rows/01.png" alt="DiagramKit: Incident response · hand-drawn, Card payment and settlement, Edge AI inference · report" width="100%"></p>
+<p align="center"><sub>01 <a href="examples/gallery/01-incident-response.png">Incident response · hand-drawn</a> · 02 <a href="examples/gallery/02-card-payment.png">Card payment and settlement</a> · 03 <a href="examples/gallery/03-edge-inference.png">Edge AI inference · report</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/02.png" alt="DiagramKit: TCP state machine, Embedded boot sequence · hand-drawn, Project implementation" width="100%"></p>
+<p align="center"><sub>04 <a href="examples/gallery/04-tcp-states.png">TCP state machine</a> · 05 <a href="examples/gallery/05-boot-sequence.png">Embedded boot sequence · hand-drawn</a> · 06 <a href="examples/gallery/06-phased-flow.png">Project implementation</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/03.png" alt="DiagramKit: An AI agent · report, Wastewater treatment, Approval procedure · hand-drawn" width="100%"></p>
+<p align="center"><sub>07 <a href="examples/gallery/07-ai-agent.png">An AI agent · report</a> · 08 <a href="examples/gallery/08-treatment-process.png">Wastewater treatment</a> · 09 <a href="examples/gallery/09-approval-flow.png">Approval procedure · hand-drawn</a></sub></p>
 
-`--style report`: every figure type in its own colours.
+### Sequence diagrams
 
-<!-- showcase:report -->
-<p align="center"><img src="examples/showcase/rows/09.png" alt="DiagramKit: Cloud architecture, C4 containers, Requirement diagram" width="100%"></p>
-<p align="center"><sub>25 <a href="examples/showcase/25-cloud-architecture.png">Cloud architecture</a> · 26 <a href="examples/showcase/26-c4-container.png">C4 containers</a> · 27 <a href="examples/showcase/27-requirement.png">Requirement diagram</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/10.png" alt="DiagramKit: Multi-stage Sankey, Grouped treemap, Rose chart" width="100%"></p>
-<p align="center"><sub>28 <a href="examples/showcase/28-energy-flows.png">Multi-stage Sankey</a> · 29 <a href="examples/showcase/29-treemap-emissions.png">Grouped treemap</a> · 30 <a href="examples/showcase/30-rose.png">Rose chart</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/11.png" alt="DiagramKit: Satisfaction journey, Gantt chart in lanes, Release lifecycle" width="100%"></p>
-<p align="center"><sub>31 <a href="examples/showcase/31-journey-satisfaction.png">Satisfaction journey</a> · 32 <a href="examples/showcase/32-gantt-lanes.png">Gantt chart in lanes</a> · 33 <a href="examples/showcase/33-release-lifecycle.png">Release lifecycle</a></sub></p>
-<!-- /showcase:report -->
+<p align="center"><img src="examples/gallery/rows/04.png" alt="DiagramKit: kubectl apply to a Pod · hand-drawn, Continuous deployment" width="100%"></p>
+<p align="center"><sub>10 <a href="examples/gallery/10-kubectl-apply.png">kubectl apply to a Pod · hand-drawn</a> · 11 <a href="examples/gallery/11-deployment.png">Continuous deployment</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/05.png" alt="DiagramKit: OAuth 2.0 code flow, EMV 3-D Secure · report" width="100%"></p>
+<p align="center"><sub>12 <a href="examples/gallery/12-oauth.png">OAuth 2.0 code flow</a> · 13 <a href="examples/gallery/13-three-d-secure.png">EMV 3-D Secure · report</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/06.png" alt="DiagramKit: Mini-program order and payment, Parallel calls · hand-drawn, CI run with retries · report" width="100%"></p>
+<p align="center"><sub>14 <a href="examples/gallery/14-mini-program-payment.png">Mini-program order and payment</a> · 15 <a href="examples/gallery/15-parallel-calls.png">Parallel calls · hand-drawn</a> · 16 <a href="examples/gallery/16-ci-retries.png">CI run with retries · report</a></sub></p>
 
-### The hand-drawn pen
+### Class diagrams
 
-`--style notebook`: hand-drawn strokes, a handwriting typeface, curved connectors.
+<p align="center"><img src="examples/gallery/rows/07.png" alt="DiagramKit: asyncio, Stream classes · hand-drawn" width="100%"></p>
+<p align="center"><sub>17 <a href="examples/gallery/17-asyncio.png">asyncio</a> · 18 <a href="examples/gallery/18-streams.png">Stream classes · hand-drawn</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/08.png" alt="DiagramKit: Game engine objects · hand-drawn, Product and reviews, A taxonomy · report" width="100%"></p>
+<p align="center"><sub>19 <a href="examples/gallery/19-game-engine.png">Game engine objects · hand-drawn</a> · 20 <a href="examples/gallery/20-product-types.png">Product and reviews</a> · 21 <a href="examples/gallery/21-taxonomy.png">A taxonomy · report</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/09.png" alt="DiagramKit: Power system model · report, Order system" width="100%"></p>
+<p align="center"><sub>22 <a href="examples/gallery/22-power-system.png">Power system model · report</a> · 23 <a href="examples/gallery/23-order-system.png">Order system</a></sub></p>
 
-<!-- showcase:notebook -->
-<p align="center"><img src="examples/showcase/rows/12.png" alt="DiagramKit: Incident response, Sequence, Kanban" width="100%"></p>
-<p align="center"><sub>34 <a href="examples/showcase/34-hand-flow.png">Incident response</a> · 35 <a href="examples/showcase/35-hand-sequence.png">Sequence</a> · 36 <a href="examples/showcase/36-hand-kanban.png">Kanban</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/13.png" alt="DiagramKit: ER diagram, Organisation, Radar" width="100%"></p>
-<p align="center"><sub>37 <a href="examples/showcase/37-hand-er.png">ER diagram</a> · 38 <a href="examples/showcase/38-hand-organisation.png">Organisation</a> · 39 <a href="examples/showcase/39-hand-radar.png">Radar</a></sub></p>
-<p align="center"><img src="examples/showcase/rows/14.png" alt="DiagramKit: Timeline, Sankey, Classes" width="100%"></p>
-<p align="center"><sub>40 <a href="examples/showcase/40-hand-timeline.png">Timeline</a> · 41 <a href="examples/showcase/41-hand-sankey.png">Sankey</a> · 42 <a href="examples/showcase/42-hand-class.png">Classes</a></sub></p>
-<!-- /showcase:notebook -->
+### ER diagrams
+
+<p align="center"><img src="examples/gallery/rows/10.png" alt="DiagramKit: Blog platform tables · hand-drawn, Order management" width="100%"></p>
+<p align="center"><sub>24 <a href="examples/gallery/24-wordpress.png">Blog platform tables · hand-drawn</a> · 25 <a href="examples/gallery/25-northwind.png">Order management</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/11.png" alt="DiagramKit: Chinook, TPC-H · report, School enrolment · hand-drawn" width="100%"></p>
+<p align="center"><sub>26 <a href="examples/gallery/26-chinook.png">Chinook</a> · 27 <a href="examples/gallery/27-tpch.png">TPC-H · report</a> · 28 <a href="examples/gallery/28-school.png">School enrolment · hand-drawn</a></sub></p>
+<p align="center"><img src="examples/gallery/rows/12.png" alt="DiagramKit: Star schema · hand-drawn, Library lending, Event store · report" width="100%"></p>
+<p align="center"><sub>29 <a href="examples/gallery/29-star-schema.png">Star schema · hand-drawn</a> · 30 <a href="examples/gallery/30-library.png">Library lending</a> · 31 <a href="examples/gallery/31-event-store.png">Event store · report</a></sub></p>
+
+### Architecture diagrams
+
+<p align="center"><img src="examples/gallery/rows/13.png" alt="DiagramKit: Cloud network · report, Service deployment, Government platform · hand-drawn" width="100%"></p>
+<p align="center"><sub>32 <a href="examples/gallery/32-cloud-architecture.png">Cloud network · report</a> · 33 <a href="examples/gallery/33-service-architecture.png">Service deployment</a> · 34 <a href="examples/gallery/34-platform-architecture.png">Government platform · hand-drawn</a></sub></p>
+
+### C4 model
+
+<p align="center"><img src="examples/gallery/rows/14.png" alt="DiagramKit: Containers: internet banking, Containers: a distributed database · report, System context" width="100%"></p>
+<p align="center"><sub>35 <a href="examples/gallery/35-c4-containers-bank.png">Containers: internet banking</a> · 36 <a href="examples/gallery/36-c4-containers-tidb.png">Containers: a distributed database · report</a> · 37 <a href="examples/gallery/37-c4-context.png">System context</a></sub></p>
+
+### Deal and contract structures
+
+<p align="center"><img src="examples/gallery/rows/15.png" alt="DiagramKit: Transaction structure, Contract system, Supervision · hand-drawn" width="100%"></p>
+<p align="center"><sub>38 <a href="examples/gallery/38-transaction-structure.png">Transaction structure</a> · 39 <a href="examples/gallery/39-contract-system.png">Contract system</a> · 40 <a href="examples/gallery/40-supervision.png">Supervision · hand-drawn</a></sub></p>
+
+### Organisation charts
+
+<p align="center"><img src="examples/gallery/rows/16.png" alt="DiagramKit: The UN System, The State Council · report, Corporate governance · hand-drawn" width="100%"></p>
+<p align="center"><sub>41 <a href="examples/gallery/41-un-system.png">The UN System</a> · 42 <a href="examples/gallery/42-state-council.png">The State Council · report</a> · 43 <a href="examples/gallery/43-governance.png">Corporate governance · hand-drawn</a></sub></p>
+
+### Mind maps
+
+<p align="center"><img src="examples/gallery/rows/17.png" alt="DiagramKit: Quality model, HTTP status codes · report, Project management · hand-drawn" width="100%"></p>
+<p align="center"><sub>44 <a href="examples/gallery/44-quality-model.png">Quality model</a> · 45 <a href="examples/gallery/45-http-status.png">HTTP status codes · report</a> · 46 <a href="examples/gallery/46-pmbok.png">Project management · hand-drawn</a></sub></p>
+
+### Gantt charts
+
+<p align="center"><img src="examples/gallery/rows/18.png" alt="DiagramKit: Implementation schedule, Space station missions · report, Release lifecycle · hand-drawn" width="100%"></p>
+<p align="center"><sub>47 <a href="examples/gallery/47-schedule.png">Implementation schedule</a> · 48 <a href="examples/gallery/48-space-station.png">Space station missions · report</a> · 49 <a href="examples/gallery/49-release-lifecycle.png">Release lifecycle · hand-drawn</a></sub></p>
+
+### Timelines
+
+<p align="center"><img src="examples/gallery/rows/19.png" alt="DiagramKit: To the Moon, Policy history · hand-drawn" width="100%"></p>
+<p align="center"><sub>50 <a href="examples/gallery/50-moon.png">To the Moon</a> · 51 <a href="examples/gallery/51-policy.png">Policy history · hand-drawn</a></sub></p>
+
+### Fishbone diagrams
+
+<p align="center"><img src="examples/gallery/rows/20.png" alt="DiagramKit: Why delivery slipped, The 737 MAX crashes · report, Effluent over the limit · hand-drawn" width="100%"></p>
+<p align="center"><sub>52 <a href="examples/gallery/52-delivery-delay.png">Why delivery slipped</a> · 53 <a href="examples/gallery/53-crash-causes.png">The 737 MAX crashes · report</a> · 54 <a href="examples/gallery/54-total-nitrogen.png">Effluent over the limit · hand-drawn</a></sub></p>
+
+### Risk matrices and quadrant charts
+
+<p align="center"><img src="examples/gallery/rows/21.png" alt="DiagramKit: Risk matrix, Provinces in quadrants · report, Databases in quadrants · hand-drawn" width="100%"></p>
+<p align="center"><sub>55 <a href="examples/gallery/55-risk-matrix.png">Risk matrix</a> · 56 <a href="examples/gallery/56-provinces.png">Provinces in quadrants · report</a> · 57 <a href="examples/gallery/57-databases.png">Databases in quadrants · hand-drawn</a></sub></p>
+
+### Sankey diagrams
+
+<p align="center"><img src="examples/gallery/rows/22.png" alt="DiagramKit: Energy flows · report, Household income and spending, Carbon budget · hand-drawn" width="100%"></p>
+<p align="center"><sub>58 <a href="examples/gallery/58-energy-flows.png">Energy flows · report</a> · 59 <a href="examples/gallery/59-household.png">Household income and spending</a> · 60 <a href="examples/gallery/60-carbon-budget.png">Carbon budget · hand-drawn</a></sub></p>
+
+### Treemaps
+
+<p align="center"><img src="examples/gallery/rows/23.png" alt="DiagramKit: Public spending, Emissions by country · report, GDP by province · hand-drawn" width="100%"></p>
+<p align="center"><sub>61 <a href="examples/gallery/61-budget.png">Public spending</a> · 62 <a href="examples/gallery/62-emissions.png">Emissions by country · report</a> · 63 <a href="examples/gallery/63-provinces-gdp.png">GDP by province · hand-drawn</a></sub></p>
+
+### Pie, donut and rose charts
+
+<p align="center"><img src="examples/gallery/rows/24.png" alt="DiagramKit: Pie, Donut · hand-drawn, Rose chart · report" width="100%"></p>
+<p align="center"><sub>64 <a href="examples/gallery/64-pie.png">Pie</a> · 65 <a href="examples/gallery/65-donut.png">Donut · hand-drawn</a> · 66 <a href="examples/gallery/66-rose.png">Rose chart · report</a></sub></p>
+
+### Radar charts
+
+<p align="center"><img src="examples/gallery/rows/25.png" alt="DiagramKit: Air quality, Skills by occupation · report, Monthly rainfall · hand-drawn" width="100%"></p>
+<p align="center"><sub>67 <a href="examples/gallery/67-air-quality.png">Air quality</a> · 68 <a href="examples/gallery/68-skills.png">Skills by occupation · report</a> · 69 <a href="examples/gallery/69-rainfall.png">Monthly rainfall · hand-drawn</a></sub></p>
+
+### User journey maps
+
+<p align="center"><img src="examples/gallery/rows/26.png" alt="DiagramKit: Getting connected, Parcel delivery · report, Claiming a benefit · hand-drawn" width="100%"></p>
+<p align="center"><sub>70 <a href="examples/gallery/70-connection.png">Getting connected</a> · 71 <a href="examples/gallery/71-express.png">Parcel delivery · report</a> · 72 <a href="examples/gallery/72-benefit-claim.png">Claiming a benefit · hand-drawn</a></sub></p>
+
+### Kanban boards
+
+<p align="center"><img src="examples/gallery/rows/27.png" alt="DiagramKit: Report board, Proposals by status · report" width="100%"></p>
+<p align="center"><sub>73 <a href="examples/gallery/73-report-board.png">Report board</a> · 74 <a href="examples/gallery/74-peps.png">Proposals by status · report</a></sub></p>
+
+### Requirement diagrams
+
+<p align="center"><img src="examples/gallery/rows/28.png" alt="DiagramKit: Data protection duties · report, Requirements for report figures · hand-drawn" width="100%"></p>
+<p align="center"><sub>75 <a href="examples/gallery/75-gdpr.png">Data protection duties · report</a> · 76 <a href="examples/gallery/76-report-requirements.png">Requirements for report figures · hand-drawn</a></sub></p>
 
 ### One figure, six document styles
 
-The same spec with one word changed, `style`:
-
-<!-- showcase:styles -->
-<p align="center"><img src="examples/showcase/rows/15.png" alt="DiagramKit: business, report, mono" width="100%"></p>
-<p align="center"><sub>43 <a href="examples/showcase/43-style-business.png"><code>business</code></a> · 44 <a href="examples/showcase/44-style-report.png"><code>report</code></a> · 45 <a href="examples/showcase/45-style-mono.png"><code>mono</code></a></sub></p>
-<p align="center"><img src="examples/showcase/rows/16.png" alt="DiagramKit: guofeng, soft, notebook" width="100%"></p>
-<p align="center"><sub>46 <a href="examples/showcase/46-style-guofeng.png"><code>guofeng</code></a> · 47 <a href="examples/showcase/47-style-soft.png"><code>soft</code></a> · 48 <a href="examples/showcase/48-style-notebook.png"><code>notebook</code></a></sub></p>
-<!-- /showcase:styles -->
+<p align="center"><img src="examples/gallery/rows/29.png" alt="DiagramKit: business, report, mono" width="100%"></p>
+<p align="center"><sub>77 <a href="examples/gallery/77-style-business.png"><code>business</code></a> · 78 <a href="examples/gallery/78-style-report.png"><code>report</code></a> · 79 <a href="examples/gallery/79-style-mono.png"><code>mono</code></a></sub></p>
+<p align="center"><img src="examples/gallery/rows/30.png" alt="DiagramKit: guofeng, soft, notebook" width="100%"></p>
+<p align="center"><sub>80 <a href="examples/gallery/80-style-guofeng.png"><code>guofeng</code></a> · 81 <a href="examples/gallery/81-style-soft.png"><code>soft</code></a> · 82 <a href="examples/gallery/82-style-notebook.png"><code>notebook</code></a></sub></p>
+<!-- /showcase -->
 
 ## Install
 

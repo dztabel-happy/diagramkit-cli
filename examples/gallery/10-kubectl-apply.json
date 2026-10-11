@@ -1,0 +1,309 @@
+{
+  "version": 1,
+  "id": "kubectl-apply",
+  "type": "sequence",
+  "title": "From kubectl apply to a running Pod",
+  "caption": "After the Kubernetes documentation: components, controllers, scheduler and kubelet.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 646,
+      "heightMm": 459
+    }
+  },
+  "style": "notebook",
+  "participants": [
+    {
+      "id": "Op",
+      "label": "Operator",
+      "role": "actor",
+      "symbol": "actor"
+    },
+    {
+      "id": "Kubectl",
+      "label": "kubectl",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "API",
+      "label": "kube-apiserver",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "Etcd",
+      "label": "etcd",
+      "role": "store",
+      "symbol": "database"
+    },
+    {
+      "id": "DC",
+      "label": "Deployment controller",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "RSC",
+      "label": "ReplicaSet controller",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "Sched",
+      "label": "kube-scheduler",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "Kubelet",
+      "label": "kubelet (node-1)",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "CRI",
+      "label": "containerd (CRI)",
+      "role": "service",
+      "symbol": "box"
+    },
+    {
+      "id": "CNI",
+      "label": "CNI plugin",
+      "role": "service",
+      "symbol": "box"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m01",
+      "from": "Op",
+      "to": "Kubectl",
+      "kind": "call",
+      "label": "kubectl apply -f deployment.yaml"
+    },
+    {
+      "id": "m02",
+      "from": "Kubectl",
+      "to": "API",
+      "kind": "call",
+      "label": "POST /apis/apps/v1/namespaces/default/deployments"
+    },
+    {
+      "id": "m03",
+      "from": "API",
+      "to": "API",
+      "kind": "call",
+      "label": "Authenticate, authorize (RBAC), admission control"
+    },
+    {
+      "id": "m04",
+      "from": "API",
+      "to": "Etcd",
+      "kind": "call",
+      "label": "Persist Deployment"
+    },
+    {
+      "id": "m05",
+      "from": "Etcd",
+      "to": "API",
+      "kind": "return",
+      "label": "OK"
+    },
+    {
+      "id": "m06",
+      "from": "API",
+      "to": "Kubectl",
+      "kind": "return",
+      "label": "201 Created"
+    },
+    {
+      "id": "m07",
+      "from": "API",
+      "to": "DC",
+      "kind": "async",
+      "label": "Watch event: Deployment ADDED"
+    },
+    {
+      "id": "m08",
+      "from": "DC",
+      "to": "API",
+      "kind": "call",
+      "label": "Create ReplicaSet (replicas: 3)"
+    },
+    {
+      "id": "m09",
+      "from": "API",
+      "to": "Etcd",
+      "kind": "call",
+      "label": "Persist ReplicaSet"
+    },
+    {
+      "id": "m10",
+      "from": "API",
+      "to": "RSC",
+      "kind": "async",
+      "label": "Watch event: ReplicaSet ADDED"
+    },
+    {
+      "id": "m11",
+      "from": "RSC",
+      "to": "API",
+      "kind": "call",
+      "label": "Create Pod (nodeName unset)"
+    },
+    {
+      "id": "m12",
+      "from": "API",
+      "to": "Etcd",
+      "kind": "call",
+      "label": "Persist Pod (phase: Pending)"
+    },
+    {
+      "id": "m13",
+      "from": "API",
+      "to": "Sched",
+      "kind": "async",
+      "label": "Watch event: unscheduled Pod"
+    },
+    {
+      "id": "m14",
+      "from": "Sched",
+      "to": "Sched",
+      "kind": "call",
+      "label": "Filter and score nodes"
+    },
+    {
+      "id": "m15",
+      "from": "Sched",
+      "to": "API",
+      "kind": "call",
+      "label": "POST pods/binding (nodeName: node-1)"
+    },
+    {
+      "id": "m16",
+      "from": "API",
+      "to": "Etcd",
+      "kind": "call",
+      "label": "Update Pod spec.nodeName"
+    },
+    {
+      "id": "m17",
+      "from": "API",
+      "to": "Kubelet",
+      "kind": "async",
+      "label": "Watch event: Pod bound to node-1"
+    },
+    {
+      "id": "m18",
+      "from": "Kubelet",
+      "to": "CRI",
+      "kind": "call",
+      "label": "RunPodSandbox"
+    },
+    {
+      "id": "m19",
+      "from": "CRI",
+      "to": "CNI",
+      "kind": "call",
+      "label": "ADD: create network namespace, assign IP"
+    },
+    {
+      "id": "m20",
+      "from": "CNI",
+      "to": "CRI",
+      "kind": "return",
+      "label": "Pod IP 10.244.1.23"
+    },
+    {
+      "id": "m21",
+      "from": "CRI",
+      "to": "Kubelet",
+      "kind": "return",
+      "label": "Sandbox ready"
+    },
+    {
+      "id": "m22",
+      "from": "Kubelet",
+      "to": "CRI",
+      "kind": "call",
+      "label": "PullImage, CreateContainer, StartContainer"
+    },
+    {
+      "id": "m23",
+      "from": "CRI",
+      "to": "Kubelet",
+      "kind": "return",
+      "label": "Container running"
+    },
+    {
+      "id": "m24",
+      "from": "Kubelet",
+      "to": "Kubelet",
+      "kind": "call",
+      "label": "Run readiness probe"
+    },
+    {
+      "id": "m25",
+      "from": "Kubelet",
+      "to": "API",
+      "kind": "call",
+      "label": "PATCH pods/status (Running, Ready)"
+    },
+    {
+      "id": "m26",
+      "from": "API",
+      "to": "Etcd",
+      "kind": "call",
+      "label": "Persist Pod status"
+    },
+    {
+      "id": "m27",
+      "from": "API",
+      "to": "DC",
+      "kind": "async",
+      "label": "Watch event: ReplicaSet 3/3 ready"
+    },
+    {
+      "id": "m28",
+      "from": "DC",
+      "to": "API",
+      "kind": "call",
+      "label": "Update Deployment status (Available)"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "replicas",
+      "kind": "loop",
+      "label": "for each missing replica (3)",
+      "start": "m11",
+      "end": "m26"
+    }
+  ],
+  "participantGroups": [
+    {
+      "id": "control",
+      "label": "Control plane",
+      "participants": [
+        "API",
+        "Etcd",
+        "DC",
+        "RSC",
+        "Sched"
+      ],
+      "tone": "blue"
+    },
+    {
+      "id": "node",
+      "label": "Worker node-1",
+      "participants": [
+        "Kubelet",
+        "CRI",
+        "CNI"
+      ],
+      "tone": "green"
+    }
+  ]
+}

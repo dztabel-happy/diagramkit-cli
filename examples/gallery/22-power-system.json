@@ -1,0 +1,304 @@
+{
+  "version": 1,
+  "id": "power-system",
+  "type": "class",
+  "title": "A power system equipment model",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "report",
+  "direction": "TB",
+  "classes": [
+    {
+      "id": "IdentifiedObject",
+      "label": "IdentifiedObject",
+      "stereotype": "abstract",
+      "attributes": [
+        "+mRID: string",
+        "+name: string",
+        "+description: string"
+      ]
+    },
+    {
+      "id": "PowerSystemResource",
+      "label": "PowerSystemResource",
+      "stereotype": "abstract",
+      "attributes": [
+        "+location: Location"
+      ]
+    },
+    {
+      "id": "ConnectivityNodeContainer",
+      "label": "ConnectivityNodeContainer",
+      "stereotype": "abstract"
+    },
+    {
+      "id": "EquipmentContainer",
+      "label": "EquipmentContainer",
+      "stereotype": "abstract"
+    },
+    {
+      "id": "Substation",
+      "label": "Substation",
+      "attributes": [
+        "+region: SubGeographicalRegion"
+      ]
+    },
+    {
+      "id": "Equipment",
+      "label": "Equipment",
+      "stereotype": "abstract",
+      "attributes": [
+        "+normallyInService: boolean",
+        "+aggregate: boolean"
+      ]
+    },
+    {
+      "id": "ConductingEquipment",
+      "label": "ConductingEquipment",
+      "stereotype": "abstract",
+      "attributes": [
+        "+baseVoltage: BaseVoltage"
+      ]
+    },
+    {
+      "id": "Conductor",
+      "label": "Conductor",
+      "stereotype": "abstract",
+      "attributes": [
+        "+length: Length"
+      ]
+    },
+    {
+      "id": "ACLineSegment",
+      "label": "ACLineSegment",
+      "attributes": [
+        "+r: Resistance",
+        "+x: Reactance",
+        "+bch: Susceptance"
+      ]
+    },
+    {
+      "id": "Switch",
+      "label": "Switch",
+      "stereotype": "abstract",
+      "attributes": [
+        "+normalOpen: boolean",
+        "+retained: boolean"
+      ]
+    },
+    {
+      "id": "Breaker",
+      "label": "Breaker",
+      "attributes": [
+        "+ratedCurrent: CurrentFlow"
+      ]
+    },
+    {
+      "id": "Disconnector",
+      "label": "Disconnector"
+    },
+    {
+      "id": "PowerTransformer",
+      "label": "PowerTransformer",
+      "attributes": [
+        "+vectorGroup: string"
+      ]
+    },
+    {
+      "id": "EnergyConsumer",
+      "label": "EnergyConsumer",
+      "attributes": [
+        "+p: ActivePower",
+        "+q: ReactivePower"
+      ]
+    },
+    {
+      "id": "EnergySource",
+      "label": "EnergySource",
+      "attributes": [
+        "+voltageMagnitude: Voltage"
+      ]
+    },
+    {
+      "id": "ACDCTerminal",
+      "label": "ACDCTerminal",
+      "stereotype": "abstract",
+      "attributes": [
+        "+connected: boolean",
+        "+sequenceNumber: int"
+      ]
+    },
+    {
+      "id": "Terminal",
+      "label": "Terminal",
+      "attributes": [
+        "+phases: PhaseCode"
+      ]
+    },
+    {
+      "id": "ConnectivityNode",
+      "label": "ConnectivityNode",
+      "attributes": [
+        "+connectivityNodeContainer: ConnectivityNodeContainer"
+      ]
+    },
+    {
+      "id": "Measurement",
+      "label": "Measurement",
+      "attributes": [
+        "+measurementType: string",
+        "+unitSymbol: UnitSymbol"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r01",
+      "from": "PowerSystemResource",
+      "to": "IdentifiedObject",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r02",
+      "from": "ACDCTerminal",
+      "to": "IdentifiedObject",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r03",
+      "from": "ConnectivityNode",
+      "to": "IdentifiedObject",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r04",
+      "from": "Measurement",
+      "to": "IdentifiedObject",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r05",
+      "from": "ConnectivityNodeContainer",
+      "to": "PowerSystemResource",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r06",
+      "from": "EquipmentContainer",
+      "to": "ConnectivityNodeContainer",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r07",
+      "from": "Substation",
+      "to": "EquipmentContainer",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r08",
+      "from": "Equipment",
+      "to": "PowerSystemResource",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r09",
+      "from": "ConductingEquipment",
+      "to": "Equipment",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r10",
+      "from": "Conductor",
+      "to": "ConductingEquipment",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r11",
+      "from": "ACLineSegment",
+      "to": "Conductor",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r12",
+      "from": "Switch",
+      "to": "ConductingEquipment",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r13",
+      "from": "Breaker",
+      "to": "Switch",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r14",
+      "from": "Disconnector",
+      "to": "Switch",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r15",
+      "from": "PowerTransformer",
+      "to": "ConductingEquipment",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r16",
+      "from": "EnergyConsumer",
+      "to": "ConductingEquipment",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r17",
+      "from": "EnergySource",
+      "to": "ConductingEquipment",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r18",
+      "from": "Terminal",
+      "to": "ACDCTerminal",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r19",
+      "from": "Terminal",
+      "to": "ConductingEquipment",
+      "kind": "association",
+      "label": "connects",
+      "fromMultiplicity": "1..*",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r20",
+      "from": "Terminal",
+      "to": "ConnectivityNode",
+      "kind": "association",
+      "label": "attaches to",
+      "fromMultiplicity": "1..*",
+      "toMultiplicity": "1"
+    },
+    {
+      "id": "r21",
+      "from": "Substation",
+      "to": "Equipment",
+      "kind": "aggregation",
+      "label": "contains",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "many"
+    },
+    {
+      "id": "r22",
+      "from": "Equipment",
+      "to": "Measurement",
+      "kind": "association",
+      "label": "monitored by",
+      "fromMultiplicity": "1",
+      "toMultiplicity": "many"
+    }
+  ]
+}

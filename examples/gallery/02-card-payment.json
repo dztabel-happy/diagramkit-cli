@@ -1,0 +1,568 @@
+{
+  "version": 1,
+  "id": "card-payment",
+  "type": "compound",
+  "title": "A card payment, from checkout to settlement",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "frame": {
+      "widthMm": 316,
+      "heightMm": 657
+    }
+  },
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "Init",
+      "label": "Customer Initiates Purchase",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "Capture",
+      "label": "Capture Card Data (PCI DSS Encrypted)",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "SendGateway",
+      "label": "Send to Payment Gateway",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "RiskScore",
+      "label": "ML Risk Score High?",
+      "role": "step",
+      "shape": "hexagon",
+      "tone": "yellow"
+    },
+    {
+      "id": "Needs3DS",
+      "label": "Requires 3DS Step-up?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "AutoBlock",
+      "label": "Radar Auto-Decline: Too Risky",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "Challenge",
+      "label": "Redirect to 3D Secure Challenge",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "ChallengePass",
+      "label": "Customer Passes 3DS?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "DeclineAuth",
+      "label": "Decline: Authentication Failed",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "RouteAcquirer",
+      "label": "Route to Acquiring Bank",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "Acquirer",
+      "label": "Acquiring Bank Receives Request",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "CardNetwork",
+      "label": "Route via Card Network (Visa / Mastercard / Amex)",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "Issuer",
+      "label": "Forward to Issuing Bank",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "CardValid",
+      "label": "Card Active and Valid?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "DeclineInvalid",
+      "label": "Decline: Invalid or Inactive Card",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "FundsCheck",
+      "label": "Sufficient Funds or Credit?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "DeclineFunds",
+      "label": "Decline: Insufficient Funds",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "IssuerFraud",
+      "label": "Issuer Fraud Model Flags Risk?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "DeclineFraud",
+      "label": "Decline: Suspected Fraud",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "ApproveAuth",
+      "label": "Approve with Authorization Code",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "BackNetwork",
+      "label": "Card Network Relays Response",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "BackAcquirer",
+      "label": "Acquirer Receives Response",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "BackGateway",
+      "label": "Gateway Notifies Merchant",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "green"
+    },
+    {
+      "id": "ShowDecline",
+      "label": "Show Decline Message to Customer",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "FinalDecision",
+      "label": "Transaction Approved?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "RetryOrCancel",
+      "label": "Customer Retries or Cancels",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "FinalizeSale",
+      "label": "Finalize Sale and Issue Receipt",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "QueueBatch",
+      "label": "Queue Transaction for Batch Clearing",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "Clearing",
+      "label": "Card Network Reconciles Issuer and Acquirer",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "FundsTransfer",
+      "label": "Funds Transfer: Issuer to Acquirer",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    },
+    {
+      "id": "MerchantPayout",
+      "label": "Payout to Merchant Bank Account (T+1/T+2)",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "violet"
+    }
+  ],
+  "groups": [
+    {
+      "id": "MerchantGW",
+      "label": "Merchant and Payment Gateway",
+      "children": [
+        "Init",
+        "Capture",
+        "SendGateway",
+        "RiskScore",
+        "Needs3DS",
+        "AutoBlock",
+        "Challenge",
+        "ChallengePass",
+        "DeclineAuth",
+        "RouteAcquirer"
+      ],
+      "direction": "TB"
+    },
+    {
+      "id": "NetworkRoute",
+      "label": "Card Network Routing",
+      "children": [
+        "Acquirer",
+        "CardNetwork",
+        "Issuer"
+      ],
+      "direction": "LR"
+    },
+    {
+      "id": "IssuerDecision",
+      "label": "Issuer Decisioning",
+      "children": [
+        "CardValid",
+        "DeclineInvalid",
+        "FundsCheck",
+        "DeclineFunds",
+        "IssuerFraud",
+        "DeclineFraud",
+        "ApproveAuth"
+      ],
+      "direction": "TB"
+    },
+    {
+      "id": "ResponsePath",
+      "label": "Response Path Back",
+      "children": [
+        "BackNetwork",
+        "BackAcquirer",
+        "BackGateway"
+      ],
+      "direction": "LR"
+    },
+    {
+      "id": "Settlement",
+      "label": "Clearing and Settlement",
+      "children": [
+        "FinalizeSale",
+        "QueueBatch",
+        "Clearing",
+        "FundsTransfer",
+        "MerchantPayout"
+      ],
+      "direction": "TB"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e001",
+      "from": "Init",
+      "to": "Capture",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e002",
+      "from": "Capture",
+      "to": "SendGateway",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e003",
+      "from": "SendGateway",
+      "to": "RiskScore",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e004",
+      "from": "RiskScore",
+      "to": "Needs3DS",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e005",
+      "from": "Needs3DS",
+      "to": "AutoBlock",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e006",
+      "from": "Needs3DS",
+      "to": "Challenge",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e007",
+      "from": "Challenge",
+      "to": "ChallengePass",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e008",
+      "from": "ChallengePass",
+      "to": "DeclineAuth",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e009",
+      "from": "RiskScore",
+      "to": "RouteAcquirer",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e010",
+      "from": "ChallengePass",
+      "to": "RouteAcquirer",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e011",
+      "from": "RouteAcquirer",
+      "to": "Acquirer",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e012",
+      "from": "Acquirer",
+      "to": "CardNetwork",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e013",
+      "from": "CardNetwork",
+      "to": "Issuer",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e014",
+      "from": "Issuer",
+      "to": "CardValid",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e015",
+      "from": "CardValid",
+      "to": "DeclineInvalid",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e016",
+      "from": "CardValid",
+      "to": "FundsCheck",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e017",
+      "from": "FundsCheck",
+      "to": "DeclineFunds",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e018",
+      "from": "FundsCheck",
+      "to": "IssuerFraud",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e019",
+      "from": "IssuerFraud",
+      "to": "DeclineFraud",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e020",
+      "from": "IssuerFraud",
+      "to": "ApproveAuth",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e021",
+      "from": "ApproveAuth",
+      "to": "BackNetwork",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e022",
+      "from": "DeclineInvalid",
+      "to": "BackNetwork",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e023",
+      "from": "DeclineFunds",
+      "to": "BackNetwork",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e024",
+      "from": "DeclineFraud",
+      "to": "BackNetwork",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e025",
+      "from": "BackNetwork",
+      "to": "BackAcquirer",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e026",
+      "from": "BackAcquirer",
+      "to": "BackGateway",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e027",
+      "from": "AutoBlock",
+      "to": "ShowDecline",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e028",
+      "from": "DeclineAuth",
+      "to": "ShowDecline",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e029",
+      "from": "BackGateway",
+      "to": "FinalDecision",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e030",
+      "from": "FinalDecision",
+      "to": "ShowDecline",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e031",
+      "from": "ShowDecline",
+      "to": "RetryOrCancel",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e032",
+      "from": "FinalDecision",
+      "to": "FinalizeSale",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e033",
+      "from": "FinalizeSale",
+      "to": "QueueBatch",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e034",
+      "from": "QueueBatch",
+      "to": "Clearing",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e035",
+      "from": "Clearing",
+      "to": "FundsTransfer",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e036",
+      "from": "FundsTransfer",
+      "to": "MerchantPayout",
+      "kind": "main",
+      "line": "solid"
+    }
+  ]
+}

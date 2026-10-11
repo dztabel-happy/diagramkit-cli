@@ -1,0 +1,302 @@
+{
+  "version": 1,
+  "id": "star-schema",
+  "type": "er",
+  "title": "A star schema for line orders",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "notebook",
+  "direction": "TB",
+  "entities": [
+    {
+      "id": "LINEORDER",
+      "label": "LINEORDER",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "LO_ORDERKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "LO_LINENUMBER",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "LO_CUSTKEY",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "LO_PARTKEY",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "LO_SUPPKEY",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "int",
+          "name": "LO_ORDERDATE",
+          "keys": [
+            "FK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "LO_ORDERPRIORITY"
+        },
+        {
+          "type": "int",
+          "name": "LO_QUANTITY"
+        },
+        {
+          "type": "decimal",
+          "name": "LO_EXTENDEDPRICE"
+        },
+        {
+          "type": "decimal",
+          "name": "LO_DISCOUNT"
+        },
+        {
+          "type": "decimal",
+          "name": "LO_REVENUE"
+        },
+        {
+          "type": "decimal",
+          "name": "LO_SUPPLYCOST"
+        },
+        {
+          "type": "int",
+          "name": "LO_TAX"
+        },
+        {
+          "type": "varchar",
+          "name": "LO_SHIPMODE"
+        }
+      ]
+    },
+    {
+      "id": "DATE",
+      "label": "DATE",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "D_DATEKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "date",
+          "name": "D_DATE"
+        },
+        {
+          "type": "varchar",
+          "name": "D_DAYOFWEEK"
+        },
+        {
+          "type": "varchar",
+          "name": "D_MONTH"
+        },
+        {
+          "type": "int",
+          "name": "D_YEAR"
+        },
+        {
+          "type": "int",
+          "name": "D_YEARMONTHNUM"
+        },
+        {
+          "type": "int",
+          "name": "D_DAYNUMINWEEK"
+        },
+        {
+          "type": "int",
+          "name": "D_MONTHNUMINYEAR"
+        },
+        {
+          "type": "boolean",
+          "name": "D_HOLIDAYFL"
+        },
+        {
+          "type": "boolean",
+          "name": "D_WEEKDAYFL"
+        }
+      ]
+    },
+    {
+      "id": "CUSTOMER",
+      "label": "CUSTOMER",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "C_CUSTKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "C_NAME"
+        },
+        {
+          "type": "varchar",
+          "name": "C_ADDRESS"
+        },
+        {
+          "type": "varchar",
+          "name": "C_CITY"
+        },
+        {
+          "type": "varchar",
+          "name": "C_NATION"
+        },
+        {
+          "type": "varchar",
+          "name": "C_REGION"
+        },
+        {
+          "type": "varchar",
+          "name": "C_PHONE"
+        },
+        {
+          "type": "varchar",
+          "name": "C_MKTSEGMENT"
+        }
+      ]
+    },
+    {
+      "id": "SUPPLIER",
+      "label": "SUPPLIER",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "S_SUPPKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "S_NAME"
+        },
+        {
+          "type": "varchar",
+          "name": "S_ADDRESS"
+        },
+        {
+          "type": "varchar",
+          "name": "S_CITY"
+        },
+        {
+          "type": "varchar",
+          "name": "S_NATION"
+        },
+        {
+          "type": "varchar",
+          "name": "S_REGION"
+        },
+        {
+          "type": "varchar",
+          "name": "S_PHONE"
+        }
+      ]
+    },
+    {
+      "id": "PART",
+      "label": "PART",
+      "attributes": [
+        {
+          "type": "int",
+          "name": "P_PARTKEY",
+          "keys": [
+            "PK"
+          ]
+        },
+        {
+          "type": "varchar",
+          "name": "P_NAME"
+        },
+        {
+          "type": "varchar",
+          "name": "P_MFGR"
+        },
+        {
+          "type": "varchar",
+          "name": "P_CATEGORY"
+        },
+        {
+          "type": "varchar",
+          "name": "P_BRAND1"
+        },
+        {
+          "type": "varchar",
+          "name": "P_COLOR"
+        },
+        {
+          "type": "varchar",
+          "name": "P_TYPE"
+        },
+        {
+          "type": "int",
+          "name": "P_SIZE"
+        },
+        {
+          "type": "varchar",
+          "name": "P_CONTAINER"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r01",
+      "from": "DATE",
+      "to": "LINEORDER",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "order placed on"
+    },
+    {
+      "id": "r02",
+      "from": "CUSTOMER",
+      "to": "LINEORDER",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "places"
+    },
+    {
+      "id": "r03",
+      "from": "SUPPLIER",
+      "to": "LINEORDER",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "supplies"
+    },
+    {
+      "id": "r04",
+      "from": "PART",
+      "to": "LINEORDER",
+      "fromCardinality": "one",
+      "toCardinality": "zero-or-more",
+      "label": "ordered as"
+    }
+  ]
+}

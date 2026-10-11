@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "id": "ai-agent",
+  "type": "compound",
+  "title": "An AI agent handling a request",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "style": "report",
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "Start",
+      "label": "User Sends Request",
+      "role": "step",
+      "shape": "rounded",
+      "tone": "teal"
+    },
+    {
+      "id": "Parse",
+      "label": "Parse Intent",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "Decision",
+      "label": "Needs External Tool?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "DirectAnswer",
+      "label": "Generate Direct Answer",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "SelectTool",
+      "label": "Select Best Tool",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "CallTool",
+      "label": "Call External API",
+      "role": "step",
+      "shape": "subroutine",
+      "tone": "blue"
+    },
+    {
+      "id": "CheckResult",
+      "label": "Result Valid?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "Retry",
+      "label": "Retry with Backoff",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "FormatResult",
+      "label": "Format Tool Output",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "Merge",
+      "label": "Merge Context",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "blue"
+    },
+    {
+      "id": "Safety",
+      "label": "Passes Safety Check?",
+      "role": "decision",
+      "shape": "diamond",
+      "tone": "yellow"
+    },
+    {
+      "id": "Reject",
+      "label": "Return Fallback Message",
+      "role": "step",
+      "shape": "rectangle",
+      "tone": "red"
+    },
+    {
+      "id": "Respond",
+      "label": "Return Final Response",
+      "role": "step",
+      "shape": "rounded",
+      "tone": "teal"
+    },
+    {
+      "id": "End",
+      "label": "End",
+      "role": "step",
+      "shape": "rounded",
+      "tone": "teal"
+    }
+  ],
+  "groups": [
+    {
+      "id": "subgraph1",
+      "label": "Tool Execution Layer",
+      "children": [
+        "SelectTool",
+        "CallTool",
+        "CheckResult",
+        "Retry",
+        "FormatResult"
+      ],
+      "direction": "TB"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e001",
+      "from": "Start",
+      "to": "Parse",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e002",
+      "from": "Parse",
+      "to": "Decision",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e003",
+      "from": "Decision",
+      "to": "subgraph1",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e004",
+      "from": "Decision",
+      "to": "DirectAnswer",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e005",
+      "from": "SelectTool",
+      "to": "CallTool",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e006",
+      "from": "CallTool",
+      "to": "CheckResult",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e007",
+      "from": "CheckResult",
+      "to": "Retry",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e008",
+      "from": "Retry",
+      "to": "CallTool",
+      "kind": "return",
+      "line": "solid"
+    },
+    {
+      "id": "e009",
+      "from": "CheckResult",
+      "to": "FormatResult",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e010",
+      "from": "subgraph1",
+      "to": "Merge",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e011",
+      "from": "DirectAnswer",
+      "to": "Merge",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e012",
+      "from": "Merge",
+      "to": "Safety",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e013",
+      "from": "Safety",
+      "to": "Reject",
+      "kind": "branch",
+      "label": "No",
+      "line": "solid"
+    },
+    {
+      "id": "e014",
+      "from": "Safety",
+      "to": "Respond",
+      "kind": "branch",
+      "label": "Yes",
+      "line": "solid"
+    },
+    {
+      "id": "e015",
+      "from": "Reject",
+      "to": "End",
+      "kind": "main",
+      "line": "solid"
+    },
+    {
+      "id": "e016",
+      "from": "Respond",
+      "to": "End",
+      "kind": "main",
+      "line": "solid"
+    }
+  ]
+}

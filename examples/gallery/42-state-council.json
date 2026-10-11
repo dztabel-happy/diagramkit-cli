@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "id": "state-council",
+  "type": "orgchart",
+  "title": "国务院组织机构（2023 年机构改革后）",
+  "caption": "据国务院公布的机构设置整理。",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "report",
+  "units": [
+    {
+      "id": "gwy",
+      "label": "国务院"
+    },
+    {
+      "id": "bgt",
+      "label": "国务院办公厅",
+      "parent": "gwy",
+      "role": "assistant"
+    },
+    {
+      "id": "zc",
+      "label": "国务院组成部门",
+      "parent": "gwy"
+    },
+    {
+      "id": "zc01",
+      "label": "外交部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc02",
+      "label": "国防部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc03",
+      "label": "国家发展和改革委员会",
+      "parent": "zc"
+    },
+    {
+      "id": "zc04",
+      "label": "教育部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc05",
+      "label": "科学技术部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc06",
+      "label": "工业和信息化部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc07",
+      "label": "国家民族事务委员会",
+      "parent": "zc"
+    },
+    {
+      "id": "zc08",
+      "label": "公安部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc09",
+      "label": "国家安全部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc10",
+      "label": "民政部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc11",
+      "label": "司法部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc12",
+      "label": "财政部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc13",
+      "label": "人力资源和社会保障部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc14",
+      "label": "自然资源部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc15",
+      "label": "生态环境部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc16",
+      "label": "住房和城乡建设部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc17",
+      "label": "交通运输部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc18",
+      "label": "水利部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc19",
+      "label": "农业农村部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc20",
+      "label": "商务部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc21",
+      "label": "文化和旅游部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc22",
+      "label": "国家卫生健康委员会",
+      "parent": "zc"
+    },
+    {
+      "id": "zc23",
+      "label": "退役军人事务部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc24",
+      "label": "应急管理部",
+      "parent": "zc"
+    },
+    {
+      "id": "zc25",
+      "label": "中国人民银行",
+      "parent": "zc"
+    },
+    {
+      "id": "zc26",
+      "label": "审计署",
+      "parent": "zc"
+    },
+    {
+      "id": "ts",
+      "label": "国务院直属特设机构",
+      "parent": "gwy"
+    },
+    {
+      "id": "ts01",
+      "label": "国务院国有资产监督管理委员会",
+      "parent": "ts"
+    },
+    {
+      "id": "zs",
+      "label": "国务院直属机构",
+      "parent": "gwy"
+    },
+    {
+      "id": "zs01",
+      "label": "海关总署",
+      "parent": "zs"
+    },
+    {
+      "id": "zs02",
+      "label": "国家税务总局",
+      "parent": "zs"
+    },
+    {
+      "id": "zs03",
+      "label": "国家市场监督管理总局",
+      "parent": "zs"
+    },
+    {
+      "id": "zs04",
+      "label": "国家金融监督管理总局",
+      "parent": "zs"
+    },
+    {
+      "id": "zs05",
+      "label": "中国证券监督管理委员会",
+      "parent": "zs"
+    },
+    {
+      "id": "zs06",
+      "label": "国家广播电视总局",
+      "parent": "zs"
+    },
+    {
+      "id": "zs07",
+      "label": "国家体育总局",
+      "parent": "zs"
+    },
+    {
+      "id": "zs08",
+      "label": "国家信访局",
+      "parent": "zs"
+    },
+    {
+      "id": "zs09",
+      "label": "国家统计局",
+      "parent": "zs"
+    },
+    {
+      "id": "zs10",
+      "label": "国家知识产权局",
+      "parent": "zs"
+    },
+    {
+      "id": "zs11",
+      "label": "国家国际发展合作署",
+      "parent": "zs"
+    },
+    {
+      "id": "zs12",
+      "label": "国家医疗保障局",
+      "parent": "zs"
+    },
+    {
+      "id": "zs13",
+      "label": "国务院参事室",
+      "parent": "zs"
+    },
+    {
+      "id": "zs14",
+      "label": "国家机关事务管理局",
+      "parent": "zs"
+    },
+    {
+      "id": "bs",
+      "label": "国务院办事机构",
+      "parent": "gwy"
+    },
+    {
+      "id": "bs01",
+      "label": "国务院研究室",
+      "parent": "bs"
+    },
+    {
+      "id": "sy",
+      "label": "国务院直属事业单位",
+      "parent": "gwy"
+    },
+    {
+      "id": "sy01",
+      "label": "新华通讯社",
+      "parent": "sy"
+    },
+    {
+      "id": "sy02",
+      "label": "中国科学院",
+      "parent": "sy"
+    },
+    {
+      "id": "sy03",
+      "label": "中国社会科学院",
+      "parent": "sy"
+    },
+    {
+      "id": "sy04",
+      "label": "中国工程院",
+      "parent": "sy"
+    },
+    {
+      "id": "sy05",
+      "label": "国务院发展研究中心",
+      "parent": "sy"
+    },
+    {
+      "id": "sy06",
+      "label": "中央广播电视总台",
+      "parent": "sy"
+    },
+    {
+      "id": "sy07",
+      "label": "中国气象局",
+      "parent": "sy"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "id": "pie",
+  "type": "pie",
+  "title": "2023年中国能源消费结构",
+  "caption": "数据来源：国家统计局《2023年国民经济和社会发展统计公报》。",
+  "evidence": "illustrative",
+  "unit": "%",
+  "slices": [
+    {
+      "id": "coal",
+      "label": "煤炭",
+      "value": 55.3
+    },
+    {
+      "id": "oil",
+      "label": "石油",
+      "value": 18.3
+    },
+    {
+      "id": "clean",
+      "label": "天然气、水电、核电、风电、太阳能发电等清洁能源",
+      "value": 26.4
+    }
+  ],
+  "shape": "pie"
+}

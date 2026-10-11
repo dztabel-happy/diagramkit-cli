@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "id": "streams",
+  "type": "class",
+  "title": "Stream classes",
+  "caption": "Illustrative example.",
+  "evidence": "illustrative",
+  "output": {
+    "target": "word",
+    "paper": "a3"
+  },
+  "style": "notebook",
+  "direction": "TB",
+  "classes": [
+    {
+      "id": "EventEmitter",
+      "label": "EventEmitter",
+      "methods": [
+        "+on(event, listener) : this",
+        "+emit(event, args) : boolean",
+        "+once(event, listener) : this",
+        "+removeListener(event, listener) : this"
+      ]
+    },
+    {
+      "id": "Stream",
+      "label": "Stream",
+      "stereotype": "abstract",
+      "methods": [
+        "+pipe(destination) : Stream"
+      ]
+    },
+    {
+      "id": "Readable",
+      "label": "Readable",
+      "methods": [
+        "+_read(size)",
+        "+push(chunk) : boolean",
+        "+read(size) : Buffer",
+        "+pause() : this",
+        "+resume() : this"
+      ]
+    },
+    {
+      "id": "Writable",
+      "label": "Writable",
+      "methods": [
+        "+_write(chunk, encoding, callback)",
+        "+write(chunk, encoding, callback) : boolean",
+        "+end(chunk, encoding, callback)"
+      ]
+    },
+    {
+      "id": "Duplex",
+      "label": "Duplex",
+      "methods": [
+        "+_read(size)",
+        "+_write(chunk, encoding, callback)"
+      ]
+    },
+    {
+      "id": "Transform",
+      "label": "Transform",
+      "methods": [
+        "+_transform(chunk, encoding, callback)",
+        "+_flush(callback)"
+      ]
+    },
+    {
+      "id": "PassThrough",
+      "label": "PassThrough"
+    },
+    {
+      "id": "FsReadStream",
+      "label": "FsReadStream",
+      "attributes": [
+        "+path: string",
+        "+bytesRead: number"
+      ]
+    },
+    {
+      "id": "FsWriteStream",
+      "label": "FsWriteStream",
+      "attributes": [
+        "+path: string",
+        "+bytesWritten: number"
+      ]
+    },
+    {
+      "id": "NetSocket",
+      "label": "NetSocket",
+      "methods": [
+        "+connect(options)"
+      ],
+      "attributes": [
+        "+remoteAddress: string"
+      ]
+    },
+    {
+      "id": "ZlibGzip",
+      "label": "ZlibGzip",
+      "methods": [
+        "+flush(callback)"
+      ]
+    },
+    {
+      "id": "CryptoCipher",
+      "label": "CryptoCipher",
+      "methods": [
+        "+update(data) : Buffer",
+        "+final() : Buffer"
+      ]
+    },
+    {
+      "id": "HttpIncomingMessage",
+      "label": "HttpIncomingMessage",
+      "attributes": [
+        "+headers: object",
+        "+statusCode: number"
+      ]
+    },
+    {
+      "id": "HttpOutgoingMessage",
+      "label": "HttpOutgoingMessage",
+      "methods": [
+        "+writeHead(statusCode, headers)",
+        "+setHeader(name, value)"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r01",
+      "from": "Stream",
+      "to": "EventEmitter",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r02",
+      "from": "Readable",
+      "to": "Stream",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r03",
+      "from": "Writable",
+      "to": "Stream",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r04",
+      "from": "Duplex",
+      "to": "Readable",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r05",
+      "from": "Duplex",
+      "to": "Writable",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r06",
+      "from": "Transform",
+      "to": "Duplex",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r07",
+      "from": "PassThrough",
+      "to": "Transform",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r08",
+      "from": "FsReadStream",
+      "to": "Readable",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r09",
+      "from": "FsWriteStream",
+      "to": "Writable",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r10",
+      "from": "NetSocket",
+      "to": "Duplex",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r11",
+      "from": "ZlibGzip",
+      "to": "Transform",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r12",
+      "from": "CryptoCipher",
+      "to": "Transform",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r13",
+      "from": "HttpIncomingMessage",
+      "to": "Readable",
+      "kind": "inheritance"
+    },
+    {
+      "id": "r14",
+      "from": "HttpOutgoingMessage",
+      "to": "Writable",
+      "kind": "inheritance"
+    }
+  ]
+}
