@@ -9,7 +9,6 @@ This repository is the public DiagramKit entry point. The program itself is publ
 - `examples/gallery` — the preview: the figures `showcase.json` lists, each with the spec it was built from
   (`NN-name.json` beside `NN-name.png`), set out by figure type, and the rows and the opening picture the README shows. The specs are the project's
   own, written from public sources or invented examples; where a figure shows someone's data, its `caption` names the source
-- `examples/showcase` — the previous preview, kept as it was: the READMEs inside npm versions already published point at it
 - `docs/public-boundary.md`
 - `.github/workflows/release.yml` — builds, checks and publishes the package
 
