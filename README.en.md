@@ -179,7 +179,7 @@ diagramkit --version
 Output like this means the CLI is installed:
 
 ```text
-diagramkit 0.1.1 (contract 1)
+diagramkit 0.1.2 (contract 1)
 ```
 
 ### 2. Install one agent skill

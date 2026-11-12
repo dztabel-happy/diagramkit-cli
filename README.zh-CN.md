@@ -179,7 +179,7 @@ diagramkit --version
 看到类似下面的输出，说明命令行装好了：
 
 ```text
-diagramkit 0.1.1 (contract 1)
+diagramkit 0.1.2 (contract 1)
 ```
 
 ### 2. 安装一个 Agent 技能
