@@ -7,13 +7,13 @@ on:
         required: true
         type: string
       publish:
-        description: Publish the archive from a successful rehearsal
+        description: "false = rehearse, true = publish, verify = recheck the published archive"
         required: true
         type: choice
         default: "false"
-        options: ["false", "true"]
+        options: ["false", "true", "verify"]
       rehearsal_run_id:
-        description: Successful rehearsal run ID (required only for publish)
+        description: Successful rehearsal run ID (required for publish or verify)
         type: string
 
 permissions:
@@ -144,7 +144,8 @@ jobs:
           retention-days: 14
 
   publish:
-    if: inputs.publish == 'true'
+    name: ${{ inputs.publish == 'verify' && 'Verify official npm package' || 'Publish rehearsed package' }}
+    if: inputs.publish == 'true' || inputs.publish == 'verify'
     runs-on: ubuntu-24.04
     permissions:
       actions: read
@@ -153,14 +154,22 @@ jobs:
       CORE_SHA: ${{ inputs.core_ref }}
       REHEARSAL: ${{ inputs.rehearsal_run_id }}
     steps:
-      - name: Require a green manual rehearsal of this workflow at this public commit
+      - name: Identify the successful rehearsal and pin its public commit
+        id: rehearsal
         env:
           GH_TOKEN: ${{ github.token }}
+          MODE: ${{ inputs.publish }}
         run: |
           [[ "$CORE_SHA" =~ ^[a-f0-9]{40}$ && "$REHEARSAL" =~ ^[0-9]+$ ]]
-          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$REHEARSAL" |
-            jq -e --arg sha "$GITHUB_SHA" --arg repo "$GITHUB_REPOSITORY" \
-              '.conclusion == "success" and .event == "workflow_dispatch" and .path == ".github/workflows/release.yml" and .head_sha == $sha and .head_repository.full_name == $repo'
+          wrapper=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$REHEARSAL" |
+            jq -er --arg repo "$GITHUB_REPOSITORY" '
+              select(.conclusion == "success" and .event == "workflow_dispatch" and
+                     .path == ".github/workflows/release.yml" and .head_repository.full_name == $repo) | .head_sha')
+          [[ "$wrapper" =~ ^[a-f0-9]{40}$ ]]
+          if [[ "$MODE" == "true" ]]; then
+            test "$wrapper" = "$GITHUB_SHA"
+          fi
+          echo "wrapper=$wrapper" >> "$GITHUB_OUTPUT"
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: rehearsed-package
@@ -173,22 +182,29 @@ jobs:
           registry-url: https://registry.npmjs.org
       - name: Match both commits and check the archive integrity
         working-directory: packed
+        env:
+          WRAPPER_SHA: ${{ steps.rehearsal.outputs.wrapper }}
         run: |
-          jq -e --arg core "$CORE_SHA" --arg wrapper "$GITHUB_SHA" \
+          jq -e --arg core "$CORE_SHA" --arg wrapper "$WRAPPER_SHA" \
             '.core == $core and .wrapper == $wrapper and .name == "@dztabel/diagramkit" and .filename == ("dztabel-diagramkit-" + .version + ".tgz")' candidate.json
           node -e 'const m=require("./candidate.json"); if ("sha512-"+require("crypto").createHash("sha512").update(require("fs").readFileSync(m.filename)).digest("base64")!==m.integrity) process.exit(1)'
       - name: Publish the rehearsed tarball
+        if: inputs.publish == 'true'
         working-directory: packed
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish "./$(jq -er .filename candidate.json)" --access public --tag latest
-      - name: Wait for official latest and verify registry integrity
+      - name: Wait for official latest and download the verified tarball
         working-directory: packed
         timeout-minutes: 16
         run: |
           for attempt in {1..60}; do
             if curl -fsSL 'https://registry.npmjs.org/@dztabel%2fdiagramkit' -o "$RUNNER_TEMP/registry.json" &&
-              jq -e --slurpfile m candidate.json '.["dist-tags"].latest == $m[0].version and .versions[$m[0].version].dist.integrity == $m[0].integrity' "$RUNNER_TEMP/registry.json"; then
+              url=$(jq -er --slurpfile m candidate.json '
+                select(.["dist-tags"].latest == $m[0].version) | .versions[$m[0].version].dist |
+                select(.integrity == $m[0].integrity) | .tarball' "$RUNNER_TEMP/registry.json") &&
+              curl -fsSL "$url" -o "$RUNNER_TEMP/official.tgz"; then
+              cmp "$(jq -er .filename candidate.json)" "$RUNNER_TEMP/official.tgz"
               exit 0
             fi
             sleep 15
@@ -197,6 +213,7 @@ jobs:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           path: wrapper
+          ref: ${{ steps.rehearsal.outputs.wrapper }}
           persist-credentials: false
       - name: Cold install from official npm and render again
         run: |
