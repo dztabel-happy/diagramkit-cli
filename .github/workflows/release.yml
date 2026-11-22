@@ -1,184 +1,209 @@
-# DiagramKit release — runs in the PUBLIC repository so GitHub-hosted runners (macOS and Windows included) are free.
-#
-# Security model (do not weaken):
-# - The private source is checked out with a read-only deploy key (CORE_DEPLOY_KEY). No copy of it ever lands in this
-#   repository's history, and no step uploads it.
-# - Logs here are world-readable. This workflow therefore runs NO unit tests and prints NO source: the full suite and
-#   the acceptance runs are done on the maintainer's machine BEFORE this workflow is dispatched (the private
-#   repository's docs/release-runbook.md). Steps here print versions, file names, sizes and the results of smoke
-#   builds only; the boundary gate runs with --quiet and names files, never their contents.
-# - The only artefact handed between jobs is the packed public package, after the boundary gate has read it.
-# - Actions are pinned to full commit SHAs. The trigger is workflow_dispatch only (publish defaults to "false"): a
-#   fork's pull request can neither start it nor read its secrets.
 name: release
-
 on:
   workflow_dispatch:
     inputs:
-      publish:
-        description: Publish the package to npm after every gate passes
-        required: true
-        default: "false"
-        type: choice
-        options: ["false", "true"]
       core_ref:
-        description: Exact diagramkit-cli-core commit, tag, or branch to build
+        description: Full 40-character private source commit SHA
         required: true
+        type: string
+      publish:
+        description: Publish the archive from a successful rehearsal
+        required: true
+        type: choice
+        default: "false"
+        options: ["false", "true"]
+      rehearsal_run_id:
+        description: Successful rehearsal run ID (required only for publish)
         type: string
 
 permissions:
   contents: read
-
 concurrency:
-  group: diagramkit-release-${{ github.ref }}
+  group: diagramkit-release
   cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
 
 jobs:
   build:
-    name: Build and gate the public package
+    if: inputs.publish == 'false'
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
-    outputs:
-      version: ${{ steps.pack.outputs.version }}
-      sha: ${{ steps.resolve.outputs.sha }}
+    timeout-minutes: 25
+    env:
+      CORE_SHA: ${{ inputs.core_ref }}
     steps:
-      - name: Checkout private core
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-        with:
-          repository: dztabel-happy/diagramkit-cli-core
-          ref: ${{ inputs.core_ref }}
-          ssh-key: ${{ secrets.CORE_DEPLOY_KEY }}
-          persist-credentials: false
-      - name: Resolve immutable core commit
-        id: resolve
-        shell: bash
-        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-      - name: Checkout public repository
+      - name: Require an immutable source commit
+        run: '[[ "$CORE_SHA" =~ ^[a-f0-9]{40}$ ]]'
+      - name: Check out release files
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           path: wrapper
           persist-credentials: false
-      - name: Setup Node.js
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+      - name: Check out private core
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          repository: dztabel-happy/diagramkit-cli-core
+          ref: ${{ inputs.core_ref }}
+          path: core
+          ssh-key: ${{ secrets.CORE_DEPLOY_KEY }}
+          persist-credentials: false
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           node-version: "22.16.0"
-      - name: Setup Python
-        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
-      - name: Install build dependencies
-        shell: bash
+      - name: Verify the pair and prepare the build
+        working-directory: core
         run: |
-          npm ci --no-audit --no-fund > /dev/null
-          python -m pip install --quiet -r requirements-fonts.txt
-      - name: Supply the bundled fonts
-        shell: bash
-        run: python scripts/fonts.py > /dev/null && python scripts/fonts.py --check > /dev/null && echo "fonts supplied"
-      - name: Build the public package
-        shell: bash
-        run: node scripts/build-release.mjs --out release --readme wrapper/README.md
-      - name: Boundary gate
-        shell: bash
-        run: node scripts/check-release-boundary.mjs release --quiet
-      - name: Pack
-        id: pack
-        shell: bash
+          test "$(git rev-parse HEAD)" = "$CORE_SHA"
+          test "$(git -C ../wrapper rev-parse HEAD)" = "$GITHUB_SHA"
+          node scripts/sync-public.mjs --check ../wrapper
+          npm ci --no-audit --no-fund >"$RUNNER_TEMP/dependencies.log" 2>&1
+          python -m pip install --quiet -r requirements-fonts.txt >"$RUNNER_TEMP/python.log" 2>&1
+          python scripts/fonts.py >"$RUNNER_TEMP/fonts.log" 2>&1
+          python scripts/fonts.py --check >>"$RUNNER_TEMP/fonts.log" 2>&1
+      - name: Build and check the actual tarball
+        working-directory: core
         run: |
-          mkdir -p packed
-          (cd release && npm pack --pack-destination ../packed > /dev/null)
-          version="$(node -p "require('./release/package.json').version")"
-          echo "version=$version" >> "$GITHUB_OUTPUT"
-          ls -l packed
-          shasum -a 256 packed/*.tgz
-      - name: Hand the packed package to the next jobs
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+          python scripts/pack-release.py ../packed >"$RUNNER_TEMP/pack.json" 2>"$RUNNER_TEMP/build.log"
+          jq -e --arg core "$CORE_SHA" --arg wrapper "$GITHUB_SHA" \
+            '.[0] | select(.name == "@dztabel/diagramkit") | {core:$core, wrapper:$wrapper, name, version, filename, integrity}' \
+            "$RUNNER_TEMP/pack.json" > ../packed/candidate.json
+          cat ../packed/candidate.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: public-package
-          path: packed/*.tgz
-          retention-days: 1
+          name: candidate
+          path: |
+            packed/*.tgz
+            packed/candidate.json
           if-no-files-found: error
+          retention-days: 2
 
   smoke:
-    name: Install and draw on ${{ matrix.runner }}
     needs: build
+    name: Cold install and render on ${{ matrix.runner }}
     strategy:
       fail-fast: false
       matrix:
-        runner: [macos-15, windows-latest, ubuntu-24.04]
+        runner: [macos-15, macos-15-intel, windows-latest, windows-11-arm, ubuntu-24.04, ubuntu-24.04-arm]
     runs-on: ${{ matrix.runner }}
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           node-version: "22.16.0"
-      - name: Collect the packed package
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
-          name: public-package
+          name: candidate
           path: packed
-      - name: Cold install
-        shell: bash
+      - name: Install the same tarball, load the skill and draw
         run: |
+          (cd packed && node -e 'const m=require("./candidate.json"); if ("sha512-"+require("crypto").createHash("sha512").update(require("fs").readFileSync(m.filename)).digest("base64")!==m.integrity) process.exit(1)')
           mkdir consumer && cd consumer
           npm init -y > /dev/null
-          npm install --no-audit --no-fund ../packed/*.tgz > /dev/null
+          npm install --cache ./npm-cache --registry=https://registry.npmjs.org --no-audit --no-fund ../packed/*.tgz
           npx --no-install diagramkit --version
-      - name: Doctor
-        shell: bash
-        working-directory: consumer
-        env:
-          DIAGRAMKIT_NO_SETUP: "1"
-        run: npx --no-install diagramkit doctor > doctor.json && node -e "const d=require('./doctor.json');if(!d.ok)process.exit(1);console.log(d.version,d.platform,d.arch,'word page:',d.font.wordPage)"
-      - name: Draw a figure in every format
-        shell: bash
-        working-directory: consumer
-        env:
-          DIAGRAMKIT_NO_SETUP: "1"
+          npx --no-install diagram-kit --version
+          node ../.github/scripts/smoke.mjs
+      - name: Exercise the Linux musl native runtime on the same architecture
+        if: runner.os == 'Linux'
         run: |
-          npx --no-install diagramkit example performance-payment --out spec.json > /dev/null
-          npx --no-install diagramkit validate spec.json --strict > /dev/null
-          npx --no-install diagramkit build spec.json --out figure --format all --strict > result.json
-          node -e "const r=require('./result.json');if(!r.ok||r.quality.score<90)process.exit(1);console.log('score',r.quality.score,r.figure.widthMm+' x '+r.figure.heightMm+' mm',r.figure.textPt+' pt')"
-          test -s figure/diagram.png && test -s figure/diagram.svg && test -s figure/diagram.pdf
-          npx --no-install diagramkit verify figure > /dev/null && echo "bundle verified"
-      - name: Install the skill from the package
-        shell: bash
-        working-directory: consumer
-        run: npx --no-install diagramkit sync-skill --out ./skill > /dev/null && test -s skill/SKILL.md && echo "skill installed"
+          docker run --rm --workdir /consumer -v "$PWD/packed:/packed:ro" -v "$PWD/.github/scripts:/checks:ro" \
+            node:22.16.0-alpine@sha256:41e4389f3d988d2ed55392df4db1420ad048ae53324a8e2b7c6d19508288107e \
+            sh -ec 'apk add --no-cache fontconfig >/dev/null; npm init -y >/dev/null; npm install --no-audit --no-fund /packed/*.tgz; node /checks/smoke.mjs'
+
+  rehearse:
+    needs: smoke
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: "22.16.0"
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: candidate
+          path: packed
+      - name: Check version availability and rehearse publication
+        run: |
+          version=$(jq -er .version packed/candidate.json)
+          curl -fsSL 'https://registry.npmjs.org/@dztabel%2fdiagramkit' | jq -e --arg v "$version" '.versions | has($v) | not'
+          npm publish ./packed/*.tgz --access public --dry-run
+      - name: Retain the rehearsed archive for promotion
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: rehearsed-package
+          path: |
+            packed/*.tgz
+            packed/candidate.json
+          if-no-files-found: error
+          retention-days: 14
 
   publish:
-    name: Publish (or rehearse)
-    needs: [build, smoke]
+    if: inputs.publish == 'true'
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: read
+    env:
+      CORE_SHA: ${{ inputs.core_ref }}
+      REHEARSAL: ${{ inputs.rehearsal_run_id }}
     steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+      - name: Require a green manual rehearsal of this workflow at this public commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [[ "$CORE_SHA" =~ ^[a-f0-9]{40}$ && "$REHEARSAL" =~ ^[0-9]+$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$REHEARSAL" |
+            jq -e --arg sha "$GITHUB_SHA" --arg repo "$GITHUB_REPOSITORY" \
+              '.conclusion == "success" and .event == "workflow_dispatch" and .path == ".github/workflows/release.yml" and .head_sha == $sha and .head_repository.full_name == $repo'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: rehearsed-package
+          path: packed
+          run-id: ${{ inputs.rehearsal_run_id }}
+          github-token: ${{ github.token }}
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           node-version: "22.16.0"
           registry-url: https://registry.npmjs.org
-      - name: Collect the packed package
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
-        with:
-          name: public-package
-          path: packed
-      - name: The version must be new
-        shell: bash
+      - name: Match both commits and check the archive integrity
+        working-directory: packed
         run: |
-          version="${{ needs.build.outputs.version }}"
-          if npm view "@dztabel/diagramkit@$version" version > /dev/null 2>&1; then
-            echo "@dztabel/diagramkit@$version is already on npm: a published version is immutable — bump the version." >&2
-            exit 1
-          fi
-          echo "@dztabel/diagramkit@$version from core ${{ needs.build.outputs.sha }}"
-      - name: Publish
-        if: inputs.publish == 'true'
-        shell: bash
+          jq -e --arg core "$CORE_SHA" --arg wrapper "$GITHUB_SHA" \
+            '.core == $core and .wrapper == $wrapper and .name == "@dztabel/diagramkit" and .filename == ("dztabel-diagramkit-" + .version + ".tgz")' candidate.json
+          node -e 'const m=require("./candidate.json"); if ("sha512-"+require("crypto").createHash("sha512").update(require("fs").readFileSync(m.filename)).digest("base64")!==m.integrity) process.exit(1)'
+      - name: Publish the rehearsed tarball
+        working-directory: packed
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish ./packed/*.tgz --access public
-      - name: Rehearse publish
-        if: inputs.publish != 'true'
-        shell: bash
-        run: npm publish ./packed/*.tgz --access public --dry-run
+        run: npm publish "./$(jq -er .filename candidate.json)" --access public --tag latest
+      - name: Wait for official latest and verify registry integrity
+        working-directory: packed
+        timeout-minutes: 16
+        run: |
+          for attempt in {1..60}; do
+            if curl -fsSL 'https://registry.npmjs.org/@dztabel%2fdiagramkit' -o "$RUNNER_TEMP/registry.json" &&
+              jq -e --slurpfile m candidate.json '.["dist-tags"].latest == $m[0].version and .versions[$m[0].version].dist.integrity == $m[0].integrity' "$RUNNER_TEMP/registry.json"; then
+              exit 0
+            fi
+            sleep 15
+          done
+          exit 1
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          path: wrapper
+          persist-credentials: false
+      - name: Cold install from official npm and render again
+        run: |
+          mkdir installed && cd installed
+          npm init -y > /dev/null
+          npm install --cache ./npm-cache --registry=https://registry.npmjs.org --no-audit --no-fund "@dztabel/diagramkit@$(jq -er .version ../packed/candidate.json)"
+          node -e 'const m=require("../packed/candidate.json"), p=require("./package-lock.json").packages["node_modules/@dztabel/diagramkit"]; if(p.version!==m.version||p.integrity!==m.integrity)process.exit(1)'
+          npx --no-install diagramkit --version
+          npx --no-install diagram-kit --version
+          node ../wrapper/.github/scripts/smoke.mjs
