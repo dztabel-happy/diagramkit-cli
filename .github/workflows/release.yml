@@ -12,6 +12,9 @@ on:
         type: choice
         default: "false"
         options: ["false", "true", "verify"]
+      platform_integrities:
+        description: JSON map of the three private rehearsal platform SHA-512 values (required for rehearsal)
+        type: string
       rehearsal_run_id:
         description: Successful rehearsal run ID (required for publish or verify)
         type: string
@@ -32,6 +35,7 @@ jobs:
     timeout-minutes: 25
     env:
       CORE_SHA: ${{ inputs.core_ref }}
+      PLATFORMS: ${{ inputs.platform_integrities }}
     steps:
       - name: Require an immutable source commit
         run: '[[ "$CORE_SHA" =~ ^[a-f0-9]{40}$ ]]'
@@ -68,8 +72,9 @@ jobs:
         working-directory: core
         run: |
           python scripts/pack-release.py ../packed >"$RUNNER_TEMP/pack.json" 2>"$RUNNER_TEMP/build.log"
-          jq -e --arg core "$CORE_SHA" --arg wrapper "$GITHUB_SHA" \
-            '.[0] | select(.name == "@dztabel/diagramkit") | {core:$core, wrapper:$wrapper, name, version, filename, integrity}' \
+          jq -e --arg core "$CORE_SHA" --arg wrapper "$GITHUB_SHA" --argjson platforms "$PLATFORMS" \
+            'select(($platforms | keys) == ["darwin-arm64","win32-arm64","win32-x64"] and
+                    all($platforms[]; test("^sha512-[A-Za-z0-9+/]{86}==$"))) | .[0] | select(.name == "@dztabel/diagramkit") | {core:$core, wrapper:$wrapper, platforms:$platforms, name, version, filename, integrity}' \
             "$RUNNER_TEMP/pack.json" > ../packed/candidate.json
           cat ../packed/candidate.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -143,7 +148,69 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+  registry-platform:
+    permissions:
+      actions: read
+      contents: read
+    if: inputs.publish == 'true' || inputs.publish == 'verify'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {runner: macos-15, target: darwin-arm64, arch: arm64}
+          - {runner: windows-latest, target: win32-x64, arch: x64}
+          - {runner: windows-11-arm, target: win32-arm64, arch: arm64}
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - name: Require the successful rehearsal of this workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ inputs.rehearsal_run_id }}
+          CORE: ${{ inputs.core_ref }}
+        run: |
+          [[ "$RUN" =~ ^[0-9]+$ && "$CORE" =~ ^[0-9a-f]{40}$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN" |
+            jq -e --arg sha "$GITHUB_SHA" 'select(.head_sha == $sha and .conclusion == "success" and .event == "workflow_dispatch" and .path == ".github/workflows/release.yml")' >/dev/null
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          repository: dztabel-happy/diagramkit-cli-core
+          ref: ${{ inputs.core_ref }}
+          ssh-key: ${{ secrets.CORE_DEPLOY_KEY }}
+          sparse-checkout: scripts/offline
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: rehearsed-package
+          path: rehearsed
+          run-id: ${{ inputs.rehearsal_run_id }}
+          github-token: ${{ github.token }}
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.12"
+          architecture: ${{ matrix.arch }}
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
+        with:
+          node-version: "22.16.0"
+          registry-url: https://registry.npmjs.org
+      - name: Bind the native test code to the rehearsed source
+        env:
+          CORE: ${{ inputs.core_ref }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$CORE"
+          jq -e --arg sha "$CORE" '.core == $sha' rehearsed/candidate.json
+      - name: Fetch exact registry bytes using a fresh cache
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: python scripts/offline/registry.py rehearsed/candidate.json ${{ matrix.target }} official
+      - name: Enable Windows firewall
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: Set-NetFirewallProfile -Profile Domain,Private,Public -Enabled True
+      - name: Offline native Chinese render, skill and source verification
+        run: python scripts/offline/verify.py --npm official ${{ matrix.target }} accept
+
   publish:
+    needs: registry-platform
     name: ${{ inputs.publish == 'verify' && 'Verify official npm package' || 'Publish rehearsed package' }}
     if: inputs.publish == 'true' || inputs.publish == 'verify'
     runs-on: ubuntu-24.04
