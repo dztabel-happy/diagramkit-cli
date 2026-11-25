@@ -171,7 +171,27 @@ jobs:
           [[ "$RUN" =~ ^[0-9]+$ && "$CORE" =~ ^[0-9a-f]{40}$ ]]
           gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN" |
             jq -e --arg sha "$GITHUB_SHA" 'select(.head_sha == $sha and .conclusion == "success" and .event == "workflow_dispatch" and .path == ".github/workflows/release.yml")' >/dev/null
+      # Git for Windows can read the deploy key from an agent without creating a key file on NTFS.
+      - name: Check out native acceptance scripts on Windows
+        if: runner.os == 'Windows'
+        env:
+          DEPLOY_KEY: ${{ secrets.CORE_DEPLOY_KEY }}
+          CORE: ${{ inputs.core_ref }}
+        run: |
+          eval "$(/usr/bin/ssh-agent -s)" >/dev/null
+          trap '/usr/bin/ssh-agent -k >/dev/null' EXIT
+          printf '%s\n' "$DEPLOY_KEY" | /usr/bin/ssh-add - >/dev/null
+          unset DEPLOY_KEY
+          hosts=$(mktemp)
+          curl -fsSL https://api.github.com/meta | jq -er '.ssh_keys[] | "github.com " + .' > "$hosts"
+          export GIT_SSH_COMMAND="/usr/bin/ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile='$hosts'"
+          git init -q
+          git remote add origin git@github.com:dztabel-happy/diagramkit-cli-core.git
+          git sparse-checkout set --no-cone /scripts/offline/
+          git fetch --no-tags --depth=1 --filter=blob:none origin "$CORE"
+          git checkout --quiet --detach FETCH_HEAD
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        if: runner.os != 'Windows'
         with:
           repository: dztabel-happy/diagramkit-cli-core
           ref: ${{ inputs.core_ref }}
