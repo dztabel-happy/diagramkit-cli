@@ -191,16 +191,13 @@ jobs:
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
         with:
           node-version: "22.16.0"
-          registry-url: https://registry.npmjs.org
       - name: Bind the native test code to the rehearsed source
         env:
           CORE: ${{ inputs.core_ref }}
         run: |
           test "$(git rev-parse HEAD)" = "$CORE"
           jq -e --arg sha "$CORE" '.core == $sha' rehearsed/candidate.json
-      - name: Fetch exact registry bytes using a fresh cache
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Fetch exact registry bytes anonymously using a fresh cache
         run: python scripts/offline/registry.py rehearsed/candidate.json ${{ matrix.target }} official
       - name: Enable Windows firewall
         if: runner.os == 'Windows'
